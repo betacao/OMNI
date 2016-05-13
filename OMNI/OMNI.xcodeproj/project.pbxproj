@@ -10,10 +10,10 @@
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
 		F9621BE21CE2C6240058DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE11CE2C6240058DBA7 /* main.m */; };
 		F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE41CE2C6240058DBA7 /* AppDelegate.m */; };
-		F9621BE81CE2C6240058DBA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE71CE2C6240058DBA7 /* ViewController.m */; };
+		F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */; };
 		F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9621BE91CE2C6240058DBA7 /* Main.storyboard */; };
 		F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */; };
-		F9621BF01CE2C6240058DBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9621BEE1CE2C6240058DBA7 /* LaunchScreen.storyboard */; };
+		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +24,14 @@
 		F9621BE11CE2C6240058DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F9621BE31CE2C6240058DBA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F9621BE41CE2C6240058DBA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F9621BE61CE2C6240058DBA7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F9621BE71CE2C6240058DBA7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F9621BE61CE2C6240058DBA7 /* OMRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OMRootViewController.h; sourceTree = "<group>"; };
+		F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OMRootViewController.m; sourceTree = "<group>"; };
 		F9621BEA1CE2C6240058DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F9621BEF1CE2C6240058DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9621BF11CE2C6240058DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseViewController.h; sourceTree = "<group>"; };
+		F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,15 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
+				F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */,
+				F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */,
+				F9621BE61CE2C6240058DBA7 /* OMRootViewController.h */,
+				F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */,
 				F9621BE31CE2C6240058DBA7 /* AppDelegate.h */,
 				F9621BE41CE2C6240058DBA7 /* AppDelegate.m */,
-				F9621BE61CE2C6240058DBA7 /* ViewController.h */,
-				F9621BE71CE2C6240058DBA7 /* ViewController.m */,
+				F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */,
 				F9621BE91CE2C6240058DBA7 /* Main.storyboard */,
 				F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */,
-				F9621BEE1CE2C6240058DBA7 /* LaunchScreen.storyboard */,
 				F9621BF11CE2C6240058DBA7 /* Info.plist */,
 				F9621BE01CE2C6240058DBA7 /* Supporting Files */,
 			);
@@ -163,7 +167,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9621BF01CE2C6240058DBA7 /* LaunchScreen.storyboard in Resources */,
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 			);
@@ -224,9 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9621BE81CE2C6240058DBA7 /* ViewController.m in Sources */,
+				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
+				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,14 +243,6 @@
 				F9621BEA1CE2C6240058DBA7 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F9621BEE1CE2C6240058DBA7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9621BEF1CE2C6240058DBA7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -339,6 +335,9 @@
 			baseConfigurationReference = 6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
@@ -351,6 +350,9 @@
 			baseConfigurationReference = 00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;

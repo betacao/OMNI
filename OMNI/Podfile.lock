@@ -7,18 +7,27 @@ PODS:
   - CocoaAsyncSocket/GCD (7.4.3)
   - CocoaAsyncSocket/RunLoop (7.4.3)
   - MBProgressHUD (0.9.2)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
   - SDAutoLayout (1.53)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - MBProgressHUD
+  - ReactiveCocoa
   - SDAutoLayout
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
 
-PODFILE CHECKSUM: 39ed6c005367b6418287a98ad485421c7f63fc2b
+PODFILE CHECKSUM: c0426079268449b635fda69813aa07858ae9300f
 
 COCOAPODS: 1.0.0.rc.1

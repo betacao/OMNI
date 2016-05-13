@@ -6,5 +6,5 @@ target 'OMNI' do
 pod 'MBProgressHUD'
 pod 'SDAutoLayout'
 pod 'CocoaAsyncSocket'
-
+pod 'ReactiveCocoa'
 end
