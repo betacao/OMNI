@@ -10,4 +10,8 @@
 
 @interface OMBaseViewController : UIViewController
 
+- (void)backButtonClick:(UIButton *)button;
+- (void)initView;
+- (void)addAutoLayout;
+
 @end

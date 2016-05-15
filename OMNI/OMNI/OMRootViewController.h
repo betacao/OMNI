@@ -6,9 +6,9 @@
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface OMRootViewController : OMBaseViewController
+@interface OMRootViewController : UIViewController
 
 
 @end

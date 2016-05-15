@@ -13,13 +13,17 @@
 		F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */; };
 		F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9621BE91CE2C6240058DBA7 /* Main.storyboard */; };
 		F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */; };
+		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
+		F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */; };
+		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.release.xcconfig"; sourceTree = "<group>"; };
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
 		F9621BDD1CE2C6240058DBA7 /* OMNI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMNI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9621BE11CE2C6240058DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F9621BE31CE2C6240058DBA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,9 +33,14 @@
 		F9621BEA1CE2C6240058DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9621BF11CE2C6240058DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
+		F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseViewController.h; sourceTree = "<group>"; };
 		F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseViewController.m; sourceTree = "<group>"; };
+		F9E6432F1CE5C4DC00D35FB1 /* OMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMLoginViewController.h; sourceTree = "<group>"; };
+		F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMLoginViewController.m; sourceTree = "<group>"; };
+		F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMLoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +93,15 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
+				F9BC97091CE85CD2000A1998 /* 扩展 */,
+				F9E6432E1CE5C4C700D35FB1 /* 登录 */,
 				F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */,
 				F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */,
 				F9621BE61CE2C6240058DBA7 /* OMRootViewController.h */,
 				F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */,
 				F9621BE31CE2C6240058DBA7 /* AppDelegate.h */,
 				F9621BE41CE2C6240058DBA7 /* AppDelegate.m */,
+				F9311DCD1CE5D75400E5F07F /* const.h */,
 				F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */,
 				F9621BE91CE2C6240058DBA7 /* Main.storyboard */,
 				F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */,
@@ -105,6 +117,25 @@
 				F9621BE11CE2C6240058DBA7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9BC97091CE85CD2000A1998 /* 扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */,
+				F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */,
+			);
+			path = "扩展";
+			sourceTree = "<group>";
+		};
+		F9E6432E1CE5C4C700D35FB1 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				F9E6432F1CE5C4DC00D35FB1 /* OMLoginViewController.h */,
+				F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */,
+				F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */,
+			);
+			path = "登录";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +200,7 @@
 			files = (
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
+				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
+				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
@@ -342,6 +376,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -357,6 +392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
