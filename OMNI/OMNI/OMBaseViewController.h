@@ -13,5 +13,6 @@
 - (void)backButtonClick:(UIButton *)button;
 - (void)initView;
 - (void)addAutoLayout;
+- (void)addReactiveCocoa;
 
 @end

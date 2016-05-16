@@ -7,6 +7,7 @@
 //
 
 #import "OMUDPNetWork.h"
+#import "OMTCPNetWork.h"
 
 @interface OMUDPNetWork()<GCDAsyncUdpSocketDelegate>
 
@@ -37,11 +38,6 @@
     return self;
 }
 
-- (void)refreshUdpSocket
-{
-    [self.socket close];
-}
-
 - (void)setupSocket
 {
     dispatch_queue_t dQueue = dispatch_queue_create("delegateQueue", NULL);
@@ -59,10 +55,15 @@
     }
 }
 
-
-- (NSString *)sendMessage:(NSString *)message type:(NSInteger)type
+- (void)refreshUdpSocket
 {
-    [FYProgressHUD showLoadingWithMessage:@"请稍等..."];
+    [self.socket close];
+}
+
+
+- (NSString *)sendMessage:(NSString *)message type:(NSInteger)type inView:(UIView *)view
+{
+    [view showLoading];
     self.isReceived = NO;
     self.sendCount = 0;
     self.tag++;
@@ -90,7 +91,7 @@
         i++;
         usleep(200 * 1000);
     }
-    [FYProgressHUD hideHud];
+    [view hideHud];
     if (self.sendCount >= 3) {
         //tcp清理掉数据
         if (type == 1) {
@@ -98,18 +99,20 @@
         } else{
             request = [NSString stringWithFormat:@"fyzn2015#1#11#%@#G7S3#%@#", kAppDelegate.deviceID, kAppDelegate.userID];
         }
-        [[FYTCPNetWork shareNetEngine] sendRequest:request complete:nil];
-        [FYProgressHUD showMessageWithText:@"设备离线"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[OMTCPNetWork sharedNetWork] sendMessage:request type:type inView:view];
+        });
+        [view showWithText:@"设备离线"];
         return @"OFFLINE";
     }
     NSString *steam = kAppDelegate.receivedStream;
     kAppDelegate.receivedStream = @"";
 
     if ([steam containsString:@"ERROR_PIN"]) {
-        [FYProgressHUD showMessageWithText:@"PIN码输入错误"];
+        [view showWithText:@"PIN码输入错误"];
         return @"ERROR_PIN";
     } else if([steam containsString:@"OFFLINE"]) {
-        [FYProgressHUD showMessageWithText:@"设备离线"];
+        [view showWithText:@"设备离线"];
         return @"OFFLINE";
     }
     return steam;
@@ -163,22 +166,8 @@
         self.isReceived = YES;
         kAppDelegate.receivedStream = string;
     } else {
-        NSRegularExpression *regularExpression = [NSRegularExpression regularExpressionWithPattern: @"\\w+" options:0 error:nil];
-        NSMutableArray *results = [NSMutableArray array];
-        [regularExpression enumerateMatchesInString:string options:0 range:NSMakeRange(0, string.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-            [results addObject:result];
-        }];
-        NSComparator cmptr = ^(NSTextCheckingResult *obj1, NSTextCheckingResult *obj2){
-            if (obj1.range.location > obj2.range.location) {
-                return (NSComparisonResult)NSOrderedDescending;
-            } else if (obj1.range.location < obj2.range.location) {
-                return (NSComparisonResult)NSOrderedAscending;
-            }
-            return (NSComparisonResult)NSOrderedSame;
-        };
-        NSArray *MResult = [results sortedArrayUsingComparator:cmptr];
-        NSTextCheckingResult *result = [MResult firstObject];
-        NSString *globleString = [string substringWithRange:result.range];
+        NSArray *array = [string componentsSeparatedByString:@"#"];
+        NSString *globleString = [array firstObject];
         NSLog(@"code == %@", self.code);
         if ([self.code isEqualToString:globleString]) {
             self.isReceived = YES;

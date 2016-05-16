@@ -126,10 +126,16 @@
     .autoHeightRatio(0.0f);
 }
 
-- (IBAction)createNewAccount:(UIButton *)sender
+- (void)addReactiveCocoa
 {
-    OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+
+    }];
+    
+    [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

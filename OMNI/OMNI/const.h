@@ -9,6 +9,8 @@
 #ifndef const_h
 #define const_h
 
+#define kAppDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
 

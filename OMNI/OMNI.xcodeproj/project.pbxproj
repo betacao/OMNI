@@ -10,6 +10,9 @@
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
 		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
 		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
+		F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */; };
+		F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDD1CE9B2CB009547A0 /* UIView+HUD.m */; };
+		F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDE01CE9B677009547A0 /* OMTCPNetWork.m */; };
 		F9621BE21CE2C6240058DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE11CE2C6240058DBA7 /* main.m */; };
 		F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE41CE2C6240058DBA7 /* AppDelegate.m */; };
 		F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */; };
@@ -29,6 +32,12 @@
 		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
 		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
 		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
+		F944CDD91CE9B2A1009547A0 /* OMUDPNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMUDPNetWork.h; sourceTree = "<group>"; };
+		F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMUDPNetWork.m; sourceTree = "<group>"; };
+		F944CDDC1CE9B2CB009547A0 /* UIView+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HUD.h"; sourceTree = "<group>"; };
+		F944CDDD1CE9B2CB009547A0 /* UIView+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUD.m"; sourceTree = "<group>"; };
+		F944CDDF1CE9B677009547A0 /* OMTCPNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMTCPNetWork.h; sourceTree = "<group>"; };
+		F944CDE01CE9B677009547A0 /* OMTCPNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMTCPNetWork.m; sourceTree = "<group>"; };
 		F9621BDD1CE2C6240058DBA7 /* OMNI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMNI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9621BE11CE2C6240058DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F9621BE31CE2C6240058DBA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +86,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F944CDD81CE9B2A1009547A0 /* 网络 */ = {
+			isa = PBXGroup;
+			children = (
+				F944CDDF1CE9B677009547A0 /* OMTCPNetWork.h */,
+				F944CDE01CE9B677009547A0 /* OMTCPNetWork.m */,
+				F944CDD91CE9B2A1009547A0 /* OMUDPNetWork.h */,
+				F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */,
+			);
+			path = "网络";
+			sourceTree = "<group>";
+		};
 		F9621BD41CE2C6240058DBA7 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +118,7 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
+				F944CDD81CE9B2A1009547A0 /* 网络 */,
 				F9BC97091CE85CD2000A1998 /* 扩展 */,
 				F9E6432E1CE5C4C700D35FB1 /* 登录 */,
 				F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */,
@@ -129,6 +150,8 @@
 			children = (
 				F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */,
 				F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */,
+				F944CDDC1CE9B2CB009547A0 /* UIView+HUD.h */,
+				F944CDDD1CE9B2CB009547A0 /* UIView+HUD.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -268,8 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */,
+				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
+				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,

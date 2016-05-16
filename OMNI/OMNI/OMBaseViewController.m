@@ -30,6 +30,7 @@
     [super viewDidLoad];
     [self initView];
     [self addAutoLayout];
+    [self addReactiveCocoa];
 
     self.bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [self.view addSubview:self.bgImageView];
@@ -55,9 +56,15 @@
 
 - (void)initView
 {
+
 }
 
 - (void)addAutoLayout
+{
+
+}
+
+- (void)addReactiveCocoa
 {
 
 }

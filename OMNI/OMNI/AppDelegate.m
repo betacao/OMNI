@@ -16,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar_top"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:FontFactor(17.0f), NSForegroundColorAttributeName:Color(@"64a23f")}];
     [[UINavigationBar appearance] setTranslucent:NO];
@@ -34,7 +34,8 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
+    [[OMUDPNetWork sharedNetWork] refreshUdpSocket];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
