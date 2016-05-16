@@ -7,6 +7,7 @@
 //
 
 #import "OMLoginViewController.h"
+#import "OMRegisterViewController.h"
 
 @interface OMLoginViewController ()
 
@@ -27,37 +28,108 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"Account";
-    label.font = FontFactor(17.0f);
-    label.textColor = Color(@"64a23f");
-    [label sizeToFit];
-    self.navigationItem.titleView = label;
-    
+    self.title = @"Account";
 }
 
 - (void)initView
 {
-    self.titleLabel.text = @"Login";
-    self.titleLabel.textColor = Color(@"ffffff");
-
+    UIView *leftView1 = [[UIView alloc] init];
     UIImageView *leftImageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"settings_account"]];
-    [leftImageView1 sizeToFit];
+    [leftView1 addSubview:leftImageView1];
+    leftImageView1.sd_layout
+    .spaceToSuperView(UIEdgeInsetsMake(0.0f, MarginFactor(10.0f), 0.0f, MarginFactor(10.0f)));
 
+    leftView1.sd_layout
+    .heightIs(leftImageView1.image.size.height)
+    .widthIs(leftImageView1.image.size.width + MarginFactor(20.0f));
+
+
+    UIView *leftView2 = [[UIView alloc] init];
     UIImageView *leftImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"input_password"]];
+    [leftView2 addSubview:leftImageView2];
+    leftImageView2.sd_layout
+    .spaceToSuperView(UIEdgeInsetsMake(0.0f, MarginFactor(10.0f), 0.0f, MarginFactor(10.0f)));
 
-    [leftImageView2 sizeToFit];
+    leftView2.sd_layout
+    .heightIs(leftImageView2.image.size.height)
+    .widthIs(leftImageView2.image.size.width + MarginFactor(20.0f));
 
-    self.nameField.leftView = leftImageView1;
+
+    self.nameField.leftView = leftView1;
     self.nameField.leftViewMode = UITextFieldViewModeAlways;
-    self.passwordField.leftView = leftImageView2;
+    self.passwordField.leftView = leftView2;
     self.passwordField.leftViewMode = UITextFieldViewModeAlways;
 
+    UIImage *image1 = self.nameField.background;
+    image1 = [image1 resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f) resizingMode:UIImageResizingModeStretch];
+    self.nameField.background = image1;
+
+    UIImage *image2 = self.nameField.background;
+    image2 = [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f) resizingMode:UIImageResizingModeStretch];
+    self.passwordField.background = image2;
 }
 
 - (void)addAutoLayout
 {
-    self.titleLabel.sd_layout.topSpaceToView(self.view, 0.0f).leftSpaceToView(self.view, 0.0f).rightSpaceToView(self.view, 0.0f).heightIs(self.titleLabel.font.lineHeight);
+    self.titleLabel.sd_layout
+    .topSpaceToView(self.view, MarginFactor(20.0f))
+    .leftSpaceToView(self.view, 0.0f)
+    .rightSpaceToView(self.view, 0.0f)
+    .heightIs(self.titleLabel.font.lineHeight);
+
+    self.nameField.sd_layout
+    .leftSpaceToView(self.view, MarginFactor(20.0f))
+    .rightSpaceToView(self.view, MarginFactor(20.0f))
+    .topSpaceToView(self.titleLabel, MarginFactor(20.0f))
+    .heightIs(MarginFactor(40.0f));
+
+    self.passwordField.sd_layout
+    .leftSpaceToView(self.view, MarginFactor(20.0f))
+    .rightSpaceToView(self.view, MarginFactor(20.0f))
+    .topSpaceToView(self.nameField, MarginFactor(20.0f))
+    .heightIs(MarginFactor(40.0f));
+
+    self.rememberLabel.sd_layout
+    .topSpaceToView(self.passwordField, MarginFactor(10.0f))
+    .rightEqualToView(self.passwordField)
+    .heightIs(self.rememberLabel.font.lineHeight);
+    [self.rememberLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
+
+    self.rememberButton.sd_layout
+    .centerYEqualToView(self.rememberLabel)
+    .rightSpaceToView(self.rememberLabel, MarginFactor(5.0f))
+    .widthIs(self.rememberButton.currentImage.size.width)
+    .heightIs(self.rememberButton.currentImage.size.height);
+
+    self.loginButton.sd_layout
+    .centerXEqualToView(self.view)
+    .topSpaceToView(self.rememberButton, MarginFactor(30.0f))
+    .widthIs(self.loginButton.currentBackgroundImage.size.width)
+    .heightIs(self.loginButton.currentBackgroundImage.size.height);
+
+    self.guideButton.sd_layout
+    .centerXEqualToView(self.view)
+    .topSpaceToView(self.loginButton, MarginFactor(10.0f))
+    .widthIs(self.guideButton.currentBackgroundImage.size.width)
+    .heightIs(self.guideButton.currentBackgroundImage.size.height);
+
+    self.registerButton.sd_layout
+    .centerXEqualToView(self.view)
+    .bottomSpaceToView(self.view, MarginFactor(20.0f))
+    .widthIs(self.registerButton.currentBackgroundImage.size.width)
+    .heightIs(self.registerButton.currentBackgroundImage.size.height);
+
+    self.registerLabel.sd_layout
+    .leftSpaceToView(self.view, MarginFactor(30.0f))
+    .rightSpaceToView(self.view, MarginFactor(30.0f))
+    .bottomSpaceToView(self.registerButton, MarginFactor(15.0f))
+    .autoHeightRatio(0.0f);
+}
+
+- (IBAction)createNewAccount:(UIButton *)sender
+{
+    OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

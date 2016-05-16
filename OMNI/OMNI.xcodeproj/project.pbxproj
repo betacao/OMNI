@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
+		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
+		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
 		F9621BE21CE2C6240058DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE11CE2C6240058DBA7 /* main.m */; };
 		F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE41CE2C6240058DBA7 /* AppDelegate.m */; };
 		F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */; };
@@ -24,6 +26,9 @@
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
+		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
+		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
 		F9621BDD1CE2C6240058DBA7 /* OMNI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMNI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9621BE11CE2C6240058DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F9621BE31CE2C6240058DBA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +139,9 @@
 				F9E6432F1CE5C4DC00D35FB1 /* OMLoginViewController.h */,
 				F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */,
 				F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */,
+				F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */,
+				F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */,
+				F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */,
 			);
 			path = "登录";
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
+				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
 			);
@@ -263,6 +272,7 @@
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
+				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 			);

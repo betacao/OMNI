@@ -22,5 +22,6 @@
 
 #define kNavigationBarHeight CGRectGetHeight(self.navigationController.navigationBar.frame)
 
+#define SCALE [UIScreen mainScreen].scale
 
 #endif /* const_h */
