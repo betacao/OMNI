@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
+		F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93399271CEC413F009C61C1 /* OMListTableViewCell.m */; };
+		F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */; };
+		F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F933992D1CEC47C0009C61C1 /* OMDevice.m */; };
+		F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */; };
+		F93831E61CF2E317003807A9 /* OMAddAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E41CF2E317003807A9 /* OMAddAccountViewController.m */; };
+		F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831E51CF2E317003807A9 /* OMAddAccountViewController.xib */; };
+		F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */; };
+		F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */; };
 		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
 		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
 		F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */; };
@@ -19,6 +27,8 @@
 		F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9621BE91CE2C6240058DBA7 /* Main.storyboard */; };
 		F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9621BEC1CE2C6240058DBA7 /* Assets.xcassets */; };
 		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
+		F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */; };
+		F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */; };
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
 		F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */; };
 		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
@@ -29,6 +39,19 @@
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		F93399261CEC413F009C61C1 /* OMListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListTableViewCell.h; sourceTree = "<group>"; };
+		F93399271CEC413F009C61C1 /* OMListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListTableViewCell.m; sourceTree = "<group>"; };
+		F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMListTableViewCell.xib; sourceTree = "<group>"; };
+		F933992C1CEC47C0009C61C1 /* OMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDevice.h; sourceTree = "<group>"; };
+		F933992D1CEC47C0009C61C1 /* OMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDevice.m; sourceTree = "<group>"; };
+		F93831DF1CF2D7E4003807A9 /* OMBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseTableViewCell.h; sourceTree = "<group>"; };
+		F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseTableViewCell.m; sourceTree = "<group>"; };
+		F93831E31CF2E317003807A9 /* OMAddAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddAccountViewController.h; sourceTree = "<group>"; };
+		F93831E41CF2E317003807A9 /* OMAddAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddAccountViewController.m; sourceTree = "<group>"; };
+		F93831E51CF2E317003807A9 /* OMAddAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddAccountViewController.xib; sourceTree = "<group>"; };
+		F93831E81CF2EBF4003807A9 /* OMAddGateWayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddGateWayViewController.h; sourceTree = "<group>"; };
+		F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddGateWayViewController.m; sourceTree = "<group>"; };
+		F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddGateWayViewController.xib; sourceTree = "<group>"; };
 		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
 		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
 		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
@@ -49,6 +72,9 @@
 		F9621BF11CE2C6240058DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
 		F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
+		F9C72EF41CE9EEB100DCBAED /* OMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListViewController.h; sourceTree = "<group>"; };
+		F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListViewController.m; sourceTree = "<group>"; };
+		F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMListViewController.xib; sourceTree = "<group>"; };
 		F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseViewController.h; sourceTree = "<group>"; };
 		F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseViewController.m; sourceTree = "<group>"; };
@@ -86,6 +112,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F933992B1CEC47B0009C61C1 /* 对象 */ = {
+			isa = PBXGroup;
+			children = (
+				F933992C1CEC47C0009C61C1 /* OMDevice.h */,
+				F933992D1CEC47C0009C61C1 /* OMDevice.m */,
+			);
+			path = "对象";
+			sourceTree = "<group>";
+		};
+		F93831E21CF2E2ED003807A9 /* 设备管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F93831E31CF2E317003807A9 /* OMAddAccountViewController.h */,
+				F93831E41CF2E317003807A9 /* OMAddAccountViewController.m */,
+				F93831E51CF2E317003807A9 /* OMAddAccountViewController.xib */,
+				F93831E81CF2EBF4003807A9 /* OMAddGateWayViewController.h */,
+				F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */,
+				F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */,
+			);
+			path = "设备管理";
+			sourceTree = "<group>";
+		};
 		F944CDD81CE9B2A1009547A0 /* 网络 */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +166,16 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
+				F933992B1CEC47B0009C61C1 /* 对象 */,
+				F9C72EF31CE9EE0B00DCBAED /* 列表 */,
+				F93831E21CF2E2ED003807A9 /* 设备管理 */,
 				F944CDD81CE9B2A1009547A0 /* 网络 */,
 				F9BC97091CE85CD2000A1998 /* 扩展 */,
 				F9E6432E1CE5C4C700D35FB1 /* 登录 */,
 				F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */,
 				F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */,
+				F93831DF1CF2D7E4003807A9 /* OMBaseTableViewCell.h */,
+				F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */,
 				F9621BE61CE2C6240058DBA7 /* OMRootViewController.h */,
 				F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */,
 				F9621BE31CE2C6240058DBA7 /* AppDelegate.h */,
@@ -154,6 +207,19 @@
 				F944CDDD1CE9B2CB009547A0 /* UIView+HUD.m */,
 			);
 			path = "扩展";
+			sourceTree = "<group>";
+		};
+		F9C72EF31CE9EE0B00DCBAED /* 列表 */ = {
+			isa = PBXGroup;
+			children = (
+				F9C72EF41CE9EEB100DCBAED /* OMListViewController.h */,
+				F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */,
+				F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */,
+				F93399261CEC413F009C61C1 /* OMListTableViewCell.h */,
+				F93399271CEC413F009C61C1 /* OMListTableViewCell.m */,
+				F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */,
+			);
+			path = "列表";
 			sourceTree = "<group>";
 		};
 		F9E6432E1CE5C4C700D35FB1 /* 登录 */ = {
@@ -231,6 +297,10 @@
 			files = (
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
+				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
+				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
+				F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */,
+				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
 			);
@@ -291,15 +361,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */,
 				F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */,
 				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
+				F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
+				F93831E61CF2E317003807A9 /* OMAddAccountViewController.m in Sources */,
+				F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
+				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
+				F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

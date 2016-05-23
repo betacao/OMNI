@@ -31,6 +31,7 @@
     [self initView];
     [self addAutoLayout];
     [self addReactiveCocoa];
+    [self addLeftNavigationItem:nil normalImage:[UIImage imageNamed:@"button_back_normal"] highlightedImage:[UIImage imageNamed:@"button_back_normal_down"]];
 
     self.bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [self.view addSubview:self.bgImageView];
@@ -43,15 +44,7 @@
 
     self.topImageView.sd_layout.leftSpaceToView(self.view, 0.0f).rightSpaceToView(self.view, 0.0f).topSpaceToView(self.view, 0.0f).heightIs(self.topImageView.image.size.height);
 
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *normalImage = [UIImage imageNamed:@"button_back_normal"];
-    UIImage *highlightedImage = [UIImage imageNamed:@"button_back_normal_down"];
-    [leftButton setImage:normalImage forState:UIControlStateNormal];
-    [leftButton setImage:highlightedImage forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [leftButton sizeToFit];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 }
 
 - (void)initView
@@ -67,6 +60,28 @@
 - (void)addReactiveCocoa
 {
 
+}
+
+- (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage
+{
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setImage:normalImage forState:UIControlStateNormal];
+    [leftButton setImage:highlightedImage forState:UIControlStateHighlighted];
+    [leftButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton sizeToFit];
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+}
+
+- (void)addRightNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage
+{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:normalImage forState:UIControlStateNormal];
+    [rightButton setImage:highlightedImage forState:UIControlStateHighlighted];
+    [rightButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton sizeToFit];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 
 - (void)backButtonClick:(UIButton *)button

@@ -99,9 +99,7 @@
         } else{
             request = [NSString stringWithFormat:@"fyzn2015#1#11#%@#G7S3#%@#", kAppDelegate.deviceID, kAppDelegate.userID];
         }
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [[OMTCPNetWork sharedNetWork] sendMessage:request type:type inView:view];
-        });
+        [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:nil];
         [view showWithText:@"设备离线"];
         return @"OFFLINE";
     }

@@ -10,10 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "GCDAsyncSocket.h"
 
+typedef void (^OMTCPNetWorkFinishBlock) (NSString *string);
+
 @interface OMTCPNetWork : NSObject
 
 + (instancetype) sharedNetWork;
 
-- (NSString *)sendMessage:(NSString *)message type:(NSInteger)type inView:(UIView *)view;
+- (void)sendMessage:(NSString *)message inView:(UIView *)view complete:(OMTCPNetWorkFinishBlock)block;
 
 @end

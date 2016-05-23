@@ -8,6 +8,7 @@
 
 #import "OMLoginViewController.h"
 #import "OMRegisterViewController.h"
+#import "OMListViewController.h"
 
 @interface OMLoginViewController ()
 
@@ -29,6 +30,8 @@
 {
     [super viewDidLoad];
     self.title = @"Account";
+    self.nameField.text = @"18551796889";
+    self.passwordField.text = @"111111";
 }
 
 - (void)initView
@@ -128,13 +131,37 @@
 
 - (void)addReactiveCocoa
 {
-    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//    [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+//        return [self loginSignal];
+//    }] subscribeNext:^(NSString *x) {
+//        if ([x containsString:@"success"]) {
+//            OMListViewController *controller = [[OMListViewController alloc] init];
+//            [self.navigationController pushViewController:controller animated:YES];
+//        } else {
+//            [self.view showWithText:@"登录失败"];
+//        }
+//    }];
 
+    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMListViewController *controller = [[OMListViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
     }];
-    
+
     [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
+    }];
+}
+
+- (RACSignal *)loginSignal
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSString *request = [NSString stringWithFormat:@"fyzn2015#1#6#%@#%@#",self.nameField.text, self.passwordField.text];
+        [[OMTCPNetWork sharedNetWork] sendMessage:request inView:self.view complete:^(NSString *string) {
+            [subscriber sendNext:[string lowercaseString]];
+            [subscriber sendCompleted];
+        }];
+        return nil;
     }];
 }
 

@@ -10,25 +10,23 @@
 
 @interface OMTCPNetWork()<GCDAsyncSocketDelegate>
 
-@property (strong, nonatomic) GCDAsyncSocket *socket;
-@property (assign, nonatomic) long tag;
+@property (strong, nonatomic) GCDAsyncSocket *sendTcpSocket;
+@property (copy, nonatomic) OMTCPNetWorkFinishBlock finishBlock;
+@property (strong, nonatomic) UIView *view;
 @property (assign, nonatomic) BOOL isReceived;
-@property (assign, nonatomic) long sendCount;
-@property (strong, nonatomic) NSString *code;
 
 @end
 
-
 @implementation OMTCPNetWork
 
-+ (instancetype)sharedNetWork
++ (instancetype) sharedNetWork
 {
-    static OMTCPNetWork *sharedNetWork = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedNetWork = [[self alloc] init];
+    static OMTCPNetWork *sharedEngine = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        sharedEngine = [[self alloc] init];
     });
-    return sharedNetWork;
+    return sharedEngine;
 }
 
 - (instancetype)init
@@ -40,70 +38,66 @@
     return self;
 }
 
+- (void)hideHud
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSInteger i = 0;
+        while (!weakSelf.isReceived && i < 10) {
+            i++;
+            usleep(1000 * 1000);
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideHud];
+            if (!weakSelf.isReceived) {
+                [weakSelf.view showWithText:@"命令超时"];
+            }
+        });
+    });
+}
+
 - (void)setupSocket
 {
     dispatch_queue_t dQueue = dispatch_queue_create("client tdp socket", NULL);
-    self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dQueue socketQueue:nil];
+    // 1. 创建一个 udp socket用来和服务端进行通讯
+    self.sendTcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dQueue socketQueue:nil];
+    // 2. 连接服务器端. 只有连接成功后才能相互通讯 如果60s连接不上就出错
     NSString *host = @"121.42.187.151";
     uint16_t port = 11104;
-    [self.socket connectToHost:host onPort:port withTimeout:60 error:nil];
+    [self.sendTcpSocket connectToHost:host onPort:port withTimeout:60 error:nil];
+    // 连接必须服务器在线
 }
 
-- (NSString *)sendMessage:(NSString *)message type:(NSInteger)type inView:(UIView *)view
+
+- (void)sendMessage:(NSString *)message inView:(UIView *)view complete:(OMTCPNetWorkFinishBlock)block
 {
     [view showLoading];
     self.isReceived = NO;
-    self.sendCount = 0;
-    self.tag++;
-    self.code = [@"accept" stringByAppendingFormat:@"%ld", self.tag];
-
-    message = [[NSString stringWithFormat:@"%ld#",self.tag] stringByAppendingFormat:@"%@#",message];
-    NSString *request = @"";
-    if (type == 1) {
-        request = [@"ICP2P0259#" stringByAppendingFormat:@"%@#U#%@#%@#%@",kAppDelegate.deviceID, kAppDelegate.pinCode, kAppDelegate.userID, message];
-    } else{
-        request = [@"ICP2P0259#" stringByAppendingFormat:@"%@#U#G7S3#%@#%@",kAppDelegate.deviceID, kAppDelegate.userID, message];
-    }
-
-    NSData *data = [request dataUsingEncoding:NSUTF8StringEncoding];
-    [self.socket writeData:data withTimeout:60 tag:0];
-
-    NSInteger i = 20;
-    while (!self.isReceived && self.sendCount < 3) {
-        if (i == 20) {
-            i = 0;
-            self.sendCount++;
-        }
-        i++;
-        usleep(200 * 1000);
-    }
-    [view hideHud];
-    if (self.sendCount >= 3) {
-        [view showWithText:@"设备离线"];
-        return @"OFFLINE";
-    }
-
-    NSString *steam = kAppDelegate.receivedStream;
-    kAppDelegate.receivedStream = @"";
-    return steam;
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    // 发送消息 这里不需要知道对象的ip地址和端口
+    [self.sendTcpSocket writeData:data withTimeout:60 tag:0];
+    self.finishBlock = block;
+    self.view = view;
+    [self hideHud];
 }
 
+#pragma mark - 代理方法表示连接成功/失败 回调函数
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
     NSLog(@"连接成功");
-    [sock readDataWithTimeout:-1 tag:0];
+    [sock readDataWithTimeout:-1 tag:0];;
 }
-
-
+// 如果对象关闭了 这里也会调用
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
 {
-    NSLog(@"连接失败 %@", err);
     // 断线重连
+    NSLog(@"连接失败 %@", err);
     NSString *host = @"121.42.187.151";
     uint16_t port = 11104;
-    [self.socket connectToHost:host onPort:port withTimeout:60 error:nil];
+    [self.sendTcpSocket connectToHost:host onPort:port withTimeout:60 error:nil];
 }
+
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
 {
@@ -112,28 +106,18 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
+    self.isReceived = YES;
+    __weak typeof(self) weakSelf = self;
     NSString *ip = [sock connectedHost];
     uint16_t port = [sock connectedPort];
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"接收到服务器返回的数据 tcp [%@:%d] %@", ip, port, string);
-
-    if ([string containsString:@"ERROR_PIN"]) {
-        self.isReceived = YES;
-        kAppDelegate.receivedStream = string;
-    } else if([string containsString:@"OFFLINE"]) {
-        self.isReceived = YES;
-        kAppDelegate.receivedStream = string;
-    } else {
-        NSArray *array = [string componentsSeparatedByString:@"#"];
-        NSString *globleString = [array firstObject];
-        NSLog(@"code == %@", self.code);
-        if ([self.code isEqualToString:globleString]) {
-            self.isReceived = YES;
-            string = [string substringFromIndex:[string rangeOfString:globleString].length];
-            kAppDelegate.receivedStream = string;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(weakSelf.finishBlock){
+            weakSelf.finishBlock(string);
+            weakSelf.finishBlock = nil;
         }
-    }
-
+    });
     [sock readDataWithTimeout:-1 tag:0];;
 }
 

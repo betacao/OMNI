@@ -15,4 +15,8 @@
 - (void)addAutoLayout;
 - (void)addReactiveCocoa;
 
+- (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
+
+- (void)addRightNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
+
 @end

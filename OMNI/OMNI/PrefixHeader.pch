@@ -19,4 +19,6 @@
 #import "ReactiveCocoa.h"
 #import "UIColor+Extend.h"
 #import "UIView+HUD.h"
+#import "OMDevice.h"
+
 #endif /* PrefixHeader_pch */

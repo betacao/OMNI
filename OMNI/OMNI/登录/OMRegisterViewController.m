@@ -132,6 +132,27 @@
     .heightIs(self.commitButton.currentBackgroundImage.size.height);
 }
 
+- (void)addReactiveCocoa
+{
+    [[[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+        return [self commitSignal];
+    }] subscribeNext:^(id x) {
+
+    }];
+}
+
+- (RACSignal *)commitSignal
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSString *requset = @"";
+        [[OMTCPNetWork sharedNetWork] sendMessage:requset inView:self.view complete:^(NSString *string) {
+            [subscriber sendNext:string];
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
