@@ -9,6 +9,8 @@
 #ifndef const_h
 #define const_h
 
+#define WEAK(self, weakSelf) __weak typeof(self) weakSelf = self
+
 #define kAppDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
 #define SCREENWIDTH [UIScreen mainScreen].bounds.size.width

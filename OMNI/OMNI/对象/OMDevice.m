@@ -10,4 +10,21 @@
 
 @implementation OMDevice
 
+- (void)setDeviceNumber:(NSString *)deviceNumber
+{
+    _deviceNumber = deviceNumber;
+    if ([deviceNumber isEqualToString:@"1"]) {
+        self.deviceName = @"智能主机";
+    }
+}
+
+- (void)setDeviceState:(NSString *)deviceState
+{
+    if ([deviceState isEqualToString:@"0"]) {
+        _deviceState = @"离线";
+    } else {
+        _deviceState = @"在线";
+    }
+}
+
 @end

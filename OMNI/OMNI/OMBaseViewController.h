@@ -14,6 +14,7 @@
 - (void)initView;
 - (void)addAutoLayout;
 - (void)addReactiveCocoa;
+- (void)loadData;
 
 - (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
 

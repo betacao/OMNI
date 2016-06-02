@@ -44,4 +44,10 @@
     [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
 }
 
++ (void)getListInView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
+{
+    NSLog(@"%@", kAppDelegate.userID);
+    NSString *request = [@"fyzn2015#1#8#" stringByAppendingString:kAppDelegate.userID];
+    [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
+}
 @end

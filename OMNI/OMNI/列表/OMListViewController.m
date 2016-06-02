@@ -14,9 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addDeviceButton;
-@property (strong, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UIButton *guideButton;
-@property (strong, nonatomic) NSArray *dataArray;
+@property (strong, nonatomic) IBOutlet UIView *footerView;
+@property (strong, nonatomic) NSMutableArray *dataArray;
 
 @end
 
@@ -30,6 +30,8 @@
 
 - (void)initView
 {
+    self.dataArray = [NSMutableArray array];
+
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_edit_normal"] highlightedImage:[UIImage imageNamed:@"button_edit_normal_down"]];
     self.tableView.tableFooterView = self.footerView;
 }
@@ -63,7 +65,22 @@
 
 - (void)loadData
 {
-//[NSString stringWithFormat:@"%@%@#",kListAddress,kAppDelegate.userID]
+    WEAK(self, weakSelf);
+    [OMGlobleManager getListInView:self.view block:^(NSString *string) {
+        NSArray *array = [string componentsSeparatedByString:@"#"];
+        if (array.count > 2) {
+            array = [array subarrayWithRange:NSMakeRange(2, array.count -2)];
+            for (NSInteger i = 0; i < array.count / 3; i++) {
+                NSArray *subArray = [array subarrayWithRange:NSMakeRange(i * 3, 3)];
+                OMDevice *device = [[OMDevice alloc] init];
+                device.deviceID = [subArray firstObject];
+                device.deviceNumber = [subArray objectAtIndex:1];
+                device.deviceState = [subArray lastObject];
+                [weakSelf.dataArray addObject:device];
+            }
+            [weakSelf.tableView reloadData];
+        }
+    }];
 }
 
 - (void)backButtonClick:(UIButton *)button
@@ -98,6 +115,11 @@
     }
     cell.device = [self.dataArray objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
 }
 
 

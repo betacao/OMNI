@@ -31,6 +31,8 @@
     [self initView];
     [self addAutoLayout];
     [self addReactiveCocoa];
+    [self loadData];
+
     [self addLeftNavigationItem:nil normalImage:[UIImage imageNamed:@"button_back_normal"] highlightedImage:[UIImage imageNamed:@"button_back_normal_down"]];
 
     self.bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
@@ -60,6 +62,11 @@
 - (void)addReactiveCocoa
 {
 
+}
+
+- (void)loadData
+{
+    
 }
 
 - (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage

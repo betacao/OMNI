@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *IDLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
-@property (weak, nonatomic) IBOutlet UIButton *configButton;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 
@@ -23,6 +23,7 @@
 {
     [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.3f];
+    [self.button setEnlargeEdge:20.0f];
 }
 
 - (void)addAutoLayout
@@ -45,11 +46,12 @@
     .heightIs(self.stateLabel.font.lineHeight);
     [self.stateLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
-    self.configButton.sd_layout
+    self.button.sd_layout
     .centerYEqualToView(self.contentView)
     .rightSpaceToView(self.contentView, MarginFactor(10.0f))
-    .widthIs(self.configButton.currentImage.size.width)
-    .heightIs(self.configButton.currentImage.size.height);
+    .widthIs(self.button.currentImage.size.width)
+    .heightIs(self.button.currentImage.size.height);
+
 }
 
 - (void)setDevice:(OMDevice *)device

@@ -157,6 +157,8 @@
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [OMGlobleManager login:@[self.nameField.text, self.passwordField.text] inView:self.view block:^(NSString *string) {
+            kAppDelegate.userID = self.nameField.text;
+            kAppDelegate.password = self.passwordField.text;
             [subscriber sendNext:[string lowercaseString]];
             [subscriber sendCompleted];
         }];

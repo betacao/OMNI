@@ -46,7 +46,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="IDLabel" destination="R0e-iU-zl6" id="6HC-Dc-bot"/>
-                <outlet property="configButton" destination="uFU-aq-S7D" id="y0J-XT-9rA"/>
+                <outlet property="button" destination="uFU-aq-S7D" id="RLt-dq-Slm"/>
                 <outlet property="nameLabel" destination="g5L-iv-UkD" id="5Lz-yu-fpc"/>
                 <outlet property="stateLabel" destination="1P3-ht-8I1" id="SnM-54-QGL"/>
             </connections>

@@ -11,6 +11,7 @@
 @interface OMDevice : NSObject
 
 @property (strong, nonatomic) NSString *deviceName;
+@property (strong, nonatomic) NSString *deviceNumber;
 @property (strong, nonatomic) NSString *deviceID;
 @property (strong, nonatomic) NSString *deviceState;
 

@@ -18,4 +18,6 @@
 
 + (void)clear:(NSInteger)type inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
++ (void)getListInView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
+
 @end

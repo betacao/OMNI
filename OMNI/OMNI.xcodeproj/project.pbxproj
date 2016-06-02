@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
+		F91560781CFFDCC2009BAA36 /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F91560771CFFDCC2009BAA36 /* UIButton+EnlargeEdge.m */; };
+		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
+		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
 		F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */; };
 		F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93399271CEC413F009C61C1 /* OMListTableViewCell.m */; };
 		F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */; };
@@ -39,6 +42,11 @@
 		00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.release.xcconfig"; sourceTree = "<group>"; };
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91560761CFFDCC2009BAA36 /* UIButton+EnlargeEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+EnlargeEdge.h"; path = "../../../../FYIntelligence/FYIntelligence/FYIntelligence/Category/UIButton+EnlargeEdge.h"; sourceTree = "<group>"; };
+		F91560771CFFDCC2009BAA36 /* UIButton+EnlargeEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+EnlargeEdge.m"; path = "../../../../FYIntelligence/FYIntelligence/FYIntelligence/Category/UIButton+EnlargeEdge.m"; sourceTree = "<group>"; };
+		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
+		F915607A1D0003CF009BAA36 /* OMGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGuideViewController.m; sourceTree = "<group>"; };
+		F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMGuideViewController.xib; sourceTree = "<group>"; };
 		F91A52F91CFED33000C9F7CB /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
 		F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
@@ -219,6 +227,8 @@
 				F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */,
 				F944CDDC1CE9B2CB009547A0 /* UIView+HUD.h */,
 				F944CDDD1CE9B2CB009547A0 /* UIView+HUD.m */,
+				F91560761CFFDCC2009BAA36 /* UIButton+EnlargeEdge.h */,
+				F91560771CFFDCC2009BAA36 /* UIButton+EnlargeEdge.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -245,6 +255,9 @@
 				F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */,
 				F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */,
 				F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */,
+				F91560791D0003CF009BAA36 /* OMGuideViewController.h */,
+				F915607A1D0003CF009BAA36 /* OMGuideViewController.m */,
+				F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */,
 			);
 			path = "登录";
 			sourceTree = "<group>";
@@ -315,6 +328,7 @@
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
+				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
 			);
@@ -380,6 +394,7 @@
 				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */,
+				F91560781CFFDCC2009BAA36 /* UIButton+EnlargeEdge.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
 				F93831E61CF2E317003807A9 /* OMAddAccountViewController.m in Sources */,
@@ -387,6 +402,7 @@
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
+				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
