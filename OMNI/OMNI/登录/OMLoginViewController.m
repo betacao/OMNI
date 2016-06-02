@@ -131,21 +131,21 @@
 
 - (void)addReactiveCocoa
 {
-//    [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
-//        return [self loginSignal];
-//    }] subscribeNext:^(NSString *x) {
-//        if ([x containsString:@"success"]) {
-//            OMListViewController *controller = [[OMListViewController alloc] init];
-//            [self.navigationController pushViewController:controller animated:YES];
-//        } else {
-//            [self.view showWithText:@"登录失败"];
-//        }
-//    }];
-
-    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        OMListViewController *controller = [[OMListViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+    [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+        return [self loginSignal];
+    }] subscribeNext:^(NSString *x) {
+        if ([x containsString:@"success"]) {
+            OMListViewController *controller = [[OMListViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        } else {
+            [self.view showWithText:@"登录失败"];
+        }
     }];
+
+//    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        OMListViewController *controller = [[OMListViewController alloc] init];
+//        [self.navigationController pushViewController:controller animated:YES];
+//    }];
 
     [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
@@ -156,8 +156,7 @@
 - (RACSignal *)loginSignal
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSString *request = [NSString stringWithFormat:@"fyzn2015#1#6#%@#%@#",self.nameField.text, self.passwordField.text];
-        [[OMTCPNetWork sharedNetWork] sendMessage:request inView:self.view complete:^(NSString *string) {
+        [OMGlobleManager login:@[self.nameField.text, self.passwordField.text] inView:self.view block:^(NSString *string) {
             [subscriber sendNext:[string lowercaseString]];
             [subscriber sendCompleted];
         }];

@@ -20,5 +20,6 @@
 #import "UIColor+Extend.h"
 #import "UIView+HUD.h"
 #import "OMDevice.h"
+#import "OMGlobleManager.h"
 
 #endif /* PrefixHeader_pch */

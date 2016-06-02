@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
+		F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */; };
 		F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93399271CEC413F009C61C1 /* OMListTableViewCell.m */; };
 		F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */; };
 		F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F933992D1CEC47C0009C61C1 /* OMDevice.m */; };
@@ -38,6 +39,8 @@
 		00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.release.xcconfig"; sourceTree = "<group>"; };
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
 		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91A52F91CFED33000C9F7CB /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
+		F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
 		F93399261CEC413F009C61C1 /* OMListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListTableViewCell.h; sourceTree = "<group>"; };
 		F93399271CEC413F009C61C1 /* OMListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListTableViewCell.m; sourceTree = "<group>"; };
@@ -112,6 +115,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F91A52F81CFED30600C9F7CB /* 网络管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F91A52F91CFED33000C9F7CB /* OMGlobleManager.h */,
+				F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */,
+			);
+			name = "网络管理";
+			path = "OMNI/网络管理";
+			sourceTree = SOURCE_ROOT;
+		};
 		F933992B1CEC47B0009C61C1 /* 对象 */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +179,7 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
+				F91A52F81CFED30600C9F7CB /* 网络管理 */,
 				F933992B1CEC47B0009C61C1 /* 对象 */,
 				F9C72EF31CE9EE0B00DCBAED /* 列表 */,
 				F93831E21CF2E2ED003807A9 /* 设备管理 */,
@@ -372,6 +386,7 @@
 				F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
+				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,

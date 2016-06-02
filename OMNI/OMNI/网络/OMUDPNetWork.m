@@ -93,13 +93,7 @@
     }
     [view hideHud];
     if (self.sendCount >= 3) {
-        //tcp清理掉数据
-        if (type == 1) {
-            request = [NSString stringWithFormat:@"fyzn2015#1#11#%@#%@#%@#", kAppDelegate.deviceID, kAppDelegate.pinCode, kAppDelegate.userID];
-        } else{
-            request = [NSString stringWithFormat:@"fyzn2015#1#11#%@#G7S3#%@#", kAppDelegate.deviceID, kAppDelegate.userID];
-        }
-        [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:nil];
+        [OMGlobleManager clear:type inView:view block:nil];
         [view showWithText:@"设备离线"];
         return @"OFFLINE";
     }

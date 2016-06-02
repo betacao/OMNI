@@ -26,16 +26,12 @@
 {
     [super viewDidLoad];
     self.title = @"Account";
+}
 
+- (void)initView
+{
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_edit_normal"] highlightedImage:[UIImage imageNamed:@"button_edit_normal_down"]];
-
-    OMDevice *device = [[OMDevice alloc] init];
-    device.deviceName = @"智能主机";
-    device.deviceID = @"005e374";
-    device.deviceState = @"离线";
-    self.dataArray = @[device];
     self.tableView.tableFooterView = self.footerView;
-    [self.tableView reloadData];
 }
 
 - (void)addAutoLayout
@@ -63,6 +59,16 @@
     .widthIs(self.guideButton.currentBackgroundImage.size.width)
     .heightIs(self.guideButton.currentBackgroundImage.size.height);
     
+}
+
+- (void)loadData
+{
+//[NSString stringWithFormat:@"%@%@#",kListAddress,kAppDelegate.userID]
+}
+
+- (void)backButtonClick:(UIButton *)button
+{
+    exit(0);
 }
 
 - (IBAction)addAccount:(UIButton *)sender

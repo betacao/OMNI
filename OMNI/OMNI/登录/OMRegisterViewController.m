@@ -144,8 +144,7 @@
 - (RACSignal *)commitSignal
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSString *requset = @"";
-        [[OMTCPNetWork sharedNetWork] sendMessage:requset inView:self.view complete:^(NSString *string) {
+        [OMGlobleManager regist:@[] inView:self.view block:^(NSString *string) {
             [subscriber sendNext:string];
             [subscriber sendCompleted];
         }];
