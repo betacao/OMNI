@@ -11,8 +11,19 @@
 @interface OMRoom : NSObject
 
 @property (strong, nonatomic) NSString *roomName;
-@property (assign, nonatomic) NSInteger roomIndex;
-@property (strong, nonatomic) NSString *deviceID;
-@property (strong, nonatomic) NSString *deviceState;
+@property (strong, nonatomic) NSString *roomNumber;
+
+@end
+
+
+@interface OMRoomDevice : NSObject
+
+@property (strong, nonatomic) NSString *roomDeviceID;
+@property (strong, nonatomic) NSString *roomDeviceName;
+@property (strong, nonatomic) NSString *roomNumber;
+@property (strong, nonatomic) NSString *roomDeviceType;
+@property (strong, nonatomic) NSString *roomDeviceFlag;
+@property (strong, nonatomic) NSString *roomDeviceState;
+
 
 @end

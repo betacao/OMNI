@@ -61,7 +61,7 @@
     [OMGlobleManager getListInView:self.view block:^(NSString *string) {
         NSArray *array = [string componentsSeparatedByString:@"#"];
         if (array.count > 2) {
-            array = [array subarrayWithRange:NSMakeRange(2, array.count -2)];
+            array = [array subarrayWithRange:NSMakeRange(2, array.count - 2)];
             for (NSInteger i = 0; i < array.count / 3; i++) {
                 NSArray *subArray = [array subarrayWithRange:NSMakeRange(i * 3, 3)];
                 OMDevice *device = [[OMDevice alloc] init];

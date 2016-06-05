@@ -34,11 +34,14 @@
 		F964F9101D040922005FD22F /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F90F1D040922005FD22F /* UIButton+EnlargeEdge.m */; };
 		F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */; };
 		F964F9191D040EEF005FD22F /* OMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9181D040EEF005FD22F /* OMRoom.m */; };
+		F9BA928E1D045C9B003782BF /* OMRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */; };
+		F9BA928F1D045C9B003782BF /* OMRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */; };
 		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
 		F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A8D1D01261A005AFEEB /* OMBaseCollectionViewCell.m */; };
 		F9C19A971D01271A005AFEEB /* OMRoomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A951D01271A005AFEEB /* OMRoomCollectionViewCell.m */; };
 		F9C19A981D01271A005AFEEB /* OMRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */; };
 		F9C19A9B1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */; };
+		F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */; };
 		F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */; };
 		F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */; };
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
@@ -96,6 +99,9 @@
 		F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Common.m"; sourceTree = "<group>"; };
 		F964F9171D040EEF005FD22F /* OMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoom.h; sourceTree = "<group>"; };
 		F964F9181D040EEF005FD22F /* OMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoom.m; sourceTree = "<group>"; };
+		F9BA928B1D045C9B003782BF /* OMRoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomTableViewCell.h; sourceTree = "<group>"; };
+		F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomTableViewCell.m; sourceTree = "<group>"; };
+		F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomTableViewCell.xib; sourceTree = "<group>"; };
 		F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
 		F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		F9C19A8C1D01261A005AFEEB /* OMBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 		F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomCollectionViewCell.xib; sourceTree = "<group>"; };
 		F9C19A991D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		F9C1BE091D046DB40036AFA5 /* NSMutableDictionary+Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Room.h"; sourceTree = "<group>"; };
+		F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Room.m"; sourceTree = "<group>"; };
 		F9C72EF41CE9EEB100DCBAED /* OMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListViewController.h; sourceTree = "<group>"; };
 		F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListViewController.m; sourceTree = "<group>"; };
 		F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMListViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +164,9 @@
 				F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */,
 				F9C19A991D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.h */,
 				F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */,
+				F9BA928B1D045C9B003782BF /* OMRoomTableViewCell.h */,
+				F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */,
+				F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */,
 			);
 			path = "房间";
 			sourceTree = "<group>";
@@ -273,6 +284,8 @@
 				F964F90F1D040922005FD22F /* UIButton+EnlargeEdge.m */,
 				F964F9141D040B66005FD22F /* NSCharacterSet+Common.h */,
 				F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */,
+				F9C1BE091D046DB40036AFA5 /* NSMutableDictionary+Room.h */,
+				F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -370,6 +383,7 @@
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
+				F9BA928F1D045C9B003782BF /* OMRoomTableViewCell.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
@@ -441,6 +455,7 @@
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
+				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
 				F9C19A971D01271A005AFEEB /* OMRoomCollectionViewCell.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,
@@ -453,6 +468,7 @@
 				F9C19A9B1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m in Sources */,
 				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
+				F9BA928E1D045C9B003782BF /* OMRoomTableViewCell.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,

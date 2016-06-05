@@ -9,6 +9,8 @@
 #import "OMRoomViewController.h"
 #import "OMRoomCollectionViewCell.h"
 #import "OMRoomCollectionViewFlowLayout.h"
+#import "OMRoomTableViewCell.h"
+#import "NSMutableDictionary+Room.h"
 
 @interface OMRoomViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -20,9 +22,7 @@
 @property (strong, nonatomic) OMRoomCollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property (assign, nonatomic) NSInteger roomCount;
-@property (strong, nonatomic) NSMutableArray *roomArray;
 @property (strong, nonatomic) NSMutableArray *dataArray;
-@property (strong, nonatomic) NSMutableArray *currentArray;
 
 
 @end
@@ -48,21 +48,18 @@
 
     self.imageView.contentMode = UIViewContentModeScaleToFill;
 
-    self.tableHeaderView.clipsToBounds = YES;
     [self.tableHeaderView addSubview:self.collectionView];
+    self.tableHeaderView.clipsToBounds = YES;
+    self.tableHeaderView.sd_layout
+    .heightIs(SCREENHEIGHT / 2.0f);
 
     self.tableView.tableHeaderView = self.tableHeaderView;
 
-    self.roomArray = [NSMutableArray array];
     self.dataArray = [NSMutableArray array];
-    self.currentArray = [NSMutableArray array];
 }
 
 - (void)addAutoLayout
 {
-    self.tableHeaderView.sd_layout
-    .heightIs(SCREENHEIGHT / 2.0f);
-
     self.imageView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
@@ -73,47 +70,89 @@
     .spaceToSuperView(UIEdgeInsetsZero);
 }
 
-- (void)loadData
-{
-    WEAK(self, weakSelf);
-    [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
-        weakSelf.roomCount = [[array firstObject] integerValue] + 1;
-        for (NSInteger i = 1; i < (array.count + 1) / 2; i++) {
-            OMRoom *room = [[OMRoom alloc] init];
-            room.roomName = [array objectAtIndex:i * 2];
-            room.roomIndex = [[array objectAtIndex:i * 2 - 1] integerValue];
-            [weakSelf.roomArray addObject:room];
-        }
-        //最后创建一个假的
-        OMRoom *room = [[OMRoom alloc] init];
-        room.roomName = @"";
-        room.roomIndex = ceill(array.count / 2);
-        [weakSelf.roomArray addObject:room];
-
-
-        [OMGlobleManager readDevicesInView:weakSelf.view block:^(NSArray *array) {
-
-        }];
-    }];
-
-}
-
 - (void)setDevice:(OMDevice *)device
 {
     _device = device;
     kAppDelegate.deviceID = device.deviceID;
 }
 
+- (NSMutableDictionary *)dictionaryWithRoomNumber:(NSString *)roomNumber
+{
+    for (NSMutableDictionary *dictionary in self.dataArray) {
+        OMRoom *room = [dictionary objectForKey:@"room"];
+        if ([room.roomNumber isEqualToString:roomNumber]) {
+            return dictionary;
+        }
+    }
+    return nil;
+}
+
+- (void)loadData
+{
+    WEAK(self, weakSelf);
+    [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
+        weakSelf.roomCount = [[array firstObject] integerValue] + 1;
+        for (NSInteger i = 0; i < [[array firstObject] integerValue]; i++) {
+            NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+            [dictionary addRoomProperty];
+            OMRoom *room = [dictionary objectForKey:@"room"];
+            room.roomNumber = [array objectAtIndex:i * 2 + 1];
+            room.roomName = [array objectAtIndex:i * 2 + 2];
+
+            [weakSelf.dataArray addObject:dictionary];
+        }
+        //最后创建一个假的
+        NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+        [dictionary addRoomProperty];
+        OMRoom *room = [dictionary objectForKey:@"room"];
+        room.roomName = @"";
+        room.roomNumber = [NSString stringWithFormat:@"%ld", (long)weakSelf.roomCount];
+        [weakSelf.dataArray addObject:dictionary];
+
+        [weakSelf.collectionView reloadData];
+
+        [OMGlobleManager readDevicesInView:weakSelf.view block:^(NSArray *array) {
+            NSInteger roomDeviceCount = [[array firstObject] integerValue];
+            for (NSInteger i = 0; i < roomDeviceCount; i++) {
+                OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
+                roomDevice.roomDeviceID = [array objectAtIndex:i * 6 + 1];
+                roomDevice.roomDeviceName = [array objectAtIndex:i * 6 + 2];
+                roomDevice.roomNumber = [array objectAtIndex:i * 6 + 3];
+                roomDevice.roomDeviceType = [array objectAtIndex:i * 6 + 4];
+                roomDevice.roomDeviceFlag = [array objectAtIndex:i * 6 + 5];
+                roomDevice.roomDeviceState = [array objectAtIndex:i * 6 + 6];
+
+                NSMutableDictionary *dictionary = [weakSelf dictionaryWithRoomNumber:roomDevice.roomNumber];
+                NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
+                [roomDeviceArray addObject:roomDevice];
+            }
+            [weakSelf.tableView reloadData];
+        }];
+    }];
+
+}
+
 #pragma mark ------tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.currentArray.count;
+    if (self.dataArray.count > 0) {
+        NSMutableArray *array = [[self.dataArray objectAtIndex:0] objectForKey:@"roomDeviceArray"];
+        return array.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    OMRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OMRoomTableViewCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"OMRoomTableViewCell" owner:self options:nil] firstObject];
+    }
+
+    NSMutableDictionary *dictionary = [self.dataArray objectAtIndex:0];
+    cell.roomDevice = [[dictionary objectForKey:@"roomDeviceArray"] objectAtIndex:indexPath.row];
+    return cell;
 }
 
 #pragma mark ------collectionView
@@ -126,7 +165,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     OMRoomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OMRoomCollectionViewCell" forIndexPath:indexPath];
-    cell.room = [self.roomArray objectAtIndex:indexPath.row];
+
+    NSMutableDictionary *dictionary = [self.dataArray objectAtIndex:0];
+    cell.room = [dictionary objectForKey:@"room"];
     return cell;
 }
 
