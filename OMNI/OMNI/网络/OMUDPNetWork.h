@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "GCDAsyncUdpSocket.h"
 
+typedef void (^OMUDPNetWorkFinishBlock) (NSArray *array);
+
 @interface OMUDPNetWork : NSObject
 
 @property (strong, nonatomic) GCDAsyncUdpSocket *socket;

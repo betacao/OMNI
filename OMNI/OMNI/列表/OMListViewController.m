@@ -9,12 +9,13 @@
 #import "OMListViewController.h"
 #import "OMListTableViewCell.h"
 #import "OMAddAccountViewController.h"
+#import "OMGuideViewController.h"
+#import "OMRoomViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *addDeviceButton;
-@property (weak, nonatomic) IBOutlet UIButton *guideButton;
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
@@ -39,10 +40,7 @@
 - (void)addAutoLayout
 {
     self.tableView.sd_layout
-    .leftSpaceToView(self.view, 0.0f)
-    .rightSpaceToView(self.view, 0.0f)
-    .topSpaceToView(self.view, 0.0f)
-    .bottomSpaceToView(self.guideButton, MarginFactor(15.0f));
+    .spaceToSuperView(UIEdgeInsetsZero);
 
     self.footerView.sd_layout
     .centerXEqualToView(self.addDeviceButton.superview)
@@ -54,12 +52,6 @@
     .centerYEqualToView(self.footerView)
     .widthIs(self.addDeviceButton.currentBackgroundImage.size.width)
     .heightIs(self.addDeviceButton.currentBackgroundImage.size.height);
-
-    self.guideButton.sd_layout
-    .centerXEqualToView(self.view)
-    .bottomSpaceToView(self.view, MarginFactor(15.0f))
-    .widthIs(self.guideButton.currentBackgroundImage.size.width)
-    .heightIs(self.guideButton.currentBackgroundImage.size.height);
     
 }
 
@@ -88,7 +80,13 @@
     exit(0);
 }
 
-- (IBAction)addAccount:(UIButton *)sender
+- (void)rightButtonClick:(UIButton *)button
+{
+    OMGuideViewController *controller = [[OMGuideViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (IBAction)addAccount:(UIButton *)button
 {
     OMAddAccountViewController *controller = [[OMAddAccountViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
@@ -119,7 +117,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    OMRoomViewController *controller = [[OMRoomViewController alloc] init];
+    controller.device = [self.dataArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

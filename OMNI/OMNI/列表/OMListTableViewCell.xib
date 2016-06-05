@@ -40,6 +40,11 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" id="Tmz-gf-rdb">
+                        <rect key="frame" x="40" y="-15" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
@@ -48,6 +53,7 @@
                 <outlet property="IDLabel" destination="R0e-iU-zl6" id="6HC-Dc-bot"/>
                 <outlet property="button" destination="uFU-aq-S7D" id="RLt-dq-Slm"/>
                 <outlet property="nameLabel" destination="g5L-iv-UkD" id="5Lz-yu-fpc"/>
+                <outlet property="spliteView" destination="Tmz-gf-rdb" id="Be4-j5-i2v"/>
                 <outlet property="stateLabel" destination="1P3-ht-8I1" id="SnM-54-QGL"/>
             </connections>
             <point key="canvasLocation" x="300" y="326"/>

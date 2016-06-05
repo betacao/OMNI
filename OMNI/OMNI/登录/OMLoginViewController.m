@@ -9,6 +9,7 @@
 #import "OMLoginViewController.h"
 #import "OMRegisterViewController.h"
 #import "OMListViewController.h"
+#import "OMGuideViewController.h"
 
 @interface OMLoginViewController ()
 
@@ -142,13 +143,13 @@
         }
     }];
 
-//    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        OMListViewController *controller = [[OMListViewController alloc] init];
-//        [self.navigationController pushViewController:controller animated:YES];
-//    }];
-
     [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMRegisterViewController *controller = [[OMRegisterViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
+
+    [[self.guideButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMGuideViewController *controller = [[OMGuideViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     }];
 }

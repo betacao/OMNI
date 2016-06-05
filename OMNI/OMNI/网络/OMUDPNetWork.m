@@ -86,7 +86,7 @@
         if (i == 20) {
             i = 0;
             self.sendCount++;
-            [self.socket sendData:data toHost:@"120.27.151.216" port:port withTimeout:-1 tag:self.tag];
+            [self.socket sendData:data toHost:@"121.42.187.151" port:port withTimeout:-1 tag:self.tag];
         }
         i++;
         usleep(200 * 1000);
@@ -158,7 +158,7 @@
         self.isReceived = YES;
         kAppDelegate.receivedStream = string;
     } else {
-        NSArray *array = [string componentsSeparatedByString:@"#"];
+        NSArray *array = [string componentsSeparatedByString:@"^"];
         NSString *globleString = [array firstObject];
         NSLog(@"code == %@", self.code);
         if ([self.code isEqualToString:globleString]) {

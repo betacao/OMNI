@@ -46,8 +46,49 @@
 
 + (void)getListInView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
 {
-    NSLog(@"%@", kAppDelegate.userID);
     NSString *request = [@"fyzn2015#1#8#" stringByAppendingString:kAppDelegate.userID];
     [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
+}
+
+
+//UDP
+
++ (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:@"read_rooms" type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+
+}
+
++ (void)readDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:@"read_devices" type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+
+}
+
+
+//通用函数
++ (NSArray *)stringToArray:(NSString *)string
+{
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[string componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@"^", @"&"]]]];
+    [array enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj && obj.length == 0) {
+            [array removeObject:obj];
+        }
+    }];
+    return array;
 }
 @end

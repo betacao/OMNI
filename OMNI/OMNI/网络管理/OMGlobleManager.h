@@ -20,4 +20,10 @@
 
 + (void)getListInView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
+
+//UDP
++ (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
++ (void)readDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
 @end

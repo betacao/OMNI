@@ -20,7 +20,9 @@
 #import "UIColor+Extend.h"
 #import "UIView+HUD.h"
 #import "OMDevice.h"
+#import "OMRoom.h"
 #import "OMGlobleManager.h"
 #import "UIButton+EnlargeEdge.h"
+#import "NSCharacterSet+Common.h"
 
 #endif /* PrefixHeader_pch */

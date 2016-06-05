@@ -85,7 +85,7 @@
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setImage:normalImage forState:UIControlStateNormal];
     [rightButton setImage:highlightedImage forState:UIControlStateHighlighted];
-    [rightButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [rightButton sizeToFit];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
@@ -94,6 +94,11 @@
 - (void)backButtonClick:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)rightButtonClick:(UIButton *)button
+{
+
 }
 
 - (BOOL)prefersStatusBarHidden

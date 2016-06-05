@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *pinCode;
 @property (strong, nonatomic) NSString *deviceID;
+@property (strong, nonatomic) NSString *roomID;
 @property (strong, nonatomic) NSString *receivedStream;
 
 @end

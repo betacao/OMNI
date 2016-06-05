@@ -53,7 +53,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hw3-Sy-dON">
                     <rect key="frame" x="211" y="234" width="17" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="selectButton"/>
+                    <state key="normal" image="remember_normal"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wCX-tN-Uvo">
                     <rect key="frame" x="25" y="268" width="261" height="57"/>
@@ -95,6 +95,6 @@
         <image name="button_delete_bg" width="261" height="57"/>
         <image name="button_login_bg" width="261" height="57"/>
         <image name="input" width="289" height="51"/>
-        <image name="selectButton" width="17" height="17"/>
+        <image name="remember_normal" width="22" height="20"/>
     </resources>
 </document>

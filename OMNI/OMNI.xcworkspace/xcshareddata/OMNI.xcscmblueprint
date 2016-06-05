@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FF38DF093B36FFA58956EACB573990A3449F6A59",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FF38DF093B36FFA58956EACB573990A3449F6A59" : 0,
+    "EBDD1EC97A67B26D90EB6E8033A9245E7F9030A5" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2F2D2AE7-3D80-4BBE-85A9-738E04741308",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FF38DF093B36FFA58956EACB573990A3449F6A59" : "OMNI\/",
+    "EBDD1EC97A67B26D90EB6E8033A9245E7F9030A5" : "FYIntelligence\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OMNI",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OMNI\/OMNI.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/caochangxi\/FYIntelligence.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EBDD1EC97A67B26D90EB6E8033A9245E7F9030A5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/caochangxi\/OMNI",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF38DF093B36FFA58956EACB573990A3449F6A59"
+    }
+  ]
+}

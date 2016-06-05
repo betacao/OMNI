@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="addDeviceButton" destination="MNO-JH-ZLp" id="cOT-sm-DND"/>
                 <outlet property="footerView" destination="pdh-4v-1Vj" id="lBz-FU-Pov"/>
-                <outlet property="guideButton" destination="eNp-fx-p9H" id="cQH-e3-uou"/>
                 <outlet property="tableView" destination="VRE-MQ-duv" id="435-Hp-Y4D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,14 +27,6 @@
                         <outlet property="delegate" destination="-1" id="ZSd-Mp-cAS"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eNp-fx-p9H">
-                    <rect key="frame" x="137" y="269" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="User guide" backgroundImage="button_login_bg">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="181" y="357"/>

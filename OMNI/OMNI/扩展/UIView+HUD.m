@@ -12,13 +12,12 @@
 
 - (void)showLoading
 {
-    [self performSelectorOnMainThread:@selector(hideHud) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
     [self performSelectorOnMainThread:@selector(showOnMainThread) withObject:nil waitUntilDone:YES];
 }
 
 - (void)showOnMainThread
 {
-
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     [self bringSubviewToFront:hud];
     hud.mode = MBProgressHUDModeIndeterminate;
@@ -28,6 +27,11 @@
 
 
 - (void)showWithText:(NSString *)text
+{
+    [self performSelectorOnMainThread:@selector(showTextOnMainThread:) withObject:text waitUntilDone:YES];
+}
+
+- (void)showTextOnMainThread:(NSString *)text
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
@@ -48,12 +52,17 @@
     [hud hide:YES afterDelay:2.0f];
 }
 
-- (void)hideHud
+- (void)hideHudOnMainThread
 {
     for (UIView *subView in self.subviews) {
         if ([subView isKindOfClass:[MBProgressHUD class]]) {
             [((MBProgressHUD *)subView) hide:YES];
         }
     }
+}
+
+- (void)hideHud
+{
+    [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
 }
 @end
