@@ -11,6 +11,7 @@
 #import "OMRoomCollectionViewFlowLayout.h"
 #import "OMRoomTableViewCell.h"
 #import "NSMutableDictionary+Room.h"
+#import "OMAddRoomDeviceViewController.h"
 
 @interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -147,6 +148,13 @@
     cell.roomDevice = [self.currentArray objectAtIndex:indexPath.row];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 #pragma mark ------collectionView
 

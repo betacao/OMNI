@@ -204,6 +204,9 @@
 		F941E1F31D05608C00A70A3F /* 房间首页 */ = {
 			isa = PBXGroup;
 			children = (
+				F941E1FC1D05608C00A70A3F /* OMRoomViewController.h */,
+				F941E1FD1D05608C00A70A3F /* OMRoomViewController.m */,
+				F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */,
 				F941E1F41D05608C00A70A3F /* OMRoomCollectionViewCell.h */,
 				F941E1F51D05608C00A70A3F /* OMRoomCollectionViewCell.m */,
 				F941E1F61D05608C00A70A3F /* OMRoomCollectionViewCell.xib */,
@@ -212,9 +215,6 @@
 				F941E1F91D05608C00A70A3F /* OMRoomTableViewCell.h */,
 				F941E1FA1D05608C00A70A3F /* OMRoomTableViewCell.m */,
 				F941E1FB1D05608C00A70A3F /* OMRoomTableViewCell.xib */,
-				F941E1FC1D05608C00A70A3F /* OMRoomViewController.h */,
-				F941E1FD1D05608C00A70A3F /* OMRoomViewController.m */,
-				F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */,
 			);
 			path = "房间首页";
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@
 
 @interface OMRoomTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (weak, nonatomic) IBOutlet UIView *effectiveView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *timeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
 @property (weak, nonatomic) IBOutlet UISwitch *switchControl;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *addDeviceLabel;
 
@@ -39,7 +38,7 @@
     self.addDeviceLabel.text = @"+Add a new device";
     self.addDeviceLabel.textAlignment = NSTextAlignmentCenter;
 
-    [self.button setBackgroundImage:[[UIImage imageNamed:@"home_choose_device"] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch] forState:UIControlStateNormal];
+    self.backgroundImageView.image = [UIImage imageNamed:@"home_choose_device"];
 
     self.timeImageView.image = [UIImage imageNamed:@"alarm_on"];
     self.arrowImageView.image = [UIImage imageNamed:@"choose_arrow"];
@@ -47,7 +46,7 @@
 
 - (void)addAutoLayout
 {
-    self.button.sd_layout
+    self.backgroundImageView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
     self.effectiveView.sd_layout
@@ -109,11 +108,6 @@
             self.timeImageView.image = [UIImage imageNamed:@"alarm_off"];
         }
     }
-}
-
-- (IBAction)buttonClick:(id)sender
-{
-    
 }
 
 @end
