@@ -24,6 +24,6 @@
 @property (strong, nonatomic) NSString *roomDeviceType;
 @property (strong, nonatomic) NSString *roomDeviceFlag;
 @property (strong, nonatomic) NSString *roomDeviceState;
-
+@property (strong, nonatomic) UIImage *roomDeviceIcon;
 
 @end

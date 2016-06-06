@@ -19,8 +19,15 @@
 		F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831E51CF2E317003807A9 /* OMAddAccountViewController.xib */; };
 		F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */; };
 		F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */; };
-		F941E1E91D05108600A70A3F /* OMRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E1E71D05108600A70A3F /* OMRoomViewController.m */; };
-		F941E1EA1D05108600A70A3F /* OMRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1E81D05108600A70A3F /* OMRoomViewController.xib */; };
+		F941E1FF1D05608C00A70A3F /* OMRoomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E1F51D05608C00A70A3F /* OMRoomCollectionViewCell.m */; };
+		F941E2001D05608C00A70A3F /* OMRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1F61D05608C00A70A3F /* OMRoomCollectionViewCell.xib */; };
+		F941E2011D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E1F81D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m */; };
+		F941E2021D05608C00A70A3F /* OMRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E1FA1D05608C00A70A3F /* OMRoomTableViewCell.m */; };
+		F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1FB1D05608C00A70A3F /* OMRoomTableViewCell.xib */; };
+		F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E1FD1D05608C00A70A3F /* OMRoomViewController.m */; };
+		F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */; };
+		F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */; };
+		F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */; };
 		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
 		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
 		F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */; };
@@ -34,13 +41,8 @@
 		F964F9101D040922005FD22F /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F90F1D040922005FD22F /* UIButton+EnlargeEdge.m */; };
 		F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */; };
 		F964F9191D040EEF005FD22F /* OMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9181D040EEF005FD22F /* OMRoom.m */; };
-		F9BA928E1D045C9B003782BF /* OMRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */; };
-		F9BA928F1D045C9B003782BF /* OMRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */; };
 		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
 		F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A8D1D01261A005AFEEB /* OMBaseCollectionViewCell.m */; };
-		F9C19A971D01271A005AFEEB /* OMRoomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A951D01271A005AFEEB /* OMRoomCollectionViewCell.m */; };
-		F9C19A981D01271A005AFEEB /* OMRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */; };
-		F9C19A9B1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */; };
 		F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */; };
 		F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */; };
 		F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */; };
@@ -72,9 +74,20 @@
 		F93831E81CF2EBF4003807A9 /* OMAddGateWayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddGateWayViewController.h; sourceTree = "<group>"; };
 		F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddGateWayViewController.m; sourceTree = "<group>"; };
 		F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddGateWayViewController.xib; sourceTree = "<group>"; };
-		F941E1E61D05108600A70A3F /* OMRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomViewController.h; sourceTree = "<group>"; };
-		F941E1E71D05108600A70A3F /* OMRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomViewController.m; sourceTree = "<group>"; };
-		F941E1E81D05108600A70A3F /* OMRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomViewController.xib; sourceTree = "<group>"; };
+		F941E1F41D05608C00A70A3F /* OMRoomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomCollectionViewCell.h; sourceTree = "<group>"; };
+		F941E1F51D05608C00A70A3F /* OMRoomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomCollectionViewCell.m; sourceTree = "<group>"; };
+		F941E1F61D05608C00A70A3F /* OMRoomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomCollectionViewCell.xib; sourceTree = "<group>"; };
+		F941E1F71D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		F941E1F81D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		F941E1F91D05608C00A70A3F /* OMRoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomTableViewCell.h; sourceTree = "<group>"; };
+		F941E1FA1D05608C00A70A3F /* OMRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomTableViewCell.m; sourceTree = "<group>"; };
+		F941E1FB1D05608C00A70A3F /* OMRoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomTableViewCell.xib; sourceTree = "<group>"; };
+		F941E1FC1D05608C00A70A3F /* OMRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomViewController.h; sourceTree = "<group>"; };
+		F941E1FD1D05608C00A70A3F /* OMRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomViewController.m; sourceTree = "<group>"; };
+		F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomViewController.xib; sourceTree = "<group>"; };
+		F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddRoomDeviceViewController.h; sourceTree = "<group>"; };
+		F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddRoomDeviceViewController.m; sourceTree = "<group>"; };
+		F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddRoomDeviceViewController.xib; sourceTree = "<group>"; };
 		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
 		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
 		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
@@ -99,18 +112,10 @@
 		F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Common.m"; sourceTree = "<group>"; };
 		F964F9171D040EEF005FD22F /* OMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoom.h; sourceTree = "<group>"; };
 		F964F9181D040EEF005FD22F /* OMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoom.m; sourceTree = "<group>"; };
-		F9BA928B1D045C9B003782BF /* OMRoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomTableViewCell.h; sourceTree = "<group>"; };
-		F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomTableViewCell.m; sourceTree = "<group>"; };
-		F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomTableViewCell.xib; sourceTree = "<group>"; };
 		F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
 		F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		F9C19A8C1D01261A005AFEEB /* OMBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseCollectionViewCell.h; sourceTree = "<group>"; };
 		F9C19A8D1D01261A005AFEEB /* OMBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseCollectionViewCell.m; sourceTree = "<group>"; };
-		F9C19A941D01271A005AFEEB /* OMRoomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomCollectionViewCell.h; sourceTree = "<group>"; };
-		F9C19A951D01271A005AFEEB /* OMRoomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomCollectionViewCell.m; sourceTree = "<group>"; };
-		F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRoomCollectionViewCell.xib; sourceTree = "<group>"; };
-		F9C19A991D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		F9C1BE091D046DB40036AFA5 /* NSMutableDictionary+Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Room.h"; sourceTree = "<group>"; };
 		F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Room.m"; sourceTree = "<group>"; };
 		F9C72EF41CE9EEB100DCBAED /* OMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListViewController.h; sourceTree = "<group>"; };
@@ -156,17 +161,8 @@
 		F915607E1D0006C4009BAA36 /* 房间 */ = {
 			isa = PBXGroup;
 			children = (
-				F941E1E61D05108600A70A3F /* OMRoomViewController.h */,
-				F941E1E71D05108600A70A3F /* OMRoomViewController.m */,
-				F941E1E81D05108600A70A3F /* OMRoomViewController.xib */,
-				F9C19A941D01271A005AFEEB /* OMRoomCollectionViewCell.h */,
-				F9C19A951D01271A005AFEEB /* OMRoomCollectionViewCell.m */,
-				F9C19A961D01271A005AFEEB /* OMRoomCollectionViewCell.xib */,
-				F9C19A991D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.h */,
-				F9C19A9A1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m */,
-				F9BA928B1D045C9B003782BF /* OMRoomTableViewCell.h */,
-				F9BA928C1D045C9B003782BF /* OMRoomTableViewCell.m */,
-				F9BA928D1D045C9B003782BF /* OMRoomTableViewCell.xib */,
+				F941E1F31D05608C00A70A3F /* 房间首页 */,
+				F941E2061D0560B300A70A3F /* 房间设置 */,
 			);
 			path = "房间";
 			sourceTree = "<group>";
@@ -203,6 +199,34 @@
 				F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */,
 			);
 			path = "设备管理";
+			sourceTree = "<group>";
+		};
+		F941E1F31D05608C00A70A3F /* 房间首页 */ = {
+			isa = PBXGroup;
+			children = (
+				F941E1F41D05608C00A70A3F /* OMRoomCollectionViewCell.h */,
+				F941E1F51D05608C00A70A3F /* OMRoomCollectionViewCell.m */,
+				F941E1F61D05608C00A70A3F /* OMRoomCollectionViewCell.xib */,
+				F941E1F71D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.h */,
+				F941E1F81D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m */,
+				F941E1F91D05608C00A70A3F /* OMRoomTableViewCell.h */,
+				F941E1FA1D05608C00A70A3F /* OMRoomTableViewCell.m */,
+				F941E1FB1D05608C00A70A3F /* OMRoomTableViewCell.xib */,
+				F941E1FC1D05608C00A70A3F /* OMRoomViewController.h */,
+				F941E1FD1D05608C00A70A3F /* OMRoomViewController.m */,
+				F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */,
+			);
+			path = "房间首页";
+			sourceTree = "<group>";
+		};
+		F941E2061D0560B300A70A3F /* 房间设置 */ = {
+			isa = PBXGroup;
+			children = (
+				F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */,
+				F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */,
+				F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */,
+			);
+			path = "房间设置";
 			sourceTree = "<group>";
 		};
 		F944CDD81CE9B2A1009547A0 /* 网络 */ = {
@@ -380,17 +404,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
+				F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */,
+				F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */,
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
+				F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
-				F9BA928F1D045C9B003782BF /* OMRoomTableViewCell.xib in Resources */,
-				F941E1EA1D05108600A70A3F /* OMRoomViewController.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMAddAccountViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
+				F941E2001D05608C00A70A3F /* OMRoomCollectionViewCell.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
-				F9C19A981D01271A005AFEEB /* OMRoomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,28 +477,29 @@
 				F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */,
 				F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */,
 				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
+				F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
-				F9C19A971D01271A005AFEEB /* OMRoomCollectionViewCell.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
+				F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,
 				F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */,
+				F941E2011D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m in Sources */,
 				F93831E61CF2E317003807A9 /* OMAddAccountViewController.m in Sources */,
 				F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
-				F9C19A9B1D0127DE005AFEEB /* OMRoomCollectionViewFlowLayout.m in Sources */,
-				F941E1E91D05108600A70A3F /* OMRoomViewController.m in Sources */,
 				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
-				F9BA928E1D045C9B003782BF /* OMRoomTableViewCell.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
+				F941E2021D05608C00A70A3F /* OMRoomTableViewCell.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
 				F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
+				F941E1FF1D05608C00A70A3F /* OMRoomCollectionViewCell.m in Sources */,
 				F964F9101D040922005FD22F /* UIButton+EnlargeEdge.m in Sources */,
 				F964F9191D040EEF005FD22F /* OMRoom.m in Sources */,
 			);

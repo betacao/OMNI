@@ -20,6 +20,7 @@
 
 @property (assign, nonatomic) NSInteger roomCount;
 @property (strong, nonatomic) NSMutableArray *dataArray;
+@property (strong, nonatomic) NSMutableArray *currentArray;
 
 
 @end
@@ -36,6 +37,11 @@
 {
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OMRoomCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"OMRoomCollectionViewCell"];
 
+
+    self.collectionView.sd_layout
+    .heightIs(SCREENHEIGHT / 2.0f);
+    [self.collectionView updateLayout];
+    
     self.tableView.tableHeaderView = self.collectionView;
     self.dataArray = [NSMutableArray array];
 }
@@ -45,9 +51,6 @@
 {
     self.tableView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
-
-    self.collectionView.sd_layout
-    .heightIs(SCREENHEIGHT / 2.0f);
 }
 
 - (void)setDevice:(OMDevice *)device
@@ -55,6 +58,17 @@
     _device = device;
     kAppDelegate.deviceID = device.deviceID;
 }
+
+- (void)setCurrentArray:(NSMutableArray *)currentArray
+{
+    if (currentArray.count == 0) {
+        OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
+        [currentArray addObject:roomDevice];
+    }
+    _currentArray = [NSMutableArray arrayWithArray:currentArray];
+    [self.tableView reloadData];
+}
+
 
 - (NSMutableDictionary *)dictionaryWithRoomNumber:(NSString *)roomNumber
 {
@@ -106,7 +120,7 @@
                 NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
                 [roomDeviceArray addObject:roomDevice];
             }
-            [weakSelf.tableView reloadData];
+            weakSelf.currentArray = [[weakSelf.dataArray firstObject] objectForKey:@"roomDeviceArray"];
         }];
     }];
     
@@ -116,11 +130,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (self.dataArray.count > 0) {
-//        NSArray *array = [self.currentRoomDictionary objectForKey:@"roomDeviceArray"];
-//        return array.count;
-//    }
-    return 0;
+    return self.currentArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return MarginFactor(60.0f);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,7 +144,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OMRoomTableViewCell" owner:self options:nil] firstObject];
     }
-//    cell.roomDevice = [[self.currentRoomDictionary objectForKey:@"roomDeviceArray"] objectAtIndex:indexPath.row];
+    cell.roomDevice = [self.currentArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -154,21 +169,33 @@
     NSLog(@"点击了第%ld行", indexPath.item);
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isEqual:self.collectionView] && self.currentArray.count > 0) {
+        [self.currentArray removeAllObjects];
+        [self.tableView reloadData];
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    __block CGFloat offsetAdjustment = MAXFLOAT;
-    __block NSIndexPath *indexPath = nil;
-    CGFloat horizontalCenter = CGRectGetWidth(self.collectionView.bounds) / 2.0f + scrollView.contentOffset.x;
-    NSArray *array = [self.collectionView visibleCells];
-    [array enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSIndexPath *path = [self.collectionView indexPathForCell:cell];
-        UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:path];
-        CGFloat itemHorizontalCenter = attributes.center.x;
-        if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
-            offsetAdjustment = itemHorizontalCenter - horizontalCenter;
-            indexPath = path;
-        }
-    }];
+    if ([scrollView isEqual:self.collectionView]) {
+        __block CGFloat offsetAdjustment = MAXFLOAT;
+        __block NSIndexPath *indexPath = nil;
+        CGFloat horizontalCenter = CGRectGetWidth(self.collectionView.bounds) / 2.0f + scrollView.contentOffset.x;
+        NSArray *array = [self.collectionView visibleCells];
+        [array enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSIndexPath *path = [self.collectionView indexPathForCell:cell];
+            UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:path];
+            CGFloat itemHorizontalCenter = attributes.center.x;
+            if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
+                offsetAdjustment = itemHorizontalCenter - horizontalCenter;
+                indexPath = path;
+            }
+        }];
+
+        self.currentArray = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"roomDeviceArray"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
