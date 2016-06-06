@@ -127,6 +127,11 @@
     
 }
 
+- (void)rightButtonClick:(UIButton *)button
+{
+    
+}
+
 #pragma mark ------tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

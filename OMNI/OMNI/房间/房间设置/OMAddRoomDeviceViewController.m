@@ -99,7 +99,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return MarginFactor(60.0f);
+    return MarginFactor(80.0f);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,25 +132,18 @@
 
 @implementation OMAddRoomDeviceTableViewCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.iconImageView = [[UIImageView alloc] init];
-        self.nameLabel = [[UILabel alloc] init];
-        self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_type_tick"]];
-        self.spliteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_type_line"]];
-        [self.contentView sd_addSubviews:@[self.iconImageView, self.nameLabel, self.selectedImageView, self.spliteView]];
-
-    }
-    return self;
-}
-
 - (void)initView
 {
+    self.iconImageView = [[UIImageView alloc] init];
+    self.nameLabel = [[UILabel alloc] init];
+    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_type_tick"]];
+    self.spliteView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_type_line"]];
+    [self.contentView sd_addSubviews:@[self.iconImageView, self.nameLabel, self.selectedImageView, self.spliteView]];
+
+    self.contentView.backgroundColor = self.backgroundColor = Color(@"0");
     self.nameLabel.textColor = [UIColor blackColor];
     self.nameLabel.font = BoldFontFactor(15.0f);
-
+    self.selectedImageView.hidden = YES;
 }
 
 - (void)addAutoLayout
@@ -167,14 +160,14 @@
 
     self.selectedImageView.sd_resetLayout
     .centerYEqualToView(self.contentView)
-    .rightSpaceToView(self.iconImageView, MarginFactor(10.0f))
+    .rightSpaceToView(self.contentView, MarginFactor(10.0f))
     .widthIs(self.selectedImageView.image.size.width)
     .heightIs(self.selectedImageView.image.size.height);
 
     self.spliteView.sd_layout
-    .bottomSpaceToView(self.iconImageView, 0.0f)
-    .leftSpaceToView(self.iconImageView, 0.0f)
-    .rightSpaceToView(self.iconImageView, 0.0f)
+    .bottomSpaceToView(self.contentView, 0.0f)
+    .leftSpaceToView(self.contentView, 0.0f)
+    .rightSpaceToView(self.contentView, 0.0f)
     .heightIs(self.spliteView.image.size.height);
 }
 
@@ -187,9 +180,15 @@
 
     self.iconImageView.sd_resetLayout
     .centerYEqualToView(self.contentView)
-    .leftSpaceToView(self.contentView, MarginFactor(10.0f))
+    .leftSpaceToView(self.contentView, MarginFactor(20.0f))
     .widthIs(self.iconImageView.image.size.width)
     .heightIs(self.iconImageView.image.size.height);
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    self.selectedImageView.hidden = !selected;
 }
 
 @end

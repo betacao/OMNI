@@ -7,7 +7,14 @@
 //
 
 #import "OMBaseViewController.h"
+#import "OMBaseTableViewCell.h"
 
 @interface OMGuideViewController : OMBaseViewController
+
+@end
+
+@interface OMGuideTableViewCell : OMBaseTableViewCell
+
+@property (strong, nonatomic) NSString *object;
 
 @end

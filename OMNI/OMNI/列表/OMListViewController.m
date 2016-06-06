@@ -12,6 +12,7 @@
 #import "OMGuideViewController.h"
 #import "OMRoomViewController.h"
 #import "OMRoomViewController.h"
+#import "OMGuideViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -34,7 +35,7 @@
 {
     self.dataArray = [NSMutableArray array];
 
-    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_edit_normal"] highlightedImage:[UIImage imageNamed:@"button_edit_normal_down"]];
+    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_edit_help"] highlightedImage:[UIImage imageNamed:@"button_edit_help_down"]];
     self.tableView.tableFooterView = self.footerView;
 }
 
