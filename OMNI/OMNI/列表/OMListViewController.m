@@ -11,6 +11,7 @@
 #import "OMAddAccountViewController.h"
 #import "OMGuideViewController.h"
 #import "OMRoomViewController.h"
+#import "OMRoomViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -117,6 +118,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    OMRoomViewController *controller = [[OMRoomViewController alloc] init];
+//    controller.device = [self.dataArray objectAtIndex:indexPath.row];
+//    [self.navigationController pushViewController:controller animated:YES];
+
     OMRoomViewController *controller = [[OMRoomViewController alloc] init];
     controller.device = [self.dataArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];

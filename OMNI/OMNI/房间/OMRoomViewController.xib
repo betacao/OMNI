@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMRoomViewController">
             <connections>
-                <outlet property="imageView" destination="wLZ-0n-5Ph" id="Q7g-l7-bQU"/>
-                <outlet property="tableHeaderView" destination="vA9-sA-eVJ" id="oec-27-5qC"/>
-                <outlet property="tableView" destination="FnN-mZ-7fS" id="vGQ-mr-BfA"/>
+                <outlet property="collectionView" destination="QBd-yS-guM" id="PoW-4o-2rT"/>
+                <outlet property="collectionViewFlowLayout" destination="7P9-NH-lj9" id="hHH-C7-7Gf"/>
+                <outlet property="tableView" destination="gBd-Ht-Z8X" id="hrs-CB-QEE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,32 +18,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FnN-mZ-7fS">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gBd-Ht-Z8X">
+                    <rect key="frame" x="40" y="220" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="Kyp-bw-Zjn"/>
-                        <outlet property="delegate" destination="-1" id="7zX-E3-VQv"/>
+                        <outlet property="dataSource" destination="-1" id="GiB-OF-uQE"/>
+                        <outlet property="delegate" destination="-1" id="5Cx-Ip-jc2"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="167" y="263"/>
+            <point key="canvasLocation" x="292" y="342"/>
         </view>
-        <view contentMode="scaleToFill" id="vA9-sA-eVJ">
+        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" id="QBd-yS-guM">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" id="wLZ-0n-5Ph">
-                    <rect key="frame" x="40" y="220" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-        </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7P9-NH-lj9" customClass="OMRoomCollectionViewFlowLayout">
+                <size key="itemSize" width="200" height="230"/>
+                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            </collectionViewFlowLayout>
+            <connections>
+                <outlet property="dataSource" destination="-1" id="tfU-gb-XR9"/>
+                <outlet property="delegate" destination="-1" id="RLZ-oH-rG0"/>
+            </connections>
+        </collectionView>
     </objects>
-    <resources>
-        <image name="bg" width="320" height="568"/>
-    </resources>
 </document>

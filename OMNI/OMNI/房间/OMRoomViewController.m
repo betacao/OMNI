@@ -2,7 +2,7 @@
 //  OMRoomViewController.m
 //  OMNI
 //
-//  Created by changxicao on 16/6/2.
+//  Created by changxicao on 16/6/6.
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
@@ -12,14 +12,11 @@
 #import "OMRoomTableViewCell.h"
 #import "NSMutableDictionary+Room.h"
 
-@interface OMRoomViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
-@property (strong, nonatomic) UICollectionView *collectionView;
-@property (strong, nonatomic) OMRoomCollectionViewFlowLayout *collectionViewFlowLayout;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet OMRoomCollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property (assign, nonatomic) NSInteger roomCount;
 @property (strong, nonatomic) NSMutableArray *dataArray;
@@ -32,42 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
 }
 
 - (void)initView
 {
-    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
-
-    self.collectionViewFlowLayout = [[OMRoomCollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewFlowLayout];
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OMRoomCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"OMRoomCollectionViewCell"];
 
-    self.imageView.contentMode = UIViewContentModeScaleToFill;
-
-    [self.tableHeaderView addSubview:self.collectionView];
-    self.tableHeaderView.clipsToBounds = YES;
-    self.tableHeaderView.sd_layout
-    .heightIs(SCREENHEIGHT / 2.0f);
-
-    self.tableView.tableHeaderView = self.tableHeaderView;
-
+    self.tableView.tableHeaderView = self.collectionView;
     self.dataArray = [NSMutableArray array];
 }
 
+
 - (void)addAutoLayout
 {
-    self.imageView.sd_layout
+    self.tableView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
     self.collectionView.sd_layout
-    .spaceToSuperView(UIEdgeInsetsZero);
-
-    self.tableView.sd_layout
-    .spaceToSuperView(UIEdgeInsetsZero);
+    .heightIs(SCREENHEIGHT / 2.0f);
 }
 
 - (void)setDevice:(OMDevice *)device
@@ -129,17 +109,17 @@
             [weakSelf.tableView reloadData];
         }];
     }];
-
+    
 }
 
 #pragma mark ------tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.dataArray.count > 0) {
-        NSMutableArray *array = [[self.dataArray objectAtIndex:0] objectForKey:@"roomDeviceArray"];
-        return array.count;
-    }
+//    if (self.dataArray.count > 0) {
+//        NSArray *array = [self.currentRoomDictionary objectForKey:@"roomDeviceArray"];
+//        return array.count;
+//    }
     return 0;
 }
 
@@ -149,9 +129,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OMRoomTableViewCell" owner:self options:nil] firstObject];
     }
-
-    NSMutableDictionary *dictionary = [self.dataArray objectAtIndex:0];
-    cell.roomDevice = [[dictionary objectForKey:@"roomDeviceArray"] objectAtIndex:indexPath.row];
+//    cell.roomDevice = [[self.currentRoomDictionary objectForKey:@"roomDeviceArray"] objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -166,7 +144,7 @@
 {
     OMRoomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OMRoomCollectionViewCell" forIndexPath:indexPath];
 
-    NSMutableDictionary *dictionary = [self.dataArray objectAtIndex:0];
+    NSDictionary *dictionary = [self.dataArray objectAtIndex:indexPath.item];
     cell.room = [dictionary objectForKey:@"room"];
     return cell;
 }
@@ -176,19 +154,11 @@
     NSLog(@"点击了第%ld行", indexPath.item);
 }
 
-//使前后项都能居中显示
-- (UIEdgeInsets)collectionView:(nonnull UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    CGSize size = self.collectionViewFlowLayout.itemSize;
-    UIEdgeInsets inSet = UIEdgeInsetsMake(0, (collectionView.bounds.size.width - size.width) / 2, 0, (collectionView.bounds.size.width - size.width) / 2);
-    return inSet;
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     __block CGFloat offsetAdjustment = MAXFLOAT;
     __block NSIndexPath *indexPath = nil;
-    CGFloat horizontalCenter = CGRectGetWidth(self.collectionView.bounds) / 2.0f;
+    CGFloat horizontalCenter = CGRectGetWidth(self.collectionView.bounds) / 2.0f + scrollView.contentOffset.x;
     NSArray *array = [self.collectionView visibleCells];
     [array enumerateObjectsUsingBlock:^(UICollectionViewCell *cell, NSUInteger idx, BOOL * _Nonnull stop) {
         NSIndexPath *path = [self.collectionView indexPathForCell:cell];
@@ -199,7 +169,6 @@
             indexPath = path;
         }
     }];
-    [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPath];
 }
 
 - (void)didReceiveMemoryWarning

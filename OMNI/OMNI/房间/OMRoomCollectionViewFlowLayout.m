@@ -13,21 +13,16 @@
 
 @implementation OMRoomCollectionViewFlowLayout
 
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.itemSize = CGSizeMake(SCREENHEIGHT / 3.0f, SCREENHEIGHT / 3.0f * 1.2f);
-        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.minimumLineSpacing = kMinimumLineSpacing;
-    }
-    return self;
-}
-
 - (void)prepareLayout
 {
     [super prepareLayout];
+    // 设置为水平滚动
+    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+
+    // 设置内边距
+    CGFloat insetGap = (self.collectionView.frame.size.width - self.itemSize.width) * 0.5;
+    self.sectionInset = UIEdgeInsetsMake(0, insetGap, 0, insetGap);
+    self.minimumLineSpacing = kMinimumLineSpacing;
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
