@@ -31,12 +31,14 @@
 {
     [super viewDidLoad];
     self.title = @"Account";
-    self.nameField.text = @"18551796889";
-    self.passwordField.text = @"111111";
+    self.nameField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserID];
+    self.passwordField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserPassword];
 }
 
 - (void)initView
 {
+    self.rememberButton.selected = [[NSUserDefaults standardUserDefaults] boolForKey:kRememberInfo];
+
     UIView *leftView1 = [[UIView alloc] init];
     UIImageView *leftImageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"settings_account"]];
     [leftView1 addSubview:leftImageView1];
@@ -132,7 +134,19 @@
 
 - (void)addReactiveCocoa
 {
-    [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+    [[[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] doNext:^(id x) {
+        if (self.rememberButton.isSelected) {
+            [[NSUserDefaults standardUserDefaults] setObject:self.nameField.text forKey:kUserID];
+            [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:kUserPassword];
+            [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:kRememberInfo];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kUserID];
+            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kUserPassword];
+            [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:kRememberInfo];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }] flattenMap:^RACStream *(id value) {
         return [self loginSignal];
     }] subscribeNext:^(NSString *x) {
         if ([x containsString:@"success"]) {
@@ -151,6 +165,10 @@
     [[self.guideButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMGuideViewController *controller = [[OMGuideViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
+    }];
+
+    [[self.rememberButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *button) {
+        button.selected = !button.isSelected;
     }];
 }
 

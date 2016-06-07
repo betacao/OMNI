@@ -1,5 +1,5 @@
 //
-//  OMAddAccountViewController.h
+//  OMWifiConfigViewController.h
 //  OMNI
 //
 //  Created by changxicao on 16/5/23.
@@ -8,6 +8,6 @@
 
 #import "OMBaseViewController.h"
 
-@interface OMAddAccountViewController : OMBaseViewController
+@interface OMWifiConfigViewController : OMBaseViewController
 
 @end

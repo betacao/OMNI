@@ -8,7 +8,7 @@
 
 #import "OMListViewController.h"
 #import "OMListTableViewCell.h"
-#import "OMAddAccountViewController.h"
+#import "OMWifiConfigViewController.h"
 #import "OMGuideViewController.h"
 #import "OMRoomViewController.h"
 #import "OMRoomViewController.h"
@@ -17,7 +17,7 @@
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *addDeviceButton;
+@property (weak, nonatomic) IBOutlet UIButton *footerButton;
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Account";
+    self.title = @"Gateway List";
 }
 
 - (void)initView
@@ -45,15 +45,15 @@
     .spaceToSuperView(UIEdgeInsetsZero);
 
     self.footerView.sd_layout
-    .centerXEqualToView(self.addDeviceButton.superview)
+    .centerXEqualToView(self.footerButton.superview)
     .widthIs(SCREENWIDTH)
     .heightIs(MarginFactor(90.0f));
 
-    self.addDeviceButton.sd_layout
+    self.footerButton.sd_layout
     .centerXEqualToView(self.footerView)
     .centerYEqualToView(self.footerView)
-    .widthIs(self.addDeviceButton.currentBackgroundImage.size.width)
-    .heightIs(self.addDeviceButton.currentBackgroundImage.size.height);
+    .widthIs(self.footerButton.currentBackgroundImage.size.width)
+    .heightIs(self.footerButton.currentBackgroundImage.size.height);
     
 }
 
@@ -88,9 +88,9 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (IBAction)addAccount:(UIButton *)button
+- (IBAction)footerButtonClick:(UIButton *)button
 {
-    OMAddAccountViewController *controller = [[OMAddAccountViewController alloc] init];
+    OMWifiConfigViewController *controller = [[OMWifiConfigViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -119,10 +119,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    OMRoomViewController *controller = [[OMRoomViewController alloc] init];
-//    controller.device = [self.dataArray objectAtIndex:indexPath.row];
-//    [self.navigationController pushViewController:controller animated:YES];
-
     OMRoomViewController *controller = [[OMRoomViewController alloc] init];
     controller.device = [self.dataArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];

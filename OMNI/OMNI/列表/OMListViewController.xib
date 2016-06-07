@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMListViewController">
             <connections>
-                <outlet property="addDeviceButton" destination="MNO-JH-ZLp" id="cOT-sm-DND"/>
+                <outlet property="footerButton" destination="MNO-JH-ZLp" id="Tez-HG-A5a"/>
                 <outlet property="footerView" destination="pdh-4v-1Vj" id="lBz-FU-Pov"/>
                 <outlet property="tableView" destination="VRE-MQ-duv" id="435-Hp-Y4D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -39,11 +39,11 @@
                     <rect key="frame" x="137" y="124" width="46" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="+ Add Account" backgroundImage="button_login_bg">
+                    <state key="normal" title="+ Add Gateway" backgroundImage="button_login_bg">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="addAccount:" destination="-1" eventType="touchUpInside" id="t98-8P-aD0"/>
+                        <action selector="footerButtonClick:" destination="-1" eventType="touchUpInside" id="eAo-tc-4xL"/>
                     </connections>
                 </button>
             </subviews>

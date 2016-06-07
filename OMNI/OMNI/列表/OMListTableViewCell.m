@@ -64,9 +64,9 @@
 - (void)setDevice:(OMDevice *)device
 {
     _device = device;
-    self.nameLabel.text = [@"设备名 ：" stringByAppendingString:device.deviceName];
-    self.IDLabel.text = [@"设备ID ：" stringByAppendingString:device.deviceID];
-    self.stateLabel.text = [@"状    态 ：" stringByAppendingString:device.deviceState];
+    self.nameLabel.text = [@"Nmae :" stringByAppendingString:device.deviceName];
+    self.IDLabel.text = [@"Gateway ID :" stringByAppendingString:device.deviceID];
+    self.stateLabel.text = [@"status :" stringByAppendingString:device.deviceState];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -9,6 +9,14 @@
 #ifndef const_h
 #define const_h
 
+#pragma mark ------ constString
+
+#define kRememberInfo   @"rememberUserInfo"
+#define kUserID         @"userID"
+#define kUserPassword   @"password"
+
+#pragma mark ------ define
+
 #define WEAK(self, weakSelf) __weak typeof(self) weakSelf = self
 
 #define kAppDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)

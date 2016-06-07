@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *confirmField;
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
 
+@property (assign, nonatomic) BOOL shouldSendRequest;
 @end
 
 @implementation OMRegisterViewController
@@ -132,20 +133,54 @@
     .heightIs(self.commitButton.currentBackgroundImage.size.height);
 }
 
+- (BOOL)isValidUsername:(NSString *)username
+{
+    if (username.length > 12) {
+        [self.view showWithText:@"用户名长度应小于12位"];
+    }
+    return username.length < 12;
+}
+
 - (void)addReactiveCocoa
 {
-    [[[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
-        return [self commitSignal];
-    }] subscribeNext:^(id x) {
-
+    [[[self.nameField rac_textSignal] map:^id(NSString *value) {
+        return @([self isValidUsername:value]);
+    }] subscribeNext:^(NSNumber *value) {
+        if (![value boolValue]) {
+            self.nameField.text = [self.nameField.text substringToIndex:12];
+        }
+    }];
+    
+    [[[[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside] doNext:^(id x) {
+        self.shouldSendRequest = YES;
+        if (self.nameField.text.length == 0) {
+            [self.view showWithText:@"用户名不能为空"];
+            self.shouldSendRequest = NO;
+        } else if (self.passwordField.text.length != 6) {
+            [self.view showWithText:@"请输入六位数密码"];
+            self.shouldSendRequest = NO;
+        } else if (![self.confirmField.text isEqualToString:self.passwordField.text]) {
+            [self.view showWithText:@"两次输入的密码不一致"];
+            self.shouldSendRequest = NO;
+        }
+    }] flattenMap:^RACStream *(id value) {
+        if (self.shouldSendRequest) {
+            return [self commitSignal];
+        }
+        return nil;
+    }] subscribeNext:^(NSString *x) {
+        if ([x containsString:@"success"]) {
+            [self.view showWithText:@"注册成功"];
+            [self.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:@(YES) afterDelay:1.2f];
+        }
     }];
 }
 
 - (RACSignal *)commitSignal
 {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [OMGlobleManager regist:@[] inView:self.view block:^(NSString *string) {
-            [subscriber sendNext:string];
+        [OMGlobleManager regist:@[self.nameField.text, self.passwordField] inView:self.view block:^(NSString *string) {
+            [subscriber sendNext:[string lowercaseString]];
             [subscriber sendCompleted];
         }];
         return nil;

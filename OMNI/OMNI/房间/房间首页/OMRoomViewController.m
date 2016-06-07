@@ -129,7 +129,8 @@
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    
+    OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark ------tableView
@@ -180,14 +181,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了第%ld行", indexPath.item);
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if ([scrollView isEqual:self.collectionView] && self.currentArray.count > 0) {
-        [self.currentArray removeAllObjects];
-        [self.tableView reloadData];
-    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

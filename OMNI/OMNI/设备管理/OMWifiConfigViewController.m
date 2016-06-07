@@ -1,14 +1,14 @@
 //
-//  OMAddAccountViewController.m
+//  OMWifiConfigViewController.m
 //  OMNI
 //
 //  Created by changxicao on 16/5/23.
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMAddAccountViewController.h"
+#import "OMWifiConfigViewController.h"
 
-@interface OMAddAccountViewController ()
+@interface OMWifiConfigViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation OMAddAccountViewController
+@implementation OMWifiConfigViewController
 
 - (void)viewDidLoad
 {

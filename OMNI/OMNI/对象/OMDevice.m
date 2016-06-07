@@ -14,16 +14,16 @@
 {
     _deviceNumber = deviceNumber;
     if ([deviceNumber isEqualToString:@"1"]) {
-        self.deviceName = @"智能主机";
+        self.deviceName = @"Gateway";
     }
 }
 
 - (void)setDeviceState:(NSString *)deviceState
 {
     if ([deviceState isEqualToString:@"0"]) {
-        _deviceState = @"离线";
+        _deviceState = @"offline";
     } else {
-        _deviceState = @"在线";
+        _deviceState = @"online";
     }
 }
 

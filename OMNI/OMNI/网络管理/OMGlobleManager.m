@@ -28,7 +28,7 @@
 
 + (void)regist:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
 {
-    NSString *request = [NSString stringWithFormat:@"fyzn2015#1#6#%@#%@#", [array firstObject], [array lastObject]];
+    NSString *request = [NSString stringWithFormat:@"fyzn2015#1#7#%@#%@#0#0#0#1111#", [array firstObject], [array lastObject]];
     [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
 }
 
