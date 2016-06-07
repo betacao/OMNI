@@ -7,6 +7,7 @@
 //
 
 #import "UIView+HUD.h"
+#import "NSObject+Extend.h"
 
 @implementation UIView (HUD)
 
@@ -28,10 +29,18 @@
 
 - (void)showWithText:(NSString *)text
 {
-    [self performSelectorOnMainThread:@selector(showTextOnMainThread:) withObject:text waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(showTextOnMainThread:enable:duration:) withObjects:@[text, @(YES), @(2.0f)] waitUntilDone:YES];
 }
 
-- (void)showTextOnMainThread:(NSString *)text
+- (void)showWithText:(NSString *)text enable:(BOOL)enable duration:(NSTimeInterval)duration
+{
+    [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
+
+    [self performSelectorOnMainThread:@selector(showTextOnMainThread:enable:duration:) withObjects:@[text, @(enable) ,@(0.0f)] waitUntilDone:YES];
+}
+
+- (void)showTextOnMainThread:(NSString *)text enable:(NSNumber *)enable duration:(NSNumber *)duration
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
@@ -49,7 +58,10 @@
     hud.removeFromSuperViewOnHide = YES;
     hud.opacity = 0.85f;
     hud.margin = MarginFactor(18.0f);
-    [hud hide:YES afterDelay:2.0f];
+    hud.userInteractionEnabled = [enable boolValue];
+    if ([duration floatValue] > 0.0f) {
+        [hud hide:YES afterDelay:[duration floatValue]];
+    }
 }
 
 - (void)hideHudOnMainThread

@@ -14,20 +14,23 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - SDAutoLayout (1.53)
+  - SDAutoLayout (2.1.1)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - MBProgressHUD
   - ReactiveCocoa
   - SDAutoLayout
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
+  SDAutoLayout: c18678b6ae28c67d89cb132e770cfbac9ee20d25
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
-PODFILE CHECKSUM: c0426079268449b635fda69813aa07858ae9300f
+PODFILE CHECKSUM: 5ebea7de0989f4239f934a7a66e1d298310a0a63
 
 COCOAPODS: 1.0.0.rc.1

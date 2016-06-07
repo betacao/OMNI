@@ -180,7 +180,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了第%ld行", indexPath.item);
+    NSLog(@"点击了第%ld行", (long)indexPath.item);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

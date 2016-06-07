@@ -13,6 +13,8 @@
 
 - (void)showLoading;
 - (void)showWithText:(NSString *)text;
-
 - (void)hideHud;
+
+- (void)showWithText:(NSString *)text enable:(BOOL)enable duration:(NSTimeInterval)duration;
+
 @end

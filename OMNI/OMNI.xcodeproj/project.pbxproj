@@ -15,7 +15,7 @@
 		F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2B1D0695E30055CB35 /* ESP_CRC8.m */; };
 		F91EAA441D0695E30055CB35 /* ESP_NetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2D1D0695E30055CB35 /* ESP_NetUtil.m */; };
 		F91EAA451D0695E30055CB35 /* ESPDataCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2F1D0695E30055CB35 /* ESPDataCode.m */; };
-		F91EAA461D0695E30055CB35 /* ESPDatumCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA311D0695E30055CB35 /* ESPDatumCode.m */; };
+		F91EAA461D0695E30055CB35 /* ESPDatumCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA311D0695E30055CB35 /* ESPDatumCode.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		F91EAA471D0695E30055CB35 /* ESPGuideCode.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA331D0695E30055CB35 /* ESPGuideCode.m */; };
 		F91EAA481D0695E30055CB35 /* ESPTouchGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA351D0695E30055CB35 /* ESPTouchGenerator.m */; };
 		F91EAA491D0695E30055CB35 /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA371D0695E30055CB35 /* ESPTouchResult.m */; };
@@ -28,7 +28,7 @@
 		F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */; };
 		F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F933992D1CEC47C0009C61C1 /* OMDevice.m */; };
 		F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */; };
-		F93831E61CF2E317003807A9 /* OMWifiConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E41CF2E317003807A9 /* OMWifiConfigViewController.m */; };
+		F93831E61CF2E317003807A9 /* OMWifiConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E41CF2E317003807A9 /* OMWifiConfigViewController.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831E51CF2E317003807A9 /* OMWifiConfigViewController.xib */; };
 		F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E91CF2EBF4003807A9 /* OMAddGateWayViewController.m */; };
 		F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831EA1CF2EBF4003807A9 /* OMAddGateWayViewController.xib */; };
@@ -41,6 +41,8 @@
 		F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */; };
 		F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */; };
 		F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */; };
+		F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A01D06A4F400842778 /* NSObject+Extend.m */; };
+		F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */; };
 		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
 		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
 		F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */; };
@@ -97,7 +99,7 @@
 		F91EAA3D1D0695E30055CB35 /* ESPUDPSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketClient.m; sourceTree = "<group>"; };
 		F91EAA3E1D0695E30055CB35 /* ESPUDPSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPUDPSocketServer.h; sourceTree = "<group>"; };
 		F91EAA3F1D0695E30055CB35 /* ESPUDPSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketServer.m; sourceTree = "<group>"; };
-		F91EAA401D0695E30055CB35 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		F91EAA401D0695E30055CB35 /* IPAddress.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = IPAddress.c; sourceTree = "<group>"; };
 		F91EAA411D0695E30055CB35 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
 		F93399261CEC413F009C61C1 /* OMListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListTableViewCell.h; sourceTree = "<group>"; };
@@ -127,6 +129,10 @@
 		F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddRoomDeviceViewController.h; sourceTree = "<group>"; };
 		F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddRoomDeviceViewController.m; sourceTree = "<group>"; };
 		F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddRoomDeviceViewController.xib; sourceTree = "<group>"; };
+		F943C19F1D06A4F400842778 /* NSObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extend.h"; sourceTree = "<group>"; };
+		F943C1A01D06A4F400842778 /* NSObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extend.m"; sourceTree = "<group>"; };
+		F943C1A21D06ACA200842778 /* OMBaseScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseScrollViewController.h; sourceTree = "<group>"; };
+		F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseScrollViewController.m; sourceTree = "<group>"; };
 		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
 		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
 		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 				F9E6432E1CE5C4C700D35FB1 /* 登录 */,
 				F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */,
 				F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */,
+				F943C1A21D06ACA200842778 /* OMBaseScrollViewController.h */,
+				F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */,
 				F93831DF1CF2D7E4003807A9 /* OMBaseTableViewCell.h */,
 				F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */,
 				F9C19A8C1D01261A005AFEEB /* OMBaseCollectionViewCell.h */,
@@ -383,6 +391,8 @@
 				F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */,
 				F9C1BE091D046DB40036AFA5 /* NSMutableDictionary+Room.h */,
 				F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */,
+				F943C19F1D06A4F400842778 /* NSObject+Extend.h */,
+				F943C1A01D06A4F400842778 /* NSObject+Extend.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -571,6 +581,7 @@
 				F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
+				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
 				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
 				F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
@@ -580,6 +591,7 @@
 				F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
 				F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */,
+				F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 				F91EAA491D0695E30055CB35 /* ESPTouchResult.m in Sources */,
 				F941E1FF1D05608C00A70A3F /* OMRoomCollectionViewCell.m in Sources */,
@@ -696,6 +708,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -712,6 +725,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";

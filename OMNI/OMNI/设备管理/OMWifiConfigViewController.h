@@ -6,8 +6,8 @@
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMBaseViewController.h"
+#import "OMBaseScrollViewController.h"
 
-@interface OMWifiConfigViewController : OMBaseViewController
+@interface OMWifiConfigViewController : OMBaseScrollViewController
 
 @end

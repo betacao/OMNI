@@ -7,4 +7,6 @@ pod 'MBProgressHUD'
 pod 'SDAutoLayout'
 pod 'CocoaAsyncSocket'
 pod 'ReactiveCocoa'
+pod 'TTTAttributedLabel'
+
 end

@@ -34,8 +34,8 @@
 {
     self.tableView.sd_layout
     .leftSpaceToView(self.view, MarginFactor(10.0f))
-    .rightSpaceToView(self.view, MarginFactor(20.0f))
-    .topSpaceToView(self.view, MarginFactor(10.0f))
+    .rightSpaceToView(self.view, MarginFactor(10.0f))
+    .topSpaceToView(self.view, MarginFactor(20.0f))
     .heightIs(self.titleArray.count * MarginFactor(55.0f));
 
     self.tableView.sd_cornerRadius = @(5);

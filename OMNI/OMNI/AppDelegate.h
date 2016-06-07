@@ -18,5 +18,8 @@
 @property (strong, nonatomic) NSString *roomID;
 @property (strong, nonatomic) NSString *receivedStream;
 
+
+@property (strong, nonatomic) NSString *ESPDescription;
+
 @end
 
