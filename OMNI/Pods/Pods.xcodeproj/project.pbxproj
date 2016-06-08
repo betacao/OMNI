@@ -70,12 +70,12 @@
 		49710AAB03D5C7B9F070FAA69ADA3C61 /* UIAlertView+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD329910210996318900DCB5B9FC881 /* UIAlertView+RACSignalSupport.m */; };
 		4AE3B43512D2D8B63E48389AB07B5B7F /* RACCompoundDisposableProvider.d in Sources */ = {isa = PBXBuildFile; fileRef = 5FA178ACECF36AC4F79CFA3A9D85116C /* RACCompoundDisposableProvider.d */; };
 		4B94EF3CB89FBEFB0A24FF78B3A4FEA1 /* RACEXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FD21C541AF59470761D7FC225E39FAAE /* RACEXTRuntimeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BE05FCA3E3EFBF1CD099BB5B6C2A14A /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D58CD1BDAACDFD649C23298F4F20D115 /* TTTAttributedLabel.m */; };
 		4D3053B490BC7BCB9B03723DA2B6E3AA /* NSString+RACSequenceAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0800EDEF71AFA04310DC3EDCBF78628 /* NSString+RACSequenceAdditions.m */; };
 		4D366DF7E8F8A8B552883B1970FC0EAE /* UIBarButtonItem+RACCommandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AD8F779FF9706A3E4D43D7F464E795 /* UIBarButtonItem+RACCommandSupport.m */; };
 		4E1DE6ADC7848C606ABF6BE80218D8B5 /* RACSubscriptionScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = EB42D2859C1EA8517C5FD7D99A5BABE6 /* RACSubscriptionScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E671D700A1BB763B0C2AE75BE330FA6 /* RACReplaySubject.h in Headers */ = {isa = PBXBuildFile; fileRef = C326108E479A30D0F421E6637D7C0227 /* RACReplaySubject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D1C6E6691BC85F8A9A0660C1F101DD /* RACCompoundDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C319F9A22F154EB2B0312613E3AF882 /* RACCompoundDisposable.m */; };
-		5167BADDA362FF34B3F97FD3F33B1F15 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D58CD1BDAACDFD649C23298F4F20D115 /* TTTAttributedLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		5309BA7E40A7F56D0BA18530024F39B3 /* RACGroupedSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E15C9978CA41B129E20F7281FDFBEF4 /* RACGroupedSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		564F1CD94B05C7247EABD5503EA9A76C /* UISegmentedControl+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = E9569E22933CFE1E379C644F62E9749E /* UISegmentedControl+RACSignalSupport.m */; };
 		56EE8510CF559E73B3350C493699A9B6 /* RACScopedDisposable.h in Headers */ = {isa = PBXBuildFile; fileRef = AA5CF4F282B9530256E7F201AD6BE63A /* RACScopedDisposable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,6 +133,7 @@
 		935552BE0FE2E3FA49F896DEACAE5C5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CD3774BB6C047215BA9BE44B6BF049 /* Foundation.framework */; };
 		955767FA61D45AC1D94AFBE62909765B /* RACScheduler+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = BA71B15846EEA17D10D727EEF5DD5D32 /* RACScheduler+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		95A95C4DF16ECDEB0D57D63E71E67A4A /* UIImagePickerController+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC28BDB6B9515951E85A6D01A14900D /* UIImagePickerController+RACSignalSupport.m */; };
+		97E9D43F08458DCFF435DC086B27D3F6 /* TTTAttributedLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C917DD774D6088A2DEBC0C54576B6546 /* TTTAttributedLabel-dummy.m */; };
 		9A37F68E558534DABD4D3F55C33DA8DE /* RACEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8814D07DCBF413C87926AFA9720F7DCE /* RACEvent.m */; };
 		9B9AD0CCEDEA0EC4AD2FBFDE82118B31 /* UIStepper+RACSignalSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C6142653AE562B4A61D992E25C89B04C /* UIStepper+RACSignalSupport.m */; };
 		9C29D8DE718841990CD4DCFB5CBDFECD /* UIDatePicker+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C12330B0D072A4C3C339AA2FBEEE05F /* UIDatePicker+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -174,7 +175,6 @@
 		BABD981BE5DE0FE1AEB1B29F4858BE55 /* NSOrderedSet+RACSequenceAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E1756ACCE143BB55ABEB9E8F1BB211FE /* NSOrderedSet+RACSequenceAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBDA0BA7EF0F4A92E6D696159137A9D2 /* RACKVOTrampoline.h in Headers */ = {isa = PBXBuildFile; fileRef = 2927098FE68C65BE370983D9D9EE4E65 /* RACKVOTrampoline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD5DF911FEF998EF3CEA115967750959 /* UIBarButtonItem+RACCommandSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = BD36B3813A19D3448306F0C89A62F60B /* UIBarButtonItem+RACCommandSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD60A033A2C561D1C8F52DC73B47A7D4 /* TTTAttributedLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C917DD774D6088A2DEBC0C54576B6546 /* TTTAttributedLabel-dummy.m */; };
 		BD695BB73648121EE4A3D71747D650CF /* UISlider+RACSignalSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = BF3DFD6846953E5B7F95A05D6F49BDF1 /* UISlider+RACSignalSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD7B68AF24E75B2FF6726B953E74C020 /* RACTestScheduler.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F6720C90F150F319579E590292A06A9 /* RACTestScheduler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C226D85A1863AD9CE32778F45465F154 /* RACSignal+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = C18A74F6EEA966A6E4EC8F231DA196E1 /* RACSignal+Operations.m */; };
@@ -1150,7 +1150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1438DBD1853830743B087A4BCACD1E7 /* Build configuration list for PBXNativeTarget "TTTAttributedLabel" */;
 			buildPhases = (
-				0131B4993403006D981137C3ED839113 /* Sources */,
+				40C479CE893696B495FF2D89E61276C2 /* Sources */,
 				4C55361B5D0452E49A83C0E519A832F1 /* Frameworks */,
 				605AACDBD3ADD54A4B2CBF0AFAD70DD2 /* Headers */,
 			);
@@ -1284,15 +1284,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0131B4993403006D981137C3ED839113 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD60A033A2C561D1C8F52DC73B47A7D4 /* TTTAttributedLabel-dummy.m in Sources */,
-				5167BADDA362FF34B3F97FD3F33B1F15 /* TTTAttributedLabel.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		098439AB598DDF1AF51146A2E3E2E562 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1413,6 +1404,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		40C479CE893696B495FF2D89E61276C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97E9D43F08458DCFF435DC086B27D3F6 /* TTTAttributedLabel-dummy.m in Sources */,
+				4BE05FCA3E3EFBF1CD099BB5B6C2A14A /* TTTAttributedLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9DD00483DC59B8DF9BF68036DBEA5FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1488,6 +1488,27 @@
 			};
 			name = Release;
 		};
+		1D02D58B8E14C83CA9F7B89B41963BE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ACFA879A652952728F18968D03CDF01 /* Pods-OMNI.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		1F1DCE74980303898CB8238C0E8709EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F65EC5E2D1CBE935E51C412B7313BDC /* MBProgressHUD.xcconfig */;
@@ -1508,6 +1529,27 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		22FD3E89AF3F864213ABB5AB0731A4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19E0E01AAF2C71F97CAFD484D688B5D7 /* Pods-OMNI.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		2D6E37B7C5CF0E9DEF4C59A215544F0E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1551,37 +1593,16 @@
 			};
 			name = Debug;
 		};
-		9F8C471C860AB1C303ACA7C75A6254FE /* Debug */ = {
+		59A81AA3A2746320461999D1F2281FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9A855F2C4B8C0392A9A89E55441C84F /* TTTAttributedLabel.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/TTTAttributedLabel/TTTAttributedLabel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A0412664E8453429E8FD4969D18D27A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74B15FA27A905C383AE0A8ADA0CCEE8 /* CocoaAsyncSocket.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CocoaAsyncSocket/CocoaAsyncSocket-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				GCC_PREFIX_HEADER = "Target Support Files/TTTAttributedLabel/TTTAttributedLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1593,7 +1614,65 @@
 			};
 			name = Release;
 		};
-		A2744BE561A0CD0F4083C58709B9529A /* Debug */ = {
+		6133F49147103DD059198D60E541A27D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9A855F2C4B8C0392A9A89E55441C84F /* TTTAttributedLabel.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TTTAttributedLabel/TTTAttributedLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		811519CB8F683AC06F9C98B55AC40F11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		882EB4391EC2E701934974DA86F7343F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1627,33 +1706,33 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		A9426DA3BF3AFBE50C780B76AD931350 /* Debug */ = {
+		A0412664E8453429E8FD4969D18D27A6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19E0E01AAF2C71F97CAFD484D688B5D7 /* Pods-OMNI.debug.xcconfig */;
+			baseConfigurationReference = C74B15FA27A905C383AE0A8ADA0CCEE8 /* CocoaAsyncSocket.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CocoaAsyncSocket/CocoaAsyncSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		AF6F85A2F27B4B7DCC7021CD18267FFF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1697,85 +1776,6 @@
 			};
 			name = Debug;
 		};
-		D53FC973470564A6146CBDF2A2C5B4BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ACFA879A652952728F18968D03CDF01 /* Pods-OMNI.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		F24A8E2465A7C10A54BE3E33D1A368A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FD134BF22C2752DB96FDE79DB5C65715 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9A855F2C4B8C0392A9A89E55441C84F /* TTTAttributedLabel.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/TTTAttributedLabel/TTTAttributedLabel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		FFAF9F76FBEBF9803C53D8667727BEAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C74B15FA27A905C383AE0A8ADA0CCEE8 /* CocoaAsyncSocket.xcconfig */;
@@ -1803,8 +1803,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A2744BE561A0CD0F4083C58709B9529A /* Debug */,
-				F24A8E2465A7C10A54BE3E33D1A368A8 /* Release */,
+				882EB4391EC2E701934974DA86F7343F /* Debug */,
+				811519CB8F683AC06F9C98B55AC40F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1821,8 +1821,8 @@
 		73F466566A381443BCDE807ACA6ED448 /* Build configuration list for PBXNativeTarget "Pods-OMNI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A9426DA3BF3AFBE50C780B76AD931350 /* Debug */,
-				D53FC973470564A6146CBDF2A2C5B4BB /* Release */,
+				22FD3E89AF3F864213ABB5AB0731A4F2 /* Debug */,
+				1D02D58B8E14C83CA9F7B89B41963BE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1848,8 +1848,8 @@
 		B1438DBD1853830743B087A4BCACD1E7 /* Build configuration list for PBXNativeTarget "TTTAttributedLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F8C471C860AB1C303ACA7C75A6254FE /* Debug */,
-				FD134BF22C2752DB96FDE79DB5C65715 /* Release */,
+				6133F49147103DD059198D60E541A27D /* Debug */,
+				59A81AA3A2746320461999D1F2281FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

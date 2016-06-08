@@ -18,4 +18,6 @@ typedef void (^OMTCPNetWorkFinishBlock) (NSString *string);
 
 - (void)sendMessage:(NSString *)message inView:(UIView *)view complete:(OMTCPNetWorkFinishBlock)block;
 
+- (void)sendSpecialMessage:(NSString *)message inView:(UIView *)view complete:(OMTCPNetWorkFinishBlock)block;
+
 @end

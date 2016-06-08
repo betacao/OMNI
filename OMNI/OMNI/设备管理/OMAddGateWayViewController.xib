@@ -7,6 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMAddGateWayViewController">
             <connections>
+                <outlet property="commitButton" destination="ZGM-bF-hyI" id="81j-Qo-2KQ"/>
+                <outlet property="countNameField" destination="JF9-pQ-fEb" id="DVc-qp-asA"/>
+                <outlet property="gatewayIDField" destination="vCs-lA-lJd" id="Tz4-W5-Zvu"/>
+                <outlet property="lineView1" destination="JCF-Ly-Nh3" id="BKg-Sh-2PX"/>
+                <outlet property="lineView2" destination="Pug-Ys-h0A" id="EfI-4E-k0y"/>
+                <outlet property="middleImageView" destination="7tz-B7-Fse" id="W2g-Q7-uGw"/>
+                <outlet property="middleView" destination="mVe-Dq-0Tq" id="Wx4-91-0uh"/>
+                <outlet property="passwordField" destination="eXg-xX-AqL" id="7Jx-ln-CPR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,8 +22,60 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="mVe-Dq-0Tq">
+                    <rect key="frame" x="40" y="90" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7tz-B7-Fse">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Count name" textAlignment="natural" minimumFontSize="17" id="JF9-pQ-fEb">
+                            <rect key="frame" x="72" y="0.0" width="97" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" id="JCF-Ly-Nh3">
+                            <rect key="frame" x="-8" y="-26" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="gateway ID" textAlignment="natural" minimumFontSize="17" id="vCs-lA-lJd">
+                            <rect key="frame" x="72" y="90" width="97" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <view contentMode="scaleToFill" id="Pug-Ys-h0A">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password of gateway" textAlignment="natural" minimumFontSize="17" id="eXg-xX-AqL">
+                            <rect key="frame" x="72" y="46" width="97" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZGM-bF-hyI">
+                    <rect key="frame" x="123" y="415" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Commit" backgroundImage="button_delete_bg">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="210" y="342"/>
         </view>
     </objects>
+    <resources>
+        <image name="button_delete_bg" width="261" height="57"/>
+    </resources>
 </document>

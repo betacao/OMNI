@@ -7,7 +7,6 @@
 //
 
 #import "UIView+HUD.h"
-#import "NSObject+Extend.h"
 
 @implementation UIView (HUD)
 

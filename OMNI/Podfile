@@ -1,5 +1,5 @@
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 target 'OMNI' do
 
@@ -7,6 +7,6 @@ pod 'MBProgressHUD'
 pod 'SDAutoLayout'
 pod 'CocoaAsyncSocket'
 pod 'ReactiveCocoa'
-pod 'TTTAttributedLabel'
+pod 'TTTAttributedLabel', '~> 2.0.0'
 
 end

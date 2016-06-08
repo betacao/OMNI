@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMWifiConfigViewController">
             <connections>
-                <outlet property="bottomLabel" destination="zEU-wz-Zdf" id="ehH-Yc-rNR"/>
+                <outlet property="bottomLabel" destination="4uw-z7-3gN" id="g4N-IH-mxc"/>
                 <outlet property="configButton" destination="CJa-v5-LUL" id="t3w-a7-2GP"/>
                 <outlet property="imageView" destination="dnc-Sw-6pe" id="egq-Q7-oO1"/>
                 <outlet property="introduceLabel" destination="mRi-lz-YTb" id="TP5-tt-hxr"/>
@@ -52,13 +52,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have account already? Please login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zEU-wz-Zdf">
-                    <rect key="frame" x="58" y="487" width="42" height="21"/>
+                <view contentMode="scaleToFill" id="4uw-z7-3gN" customClass="TTTAttributedLabel">
+                    <rect key="frame" x="40" y="220" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="62a-af-Dfv"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="284" y="327"/>

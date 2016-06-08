@@ -64,7 +64,7 @@
 - (void)setDevice:(OMDevice *)device
 {
     _device = device;
-    self.nameLabel.text = [@"Nmae :" stringByAppendingString:device.deviceName];
+    self.nameLabel.text = [@"Name :" stringByAppendingString:device.deviceName];
     self.IDLabel.text = [@"Gateway ID :" stringByAppendingString:device.deviceID];
     self.stateLabel.text = [@"status :" stringByAppendingString:device.deviceState];
 }

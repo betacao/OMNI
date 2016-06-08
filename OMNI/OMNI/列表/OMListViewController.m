@@ -61,6 +61,7 @@
 {
     WEAK(self, weakSelf);
     [OMGlobleManager getListInView:self.view block:^(NSString *string) {
+        [weakSelf.dataArray removeAllObjects];
         NSArray *array = [string componentsSeparatedByString:@"#"];
         if (array.count > 2) {
             array = [array subarrayWithRange:NSMakeRange(2, array.count - 2)];

@@ -15,22 +15,22 @@ PODS:
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
   - SDAutoLayout (2.1.1)
-  - TTTAttributedLabel (1.13.4)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - MBProgressHUD
   - ReactiveCocoa
   - SDAutoLayout
-  - TTTAttributedLabel
+  - TTTAttributedLabel (~> 2.0.0)
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDAutoLayout: c18678b6ae28c67d89cb132e770cfbac9ee20d25
-  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 5ebea7de0989f4239f934a7a66e1d298310a0a63
+PODFILE CHECKSUM: 1d22a88b261efc2632200e03907ba81568210fe6
 
 COCOAPODS: 1.0.0.rc.1

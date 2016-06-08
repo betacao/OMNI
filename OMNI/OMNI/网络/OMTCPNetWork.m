@@ -11,6 +11,7 @@
 @interface OMTCPNetWork()<GCDAsyncSocketDelegate>
 
 @property (strong, nonatomic) GCDAsyncSocket *sendTcpSocket;
+@property (strong, nonatomic) GCDAsyncSocket *sendSpecialTcpSocket;
 @property (copy, nonatomic) OMTCPNetWorkFinishBlock finishBlock;
 @property (strong, nonatomic) UIView *view;
 @property (assign, nonatomic) BOOL isReceived;
@@ -34,6 +35,12 @@
     self = [super init];
     if (self) {
         [self setupSocket];
+        [RACObserve(kAppDelegate, ESPDescription) subscribeNext:^(NSString *value) {
+            dispatch_queue_t dQueue = dispatch_queue_create("client special tdp socket", NULL);
+            self.sendSpecialTcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dQueue socketQueue:nil];
+            uint16_t port = 180;
+            [self.sendTcpSocket connectToHost:value onPort:port withTimeout:60 error:nil];
+        }];
     }
     return self;
 }
@@ -81,12 +88,26 @@
     [self hideHud];
 }
 
+- (void)sendSpecialMessage:(NSString *)message inView:(UIView *)view complete:(OMTCPNetWorkFinishBlock)block
+{
+    if (self.sendSpecialTcpSocket) {
+        [view showLoading];
+        self.isReceived = NO;
+        NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        // 发送消息 这里不需要知道对象的ip地址和端口
+        [self.sendSpecialTcpSocket writeData:data withTimeout:60 tag:0];
+        self.finishBlock = block;
+        self.view = view;
+        [self hideHud];
+    }
+}
+
 #pragma mark - 代理方法表示连接成功/失败 回调函数
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
     NSLog(@"连接成功");
-    [sock readDataWithTimeout:-1 tag:0];;
+    [sock readDataWithTimeout:-1 tag:0];
 }
 // 如果对象关闭了 这里也会调用
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
@@ -115,7 +136,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if(weakSelf.finishBlock){
             weakSelf.finishBlock(string);
-            weakSelf.finishBlock = nil;
         }
     });
     [sock readDataWithTimeout:-1 tag:0];;

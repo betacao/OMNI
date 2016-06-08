@@ -11,11 +11,11 @@
 #import "ESPTouchTask.h"
 #import "OMAddGateWayViewController.h"
 
-@interface OMWifiConfigViewController ()<UIAlertViewDelegate, UIScrollViewDelegate>
+@interface OMWifiConfigViewController ()<UIAlertViewDelegate, UIScrollViewDelegate, TTTAttributedLabelDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *bottomLabel;
 @property (weak, nonatomic) IBOutlet UIButton *configButton;
 @property (weak, nonatomic) IBOutlet UITextField *wifiNameField;
 @property (weak, nonatomic) IBOutlet UITextField *wifiPWDField;
@@ -98,8 +98,14 @@
         if (![obj isEqual:self.scrollView]) {
             [self.scrollView addSubview:obj];
         }
-
     }];
+
+    self.bottomLabel.text = @"Have account already? Please login";
+    self.bottomLabel.font = FontFactor(13.0f);
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:self.bottomLabel.linkAttributes];
+    [dictionary setObject:[UIColor redColor] forKey:(NSString *)kCTForegroundColorAttributeName];
+    self.bottomLabel.linkAttributes = dictionary;
+    [self.bottomLabel addLinkToURL:[NSURL URLWithString:@"123"] withRange:[self.bottomLabel.text rangeOfString:@"login"]];
 }
 
 - (void)addAutoLayout
@@ -139,6 +145,7 @@
     .rightSpaceToView(self.scrollView, MarginFactor(20.0f))
     .topSpaceToView(self.configButton, MarginFactor(10.0f))
     .autoHeightRatio(0.0f);
+    self.bottomLabel.isAttributedContent = YES;
 }
 
 
@@ -147,8 +154,12 @@
     [[self.configButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [self commit];
     }];
-}
 
+    [[self rac_signalForSelector:@selector(attributedLabel:didSelectLinkWithURL:) fromProtocol:@protocol(TTTAttributedLabelDelegate)] subscribeNext:^(RACTuple *tuple) {
+        OMAddGateWayViewController *controller = [[OMAddGateWayViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
+}
 
 - (void)getDeviceSSID:(void(^)(NSDictionary *dictionary))completion
 {

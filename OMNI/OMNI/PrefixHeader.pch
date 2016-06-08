@@ -17,6 +17,7 @@
 #import "UIView+SDAutoLayout.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "ReactiveCocoa.h"
+#import "TTTAttributedLabel.h"
 #import "UIColor+Extend.h"
 #import "UIView+HUD.h"
 #import "OMDevice.h"
@@ -24,5 +25,6 @@
 #import "OMGlobleManager.h"
 #import "UIButton+EnlargeEdge.h"
 #import "NSCharacterSet+Common.h"
+#import "NSObject+Extend.h"
 
 #endif /* PrefixHeader_pch */

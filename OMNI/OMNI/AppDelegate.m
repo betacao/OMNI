@@ -20,6 +20,7 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar_top"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:FontFactor(17.0f), NSForegroundColorAttributeName:Color(@"64a23f")}];
     [[UINavigationBar appearance] setTranslucent:NO];
+    [OMTCPNetWork sharedNetWork];
     return YES;
 }
 

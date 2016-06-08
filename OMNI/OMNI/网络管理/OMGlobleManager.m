@@ -51,6 +51,14 @@
 }
 
 
++ (void)addDevice:(NSArray *)array InView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
+{
+    NSString *request = [NSString stringWithFormat:@"fyzn2015#1#12#%@#%@#%@#%@#0#",[array firstObject], [array lastObject], kAppDelegate.userID, kAppDelegate.password];
+    [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
+}
+
+
+
 //UDP
 
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
