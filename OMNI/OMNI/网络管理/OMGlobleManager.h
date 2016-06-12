@@ -20,6 +20,8 @@
 
 + (void)getListInView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
++ (void)getGatewayID:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
+
 + (void)addDevice:(NSArray *)array InView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
 //UDP

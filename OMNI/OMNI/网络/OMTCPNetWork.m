@@ -35,12 +35,16 @@
     self = [super init];
     if (self) {
         [self setupSocket];
-        [RACObserve(kAppDelegate, ESPDescription) subscribeNext:^(NSString *value) {
+        [[RACObserve(kAppDelegate, ESPDescription) filter:^BOOL(NSString *x) {
+            return x && x.length > 0;
+        }] subscribeNext:^(NSString *value) {
             dispatch_queue_t dQueue = dispatch_queue_create("client special tdp socket", NULL);
             self.sendSpecialTcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dQueue socketQueue:nil];
             uint16_t port = 180;
+            self.sendSpecialTcpSocket.IPv4PreferredOverIPv6 = NO;
             [self.sendTcpSocket connectToHost:value onPort:port withTimeout:60 error:nil];
         }];
+
     }
     return self;
 }
@@ -71,6 +75,7 @@
     // 2. 连接服务器端. 只有连接成功后才能相互通讯 如果60s连接不上就出错
     NSString *host = @"121.42.187.151";
     uint16_t port = 11104;
+    self.sendTcpSocket.IPv4PreferredOverIPv6 = NO;
     [self.sendTcpSocket connectToHost:host onPort:port withTimeout:60 error:nil];
     // 连接必须服务器在线
 }
@@ -99,6 +104,8 @@
         self.finishBlock = block;
         self.view = view;
         [self hideHud];
+    } else {
+        block(@"fail");
     }
 }
 

@@ -18,7 +18,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *gatewayIDField;
 @property (weak, nonatomic) IBOutlet UIView *lineView2;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UIButton *commitButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *readButton;
+@property (weak, nonatomic) IBOutlet UILabel *readLabel;
+
 
 @end
 
@@ -32,6 +35,8 @@
 
 - (void)initView
 {
+    [self addRightNavigationItem:@"" normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
+
     UIView *leftView1 = [[UIView alloc] init];
     UIImageView *leftImageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"input_password"]];
     [leftView1 addSubview:leftImageView1];
@@ -78,6 +83,10 @@
     UIImage *image = [UIImage imageNamed:@"input"];
     image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f) resizingMode:UIImageResizingModeStretch];
     self.middleImageView.image = image;
+
+    self.readLabel.font = FontFactor(13.0f);
+    [self.readButton setImage:[UIImage imageNamed:@"remember_normal"] forState:UIControlStateNormal];
+    [self.readButton setImage:[UIImage imageNamed:@"remember_press"] forState:UIControlStateSelected];
 }
 
 - (void)addAutoLayout
@@ -121,11 +130,17 @@
     self.middleImageView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
-    self.commitButton.sd_layout
-    .centerXEqualToView(self.view)
-    .topSpaceToView(self.middleView, MarginFactor(30.0f))
-    .widthIs(self.commitButton.currentBackgroundImage.size.width)
-    .heightIs(self.commitButton.currentBackgroundImage.size.height);
+    self.readButton.sd_layout
+    .topSpaceToView(self.middleView, MarginFactor(15.0))
+    .leftEqualToView(self.middleView)
+    .widthIs(self.readButton.currentImage.size.width)
+    .heightIs(self.readButton.currentImage.size.height);
+
+    self.readLabel.sd_layout
+    .centerYEqualToView(self.readButton)
+    .leftSpaceToView(self.readButton, MarginFactor(5.0f))
+    .heightIs(self.readLabel.font.lineHeight);
+    [self.readLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 }
 
 - (void)addReactiveCocoa
@@ -142,14 +157,34 @@
         return @([idValid boolValue] && [passwordValid boolValue]);
     }];
 
-    RAC(self.commitButton, enabled) = [signal map:^id(NSNumber *value) {
+    UIButton *button = self.navigationItem.rightBarButtonItem.customView;
+    RAC(button, enabled) = [signal map:^id(NSNumber *value) {
         return value;
     }];
 
-    [[[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
-        return [self commitSignal];
+    [[[self.readButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+        return [self getGetewaySignal];
     }] subscribeNext:^(NSString *x) {
-        if ([x containsString:@"success"]) {
+        self.gatewayIDField.text = x;
+    }];
+}
+
+
+- (RACSignal *)getGetewaySignal
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [OMGlobleManager getGatewayID:self.view block:^(NSString *string) {
+            [subscriber sendNext:[string lowercaseString]];
+            [subscriber sendCompleted];
+        }];
+        return nil;
+    }];
+}
+
+- (void)rightButtonClick:(UIButton *)button
+{
+    [OMGlobleManager addDevice:@[self.gatewayIDField.text, self.passwordField.text] InView:self.view block:^(NSString *string) {
+        if ([[string lowercaseString] containsString:@"success"]) {
             [self.view showWithText:@"添加设备成功"];
             UIViewController *controller = nil;
             for (UIViewController *subController in self.navigationController.viewControllers) {
@@ -167,18 +202,6 @@
         }
     }];
 }
-
-- (RACSignal *)commitSignal
-{
-    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [OMGlobleManager addDevice:@[self.gatewayIDField.text, self.passwordField.text] InView:self.view block:^(NSString *string) {
-            [subscriber sendNext: [string lowercaseString]];
-            [subscriber sendCompleted];
-        }];
-        return nil;
-    }];
-}
-
 
 - (void)didReceiveMemoryWarning
 {

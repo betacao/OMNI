@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMAddGateWayViewController">
             <connections>
-                <outlet property="commitButton" destination="ZGM-bF-hyI" id="81j-Qo-2KQ"/>
                 <outlet property="countNameField" destination="JF9-pQ-fEb" id="DVc-qp-asA"/>
                 <outlet property="gatewayIDField" destination="vCs-lA-lJd" id="Tz4-W5-Zvu"/>
                 <outlet property="lineView1" destination="JCF-Ly-Nh3" id="BKg-Sh-2PX"/>
@@ -15,6 +14,8 @@
                 <outlet property="middleImageView" destination="7tz-B7-Fse" id="W2g-Q7-uGw"/>
                 <outlet property="middleView" destination="mVe-Dq-0Tq" id="Wx4-91-0uh"/>
                 <outlet property="passwordField" destination="eXg-xX-AqL" id="7Jx-ln-CPR"/>
+                <outlet property="readButton" destination="5LL-Tq-kPu" id="X69-B2-Yhb"/>
+                <outlet property="readLabel" destination="cZt-dv-Xpx" id="PwP-Av-ydH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,20 +63,20 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZGM-bF-hyI">
-                    <rect key="frame" x="123" y="415" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5LL-Tq-kPu">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Commit" backgroundImage="button_delete_bg">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="auto-read gateway ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cZt-dv-Xpx">
+                    <rect key="frame" x="198" y="278" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="210" y="342"/>
         </view>
     </objects>
-    <resources>
-        <image name="button_delete_bg" width="261" height="57"/>
-    </resources>
 </document>
