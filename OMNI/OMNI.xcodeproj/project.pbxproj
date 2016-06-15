@@ -43,6 +43,8 @@
 		F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */; };
 		F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A01D06A4F400842778 /* NSObject+Extend.m */; };
 		F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */; };
+		F943C6331D0E9F090097DA67 /* OMAddRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C6311D0E9F090097DA67 /* OMAddRoomViewController.m */; };
+		F943C6341D0E9F090097DA67 /* OMAddRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F943C6321D0E9F090097DA67 /* OMAddRoomViewController.xib */; };
 		F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */; };
 		F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */; };
 		F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = F944CDDA1CE9B2A1009547A0 /* OMUDPNetWork.m */; };
@@ -133,6 +135,9 @@
 		F943C1A01D06A4F400842778 /* NSObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extend.m"; sourceTree = "<group>"; };
 		F943C1A21D06ACA200842778 /* OMBaseScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseScrollViewController.h; sourceTree = "<group>"; };
 		F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseScrollViewController.m; sourceTree = "<group>"; };
+		F943C6301D0E9F090097DA67 /* OMAddRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddRoomViewController.h; sourceTree = "<group>"; };
+		F943C6311D0E9F090097DA67 /* OMAddRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddRoomViewController.m; sourceTree = "<group>"; };
+		F943C6321D0E9F090097DA67 /* OMAddRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddRoomViewController.xib; sourceTree = "<group>"; };
 		F944CDD31CE9977F009547A0 /* OMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRegisterViewController.h; sourceTree = "<group>"; };
 		F944CDD41CE9977F009547A0 /* OMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRegisterViewController.m; sourceTree = "<group>"; };
 		F944CDD51CE9977F009547A0 /* OMRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMRegisterViewController.xib; sourceTree = "<group>"; };
@@ -301,6 +306,9 @@
 		F941E2061D0560B300A70A3F /* 房间设置 */ = {
 			isa = PBXGroup;
 			children = (
+				F943C6301D0E9F090097DA67 /* OMAddRoomViewController.h */,
+				F943C6311D0E9F090097DA67 /* OMAddRoomViewController.m */,
+				F943C6321D0E9F090097DA67 /* OMAddRoomViewController.xib */,
 				F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */,
 				F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */,
 				F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */,
@@ -489,6 +497,7 @@
 				F9621BED1CE2C6240058DBA7 /* Assets.xcassets in Resources */,
 				F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */,
 				F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */,
+				F943C6341D0E9F090097DA67 /* OMAddRoomViewController.xib in Resources */,
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
 				F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */,
@@ -562,6 +571,7 @@
 				F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */,
 				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
 				F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */,
+				F943C6331D0E9F090097DA67 /* OMAddRoomViewController.m in Sources */,
 				F91EAA4C1D0695E30055CB35 /* ESPUDPSocketClient.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F91EAA451D0695E30055CB35 /* ESPDataCode.m in Sources */,

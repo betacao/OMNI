@@ -35,7 +35,7 @@
 
 - (void)initView
 {
-    [self addRightNavigationItem:@"" normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
+    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 
     UIView *leftView1 = [[UIView alloc] init];
     UIImageView *leftImageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"input_password"]];
@@ -183,7 +183,7 @@
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    [OMGlobleManager addDevice:@[self.gatewayIDField.text, self.passwordField.text] InView:self.view block:^(NSString *string) {
+    [OMGlobleManager addDevice:@[self.gatewayIDField.text, self.passwordField.text] inView:self.view block:^(NSString *string) {
         if ([[string lowercaseString] containsString:@"success"]) {
             [self.view showWithText:@"添加设备成功"];
             UIViewController *controller = nil;

@@ -22,11 +22,13 @@
 
 + (void)getGatewayID:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
-+ (void)addDevice:(NSArray *)array InView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
+//这个不是增加房间设备 而是网关设备
++ (void)addDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
 //UDP
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 + (void)readDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
++ (void)createRoom:(NSString *)roomName inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

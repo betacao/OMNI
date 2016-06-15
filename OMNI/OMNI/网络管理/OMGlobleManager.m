@@ -56,7 +56,7 @@
     [[OMTCPNetWork sharedNetWork] sendSpecialMessage:request inView:view complete:block];
 }
 
-+ (void)addDevice:(NSArray *)array InView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
++ (void)addDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
 {
     NSString *request = [NSString stringWithFormat:@"fyzn2015#1#12#%@#%@#%@#%@#0#",[array firstObject], [array lastObject], kAppDelegate.userID, kAppDelegate.password];
     [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
@@ -90,6 +90,19 @@
         });
     });
 
+}
+
++ (void)createRoom:(NSString *)roomName inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"create_room$%@$", roomName];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
 }
 
 

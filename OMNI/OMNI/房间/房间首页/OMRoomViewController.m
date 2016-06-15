@@ -12,16 +12,19 @@
 #import "OMRoomTableViewCell.h"
 #import "NSMutableDictionary+Room.h"
 #import "OMAddRoomDeviceViewController.h"
+#import "OMAddRoomViewController.h"
 
 @interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet OMRoomCollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property (assign, nonatomic) NSInteger roomCount;
 @property (strong, nonatomic) NSMutableArray *dataArray;
-@property (strong, nonatomic) NSMutableArray *currentArray;
+
+@property (strong, nonatomic) OMRoom *currentRoom;
+@property (strong, nonatomic) NSMutableArray *currentDeviceArray;
 
 
 @end
@@ -37,21 +40,27 @@
 - (void)initView
 {
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([OMRoomCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:@"OMRoomCollectionViewCell"];
+    self.collectionView.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"home_line"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 0.0f, 20.0f, 0.0f) resizingMode:UIImageResizingModeStretch]];
 
+    self.tableView.bounces = NO;
 
-    self.collectionView.sd_layout
-    .heightIs(SCREENHEIGHT / 2.0f);
-    [self.collectionView updateLayout];
-    
-    self.tableView.tableHeaderView = self.collectionView;
     self.dataArray = [NSMutableArray array];
 }
 
 
 - (void)addAutoLayout
 {
+    self.collectionView.sd_layout
+    .leftSpaceToView(self.view, 0.0f)
+    .rightSpaceToView(self.view, 0.0f)
+    .topSpaceToView(self.view, 0.0f)
+    .heightIs(SCREENHEIGHT / 2.0f);
+
     self.tableView.sd_layout
-    .spaceToSuperView(UIEdgeInsetsZero);
+    .leftSpaceToView(self.view, 0.0f)
+    .rightSpaceToView(self.view, 0.0f)
+    .topSpaceToView(self.collectionView, 0.0f)
+    .bottomSpaceToView(self.view, 0.0f);
 }
 
 - (void)setDevice:(OMDevice *)device
@@ -60,13 +69,20 @@
     kAppDelegate.deviceID = device.deviceID;
 }
 
-- (void)setCurrentArray:(NSMutableArray *)currentArray
+- (void)setCurrentDeviceArray:(NSMutableArray *)currentDeviceArray
 {
-    if (currentArray.count == 0) {
+    if (self.currentRoom.roomName.length > 0 && currentDeviceArray.count == 0) {
         OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
-        [currentArray addObject:roomDevice];
+        [currentDeviceArray addObject:roomDevice];
     }
-    _currentArray = [NSMutableArray arrayWithArray:currentArray];
+    if (currentDeviceArray.count > 0) {
+        self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"home_choose_device"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 0.0f, 20.0f, 0.0f) resizingMode:UIImageResizingModeStretch]];
+    } else {
+        self.tableView.backgroundView = nil;
+    }
+
+    _currentDeviceArray = [NSMutableArray arrayWithArray:currentDeviceArray];
+
     [self.tableView reloadData];
 }
 
@@ -85,6 +101,8 @@
 - (void)loadData
 {
     WEAK(self, weakSelf);
+    [self.dataArray removeAllObjects];
+
     [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
         weakSelf.roomCount = [[array firstObject] integerValue] + 1;
         for (NSInteger i = 0; i < [[array firstObject] integerValue]; i++) {
@@ -121,23 +139,31 @@
                 NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
                 [roomDeviceArray addObject:roomDevice];
             }
-            weakSelf.currentArray = [[weakSelf.dataArray firstObject] objectForKey:@"roomDeviceArray"];
+            weakSelf.currentRoom = [[weakSelf.dataArray firstObject] objectForKey:@"room"];
+            weakSelf.currentDeviceArray = [[weakSelf.dataArray firstObject] objectForKey:@"roomDeviceArray"];
         }];
     }];
-    
+
 }
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    if (self.currentRoom.roomName.length > 0) {
+        OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else{
+        OMAddRoomViewController *controller = [[OMAddRoomViewController alloc] init];
+        controller.room = self.currentRoom;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+
 }
 
 #pragma mark ------tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.currentArray.count;
+    return self.currentDeviceArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,7 +177,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OMRoomTableViewCell" owner:self options:nil] firstObject];
     }
-    cell.roomDevice = [self.currentArray objectAtIndex:indexPath.row];
+    cell.roomDevice = [self.currentDeviceArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -172,7 +198,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     OMRoomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OMRoomCollectionViewCell" forIndexPath:indexPath];
-
     NSDictionary *dictionary = [self.dataArray objectAtIndex:indexPath.item];
     cell.room = [dictionary objectForKey:@"room"];
     return cell;
@@ -180,7 +205,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了第%ld行", (long)indexPath.item);
+    OMAddRoomViewController *controller = [[OMAddRoomViewController alloc] init];
+    NSDictionary *dictionary = [self.dataArray objectAtIndex:indexPath.item];
+    controller.room = [dictionary objectForKey:@"room"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -200,7 +228,8 @@
             }
         }];
 
-        self.currentArray = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"roomDeviceArray"];
+        self.currentRoom = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"room"];
+        self.currentDeviceArray = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"roomDeviceArray"];
     }
 }
 

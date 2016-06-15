@@ -12,4 +12,6 @@
 
 - (void)performSelectorOnMainThread:(SEL)selector withObjects:(NSArray *)array waitUntilDone:(BOOL)wait;
 
+- (void)performSelector:(SEL)aSelector withObjects:(NSArray *)array afterDelay:(NSTimeInterval)delay;
+
 @end

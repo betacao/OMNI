@@ -94,18 +94,18 @@
     image2 = [image2 resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f) resizingMode:UIImageResizingModeStretch];
     self.wifiPWDField.background = image2;
 
-    [self.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (![obj isEqual:self.scrollView]) {
-            [self.scrollView addSubview:obj];
-        }
-    }];
-
     self.bottomLabel.text = @"Have account already? Please login";
     self.bottomLabel.font = FontFactor(13.0f);
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:self.bottomLabel.linkAttributes];
     [dictionary setObject:[UIColor redColor] forKey:(NSString *)kCTForegroundColorAttributeName];
     self.bottomLabel.linkAttributes = dictionary;
     [self.bottomLabel addLinkToURL:[NSURL URLWithString:@"123"] withRange:[self.bottomLabel.text rangeOfString:@"login"]];
+
+    [self.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (![obj isEqual:self.scrollView]) {
+            [self.scrollView addSubview:obj];
+        }
+    }];
 }
 
 - (void)addAutoLayout

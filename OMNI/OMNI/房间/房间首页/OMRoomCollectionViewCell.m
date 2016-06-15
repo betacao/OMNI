@@ -24,7 +24,6 @@
 
 - (void)initView
 {
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.label.font = FontFactor(14.0f);
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.textColor = [UIColor grayColor];
