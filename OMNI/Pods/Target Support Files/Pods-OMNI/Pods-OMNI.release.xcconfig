@@ -1,8 +1,10 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/ReactiveCocoa" "$PODS_CONFIGURATION_BUILD_DIR/Result" "$PODS_CONFIGURATION_BUILD_DIR/SDAutoLayout" "$PODS_CONFIGURATION_BUILD_DIR/TTTAttributedLabel"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/SDAutoLayout" "${PODS_ROOT}/Headers/Public/TTTAttributedLabel"
-LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/ReactiveCocoa" "$PODS_CONFIGURATION_BUILD_DIR/SDAutoLayout" "$PODS_CONFIGURATION_BUILD_DIR/TTTAttributedLabel"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/Public/SDAutoLayout" -isystem "${PODS_ROOT}/Headers/Public/TTTAttributedLabel"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"CocoaAsyncSocket" -l"MBProgressHUD" -l"ReactiveCocoa" -l"SDAutoLayout" -l"TTTAttributedLabel" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreText" -framework "QuartzCore" -framework "Security" -framework "UIKit"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket/CocoaAsyncSocket.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/ReactiveCocoa/ReactiveCocoa.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Result/Result.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SDAutoLayout/SDAutoLayout.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/TTTAttributedLabel/TTTAttributedLabel.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "CocoaAsyncSocket" -framework "MBProgressHUD" -framework "ReactiveCocoa" -framework "Result" -framework "SDAutoLayout" -framework "TTTAttributedLabel"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

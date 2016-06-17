@@ -21,6 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    if (kAppDelegate.currentRoom.roomName.length > 0) {
+        self.title = @"Edite Room";
+    } else{
+        self.title = @"Add Room";
+    }
+
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 }
 
@@ -64,16 +71,6 @@
     }] subscribeNext:^(NSString *x) {
         self.textField.text = [x substringToIndex:32];
     }];
-}
-
-- (void)setRoom:(OMRoom *)room
-{
-    _room = room;
-    if (room.roomName.length > 0) {
-        self.title = @"Edite Room";
-    } else{
-        self.title = @"Add Room";
-    }
 }
 
 - (void)rightButtonClick:(UIButton *)button

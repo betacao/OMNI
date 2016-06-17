@@ -11,7 +11,7 @@
 #import "ESPTouchTask.h"
 #import "OMAddGateWayViewController.h"
 
-@interface OMWifiConfigViewController ()<UIAlertViewDelegate, UIScrollViewDelegate, TTTAttributedLabelDelegate>
+@interface OMWifiConfigViewController ()<UIAlertViewDelegate, TTTAttributedLabelDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *introduceLabel;
@@ -53,8 +53,6 @@
 
 - (void)initView
 {
-    self.scrollView.delegate = self;
-
     self.isConfirmState = NO;
     self.condition = [[NSCondition alloc] init];
     [self enableConfirmBtn];

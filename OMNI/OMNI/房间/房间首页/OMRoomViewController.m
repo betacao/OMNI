@@ -21,9 +21,7 @@
 @property (weak, nonatomic) IBOutlet OMRoomCollectionViewFlowLayout *collectionViewFlowLayout;
 
 @property (assign, nonatomic) NSInteger roomCount;
-@property (strong, nonatomic) NSMutableArray *dataArray;
 
-@property (strong, nonatomic) OMRoom *currentRoom;
 @property (strong, nonatomic) NSMutableArray *currentDeviceArray;
 
 
@@ -43,8 +41,6 @@
     self.collectionView.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"home_line"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 0.0f, 20.0f, 0.0f) resizingMode:UIImageResizingModeStretch]];
 
     self.tableView.bounces = NO;
-
-    self.dataArray = [NSMutableArray array];
 }
 
 
@@ -71,7 +67,7 @@
 
 - (void)setCurrentDeviceArray:(NSMutableArray *)currentDeviceArray
 {
-    if (self.currentRoom.roomName.length > 0 && currentDeviceArray.count == 0) {
+    if (kAppDelegate.currentRoom.roomName.length > 0 && currentDeviceArray.count == 0) {
         OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
         [currentDeviceArray addObject:roomDevice];
     }
@@ -89,7 +85,7 @@
 
 - (NSMutableDictionary *)dictionaryWithRoomNumber:(NSString *)roomNumber
 {
-    for (NSMutableDictionary *dictionary in self.dataArray) {
+    for (NSMutableDictionary *dictionary in kAppDelegate.roomArray) {
         OMRoom *room = [dictionary objectForKey:@"room"];
         if ([room.roomNumber isEqualToString:roomNumber]) {
             return dictionary;
@@ -101,7 +97,7 @@
 - (void)loadData
 {
     WEAK(self, weakSelf);
-    [self.dataArray removeAllObjects];
+    [kAppDelegate.roomArray removeAllObjects];
 
     [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
         weakSelf.roomCount = [[array firstObject] integerValue] + 1;
@@ -112,7 +108,7 @@
             room.roomNumber = [array objectAtIndex:i * 2 + 1];
             room.roomName = [array objectAtIndex:i * 2 + 2];
 
-            [weakSelf.dataArray addObject:dictionary];
+            [kAppDelegate.roomArray addObject:dictionary];
         }
         //最后创建一个假的
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
@@ -120,7 +116,7 @@
         OMRoom *room = [dictionary objectForKey:@"room"];
         room.roomName = @"";
         room.roomNumber = [NSString stringWithFormat:@"%ld", (long)weakSelf.roomCount];
-        [weakSelf.dataArray addObject:dictionary];
+        [kAppDelegate.roomArray addObject:dictionary];
 
         [weakSelf.collectionView reloadData];
 
@@ -139,8 +135,8 @@
                 NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
                 [roomDeviceArray addObject:roomDevice];
             }
-            weakSelf.currentRoom = [[weakSelf.dataArray firstObject] objectForKey:@"room"];
-            weakSelf.currentDeviceArray = [[weakSelf.dataArray firstObject] objectForKey:@"roomDeviceArray"];
+            kAppDelegate.currentRoom = [[kAppDelegate.roomArray firstObject] objectForKey:@"room"];
+            weakSelf.currentDeviceArray = [[kAppDelegate.roomArray firstObject] objectForKey:@"roomDeviceArray"];
         }];
     }];
 
@@ -148,12 +144,11 @@
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    if (self.currentRoom.roomName.length > 0) {
+    if (kAppDelegate.currentRoom.roomName.length > 0) {
         OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     } else{
         OMAddRoomViewController *controller = [[OMAddRoomViewController alloc] init];
-        controller.room = self.currentRoom;
         [self.navigationController pushViewController:controller animated:YES];
     }
 
@@ -198,7 +193,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     OMRoomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OMRoomCollectionViewCell" forIndexPath:indexPath];
-    NSDictionary *dictionary = [self.dataArray objectAtIndex:indexPath.item];
+    NSDictionary *dictionary = [kAppDelegate.roomArray objectAtIndex:indexPath.item];
     cell.room = [dictionary objectForKey:@"room"];
     return cell;
 }
@@ -206,8 +201,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     OMAddRoomViewController *controller = [[OMAddRoomViewController alloc] init];
-    NSDictionary *dictionary = [self.dataArray objectAtIndex:indexPath.item];
-    controller.room = [dictionary objectForKey:@"room"];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -228,8 +221,8 @@
             }
         }];
 
-        self.currentRoom = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"room"];
-        self.currentDeviceArray = [[self.dataArray objectAtIndex:indexPath.item] objectForKey:@"roomDeviceArray"];
+        kAppDelegate.currentRoom = [[kAppDelegate.roomArray objectAtIndex:indexPath.item] objectForKey:@"room"];
+        self.currentDeviceArray = [[kAppDelegate.roomArray objectAtIndex:indexPath.item] objectForKey:@"roomDeviceArray"];
     }
 }
 

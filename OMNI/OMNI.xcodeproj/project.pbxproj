@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */; };
+		0CD56730B4FE62EEC6C1AA8E /* Pods_OMNI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F933746F02753ACFE8C9AA1A /* Pods_OMNI.framework */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
 		F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */; };
@@ -27,6 +27,8 @@
 		F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93399271CEC413F009C61C1 /* OMListTableViewCell.m */; };
 		F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */; };
 		F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F933992D1CEC47C0009C61C1 /* OMDevice.m */; };
+		F93780751D11023900271753 /* OMEditRoomDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93780731D11023900271753 /* OMEditRoomDeviceViewController.m */; };
+		F93780761D11023900271753 /* OMEditRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93780741D11023900271753 /* OMEditRoomDeviceViewController.xib */; };
 		F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */; };
 		F93831E61CF2E317003807A9 /* OMWifiConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F93831E41CF2E317003807A9 /* OMWifiConfigViewController.m */; settings = {COMPILER_FLAGS = "-Wno-deprecated-declarations"; }; };
 		F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93831E51CF2E317003807A9 /* OMWifiConfigViewController.xib */; };
@@ -71,7 +73,6 @@
 /* Begin PBXFileReference section */
 		00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.release.xcconfig"; sourceTree = "<group>"; };
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
-		E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OMNI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
 		F915607A1D0003CF009BAA36 /* OMGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGuideViewController.m; sourceTree = "<group>"; };
 		F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMGuideViewController.xib; sourceTree = "<group>"; };
@@ -104,11 +105,15 @@
 		F91EAA401D0695E30055CB35 /* IPAddress.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = IPAddress.c; sourceTree = "<group>"; };
 		F91EAA411D0695E30055CB35 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		F9311DCD1CE5D75400E5F07F /* const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		F933746F02753ACFE8C9AA1A /* Pods_OMNI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMNI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F93399261CEC413F009C61C1 /* OMListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListTableViewCell.h; sourceTree = "<group>"; };
 		F93399271CEC413F009C61C1 /* OMListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListTableViewCell.m; sourceTree = "<group>"; };
 		F93399281CEC413F009C61C1 /* OMListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMListTableViewCell.xib; sourceTree = "<group>"; };
 		F933992C1CEC47C0009C61C1 /* OMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDevice.h; sourceTree = "<group>"; };
 		F933992D1CEC47C0009C61C1 /* OMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDevice.m; sourceTree = "<group>"; };
+		F93780721D11023900271753 /* OMEditRoomDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMEditRoomDeviceViewController.h; sourceTree = "<group>"; };
+		F93780731D11023900271753 /* OMEditRoomDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMEditRoomDeviceViewController.m; sourceTree = "<group>"; };
+		F93780741D11023900271753 /* OMEditRoomDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMEditRoomDeviceViewController.xib; sourceTree = "<group>"; };
 		F93831DF1CF2D7E4003807A9 /* OMBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseTableViewCell.h; sourceTree = "<group>"; };
 		F93831E01CF2D7E4003807A9 /* OMBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseTableViewCell.m; sourceTree = "<group>"; };
 		F93831E31CF2E317003807A9 /* OMWifiConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMWifiConfigViewController.h; sourceTree = "<group>"; };
@@ -184,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB4024F4E4F705C15AC0CDC /* libPods-OMNI.a in Frameworks */,
+				0CD56730B4FE62EEC6C1AA8E /* Pods_OMNI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +199,7 @@
 		8AB323BC2EA8FD817D5DCBD2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1D9DF7DB6A846745C434049 /* libPods-OMNI.a */,
+				F933746F02753ACFE8C9AA1A /* Pods_OMNI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,6 +317,9 @@
 				F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */,
 				F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */,
 				F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */,
+				F93780721D11023900271753 /* OMEditRoomDeviceViewController.h */,
+				F93780731D11023900271753 /* OMEditRoomDeviceViewController.m */,
+				F93780741D11023900271753 /* OMEditRoomDeviceViewController.xib */,
 			);
 			path = "房间设置";
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
+				F93780761D11023900271753 /* OMEditRoomDeviceViewController.xib in Resources */,
 				F941E2001D05608C00A70A3F /* OMRoomCollectionViewCell.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
@@ -584,6 +593,7 @@
 				F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,
 				F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */,
+				F93780751D11023900271753 /* OMEditRoomDeviceViewController.m in Sources */,
 				F91EAA4B1D0695E30055CB35 /* ESPTouchTaskParameter.m in Sources */,
 				F941E2011D05608C00A70A3F /* OMRoomCollectionViewFlowLayout.m in Sources */,
 				F91EAA441D0695E30055CB35 /* ESP_NetUtil.m in Sources */,

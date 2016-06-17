@@ -7,6 +7,7 @@
 //
 
 #import "OMAddRoomDeviceViewController.h"
+#import "OMEditRoomDeviceViewController.h"
 
 @interface OMAddRoomDeviceViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
+
+@property (strong, nonatomic) OMRoomDevice *currentRoomDevice;
 
 @end
 
@@ -68,8 +71,8 @@
     .autoHeightRatio(0.0f);
 
     self.deviceTypeLabel.sd_layout
-    .leftSpaceToView(self.view, MarginFactor(20.0f))
-    .rightSpaceToView(self.view, MarginFactor(20.0f))
+    .leftEqualToView(self.tipLabel)
+    .rightEqualToView(self.tipLabel)
     .topSpaceToView(self.tipLabel, MarginFactor(20.0f))
     .heightIs(self.deviceTypeLabel.font.lineHeight);
 
@@ -80,9 +83,9 @@
     .heightIs(self.button.currentBackgroundImage.size.height);
 
     self.middleView.sd_layout
-    .leftEqualToView(self.deviceTypeLabel)
-    .rightEqualToView(self.deviceTypeLabel)
-    .topSpaceToView(self.deviceTypeLabel, MarginFactor(2.0f))
+    .leftEqualToView(self.tipLabel)
+    .rightEqualToView(self.tipLabel)
+    .topSpaceToView(self.deviceTypeLabel, MarginFactor(10.0f))
     .bottomSpaceToView(self.button, MarginFactor(12.0f));
 
     self.imageView.sd_layout
@@ -92,6 +95,23 @@
     .spaceToSuperView(UIEdgeInsetsZero);
 }
 
+- (void)addReactiveCocoa
+{
+    RACSignal *signal = [RACObserve(self, currentRoomDevice) map:^id(id value) {
+        return value;
+    }];
+
+    RAC(self.button, enabled) = [signal map:^id(id value) {
+        return @(value != nil);
+    }];
+
+    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMEditRoomDeviceViewController *controller = [[OMEditRoomDeviceViewController alloc] init];
+        controller.roomDevice = self.currentRoomDevice;
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
@@ -99,7 +119,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return MarginFactor(80.0f);
+    return ceilf(CGRectGetHeight(self.middleView.frame) / self.dataArray.count);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,6 +130,11 @@
     }
     cell.roomDevice = [self.dataArray objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentRoomDevice = [self.dataArray objectAtIndex:indexPath.row];
 }
 
 - (void)didReceiveMemoryWarning

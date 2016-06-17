@@ -8,7 +8,7 @@
 
 #import "OMBaseScrollViewController.h"
 
-@interface OMBaseScrollViewController ()
+@interface OMBaseScrollViewController ()<UIScrollViewDelegate>
 
 
 @end
@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     self.scrollView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
     [super viewDidLoad];
@@ -57,7 +58,9 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj resignFirstResponder];
+        if ([obj isFirstResponder]) {
+            [obj resignFirstResponder];
+        }
     }];
 }
 

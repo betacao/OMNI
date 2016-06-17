@@ -21,6 +21,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:FontFactor(17.0f), NSForegroundColorAttributeName:Color(@"64a23f")}];
     [[UINavigationBar appearance] setTranslucent:NO];
     [OMTCPNetWork sharedNetWork];
+    self.roomArray = [NSMutableArray array];
+    
     return YES;
 }
 

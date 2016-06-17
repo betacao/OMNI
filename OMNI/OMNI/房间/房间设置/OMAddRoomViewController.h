@@ -11,6 +11,5 @@
 
 @interface OMAddRoomViewController : OMBaseScrollViewController
 
-@property (strong, nonatomic) OMRoom *room;
 
 @end
