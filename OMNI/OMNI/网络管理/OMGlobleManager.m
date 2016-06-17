@@ -79,7 +79,7 @@
 
 }
 
-+ (void)readDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
++ (void)readRoomDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:@"read_devices" type:0 inView:view];
@@ -103,6 +103,63 @@
             }
         });
     });
+}
+
++ (void)createRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"create_device$%@$%@$%d$", [array firstObject], [array lastObject], arc4random()%999 + 1];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)editeRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"edit_device$%@$%@$%@$", [array firstObject], [array objectAtIndex:1], [array lastObject]];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)deleteRoomDevice:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"delete_device$%@$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)pairRoomDevice:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"match_code$%@$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)panelRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    block(@[]);
 }
 
 

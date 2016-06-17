@@ -6,10 +6,10 @@
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMBaseScrollViewController.h"
+#import "OMBaseViewController.h"
 #import "OMBaseTableViewCell.h"
 
-@interface OMEditRoomDeviceViewController : OMBaseScrollViewController
+@interface OMEditRoomDeviceViewController : OMBaseViewController
 
 @property (strong, nonatomic) OMRoomDevice *roomDevice;
 

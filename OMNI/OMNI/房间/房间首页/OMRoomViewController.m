@@ -120,7 +120,7 @@
 
         [weakSelf.collectionView reloadData];
 
-        [OMGlobleManager readDevicesInView:weakSelf.view block:^(NSArray *array) {
+        [OMGlobleManager readRoomDevicesInView:weakSelf.view block:^(NSArray *array) {
             NSInteger roomDeviceCount = [[array firstObject] integerValue];
             for (NSInteger i = 0; i < roomDeviceCount; i++) {
                 OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];

@@ -89,8 +89,6 @@
                     [self.navigationController performSelector:@selector(popToViewController:animated:) withObjects:@[controller, @(YES)] afterDelay:1.2f];
                 }
             }
-        } else{
-            [self.view showWithText:@"房间创建失败，请重新创建"];
         }
     }];
 }

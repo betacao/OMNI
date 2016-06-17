@@ -17,7 +17,12 @@
 
 - (void)setRoomDeviceType:(NSString *)roomDeviceType
 {
-    _roomDeviceType = roomDeviceType = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1lx",(long)[roomDeviceType integerValue]]];
+    if ([roomDeviceType integerValue] > 200) {
+        _roomDeviceType = roomDeviceType = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1lx",(long)[roomDeviceType integerValue]]];
+    } else{
+        _roomDeviceType = roomDeviceType;
+    }
+    
     if ([roomDeviceType isEqualToString:@"102"]) {
         //开关
         self.roomDeviceIcon = [UIImage imageNamed:@"choose_device_type_smart_switch"];
@@ -38,7 +43,5 @@
         self.roomDeviceIcon = [UIImage imageNamed:@"choose_device_type_intelligent_curtain"];
     }
 }
-
-//- (void)setRoom
 
 @end

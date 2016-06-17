@@ -152,8 +152,6 @@
         if ([x containsString:@"success"]) {
             OMListViewController *controller = [[OMListViewController alloc] init];
             [self.navigationController pushViewController:controller animated:YES];
-        } else {
-            [self.view showWithText:@"登录失败"];
         }
     }];
 
