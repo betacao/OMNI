@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CD56730B4FE62EEC6C1AA8E /* Pods_OMNI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F933746F02753ACFE8C9AA1A /* Pods_OMNI.framework */; };
+		F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91115491D13FB5700D79185 /* OMGlobleManager.m */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
-		F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */; };
 		F91EAA421D0695E30055CB35 /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */; };
 		F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2B1D0695E30055CB35 /* ESP_CRC8.m */; };
 		F91EAA441D0695E30055CB35 /* ESP_NetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2D1D0695E30055CB35 /* ESP_NetUtil.m */; };
@@ -73,11 +73,11 @@
 /* Begin PBXFileReference section */
 		00B1572090FA155561585926 /* Pods-OMNI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.release.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.release.xcconfig"; sourceTree = "<group>"; };
 		6D4562274CB06EE4A6CD5164 /* Pods-OMNI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OMNI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OMNI/Pods-OMNI.debug.xcconfig"; sourceTree = "<group>"; };
+		F91115481D13FB5700D79185 /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
+		F91115491D13FB5700D79185 /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
 		F915607A1D0003CF009BAA36 /* OMGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGuideViewController.m; sourceTree = "<group>"; };
 		F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMGuideViewController.xib; sourceTree = "<group>"; };
-		F91A52F91CFED33000C9F7CB /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
-		F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F91EAA281D0695E30055CB35 /* ESP_ByteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_ByteUtil.h; sourceTree = "<group>"; };
 		F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_ByteUtil.m; sourceTree = "<group>"; };
 		F91EAA2A1D0695E30055CB35 /* ESP_CRC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_CRC8.h; sourceTree = "<group>"; };
@@ -213,6 +213,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F91115471D13FB5700D79185 /* 接口管理 */ = {
+			isa = PBXGroup;
+			children = (
+				F91115481D13FB5700D79185 /* OMGlobleManager.h */,
+				F91115491D13FB5700D79185 /* OMGlobleManager.m */,
+			);
+			path = "接口管理";
+			sourceTree = "<group>";
+		};
 		F915607E1D0006C4009BAA36 /* 房间 */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,16 +230,6 @@
 			);
 			path = "房间";
 			sourceTree = "<group>";
-		};
-		F91A52F81CFED30600C9F7CB /* 网络管理 */ = {
-			isa = PBXGroup;
-			children = (
-				F91A52F91CFED33000C9F7CB /* OMGlobleManager.h */,
-				F91A52FA1CFED33000C9F7CB /* OMGlobleManager.m */,
-			);
-			name = "网络管理";
-			path = "OMNI/网络管理";
-			sourceTree = SOURCE_ROOT;
 		};
 		F91EAA271D0695E30055CB35 /* ESP */ = {
 			isa = PBXGroup;
@@ -356,7 +355,7 @@
 		F9621BDF1CE2C6240058DBA7 /* OMNI */ = {
 			isa = PBXGroup;
 			children = (
-				F91A52F81CFED30600C9F7CB /* 网络管理 */,
+				F91115471D13FB5700D79185 /* 接口管理 */,
 				F933992B1CEC47B0009C61C1 /* 对象 */,
 				F9C72EF31CE9EE0B00DCBAED /* 列表 */,
 				F915607E1D0006C4009BAA36 /* 房间 */,
@@ -602,9 +601,9 @@
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
-				F91A52FB1CFED33000C9F7CB /* OMGlobleManager.m in Sources */,
 				F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
+				F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F941E2021D05608C00A70A3F /* OMRoomTableViewCell.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,

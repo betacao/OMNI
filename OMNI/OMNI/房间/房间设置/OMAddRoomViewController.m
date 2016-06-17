@@ -27,7 +27,7 @@
     } else{
         self.title = @"Add Room";
     }
-
+    self.textField.text = kAppDelegate.currentRoom.roomName;
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 }
 
@@ -77,12 +77,12 @@
 {
     [self.textField resignFirstResponder];
     if (self.textField.text.length == 0) {
-        [self.view showWithText:@"请输入房间名称"];
+        [self.view showWithText:@"please enter room name"];
         return;
     }
-    [OMGlobleManager createRoom:self.textField.text inView:self.view block:^(NSArray *array) {
+    void(^block)(NSArray *array) = ^(NSArray *array) {
         if ([[array firstObject] isEqualToString:@"01"]) {
-            [self.view showWithText:@"房间创建成功"];
+            [self.view showWithText:@"operation success"];
             for (OMBaseViewController *controller in self.navigationController.viewControllers) {
                 if ([controller isKindOfClass:[OMRoomViewController class]]) {
                     [controller loadData];
@@ -90,7 +90,12 @@
                 }
             }
         }
-    }];
+    };
+    if (kAppDelegate.currentRoom.roomName.length > 0) {
+        [OMGlobleManager editeRoom:@[kAppDelegate.currentRoom.roomNumber, self.textField.text] inView:self.view block:block];
+    } else{
+        [OMGlobleManager createRoom:self.textField.text inView:self.view block:block];
+    }
 }
 
 - (void)didReceiveMemoryWarning

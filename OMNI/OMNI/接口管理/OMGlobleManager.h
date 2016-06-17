@@ -32,6 +32,8 @@
 
 + (void)createRoom:(NSString *)roomName inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
++ (void)editeRoom:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
 //添加房间设备用到的函数
 + (void)createRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
