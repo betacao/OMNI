@@ -4,10 +4,10 @@ use_frameworks!
 
 target 'OMNI' do
 
-pod 'MBProgressHUD'
-pod 'SDAutoLayout'
-pod 'CocoaAsyncSocket'
-pod 'ReactiveCocoa'
-pod 'TTTAttributedLabel', '~> 2.0.0'
-
+    pod 'MBProgressHUD'
+    pod 'SDAutoLayout'
+    pod 'CocoaAsyncSocket'
+    pod 'ReactiveCocoa'
+    pod 'TTTAttributedLabel', '~> 2.0.0'
+    
 end

@@ -177,11 +177,11 @@
     self.middleImageView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
-    self.tableView.sd_layout
-    .leftEqualToView(self.nameField)
-    .rightEqualToView(self.nameField)
-    .topSpaceToView(self.middleView, MarginFactor(3.0f))
-//    .heightIs(MAX(<#A#>, <#B#>));
+//    self.tableView.sd_layout
+//    .leftEqualToView(self.nameField)
+//    .rightEqualToView(self.nameField)
+//    .topSpaceToView(self.middleView, MarginFactor(3.0f))
+////    .heightIs(MAX(<#A#>, <#B#>));
 }
 
 - (void)addReactiveCocoa

@@ -449,12 +449,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9621BF41CE2C6240058DBA7 /* Build configuration list for PBXNativeTarget "OMNI" */;
 			buildPhases = (
-				4BF3A8BEE767049106A52969 /* 📦 Check Pods Manifest.lock */,
+				4BF3A8BEE767049106A52969 /* [CP] Check Pods Manifest.lock */,
 				F9621BD91CE2C6240058DBA7 /* Sources */,
 				F9621BDA1CE2C6240058DBA7 /* Frameworks */,
 				F9621BDB1CE2C6240058DBA7 /* Resources */,
-				A5BC0A2C319275DD96DE6139 /* 📦 Embed Pods Frameworks */,
-				B9E1FDC619AAB5777159B487 /* 📦 Copy Pods Resources */,
+				A5BC0A2C319275DD96DE6139 /* [CP] Embed Pods Frameworks */,
+				B9E1FDC619AAB5777159B487 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -523,14 +523,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4BF3A8BEE767049106A52969 /* 📦 Check Pods Manifest.lock */ = {
+		4BF3A8BEE767049106A52969 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,14 +538,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A5BC0A2C319275DD96DE6139 /* 📦 Embed Pods Frameworks */ = {
+		A5BC0A2C319275DD96DE6139 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,14 +553,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OMNI/Pods-OMNI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B9E1FDC619AAB5777159B487 /* 📦 Copy Pods Resources */ = {
+		B9E1FDC619AAB5777159B487 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,7 +725,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu SHGOO Technology Co., Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
@@ -733,7 +733,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b938bbaf-10e5-4c6c-a1a3-a77ebf9ceab2";
+				PROVISIONING_PROFILE = "915cf3db-6ecc-413e-9db9-a3a37bc5f0cd";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
@@ -744,7 +744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu SHGOO Technology Co., Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/OMNI/PrefixHeader.pch";
 				INFOPLIST_FILE = OMNI/Info.plist;
@@ -752,7 +752,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b938bbaf-10e5-4c6c-a1a3-a77ebf9ceab2";
+				PROVISIONING_PROFILE = "915cf3db-6ecc-413e-9db9-a3a37bc5f0cd";
 				WARNING_CFLAGS = "";
 			};
 			name = Release;
