@@ -25,6 +25,16 @@
 
 @implementation OMListViewController
 
++ (instancetype)shareController
+{
+    static OMListViewController *controller = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        controller = [[self alloc] init];
+    });
+    return controller;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -54,7 +64,9 @@
     .centerYEqualToView(self.footerView)
     .widthIs(self.footerButton.currentBackgroundImage.size.width)
     .heightIs(self.footerButton.currentBackgroundImage.size.height);
-    
+
+    self.tableView.tableFooterView = self.footerView;
+
 }
 
 - (void)loadData

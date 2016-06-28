@@ -16,7 +16,7 @@
                 <outlet property="pairButton" destination="ddw-dV-qpN" id="Ibx-ta-of7"/>
                 <outlet property="panelButton" destination="FuB-He-IFK" id="XZ7-MA-qIM"/>
                 <outlet property="roomField" destination="znS-4Y-cI1" id="Meh-JY-hcs"/>
-                <outlet property="tableView" destination="iN3-kP-dWu" id="CUZ-7O-Gzf"/>
+                <outlet property="tableView" destination="rMI-nC-RRK" id="81t-QS-dUE"/>
                 <outlet property="tipLabel" destination="RLQ-bu-RZt" id="3eG-91-eaH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -92,13 +92,13 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iN3-kP-dWu">
-                    <rect key="frame" x="40" y="220" width="240" height="128"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rMI-nC-RRK">
+                    <rect key="frame" x="40" y="293" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="dbC-QH-uMq"/>
-                        <outlet property="delegate" destination="-1" id="EBZ-RI-tFr"/>
+                        <outlet property="dataSource" destination="-1" id="9H9-bm-5q2"/>
+                        <outlet property="delegate" destination="-1" id="BAt-Rm-4E4"/>
                     </connections>
                 </tableView>
             </subviews>

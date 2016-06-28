@@ -62,9 +62,27 @@
     [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
 }
 
-
++ (void)deleteDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
+{
+    NSString *request = [NSString stringWithFormat:@"fyzn2015#1#13#%@#%@#%@#",kAppDelegate.deviceID, [array firstObject], kAppDelegate.userID];
+    [[OMTCPNetWork sharedNetWork] sendMessage:request inView:view complete:block];
+}
 
 //UDP
+
++ (void)changeWifi:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *string = [NSString stringWithFormat:@"change_wifi$%@$%@$", [array firstObject], [array objectAtIndex:1]];
+        kAppDelegate.pinCode = [[array lastObject] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *responseString = [[OMUDPNetWork sharedNetWork] sendMessage:string type:1 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:responseString]);
+            }
+        });
+    });
+}
 
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
 {

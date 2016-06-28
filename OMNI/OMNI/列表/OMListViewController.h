@@ -10,4 +10,6 @@
 
 @interface OMListViewController : OMBaseViewController
 
++ (instancetype)shareController;
+
 @end

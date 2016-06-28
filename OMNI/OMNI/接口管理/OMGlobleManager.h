@@ -25,7 +25,14 @@
 //这个不是增加房间设备 而是网关设备(上一个项目的东东)
 + (void)addDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
++ (void)deleteDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 //UDP
+
+//更改wifi配置
++ (void)changeWifi:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+
+
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 + (void)readRoomDevicesInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;

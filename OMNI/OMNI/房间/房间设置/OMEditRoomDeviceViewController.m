@@ -32,20 +32,12 @@
 {
     [super viewDidLoad];
     self.title = @"Edit Device";
-
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 }
 
 - (void)initView
 {
-
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] init];
-    [self.view addGestureRecognizer:recognizer];
-    [[recognizer rac_gestureSignal] subscribeNext:^(id x) {
-        [self.nameField resignFirstResponder];
-    }];
-
     self.imageView.image = self.roomDevice.roomDeviceIcon;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 
@@ -304,7 +296,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.tableView.hidden = YES;
+    tableView.hidden = YES;
     OMRoom *room = [[kAppDelegate.roomArray objectAtIndex:indexPath.row] objectForKey:@"room"];
     NSString *roomName = room.roomName;
     self.roomField.text = roomName;
@@ -319,9 +311,11 @@
     return YES;
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    [super touchesEnded:touches withEvent:event];
     [self.nameField resignFirstResponder];
+
 }
 
 - (void)didReceiveMemoryWarning

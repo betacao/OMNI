@@ -150,8 +150,7 @@
         return [self loginSignal];
     }] subscribeNext:^(NSString *x) {
         if ([x containsString:@"success"]) {
-            OMListViewController *controller = [[OMListViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self.navigationController pushViewController:[OMListViewController shareController] animated:YES];
         }
     }];
 

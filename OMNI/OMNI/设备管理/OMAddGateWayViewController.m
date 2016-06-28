@@ -186,16 +186,9 @@
     [OMGlobleManager addDevice:@[self.gatewayIDField.text, self.passwordField.text] inView:self.view block:^(NSString *string) {
         if ([[string lowercaseString] containsString:@"success"]) {
             [self.view showWithText:@"添加设备成功"];
-            UIViewController *controller = nil;
-            for (UIViewController *subController in self.navigationController.viewControllers) {
-                if ([subController isKindOfClass:[OMListViewController class]]) {
-                    controller = subController;
-                    break;
-                }
-            }
-            [(OMListViewController *)controller loadData];
+            [[OMListViewController shareController] loadData];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popToViewController:controller animated:YES];
+                [self.navigationController popToViewController:[OMListViewController shareController] animated:YES];
             });
         }
     }];

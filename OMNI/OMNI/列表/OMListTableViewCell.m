@@ -7,6 +7,7 @@
 //
 
 #import "OMListTableViewCell.h"
+#import "OMDeviceConfigView.h"
 
 @interface OMListTableViewCell ()
 
@@ -26,6 +27,7 @@
     self.contentView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.3f];
     self.spliteView.backgroundColor = [UIColor blackColor];
     [self.button setEnlargeEdge:20.0f];
+
 }
 
 - (void)addAutoLayout
@@ -59,6 +61,17 @@
     .rightSpaceToView(self.contentView, 0.0f)
     .bottomSpaceToView(self.contentView, 0.0f)
     .heightIs(1 / SCALE);
+}
+
+- (void)addReactiveCocoa
+{
+    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        kAppDelegate.deviceID = self.device.deviceID;
+        OMDeviceConfigView *deviceConfigView = [[OMDeviceConfigView alloc] init];
+        OMAlertView *alert = [[OMAlertView alloc] initWithCustomView:deviceConfigView leftButtonTitle:nil rightButtonTitle:nil];
+        alert.touchOtherDismiss = YES;
+        [alert show];
+    }];
 }
 
 - (void)setDevice:(OMDevice *)device

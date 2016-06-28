@@ -25,6 +25,8 @@
 #import "UIButton+EnlargeEdge.h"
 #import "NSCharacterSet+Common.h"
 #import "NSObject+Extend.h"
+#import "UIImage+Extend.h"
+#import "OMAlertView.h"
 
 #import "AppDelegate.h"
 #endif /* PrefixHeader_pch */
