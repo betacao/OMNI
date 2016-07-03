@@ -17,28 +17,24 @@
 
 - (void)setRoomDeviceType:(NSString *)roomDeviceType
 {
-    if ([roomDeviceType integerValue] > 200) {
-        _roomDeviceType = roomDeviceType = [NSString stringWithFormat:@"%@",[[NSString alloc] initWithFormat:@"%1lx",(long)[roomDeviceType integerValue]]];
-    } else{
-        _roomDeviceType = roomDeviceType;
-    }
-    
-    if ([roomDeviceType isEqualToString:@"102"]) {
+    _roomDeviceType = roomDeviceType;
+
+    if ([roomDeviceType isEqualToString:@"258"]) {
         //开关
         self.roomDeviceIcon = [UIImage imageNamed:@"choose_device_type_smart_switch"];
-    } else if ([roomDeviceType isEqualToString:@"103"]) {
+    } else if ([roomDeviceType isEqualToString:@"259"]) {
         //单色灯
         self.roomDeviceIcon = [UIImage imageNamed:@"light_single"];
-    } else if ([roomDeviceType isEqualToString:@"104"]) {
+    } else if ([roomDeviceType isEqualToString:@"260"]) {
         //双色灯
         self.roomDeviceIcon = [UIImage imageNamed:@"light_double"];
-    } else if ([roomDeviceType isEqualToString:@"105"]) {
+    } else if ([roomDeviceType isEqualToString:@"261"]) {
         //彩色灯
         self.roomDeviceIcon = [UIImage imageNamed:@"light_mutable"];
-    } else if ([roomDeviceType isEqualToString:@"106"]) {
+    } else if ([roomDeviceType isEqualToString:@"262"]) {
         //吊扇
         self.roomDeviceIcon = [UIImage imageNamed:@"choose_device_type_art_fan"];
-    } else if ([roomDeviceType isEqualToString:@"107"]) {
+    } else if ([roomDeviceType isEqualToString:@"263"]) {
         //窗帘
         self.roomDeviceIcon = [UIImage imageNamed:@"choose_device_type_intelligent_curtain"];
     }

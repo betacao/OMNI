@@ -77,7 +77,12 @@
 - (void)setDevice:(OMDevice *)device
 {
     _device = device;
-    self.nameLabel.text = [@"Name :" stringByAppendingString:device.deviceName];
+    NSString *deviceName = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@.deviceName", self.device.deviceID]];
+    if (deviceName && deviceName.length > 0) {
+        self.nameLabel.text = deviceName;
+    } else{
+        self.nameLabel.text = [@"Name :" stringByAppendingString:device.deviceName];
+    }
     self.IDLabel.text = [@"Gateway ID :" stringByAppendingString:device.deviceID];
     self.stateLabel.text = [@"status :" stringByAppendingString:device.deviceState];
 }

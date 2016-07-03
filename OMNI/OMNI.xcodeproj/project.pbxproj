@@ -60,6 +60,8 @@
 		F964F9101D040922005FD22F /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F90F1D040922005FD22F /* UIButton+EnlargeEdge.m */; };
 		F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */; };
 		F964F9191D040EEF005FD22F /* OMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9181D040EEF005FD22F /* OMRoom.m */; };
+		F9A1D09C1D29482B007ECDAB /* OMSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A1D09A1D29482B007ECDAB /* OMSwitchViewController.m */; };
+		F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A1D09B1D29482B007ECDAB /* OMSwitchViewController.xib */; };
 		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
 		F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C19A8D1D01261A005AFEEB /* OMBaseCollectionViewCell.m */; };
 		F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */; };
@@ -171,6 +173,9 @@
 		F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Common.m"; sourceTree = "<group>"; };
 		F964F9171D040EEF005FD22F /* OMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoom.h; sourceTree = "<group>"; };
 		F964F9181D040EEF005FD22F /* OMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoom.m; sourceTree = "<group>"; };
+		F9A1D0991D29482B007ECDAB /* OMSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSwitchViewController.h; sourceTree = "<group>"; };
+		F9A1D09A1D29482B007ECDAB /* OMSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSwitchViewController.m; sourceTree = "<group>"; };
+		F9A1D09B1D29482B007ECDAB /* OMSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSwitchViewController.xib; sourceTree = "<group>"; };
 		F9BC970A1CE85CE5000A1998 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
 		F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		F9C19A8C1D01261A005AFEEB /* OMBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 			children = (
 				F941E1F31D05608C00A70A3F /* 房间首页 */,
 				F941E2061D0560B300A70A3F /* 房间设置 */,
+				F9A1D0981D294803007ECDAB /* 开关 */,
 			);
 			path = "房间";
 			sourceTree = "<group>";
@@ -408,6 +414,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F9A1D0981D294803007ECDAB /* 开关 */ = {
+			isa = PBXGroup;
+			children = (
+				F9A1D0991D29482B007ECDAB /* OMSwitchViewController.h */,
+				F9A1D09A1D29482B007ECDAB /* OMSwitchViewController.m */,
+				F9A1D09B1D29482B007ECDAB /* OMSwitchViewController.xib */,
+			);
+			path = "开关";
+			sourceTree = "<group>";
+		};
 		F9BC97091CE85CD2000A1998 /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +553,7 @@
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
 				F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
+				F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
@@ -632,6 +649,7 @@
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
 				F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */,
+				F9A1D09C1D29482B007ECDAB /* OMSwitchViewController.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
 				F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,

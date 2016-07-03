@@ -165,7 +165,7 @@
 
 - (void)loadData
 {
-    [OMGlobleManager createRoomDevice:@[self.roomDevice.roomDeviceName, kAppDelegate.currentRoom.roomNumber] inView:self.view block:^(NSArray *array) {
+    [OMGlobleManager createRoomDevice:@[self.roomDevice.roomDeviceType, kAppDelegate.currentRoom.roomNumber] inView:self.view block:^(NSArray *array) {
         self.roomDevice.roomDeviceID = [array firstObject];
     }];
 }

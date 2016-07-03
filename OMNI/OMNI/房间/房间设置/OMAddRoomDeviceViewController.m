@@ -51,11 +51,11 @@
 
 
     self.dataArray = [NSMutableArray array];
-    NSArray *iconArray = @[[UIImage imageNamed:@"light_single"], [UIImage imageNamed:@"light_double"], [UIImage imageNamed:@"light_mutable"], [UIImage imageNamed:@"choose_device_type_art_fan"], [UIImage imageNamed:@"choose_device_type_intelligent_curtain"], [UIImage imageNamed:@"choose_device_type_smart_switch"]];
+    NSArray *deviceTypeArray = @[@"259", @"260", @"261", @"262", @"263", @"258"];
     NSArray *titleArray = @[@"Light", @"Bicolor Light", @"RGBLight", @"Art fan", @"Intelligent Curtain", @"Smart Switch"];
-    for (NSInteger i = 0; i < iconArray.count; i++) {
+    for (NSInteger i = 0; i < deviceTypeArray.count; i++) {
         OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
-        roomDevice.roomDeviceIcon = [iconArray objectAtIndex:i];
+        roomDevice.roomDeviceType = [deviceTypeArray objectAtIndex:i];
         roomDevice.roomDeviceName = [titleArray objectAtIndex:i];
         [self.dataArray addObject: roomDevice];
     }

@@ -83,6 +83,13 @@
 
 }
 
+- (void)addReactiveCocoa
+{
+    [[self.switchControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
+
+    }];
+}
+
 - (void)setRoomDevice:(OMRoomDevice *)roomDevice
 {
     _roomDevice = roomDevice;

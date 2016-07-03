@@ -301,10 +301,29 @@
     [self setupAutoHeightWithBottomView:self.button bottomMargin:MarginFactor(30.0f)];
 }
 
+
 - (void)addReactiveCocoa
 {
-    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [[[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
+        return [self signal];
+    }] subscribeNext:^(NSString *x) {
+        if ([x containsString:@"success"]) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [((OMAlertView *)self.superview.superview) dismissAlert];
+                [[OMListViewController shareController] loadData];
+            });
+        }
+    }];
+}
 
+- (RACSignal *)signal
+{
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [OMGlobleManager changeWifi:@[self.textField1.text, self.textField2.text, self.textField3.text] inView:self block:^(NSArray *array) {
+            [subscriber sendNext:array];
+            [subscriber sendCompleted];
+        }];
+        return nil;
     }];
 }
 
@@ -487,6 +506,13 @@
     [self setupAutoHeightWithBottomView:self.button bottomMargin:MarginFactor(30.0f)];
 }
 
-
+- (void)addReactiveCocoa
+{
+    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(NSString *x) {
+        [[NSUserDefaults standardUserDefaults] setObject:self.textField1.text forKey:[NSString stringWithFormat:@"%@.deviceName", kAppDelegate.deviceID]];
+        [((OMAlertView *)self.superview.superview) dismissAlert];
+        [[OMListViewController shareController] loadData];
+    }];
+}
 
 @end
