@@ -43,18 +43,19 @@
 
 - (void)addReactiveCocoa
 {
-    [[[[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] doNext:^(UIButton *button) {
-        [button setSelected:!button.isSelected];
-    }] flattenMap:^RACStream *(UIButton *button) {
+    [[[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [OMGlobleManager changeSwitchState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"1" : @"0"] inView:self.view block:^(NSArray *array) {
+            //这里面button状态要反写
+            [OMGlobleManager changeSwitchState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"0" : @"1"] inView:self.view block:^(NSArray *array) {
                 [subscriber sendNext:array];
                 [subscriber sendCompleted];
             }];
             return nil;
         }];
     }] subscribeNext:^(id x) {
-
+        [self.button setSelected:!self.button.isSelected];
+        self.roomDevice.roomDeviceState = !self.roomDevice.roomDeviceState;
+        self.tableViewCell.roomDevice = self.roomDevice;
     }];
 }
 

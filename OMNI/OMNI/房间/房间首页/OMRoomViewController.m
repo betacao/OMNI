@@ -133,7 +133,7 @@
                 roomDevice.roomNumber = [array objectAtIndex:i * 6 + 3];
                 roomDevice.roomDeviceType = [[array objectAtIndex:i * 6 + 4] integerValue];
                 roomDevice.roomDeviceFlag = [array objectAtIndex:i * 6 + 5];
-                roomDevice.roomDeviceState = [array objectAtIndex:i * 6 + 6];
+                roomDevice.roomDeviceState = [[array objectAtIndex:i * 6 + 6] isEqualToString:@"1"];
 
                 NSMutableDictionary *dictionary = [weakSelf dictionaryWithRoomNumber:roomDevice.roomNumber];
                 NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
@@ -187,6 +187,7 @@
     if (roomDevice.roomDeviceType == OMRoomDeviceTypeSwitch) {
         OMSwitchViewController *controller = [[OMSwitchViewController alloc] init];
         controller.roomDevice = roomDevice;
+        controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.navigationController pushViewController:controller animated:YES];
     } else{
         OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];

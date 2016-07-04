@@ -116,7 +116,7 @@
         .widthIs(self.iconImageView.image.size.width)
         .heightIs(self.iconImageView.image.size.height);
 
-        [self.switchControl setOn:[roomDevice.roomDeviceState isEqualToString:@"1"] animated:NO];
+        [self.switchControl setOn:roomDevice.roomDeviceState animated:NO];
         if ([roomDevice.roomDeviceFlag isEqualToString:@"1"] ) {
             self.timeImageView.image = [UIImage imageNamed:@"alarm_on"];
         } else {
