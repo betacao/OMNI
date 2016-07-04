@@ -10,4 +10,6 @@
 
 @interface OMSwitchViewController : OMBaseViewController
 
+@property (strong, nonatomic) OMRoomDevice *roomDevice;
+
 @end

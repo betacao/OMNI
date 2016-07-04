@@ -13,6 +13,7 @@
 #import "NSMutableDictionary+Room.h"
 #import "OMAddRoomDeviceViewController.h"
 #import "OMAddRoomViewController.h"
+#import "OMSwitchViewController.h"
 
 @interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -130,7 +131,7 @@
                 roomDevice.roomDeviceID = [array objectAtIndex:i * 6 + 1];
                 roomDevice.roomDeviceName = [array objectAtIndex:i * 6 + 2];
                 roomDevice.roomNumber = [array objectAtIndex:i * 6 + 3];
-                roomDevice.roomDeviceType = [array objectAtIndex:i * 6 + 4];
+                roomDevice.roomDeviceType = [[array objectAtIndex:i * 6 + 4] integerValue];
                 roomDevice.roomDeviceFlag = [array objectAtIndex:i * 6 + 5];
                 roomDevice.roomDeviceState = [array objectAtIndex:i * 6 + 6];
 
@@ -182,8 +183,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    OMRoomDevice *roomDevice = [self.currentDeviceArray objectAtIndex:indexPath.row];
+    if (roomDevice.roomDeviceType == OMRoomDeviceTypeSwitch) {
+        OMSwitchViewController *controller = [[OMSwitchViewController alloc] init];
+        controller.roomDevice = roomDevice;
+        [self.navigationController pushViewController:controller animated:YES];
+    } else{
+        OMAddRoomDeviceViewController *controller = [[OMAddRoomDeviceViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 

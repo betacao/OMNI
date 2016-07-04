@@ -87,7 +87,7 @@
 {
     [[[self.switchControl rac_signalForControlEvents:UIControlEventValueChanged] flattenMap:^RACStream *(UISwitch *value) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [OMGlobleManager changeSwitchState:@[self.roomDevice.roomDeviceType, self.roomDevice.roomDeviceID, value.isOn ? @"1" : @"0"] inView:self.controller.view block:^(NSArray *array) {
+            [OMGlobleManager changeRoomDeviceState:@[@(self.roomDevice.roomDeviceType), self.roomDevice.roomDeviceID, value.isOn ? @"1" : @"0"] inView:self.controller.view block:^(NSArray *array) {
                 [subscriber sendNext:array];
                 [subscriber sendCompleted];
             }];

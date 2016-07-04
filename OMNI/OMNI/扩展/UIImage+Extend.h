@@ -10,7 +10,8 @@
 
 @interface UIImage (Extend)
 
-
 + (UIImage *)imageWithColor:(UIColor *)color;
+
++ (UIImage *)blurredImageWithImage:(UIImage *)image blur:(CGFloat)blur;
 
 @end

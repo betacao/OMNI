@@ -51,11 +51,11 @@
 
 
     self.dataArray = [NSMutableArray array];
-    NSArray *deviceTypeArray = @[@"259", @"260", @"261", @"262", @"263", @"258"];
+    NSArray *deviceTypeArray = @[@(259), @(260), @(261), @(262), @(263), @(258)];
     NSArray *titleArray = @[@"Light", @"Bicolor Light", @"RGBLight", @"Art fan", @"Intelligent Curtain", @"Smart Switch"];
     for (NSInteger i = 0; i < deviceTypeArray.count; i++) {
         OMRoomDevice *roomDevice = [[OMRoomDevice alloc] init];
-        roomDevice.roomDeviceType = [deviceTypeArray objectAtIndex:i];
+        roomDevice.roomDeviceType = [[deviceTypeArray objectAtIndex:i] integerValue];
         roomDevice.roomDeviceName = [titleArray objectAtIndex:i];
         [self.dataArray addObject: roomDevice];
     }

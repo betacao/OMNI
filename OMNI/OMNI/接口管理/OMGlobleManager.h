@@ -53,7 +53,10 @@
 //以后再搞的
 + (void)panelRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
+
++ (void)changeRoomDeviceState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 //switch操作
++ (void)readSwitchState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 @end
