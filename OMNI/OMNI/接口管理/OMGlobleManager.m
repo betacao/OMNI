@@ -193,6 +193,19 @@
     block(@[]);
 }
 
++ (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_dev_priv$%@$%@$%@$", [array firstObject], [array objectAtIndex:1], [array lastObject]];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
 
 //通用函数
 + (NSArray *)stringToArray:(NSString *)string

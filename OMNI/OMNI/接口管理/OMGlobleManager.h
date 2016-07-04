@@ -50,6 +50,10 @@
 
 + (void)pairRoomDevice:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
+//以后再搞的
 + (void)panelRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//switch操作
++ (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 @end

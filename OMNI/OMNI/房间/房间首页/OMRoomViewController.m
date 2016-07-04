@@ -100,6 +100,9 @@
     [kAppDelegate.roomArray removeAllObjects];
 
     [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
+        if (array.count >= 1 && [[array firstObject] isEqualToString:@"OFFLINE"]) {
+            return;
+        }
         weakSelf.roomCount = [[array firstObject] integerValue] + 1;
         for (NSInteger i = 0; i < [[array firstObject] integerValue]; i++) {
             NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
@@ -173,6 +176,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OMRoomTableViewCell" owner:self options:nil] firstObject];
     }
     cell.roomDevice = [self.currentDeviceArray objectAtIndex:indexPath.row];
+    cell.controller = self;
     return cell;
 }
 

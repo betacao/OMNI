@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) OMRoomDevice *roomDevice;
 
+@property (weak, nonatomic) UIViewController *controller;
+
 @end

@@ -782,7 +782,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "915cf3db-6ecc-413e-9db9-a3a37bc5f0cd";
+				PROVISIONING_PROFILE = "2944d81e-058a-4703-a8ee-2c0b22fa540e";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
@@ -801,7 +801,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = beta.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "915cf3db-6ecc-413e-9db9-a3a37bc5f0cd";
+				PROVISIONING_PROFILE = "2944d81e-058a-4703-a8ee-2c0b22fa540e";
 				WARNING_CFLAGS = "";
 			};
 			name = Release;
