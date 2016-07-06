@@ -11,6 +11,7 @@
 		F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91115491D13FB5700D79185 /* OMGlobleManager.m */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
+		F9182A931D2B469C00AF3218 /* OMAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = F9182A921D2B469C00AF3218 /* OMAlarm.m */; };
 		F91EAA421D0695E30055CB35 /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */; };
 		F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2B1D0695E30055CB35 /* ESP_CRC8.m */; };
 		F91EAA441D0695E30055CB35 /* ESP_NetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2D1D0695E30055CB35 /* ESP_NetUtil.m */; };
@@ -60,6 +61,9 @@
 		F964F9101D040922005FD22F /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F90F1D040922005FD22F /* UIButton+EnlargeEdge.m */; };
 		F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */; };
 		F964F9191D040EEF005FD22F /* OMRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = F964F9181D040EEF005FD22F /* OMRoom.m */; };
+		F9A19C891D2BE9B900965553 /* OMAddTimingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A19C871D2BE9B900965553 /* OMAddTimingViewController.m */; };
+		F9A19C8A1D2BE9B900965553 /* OMAddTimingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A19C881D2BE9B900965553 /* OMAddTimingViewController.xib */; };
+		F9A19C8D1D2BEAC700965553 /* UIViewController+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A19C8C1D2BEAC700965553 /* UIViewController+Extend.m */; };
 		F9A1D09C1D29482B007ECDAB /* OMSwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A1D09A1D29482B007ECDAB /* OMSwitchViewController.m */; };
 		F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9A1D09B1D29482B007ECDAB /* OMSwitchViewController.xib */; };
 		F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC970B1CE85CE5000A1998 /* UIColor+Extend.m */; };
@@ -71,6 +75,7 @@
 		F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C4A7B31D20DA9000555E7C /* UIImage+Extend.m */; };
 		F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */; };
 		F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */; };
+		F9DE59B91D2A5D1900CB4CAB /* OMAlarmView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DE59B81D2A5D1900CB4CAB /* OMAlarmView.m */; };
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
 		F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */; };
 		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
@@ -84,6 +89,8 @@
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
 		F915607A1D0003CF009BAA36 /* OMGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGuideViewController.m; sourceTree = "<group>"; };
 		F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMGuideViewController.xib; sourceTree = "<group>"; };
+		F9182A911D2B469C00AF3218 /* OMAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAlarm.h; sourceTree = "<group>"; };
+		F9182A921D2B469C00AF3218 /* OMAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAlarm.m; sourceTree = "<group>"; };
 		F91EAA281D0695E30055CB35 /* ESP_ByteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_ByteUtil.h; sourceTree = "<group>"; };
 		F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_ByteUtil.m; sourceTree = "<group>"; };
 		F91EAA2A1D0695E30055CB35 /* ESP_CRC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_CRC8.h; sourceTree = "<group>"; };
@@ -173,6 +180,11 @@
 		F964F9151D040B66005FD22F /* NSCharacterSet+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+Common.m"; sourceTree = "<group>"; };
 		F964F9171D040EEF005FD22F /* OMRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMRoom.h; sourceTree = "<group>"; };
 		F964F9181D040EEF005FD22F /* OMRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMRoom.m; sourceTree = "<group>"; };
+		F9A19C861D2BE9B900965553 /* OMAddTimingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddTimingViewController.h; sourceTree = "<group>"; };
+		F9A19C871D2BE9B900965553 /* OMAddTimingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddTimingViewController.m; sourceTree = "<group>"; };
+		F9A19C881D2BE9B900965553 /* OMAddTimingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddTimingViewController.xib; sourceTree = "<group>"; };
+		F9A19C8B1D2BEAC700965553 /* UIViewController+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extend.h"; sourceTree = "<group>"; };
+		F9A19C8C1D2BEAC700965553 /* UIViewController+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extend.m"; sourceTree = "<group>"; };
 		F9A1D0991D29482B007ECDAB /* OMSwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSwitchViewController.h; sourceTree = "<group>"; };
 		F9A1D09A1D29482B007ECDAB /* OMSwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSwitchViewController.m; sourceTree = "<group>"; };
 		F9A1D09B1D29482B007ECDAB /* OMSwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSwitchViewController.xib; sourceTree = "<group>"; };
@@ -193,6 +205,8 @@
 		F9C72EF41CE9EEB100DCBAED /* OMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMListViewController.h; sourceTree = "<group>"; };
 		F9C72EF51CE9EEB100DCBAED /* OMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMListViewController.m; sourceTree = "<group>"; };
 		F9C72EF61CE9EEB100DCBAED /* OMListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMListViewController.xib; sourceTree = "<group>"; };
+		F9DE59B71D2A5D1900CB4CAB /* OMAlarmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAlarmView.h; sourceTree = "<group>"; };
+		F9DE59B81D2A5D1900CB4CAB /* OMAlarmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAlarmView.m; sourceTree = "<group>"; };
 		F9E643231CE5B65B00D35FB1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F9E643291CE5BD7F00D35FB1 /* OMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseViewController.h; sourceTree = "<group>"; };
 		F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMBaseViewController.m; sourceTree = "<group>"; };
@@ -289,6 +303,8 @@
 				F933992D1CEC47C0009C61C1 /* OMDevice.m */,
 				F964F9171D040EEF005FD22F /* OMRoom.h */,
 				F964F9181D040EEF005FD22F /* OMRoom.m */,
+				F9182A911D2B469C00AF3218 /* OMAlarm.h */,
+				F9182A921D2B469C00AF3218 /* OMAlarm.m */,
 			);
 			path = "对象";
 			sourceTree = "<group>";
@@ -441,6 +457,8 @@
 				F9C1BE0A1D046DB40036AFA5 /* NSMutableDictionary+Room.m */,
 				F943C19F1D06A4F400842778 /* NSObject+Extend.h */,
 				F943C1A01D06A4F400842778 /* NSObject+Extend.m */,
+				F9A19C8B1D2BEAC700965553 /* UIViewController+Extend.h */,
+				F9A19C8C1D2BEAC700965553 /* UIViewController+Extend.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -452,6 +470,11 @@
 				F9C4A7AA1D20BF4E00555E7C /* OMAlertView.m */,
 				F9C4A7AC1D20C50400555E7C /* OMDeviceConfigView.h */,
 				F9C4A7AD1D20C50400555E7C /* OMDeviceConfigView.m */,
+				F9DE59B71D2A5D1900CB4CAB /* OMAlarmView.h */,
+				F9DE59B81D2A5D1900CB4CAB /* OMAlarmView.m */,
+				F9A19C861D2BE9B900965553 /* OMAddTimingViewController.h */,
+				F9A19C871D2BE9B900965553 /* OMAddTimingViewController.m */,
+				F9A19C881D2BE9B900965553 /* OMAddTimingViewController.xib */,
 			);
 			path = "自定义";
 			sourceTree = "<group>";
@@ -552,6 +575,7 @@
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
 				F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */,
+				F9A19C8A1D2BE9B900965553 /* OMAddTimingViewController.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
 				F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
@@ -633,6 +657,7 @@
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
+				F9A19C8D1D2BEAC700965553 /* UIViewController+Extend.m in Sources */,
 				F91EAA4E1D0695E30055CB35 /* IPAddress.c in Sources */,
 				F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */,
 				F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */,
@@ -648,6 +673,8 @@
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
+				F9A19C891D2BE9B900965553 /* OMAddTimingViewController.m in Sources */,
+				F9182A931D2B469C00AF3218 /* OMAlarm.m in Sources */,
 				F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */,
 				F9A1D09C1D29482B007ECDAB /* OMSwitchViewController.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
@@ -660,6 +687,7 @@
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
 				F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */,
 				F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */,
+				F9DE59B91D2A5D1900CB4CAB /* OMAlarmView.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 				F91EAA491D0695E30055CB35 /* ESPTouchResult.m in Sources */,
 				F9C4A7B11D20C56100555E7C /* OMBaseView.m in Sources */,

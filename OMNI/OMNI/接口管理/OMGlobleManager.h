@@ -26,12 +26,13 @@
 + (void)addDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
 
 + (void)deleteDevice:(NSArray *)array inView:(UIView *)view block:(OMTCPNetWorkFinishBlock)block;
+
 //UDP
 
 //更改wifi配置
 + (void)changeWifi:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
-
++ (void)readTimeTask:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 

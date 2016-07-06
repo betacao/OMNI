@@ -7,6 +7,7 @@
 //
 
 #import "OMSwitchViewController.h"
+#import "OMAlarmView.h"
 
 @interface OMSwitchViewController ()
 
@@ -27,6 +28,7 @@
 {
     self.title = @"Smart Switch";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
+    [self.view addSubview:[OMAlarmView sharedAlarmView]];
 }
 
 - (void)addAutoLayout
@@ -65,6 +67,7 @@
         BOOL success = [[array firstObject] isEqualToString:@"SUCCESS"];
         if (success) {
             [self.button setSelected:[[array lastObject] isEqualToString:@"1"]];
+            [OMAlarmView sharedAlarmView].roomDevice = self.roomDevice;
         }
     }];
 }

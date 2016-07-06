@@ -172,7 +172,7 @@
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    NSString *deviceName = self.nameField.text == 0 ? self.roomDevice.roomDeviceName : self.nameField.text;
+    NSString *deviceName = self.nameField.text.length == 0 ? self.roomDevice.roomDeviceName : self.nameField.text;
     [OMGlobleManager editeRoomDevice:@[self.roomDevice.roomDeviceID, deviceName, kAppDelegate.currentRoom.roomNumber] inView:self.view block:^(NSArray *array) {
         if ([[array firstObject] isEqualToString:@"01"]) {
             [self.view showWithText:@"添加设备成功"];

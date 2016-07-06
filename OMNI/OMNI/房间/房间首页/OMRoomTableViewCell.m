@@ -38,7 +38,7 @@
     self.addDeviceLabel.text = @"+Add a new device";
     self.addDeviceLabel.textAlignment = NSTextAlignmentCenter;
 
-    self.backgroundImageView.image = [UIImage imageNamed:@"home_choose_device"];
+    self.backgroundImageView.image = [[UIImage imageNamed:@"home_choose_device"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 10.0f, 20.0f, 10.0f) resizingMode:UIImageResizingModeStretch];
 
     self.timeImageView.image = [UIImage imageNamed:@"alarm_on"];
     self.arrowImageView.image = [UIImage imageNamed:@"choose_arrow"];

@@ -84,6 +84,19 @@
     });
 }
 
++ (void)readTimeTask:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"read_timetask$%@$", string];
+        NSString *responseString = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:responseString]);
+            }
+        });
+    });
+}
+
 + (void)readRoomsInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
