@@ -7,13 +7,17 @@
 //
 
 #import "OMBaseViewController.h"
-#import "OMBaseTableViewCell.h"
+#import "OMBaseView.h"
 
 @interface OMAddTimingViewController : OMBaseViewController
 
 @end
 
 
-@interface OMAddTimingTableViewCell : OMBaseTableViewCell
+@interface OMAddTimingSubView : OMBaseView
+
+- (void)addLeftTitle:(NSString *)title;
+
+- (void)addRightTitle:(NSString *)title;
 
 @end

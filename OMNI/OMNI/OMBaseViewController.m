@@ -11,7 +11,7 @@
 @interface OMBaseViewController ()
 
 @property (strong, nonatomic) UIImageView *bgImageView;
-@property (strong, nonatomic) UIImageView *topImageView;
+@property (strong, nonatomic) UIImageView *navImageView;
 
 @end
 
@@ -39,12 +39,12 @@
     [self.view addSubview:self.bgImageView];
     [self.view sendSubviewToBack:self.bgImageView];
 
-    self.topImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_top_bg"]];
-    [self.view insertSubview:self.topImageView aboveSubview:self.bgImageView];
+    self.navImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_top_bg"]];
+    [self.view insertSubview:self.navImageView aboveSubview:self.bgImageView];
 
     self.bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
 
-    self.topImageView.sd_layout.leftSpaceToView(self.view, 0.0f).rightSpaceToView(self.view, 0.0f).topSpaceToView(self.view, 0.0f).heightIs(self.topImageView.image.size.height);
+    self.navImageView.sd_layout.leftSpaceToView(self.view, 0.0f).rightSpaceToView(self.view, 0.0f).topSpaceToView(self.view, 0.0f).heightIs(self.navImageView.image.size.height);
 
 
 }

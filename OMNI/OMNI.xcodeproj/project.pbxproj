@@ -79,6 +79,8 @@
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
 		F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */; };
 		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
+		F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */; };
+		F9FCF3931D2DFFC100508A8B /* OMSingleLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,9 @@
 		F9E6432F1CE5C4DC00D35FB1 /* OMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMLoginViewController.h; sourceTree = "<group>"; };
 		F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMLoginViewController.m; sourceTree = "<group>"; };
 		F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMLoginViewController.xib; sourceTree = "<group>"; };
+		F9FCF38F1D2DFFC100508A8B /* OMSingleLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSingleLightViewController.h; sourceTree = "<group>"; };
+		F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSingleLightViewController.m; sourceTree = "<group>"; };
+		F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSingleLightViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +264,7 @@
 				F941E1F31D05608C00A70A3F /* 房间首页 */,
 				F941E2061D0560B300A70A3F /* 房间设置 */,
 				F9A1D0981D294803007ECDAB /* 开关 */,
+				F9FCF38E1D2DFF7B00508A8B /* 单色灯 */,
 			);
 			path = "房间";
 			sourceTree = "<group>";
@@ -508,6 +514,16 @@
 			path = "登录";
 			sourceTree = "<group>";
 		};
+		F9FCF38E1D2DFF7B00508A8B /* 单色灯 */ = {
+			isa = PBXGroup;
+			children = (
+				F9FCF38F1D2DFFC100508A8B /* OMSingleLightViewController.h */,
+				F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */,
+				F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */,
+			);
+			path = "单色灯";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,6 +591,7 @@
 				F944CDD71CE9977F009547A0 /* OMRegisterViewController.xib in Resources */,
 				F9C72EF81CE9EEB100DCBAED /* OMListViewController.xib in Resources */,
 				F941E2031D05608C00A70A3F /* OMRoomTableViewCell.xib in Resources */,
+				F9FCF3931D2DFFC100508A8B /* OMSingleLightViewController.xib in Resources */,
 				F9A19C8A1D2BE9B900965553 /* OMAddTimingViewController.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
 				F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */,
@@ -658,6 +675,7 @@
 				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
 				F9A19C8D1D2BEAC700965553 /* UIViewController+Extend.m in Sources */,
+				F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */,
 				F91EAA4E1D0695E30055CB35 /* IPAddress.c in Sources */,
 				F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */,
 				F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */,

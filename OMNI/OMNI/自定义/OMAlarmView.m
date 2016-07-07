@@ -21,9 +21,12 @@
 @property (strong, nonatomic) UIButton *rightButton;
 @property (strong, nonatomic) UITableView *tableView;
 
-@property (assign, nonatomic) CGFloat margin;
 @property (strong, nonatomic) NSMutableArray *dataArray;
 @property (assign, nonatomic) BOOL isEditing;
+
+@property (assign, nonatomic) BOOL isShowing;
+
+
 
 @end
 
@@ -80,11 +83,6 @@
     .widthIs(self.topButton.currentImage.size.width)
     .heightIs(self.topButton.currentImage.size.height);
 
-    WEAK(self, weakSelf);
-    self.topButton.didFinishAutoLayoutBlock = ^(CGRect rect){
-        weakSelf.margin = CGRectGetMaxY(rect);
-    };
-
     self.label.sd_layout
     .centerXEqualToView(self)
     .topSpaceToView(self.topButton, 0.0f)
@@ -115,7 +113,7 @@
 - (void)addReactiveCocoa
 {
     [[self.topButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-
+        self.isShowing = !self.isShowing;
     }];
 
     [[self.leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -168,17 +166,65 @@
 - (void)setIsEditing:(BOOL)isEditing
 {
     _isEditing = isEditing;
-
+    self.leftButton.hidden = isEditing;
+    [self.rightButton setImage:isEditing ? [UIImage imageNamed:@"btn_save_time"] : [UIImage imageNamed:@"timing_add"] forState:UIControlStateNormal];
     [self.tableView setEditing:isEditing animated:YES];
+}
+
+- (void)setIsShowing:(BOOL)isShowing
+{
+    _isShowing = isShowing;
+    if (isShowing) {
+        [self showWithAnimated];
+    } else {
+        [self hideWithAnimated];
+    }
+}
+
+- (void)showWithAnimated
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        self.sd_resetNewLayout
+        .leftSpaceToView(self.superview, 0.0f)
+        .rightSpaceToView(self.superview, 0.0f)
+        .yIs(SCREENHEIGHT - CGRectGetHeight([UIViewController findSourceViewController:self.superview].navigationController.navigationBar.frame) - CGRectGetHeight(self.frame));
+    }];
+}
+
+- (void)showWithNoAnimated
+{
+    self.sd_resetNewLayout
+    .leftSpaceToView(self.superview, 0.0f)
+    .rightSpaceToView(self.superview, 0.0f)
+    .yIs(SCREENHEIGHT - CGRectGetHeight([UIViewController findSourceViewController:self.superview].navigationController.navigationBar.frame) - CGRectGetHeight(self.frame));
+
+}
+
+- (void)hideWithAnimated
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        self.sd_resetNewLayout
+        .leftSpaceToView(self.superview, 0.0f)
+        .rightSpaceToView(self.superview, 0.0f)
+        .yIs(SCREENHEIGHT - CGRectGetHeight([UIViewController findSourceViewController:self.superview].navigationController.navigationBar.frame) - self.topButton.currentImage.size.height);
+    }];
+}
+
+- (void)hideWithNoAnimated
+{
+    self.sd_resetNewLayout
+    .leftSpaceToView(self.superview, 0.0f)
+    .rightSpaceToView(self.superview, 0.0f)
+    .yIs(SCREENHEIGHT - CGRectGetHeight([UIViewController findSourceViewController:self.superview].navigationController.navigationBar.frame) - self.topButton.currentImage.size.height);
 }
 
 - (void)didMoveToSuperview
 {
+    [super didMoveToSuperview];
     if (self.superview) {
-        self.sd_layout
-        .leftSpaceToView(self.superview, 0.0f)
-        .rightSpaceToView(self.superview, 0.0f)
-        .bottomSpaceToView(self.superview, 0.0f);
+        self.isEditing = NO;
+        [self hideWithNoAnimated];
+        _isShowing = NO;
     }
 }
 

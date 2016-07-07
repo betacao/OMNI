@@ -7,7 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OMAddTimingViewController">
             <connections>
-                <outlet property="tableView" destination="gbh-6N-nad" id="h5T-TX-Hur"/>
+                <outlet property="bottomImageView" destination="lOt-5Z-gdl" id="ZMO-ge-R6Y"/>
+                <outlet property="bottomView" destination="kEx-tC-s8l" id="f0g-Yd-DW6"/>
+                <outlet property="firstSubView" destination="hTQ-dH-LAm" id="rPv-K8-8HB"/>
+                <outlet property="secondSubView" destination="dtV-Dg-bRL" id="nLF-zn-ZaY"/>
+                <outlet property="spliteView" destination="WJO-Ij-1JM" id="AKp-fY-GJ7"/>
+                <outlet property="thirdSubView" destination="fbx-GY-qyt" id="eKH-CS-e3D"/>
+                <outlet property="topImageView" destination="3k7-aP-duI" id="VVK-0y-3OJ"/>
+                <outlet property="topView" destination="KsX-R2-NuM" id="lDB-9b-50b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,15 +23,48 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gbh-6N-nad">
-                    <rect key="frame" x="72" y="100" width="240" height="128"/>
+                <view contentMode="scaleToFill" id="KsX-R2-NuM">
+                    <rect key="frame" x="40" y="49" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="7w3-Yx-jX1"/>
-                        <outlet property="delegate" destination="-1" id="1IJ-aY-8FM"/>
-                    </connections>
-                </tableView>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3k7-aP-duI">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" id="hTQ-dH-LAm" customClass="OMAddTimingSubView">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="kEx-tC-s8l">
+                    <rect key="frame" x="40" y="239" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lOt-5Z-gdl">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" id="dtV-Dg-bRL" customClass="OMAddTimingSubView">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="WJO-Ij-1JM">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="fbx-GY-qyt" customClass="OMAddTimingSubView">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="312" y="342"/>
