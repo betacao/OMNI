@@ -7,7 +7,12 @@
 //
 
 #import "OMBaseViewController.h"
+#import "OMRoomTableViewCell.h"
 
 @interface OMSingleLightViewController : OMBaseViewController
+
+@property (strong, nonatomic) OMRoomDevice *roomDevice;
+
+@property (weak, nonatomic) OMRoomTableViewCell *tableViewCell;
 
 @end
