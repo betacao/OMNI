@@ -13,5 +13,6 @@
 - (void)initView;
 - (void)addAutoLayout;
 - (void)addReactiveCocoa;
+- (void)loadData;
 
 @end

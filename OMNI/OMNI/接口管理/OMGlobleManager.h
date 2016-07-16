@@ -54,10 +54,14 @@
 //以后再搞的
 + (void)panelRoomDevice:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
-
 + (void)changeRoomDeviceState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
 //switch操作
 + (void)readSwitchState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
+//单色灯操作
++ (void)readSingleLightState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)slideSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

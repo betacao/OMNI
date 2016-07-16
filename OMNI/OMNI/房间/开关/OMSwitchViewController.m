@@ -54,10 +54,12 @@
             }];
             return nil;
         }];
-    }] subscribeNext:^(id x) {
-        [self.button setSelected:!self.button.isSelected];
-        self.roomDevice.roomDeviceState = !self.roomDevice.roomDeviceState;
-        self.tableViewCell.roomDevice = self.roomDevice;
+    }] subscribeNext:^(NSArray *x) {
+        if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
+            [self.button setSelected:!self.button.isSelected];
+            self.roomDevice.roomDeviceState = !self.roomDevice.roomDeviceState;
+            self.tableViewCell.roomDevice = self.roomDevice;
+        }
     }];
 }
 

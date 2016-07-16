@@ -236,7 +236,46 @@
 + (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *request = [NSString stringWithFormat:@"set_switch_priv$%@$%@$;", [array firstObject], [array lastObject]];
+        NSString *request = [NSString stringWithFormat:@"set_switch_priv$%@$%@$", [array firstObject], [array lastObject]];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)readSingleLightState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"read_singlelight$%@$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)changeSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_single_priv$%@$%@$255$", [array firstObject], [array lastObject]];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)slideSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_single_priv$%@$255$%@$", [array firstObject], [array lastObject]];
         NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {

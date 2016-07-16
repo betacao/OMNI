@@ -17,6 +17,7 @@
         [self initView];
         [self addAutoLayout];
         [self addReactiveCocoa];
+        [self loadData];
     }
     return self;
 }
@@ -27,6 +28,7 @@
     [self initView];
     [self addAutoLayout];
     [self addReactiveCocoa];
+    [self loadData];
 }
 
 - (void)initView
@@ -42,6 +44,11 @@
 - (void)addReactiveCocoa
 {
 
+}
+
+- (void)loadData
+{
+    
 }
 
 

@@ -8,15 +8,12 @@
 
 #import "OMSingleLightViewController.h"
 #import "OMAlarmView.h"
+#import "OMSlider.h"
 
 @interface OMSingleLightViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIImageView *circleImageView;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet OMSlider *slider;
 
 @end
 
@@ -32,9 +29,18 @@
 {
     self.title = @"Single Light";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
-
-    
+    self.slider.roomDevice = self.roomDevice;
+    self.slider.tableViewCell = self.tableViewCell;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
+}
+
+- (void)addAutoLayout
+{
+    self.imageView.sd_layout
+    .spaceToSuperView(UIEdgeInsetsZero);
+
+    self.slider.sd_layout
+    .spaceToSuperView(UIEdgeInsetsZero);
 }
 
 - (void)didReceiveMemoryWarning

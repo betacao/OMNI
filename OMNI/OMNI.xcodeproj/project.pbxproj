@@ -47,6 +47,7 @@
 		F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */; };
 		F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */; };
 		F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */; };
+		F9434B101D35D61300B2CD66 /* OMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F9434B0F1D35D61300B2CD66 /* OMSlider.m */; };
 		F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A01D06A4F400842778 /* NSObject+Extend.m */; };
 		F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */; };
 		F943C6331D0E9F090097DA67 /* OMAddRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C6311D0E9F090097DA67 /* OMAddRoomViewController.m */; };
@@ -160,6 +161,8 @@
 		F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddRoomDeviceViewController.h; sourceTree = "<group>"; };
 		F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddRoomDeviceViewController.m; sourceTree = "<group>"; };
 		F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddRoomDeviceViewController.xib; sourceTree = "<group>"; };
+		F9434B0E1D35D61300B2CD66 /* OMSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSlider.h; sourceTree = "<group>"; };
+		F9434B0F1D35D61300B2CD66 /* OMSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSlider.m; sourceTree = "<group>"; };
 		F943C19F1D06A4F400842778 /* NSObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extend.h"; sourceTree = "<group>"; };
 		F943C1A01D06A4F400842778 /* NSObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extend.m"; sourceTree = "<group>"; };
 		F943C1A21D06ACA200842778 /* OMBaseScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseScrollViewController.h; sourceTree = "<group>"; };
@@ -496,6 +499,8 @@
 				F9A19C861D2BE9B900965553 /* OMAddTimingViewController.h */,
 				F9A19C871D2BE9B900965553 /* OMAddTimingViewController.m */,
 				F9A19C881D2BE9B900965553 /* OMAddTimingViewController.xib */,
+				F9434B0E1D35D61300B2CD66 /* OMSlider.h */,
+				F9434B0F1D35D61300B2CD66 /* OMSlider.m */,
 			);
 			path = "自定义";
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,
 				F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */,
+				F9434B101D35D61300B2CD66 /* OMSlider.m in Sources */,
 				F93780751D11023900271753 /* OMEditRoomDeviceViewController.m in Sources */,
 				F91697361D34A11B00AF1721 /* NSArray+Extend.m in Sources */,
 				F9C4A7AE1D20C50400555E7C /* OMDeviceConfigView.m in Sources */,
