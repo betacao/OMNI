@@ -1,12 +1,12 @@
 //
-//  OMSlider.m
+//  OMSingleSlider.h
 //  OMNI
 //
 //  Created by changxicao on 16/7/13.
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMSlider.h"
+#import "OMSingleSlider.h"
 #import "OMAlarmView.h"
 //弧度 -> 角度
 #define RADIAN_TO_DEGREE(radian) ((radian) * (180.0 / M_PI))
@@ -15,7 +15,7 @@
 #define DEGREE_TO_RADIAN(angle) ((angle) * (M_PI / 180.0))
 
 
-@interface OMSlider()
+@interface OMSingleSlider()
 
 @property (strong, nonatomic) UIImageView *bgImageView;
 @property (strong, nonatomic) UIImageView *slider;
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation OMSlider
+@implementation OMSingleSlider
 
 - (void)initView
 {

@@ -8,12 +8,12 @@
 
 #import "OMSingleLightViewController.h"
 #import "OMAlarmView.h"
-#import "OMSlider.h"
+#import "OMSingleSlider.h"
 
 @interface OMSingleLightViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet OMSlider *slider;
+@property (weak, nonatomic) IBOutlet OMSingleSlider *slider;
 
 @end
 

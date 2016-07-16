@@ -15,6 +15,10 @@
 		F91697391D34D81200AF1721 /* NSDate+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F91697381D34D81200AF1721 /* NSDate+Extend.m */; };
 		F916973C1D34D91700AF1721 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F916973B1D34D91700AF1721 /* NSString+Extend.m */; };
 		F9182A931D2B469C00AF3218 /* OMAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = F9182A921D2B469C00AF3218 /* OMAlarm.m */; };
+		F91E070E1D39DCE400DDE451 /* OMSingleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E070D1D39DCE400DDE451 /* OMSingleSlider.m */; };
+		F91E07131D39DD4A00DDE451 /* OMDoubleLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E07111D39DD4A00DDE451 /* OMDoubleLightViewController.m */; };
+		F91E07141D39DD4A00DDE451 /* OMDoubleLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91E07121D39DD4A00DDE451 /* OMDoubleLightViewController.xib */; };
+		F91E07171D39DD7B00DDE451 /* OMDoubleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F91E07161D39DD7B00DDE451 /* OMDoubleSlider.m */; };
 		F91EAA421D0695E30055CB35 /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */; };
 		F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2B1D0695E30055CB35 /* ESP_CRC8.m */; };
 		F91EAA441D0695E30055CB35 /* ESP_NetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA2D1D0695E30055CB35 /* ESP_NetUtil.m */; };
@@ -47,7 +51,6 @@
 		F941E2051D05608C00A70A3F /* OMRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E1FE1D05608C00A70A3F /* OMRoomViewController.xib */; };
 		F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */; };
 		F941E20B1D0560E800A70A3F /* OMAddRoomDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */; };
-		F9434B101D35D61300B2CD66 /* OMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F9434B0F1D35D61300B2CD66 /* OMSlider.m */; };
 		F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A01D06A4F400842778 /* NSObject+Extend.m */; };
 		F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C1A31D06ACA200842778 /* OMBaseScrollViewController.m */; };
 		F943C6331D0E9F090097DA67 /* OMAddRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F943C6311D0E9F090097DA67 /* OMAddRoomViewController.m */; };
@@ -103,6 +106,13 @@
 		F916973B1D34D91700AF1721 /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
 		F9182A911D2B469C00AF3218 /* OMAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAlarm.h; sourceTree = "<group>"; };
 		F9182A921D2B469C00AF3218 /* OMAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAlarm.m; sourceTree = "<group>"; };
+		F91E070C1D39DCE400DDE451 /* OMSingleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSingleSlider.h; sourceTree = "<group>"; };
+		F91E070D1D39DCE400DDE451 /* OMSingleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSingleSlider.m; sourceTree = "<group>"; };
+		F91E07101D39DD4A00DDE451 /* OMDoubleLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDoubleLightViewController.h; sourceTree = "<group>"; };
+		F91E07111D39DD4A00DDE451 /* OMDoubleLightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDoubleLightViewController.m; sourceTree = "<group>"; };
+		F91E07121D39DD4A00DDE451 /* OMDoubleLightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMDoubleLightViewController.xib; sourceTree = "<group>"; };
+		F91E07151D39DD7B00DDE451 /* OMDoubleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDoubleSlider.h; sourceTree = "<group>"; };
+		F91E07161D39DD7B00DDE451 /* OMDoubleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDoubleSlider.m; sourceTree = "<group>"; };
 		F91EAA281D0695E30055CB35 /* ESP_ByteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_ByteUtil.h; sourceTree = "<group>"; };
 		F91EAA291D0695E30055CB35 /* ESP_ByteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_ByteUtil.m; sourceTree = "<group>"; };
 		F91EAA2A1D0695E30055CB35 /* ESP_CRC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_CRC8.h; sourceTree = "<group>"; };
@@ -161,8 +171,6 @@
 		F941E2071D0560E800A70A3F /* OMAddRoomDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMAddRoomDeviceViewController.h; sourceTree = "<group>"; };
 		F941E2081D0560E800A70A3F /* OMAddRoomDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMAddRoomDeviceViewController.m; sourceTree = "<group>"; };
 		F941E2091D0560E800A70A3F /* OMAddRoomDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMAddRoomDeviceViewController.xib; sourceTree = "<group>"; };
-		F9434B0E1D35D61300B2CD66 /* OMSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSlider.h; sourceTree = "<group>"; };
-		F9434B0F1D35D61300B2CD66 /* OMSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSlider.m; sourceTree = "<group>"; };
 		F943C19F1D06A4F400842778 /* NSObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extend.h"; sourceTree = "<group>"; };
 		F943C1A01D06A4F400842778 /* NSObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extend.m"; sourceTree = "<group>"; };
 		F943C1A21D06ACA200842778 /* OMBaseScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMBaseScrollViewController.h; sourceTree = "<group>"; };
@@ -277,8 +285,21 @@
 				F941E2061D0560B300A70A3F /* 房间设置 */,
 				F9A1D0981D294803007ECDAB /* 开关 */,
 				F9FCF38E1D2DFF7B00508A8B /* 单色灯 */,
+				F91E070F1D39DD2000DDE451 /* 双色灯 */,
 			);
 			path = "房间";
+			sourceTree = "<group>";
+		};
+		F91E070F1D39DD2000DDE451 /* 双色灯 */ = {
+			isa = PBXGroup;
+			children = (
+				F91E07151D39DD7B00DDE451 /* OMDoubleSlider.h */,
+				F91E07161D39DD7B00DDE451 /* OMDoubleSlider.m */,
+				F91E07101D39DD4A00DDE451 /* OMDoubleLightViewController.h */,
+				F91E07111D39DD4A00DDE451 /* OMDoubleLightViewController.m */,
+				F91E07121D39DD4A00DDE451 /* OMDoubleLightViewController.xib */,
+			);
+			path = "双色灯";
 			sourceTree = "<group>";
 		};
 		F91EAA271D0695E30055CB35 /* ESP */ = {
@@ -499,8 +520,6 @@
 				F9A19C861D2BE9B900965553 /* OMAddTimingViewController.h */,
 				F9A19C871D2BE9B900965553 /* OMAddTimingViewController.m */,
 				F9A19C881D2BE9B900965553 /* OMAddTimingViewController.xib */,
-				F9434B0E1D35D61300B2CD66 /* OMSlider.h */,
-				F9434B0F1D35D61300B2CD66 /* OMSlider.m */,
 			);
 			path = "自定义";
 			sourceTree = "<group>";
@@ -537,6 +556,8 @@
 		F9FCF38E1D2DFF7B00508A8B /* 单色灯 */ = {
 			isa = PBXGroup;
 			children = (
+				F91E070C1D39DCE400DDE451 /* OMSingleSlider.h */,
+				F91E070D1D39DCE400DDE451 /* OMSingleSlider.m */,
 				F9FCF38F1D2DFFC100508A8B /* OMSingleLightViewController.h */,
 				F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */,
 				F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */,
@@ -616,6 +637,7 @@
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
 				F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
+				F91E07141D39DD4A00DDE451 /* OMDoubleLightViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
 				F93780761D11023900271753 /* OMEditRoomDeviceViewController.xib in Resources */,
@@ -684,12 +706,14 @@
 				F93831E11CF2D7E4003807A9 /* OMBaseTableViewCell.m in Sources */,
 				F944CDDE1CE9B2CB009547A0 /* UIView+HUD.m in Sources */,
 				F944CDDB1CE9B2A1009547A0 /* OMUDPNetWork.m in Sources */,
+				F91E07171D39DD7B00DDE451 /* OMDoubleSlider.m in Sources */,
 				F941E20A1D0560E800A70A3F /* OMAddRoomDeviceViewController.m in Sources */,
 				F943C6331D0E9F090097DA67 /* OMAddRoomViewController.m in Sources */,
 				F91EAA4C1D0695E30055CB35 /* ESPUDPSocketClient.m in Sources */,
 				F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */,
 				F91EAA451D0695E30055CB35 /* ESPDataCode.m in Sources */,
 				F91EAA4A1D0695E30055CB35 /* ESPTouchTask.m in Sources */,
+				F91E07131D39DD4A00DDE451 /* OMDoubleLightViewController.m in Sources */,
 				F93399291CEC413F009C61C1 /* OMListTableViewCell.m in Sources */,
 				F9BC970C1CE85CE5000A1998 /* UIColor+Extend.m in Sources */,
 				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
@@ -702,7 +726,6 @@
 				F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,
 				F9C19A8E1D01261A005AFEEB /* OMBaseCollectionViewCell.m in Sources */,
-				F9434B101D35D61300B2CD66 /* OMSlider.m in Sources */,
 				F93780751D11023900271753 /* OMEditRoomDeviceViewController.m in Sources */,
 				F91697361D34A11B00AF1721 /* NSArray+Extend.m in Sources */,
 				F9C4A7AE1D20C50400555E7C /* OMDeviceConfigView.m in Sources */,
@@ -724,6 +747,7 @@
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
 				F941E2021D05608C00A70A3F /* OMRoomTableViewCell.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
+				F91E070E1D39DCE400DDE451 /* OMSingleSlider.m in Sources */,
 				F91EAA431D0695E30055CB35 /* ESP_CRC8.m in Sources */,
 				F9C4A7AB1D20BF4E00555E7C /* OMAlertView.m in Sources */,
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
