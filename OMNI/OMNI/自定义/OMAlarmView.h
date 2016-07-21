@@ -20,6 +20,8 @@
 
 @interface OMAlarmTableViewCell : OMBaseTableViewCell
 
-@property (strong, nonatomic) OMAlarm *alarm;
+@property (strong, nonatomic) OMRoomDevice *roomDevice;
+
+@property (strong, nonatomic) OMAlarmObject *alarm;
 
 @end

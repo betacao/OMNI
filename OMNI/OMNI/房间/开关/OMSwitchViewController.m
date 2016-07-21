@@ -74,6 +74,11 @@
     }];
 }
 
+- (void)rightButtonClick:(UIButton *)button
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

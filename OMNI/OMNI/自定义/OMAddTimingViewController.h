@@ -8,11 +8,15 @@
 
 #import "OMBaseViewController.h"
 #import "OMBaseView.h"
+#import "OMBaseTableViewCell.h"
+#import "OMAlarm.h"
 
 
 @interface OMAddTimingViewController : OMBaseViewController
 
-@property (strong, nonatomic) NSString *timeString;
+@property (strong, nonatomic) OMRoomDevice *roomDevice;
+
+@property (strong, nonatomic) OMAlarmObject *alarm;
 
 @end
 
@@ -25,6 +29,9 @@
 
 - (void)addRightTitle:(NSString *)title;
 
+- (NSString *)rightText;
+
+//时间排序错误（截止时间小于开始时间）
 - (void)setTitleColor:(UIColor *)color;
 
 @end
@@ -46,3 +53,28 @@ typedef void(^OMAddTimingPickerViewBlock)(NSString *);
 
 
 @end
+
+
+typedef void(^OMAddTimingPeriodViewBlock)(NSString *);
+
+@interface OMAddTimingPeriodViewController : OMBaseViewController
+
+@property (strong, nonatomic) NSArray *periodArray;
+
+@property (strong, nonatomic) NSString *defaultPeriod;
+
+@property (copy, nonatomic) OMAddTimingPeriodViewBlock block;
+
+@end
+
+
+@interface OMAddTimePeriodTableViewCell : OMBaseTableViewCell
+
+@property (strong, nonatomic) NSString *text;
+
+@end
+
+
+
+
+

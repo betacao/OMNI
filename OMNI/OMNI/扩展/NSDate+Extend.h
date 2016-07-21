@@ -10,8 +10,8 @@
 
 @interface NSDate (Extend)
 
-+ (NSDate *)convertDateFromString:(NSString*)string;
++ (NSDate *)convertDateFromString:(NSString*)string format:(NSString *)format;
 
-+ (NSString *)stringFromDate:(NSDate *)date;
++ (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 
 @end

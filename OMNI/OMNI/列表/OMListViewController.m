@@ -104,11 +104,7 @@
 
 - (IBAction)footerButtonClick:(UIButton *)button
 {
-//    OMWifiConfigViewController *controller = [[OMWifiConfigViewController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
-
-
-    OMAddTimingViewController *controller = [[OMAddTimingViewController alloc] init];
+    OMWifiConfigViewController *controller = [[OMWifiConfigViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

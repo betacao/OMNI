@@ -7,11 +7,13 @@
 //
 
 #import "OMAddTimingViewController.h"
+#import "OMAlarmView.h"
 #import "NSArray+Extend.h"
 #import "NSDate+Extend.h"
 #import "NSString+Extend.h"
 
 @interface OMAddTimingViewController ()
+
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet OMAddTimingSubView *firstSubView;
@@ -22,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIView *spliteView;
 @property (weak, nonatomic) IBOutlet OMAddTimingSubView *thirdSubView;
 
+
+@property (strong, nonatomic) NSArray *periodArray;
 
 @end
 
@@ -37,22 +41,40 @@
 {
     self.title = @"Add Timing";
 
+    self.periodArray = @[@"Never", @"Every Day", @"Every Week", @"Every Month"];
     self.topView.backgroundColor = self.bottomView.backgroundColor = [UIColor clearColor];
 
     UIImage *image = [[UIImage imageNamed:@"choose_device_type"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f) resizingMode:UIImageResizingModeStretch];
     self.topImageView.image = self.bottomImageView.image = image;
 
     [self.firstSubView addLeftTitle:@"Repeat"];
-    [self.firstSubView addRightTitle:@"Never"];
     [self.secondSubView addLeftTitle:@"Start"];
     [self.thirdSubView addLeftTitle:@"End"];
 
-    if (!self.timeString) {
+    if (!self.alarm) {
         NSDictionary *dictionary = [NSArray calculationNowTime];
         NSString *string = [NSString stringWithFormat:@"%@/%@/%@ %@:%@ %@", [dictionary objectForKey:@"month"], [dictionary objectForKey:@"day"], [dictionary objectForKey:@"year"], [dictionary objectForKey:@"hh"], [dictionary objectForKey:@"mm"], [NSArray ObtainWeek:[dictionary objectForKey:@"day"] andMonth:[dictionary objectForKey:@"month"] andYear:[dictionary objectForKey:@"year"]]];
 
+        [self.firstSubView addRightTitle:[self.periodArray firstObject]];
         [self.secondSubView addRightTitle:string];
         [self.thirdSubView addRightTitle:string];
+    } else {
+        OMAlarmPeriodType type = self.alarm.periodType;
+        [self.firstSubView addRightTitle:[self.periodArray objectAtIndex:type]];
+        NSString *fromTime = [NSDate stringFromDate:self.alarm.fromTime format:@"MM/dd/yyyy HH:mm"];
+        NSArray *fromArray = [fromTime componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@" ", @":", @"/"]]];
+
+        NSString *fromWeek = [NSArray ObtainWeek:[fromArray objectAtIndex:1] andMonth:[fromArray objectAtIndex:0] andYear:[fromArray objectAtIndex:2]];
+
+        NSString *toTime = [NSDate stringFromDate:self.alarm.toTime format:@"MM/dd/yyyy HH:mm"];
+        NSArray *toArray = [fromTime componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@" ", @":", @"/"]]];
+        NSString *toWeek = [NSArray ObtainWeek:[fromArray objectAtIndex:1] andMonth:[toArray objectAtIndex:0] andYear:[toArray objectAtIndex:2]];
+
+        fromTime = [fromTime stringByAppendingFormat:@" %@", fromWeek];
+        toTime = [toTime stringByAppendingFormat:@" %@", toWeek];
+
+        [self.secondSubView addRightTitle:fromTime];
+        [self.thirdSubView addRightTitle:toTime];
     }
     
     self.spliteView.backgroundColor = [UIColor lightGrayColor];
@@ -103,12 +125,21 @@
 
 - (void)addReactiveCocoa
 {
+    //点击选择周期
     UITapGestureRecognizer *recognizer1 = [[UITapGestureRecognizer alloc] init];
     [[recognizer1 rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
-
+        OMAddTimingPeriodViewController *controller = [[OMAddTimingPeriodViewController alloc] init];
+        controller.periodArray = self.periodArray;
+        controller.defaultPeriod = [self.firstSubView rightText];
+        WEAK(self, weakSelf);
+        controller.block = ^(NSString *period){
+            [weakSelf.firstSubView addRightTitle:period];
+        };
+        [self.navigationController pushViewController:controller animated:YES];
     }];
     [self.firstSubView addGestureRecognizer:recognizer1];
 
+    //点击选择开始时间
     UITapGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] init];
 
     [[recognizer2 rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
@@ -116,12 +147,14 @@
     }];
     [self.secondSubView addGestureRecognizer:recognizer2];
 
+    //点击选择截止时间
     UITapGestureRecognizer *recognizer3 = [[UITapGestureRecognizer alloc] init];
     [[recognizer3 rac_gestureSignal] subscribeNext:^(UITapGestureRecognizer *x) {
         [self view:self.thirdSubView showPickerView:YES];
     }];
     [self.thirdSubView addGestureRecognizer:recognizer3];
 
+    
 }
 
 - (void)view:(OMAddTimingSubView *)view showPickerView:(BOOL)animated
@@ -141,7 +174,7 @@
     if (!hasPickerView) {
         OMAddTimingPickerContentView *pickerView = [[OMAddTimingPickerContentView alloc] init];
         pickerView.alpha = 0.0f;
-        pickerView.timeString = [NSDate stringFromDate:[view date]];
+        pickerView.timeString = [NSDate stringFromDate:[view date] format:nil];
         pickerView.block = ^(NSString *string){
             [view addRightTitle:string];
             if ([[self.secondSubView date] compare:[self.thirdSubView date]] != NSOrderedAscending) {
@@ -162,6 +195,22 @@
             pickerView.alpha = 1.0f;
         }];
     }
+}
+
+- (void)rightButtonClick:(UIButton *)button
+{
+    NSArray *startArray = [[NSDate stringFromDate:[self.secondSubView date] format:nil] componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@"/", @" ", @":"]]];
+    NSArray *endArray = [[NSDate stringFromDate:[self.thirdSubView date] format:nil] componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@"/", @" ", @":"]]];
+    NSInteger index = [[self.secondSubView rightText] rangeOfString:@":"].location + 4;
+    NSString *weekDay = [[self.secondSubView rightText] substringFromIndex:index];
+
+    WEAK(self, weakSelf);
+    [OMGlobleManager addTimeTask:@[@(self.roomDevice.roomDeviceType), self.roomDevice.roomDeviceID, @([self.periodArray indexOfObject:[self.firstSubView rightText]]), [startArray firstObject], [startArray objectAtIndex:1], [startArray objectAtIndex:2], [startArray objectAtIndex:3], [startArray objectAtIndex:4], [endArray firstObject], [endArray objectAtIndex:1], [endArray objectAtIndex:2], [endArray objectAtIndex:3], [endArray objectAtIndex:4], weekDay] inView:self.view block:^(NSArray *array) {
+        if ([[array firstObject] containsString:@"01"]) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            [[OMAlarmView sharedAlarmView] loadData];
+        }
+    }];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -235,6 +284,13 @@
 
 }
 
+- (NSDate *)date
+{
+    NSInteger index = [self.rightLabel.text rangeOfString:@":"].location + 4;
+    NSString *string = [self.rightLabel.text substringToIndex:index];
+    return [NSDate convertDateFromString:string format: @"MM/dd/yyyy HH:mm"];
+}
+
 - (void)addLeftTitle:(NSString *)title
 {
     self.leftLabel.text = title;
@@ -245,11 +301,9 @@
     self.rightLabel.text = title;
 }
 
-- (NSDate *)date
+- (NSString *)rightText
 {
-    NSInteger index = [self.rightLabel.text rangeOfString:@":"].location + 4;
-    NSString *string = [self.rightLabel.text substringToIndex:index];
-    return [NSDate convertDateFromString:string];
+    return self.rightLabel.text;
 }
 
 - (void)setTitleColor:(UIColor *)color
@@ -347,9 +401,9 @@
     _timeString = timeString;
     NSArray *array = [timeString componentsSeparatedByCharactersInSet:[NSCharacterSet formUnionWithArray:@[@"/", @" ", @":"]]];
 
-    self.currentMon = [array objectAtIndex:0];
-    self.currentDay = [array objectAtIndex:1];
-    self.currentYear = [array objectAtIndex:2];
+    self.currentYear = [array objectAtIndex:0];
+    self.currentMon = [array objectAtIndex:1];
+    self.currentDay = [array objectAtIndex:2];
     self.currentHour = [array objectAtIndex:3];
     self.currentMin = [array objectAtIndex:4];
 
@@ -485,6 +539,192 @@
 }
 
 @end
+
+
+
+
+@interface OMAddTimingPeriodViewController()<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UITableView *tableView;
+
+@end
+
+@implementation OMAddTimingPeriodViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"Add Timing";
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+}
+
+- (void)initView
+{
+    self.label = [[UILabel alloc] init];
+    self.label.font = FontFactor(17.0f);
+    self.label.textColor = [UIColor whiteColor];
+    self.label.text = @"How often you want to run?";
+    self.label.textAlignment = NSTextAlignmentCenter;
+
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    UIImage *image = [[UIImage imageNamed:@"choose_device_type"] resizableImageWithCapInsets:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f) resizingMode:UIImageResizingModeStretch];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:image];
+
+    [self.view sd_addSubviews:@[self.label, self.tableView]];
+}
+
+- (void)addAutoLayout
+{
+    self.label.sd_layout
+    .leftSpaceToView(self.view, 0.0f)
+    .rightSpaceToView(self.view, 0.0f)
+    .topSpaceToView(self.view, 0.0f)
+    .heightIs(MarginFactor(64.0f));
+
+    self.tableView.sd_layout
+    .leftSpaceToView(self.view, MarginFactor(15.0f))
+    .rightSpaceToView(self.view, MarginFactor(15.0f))
+    .topSpaceToView(self.label, 0.0f)
+    .heightIs(MarginFactor(64.0f) * 4.0f);
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.periodArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return MarginFactor(64.0f);
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OMAddTimePeriodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OMAddTimePeriodTableViewCell"];
+    if (!cell) {
+        cell = [[OMAddTimePeriodTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OMAddTimePeriodTableViewCell"];
+    }
+    cell.text = [self.periodArray objectAtIndex:indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    NSString *text = [self.periodArray objectAtIndex:indexPath.row];
+    if ([text isEqualToString:self.defaultPeriod]) {
+        [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.block) {
+        self.block([self.periodArray objectAtIndex:indexPath.row]);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+@end
+
+
+
+@interface OMAddTimePeriodTableViewCell()
+
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UIView *spliteView;
+@property (strong, nonatomic) UIImageView *selectedImageView;
+
+@end
+
+@implementation OMAddTimePeriodTableViewCell
+
+- (void)initView
+{
+    self.label = [[UILabel alloc] init];
+    self.label.font = FontFactor(17.0f);
+    self.label.textColor = Color(@"537525");
+
+    self.spliteView = [[UIView alloc] init];
+    self.spliteView.backgroundColor = [UIColor lightGrayColor];
+
+    self.selectedImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_type_tick"]];
+
+    self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    [self.contentView sd_addSubviews:@[self.label, self.spliteView, self.selectedImageView]];
+}
+
+- (void)addAutoLayout
+{
+    self.spliteView.sd_layout
+    .leftSpaceToView(self.contentView, MarginFactor(10.0f))
+    .rightSpaceToView(self.contentView, MarginFactor(10.0f))
+    .bottomSpaceToView(self.contentView, 0.0f)
+    .heightIs(1 / SCALE);
+
+    self.label.sd_layout
+    .leftSpaceToView(self.contentView, MarginFactor(15.0f))
+    .rightSpaceToView(self.contentView, MarginFactor(10.0f))
+    .bottomSpaceToView(self.contentView, 0.0f)
+    .topSpaceToView(self.contentView, 0.0f);
+
+    self.selectedImageView.sd_resetLayout
+    .centerYEqualToView(self.contentView)
+    .rightSpaceToView(self.contentView, MarginFactor(10.0f))
+    .widthIs(self.selectedImageView.image.size.width)
+    .heightIs(self.selectedImageView.image.size.height);
+    
+}
+
+- (void)setText:(NSString *)text
+{
+    _text = text;
+    self.label.text = text;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+    self.selectedImageView.hidden = !selected;
+}
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

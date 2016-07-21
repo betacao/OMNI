@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Bicolor Light";
 }
 
 - (void)didReceiveMemoryWarning

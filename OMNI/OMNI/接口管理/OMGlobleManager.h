@@ -56,6 +56,12 @@
 
 + (void)changeRoomDeviceState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
+//添加时间
++ (void)addTimeTask:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+//打开关闭操作
++ (void)changeTimeTaskState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)deleteTimeTask:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
 //switch操作
 + (void)readSwitchState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeSwitchState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;

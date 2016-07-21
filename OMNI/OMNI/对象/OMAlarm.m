@@ -8,7 +8,7 @@
 
 #import "OMAlarm.h"
 
-@implementation OMAlarm
+@implementation OMAlarmObject
 
 - (void)setWeekTypeString:(NSString *)weekTypeString
 {

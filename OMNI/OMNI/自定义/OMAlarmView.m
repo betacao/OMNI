@@ -9,6 +9,7 @@
 #import "OMAlarmView.h"
 #import "OMAddTimingViewController.h"
 #import "UIViewController+Extend.h"
+#import "NSDate+Extend.h"
 
 @interface OMAlarmView()<UITableViewDelegate, UITableViewDataSource>
 
@@ -125,11 +126,35 @@
             self.isEditing = !self.isEditing;
         } else {
             OMAddTimingViewController *controller = [[OMAddTimingViewController alloc] init];
-
+            controller.roomDevice = self.roomDevice;
             [[UIViewController findSourceViewController:self.superview].navigationController pushViewController:controller animated:YES];
         }
     }];
 
+}
+
+- (void)loadData
+{
+    if (self.roomDevice) {
+        WEAK(self, weakSelf);
+        [OMGlobleManager readTimeTask:self.roomDevice.roomDeviceID inView:self.superview block:^(NSArray *array) {
+            [weakSelf.dataArray removeAllObjects];
+            NSInteger taskCount = [[array firstObject] integerValue];
+            for (NSInteger i = 0; i < taskCount; i++) {
+                OMAlarmObject *alarm = [[OMAlarmObject alloc] init];
+                alarm.alarmID = [array objectAtIndex:i * 7 + 1];
+                alarm.isOn = [[array objectAtIndex:i * 7 + 2] boolValue];
+                alarm.fromTime = [NSDate convertDateFromString:[array objectAtIndex:i * 7 + 3] format:@"yyyy-MM-dd HH:mm"];
+                alarm.toTime = [NSDate convertDateFromString:[array objectAtIndex:i * 7 + 4] format:@"yyyy-MM-dd HH:mm"];
+                alarm.roomDeviceID = [array objectAtIndex:i * 7 + 5];
+                alarm.periodType = [[array objectAtIndex:i * 7 + 6] integerValue];
+                alarm.weekTypeString = [array objectAtIndex:i * 7 + 7];
+
+                [weakSelf.dataArray addObject:alarm];
+            }
+            [weakSelf.tableView reloadData];
+        }];
+    }
 }
 
 - (NSMutableArray *)dataArray
@@ -143,24 +168,7 @@
 - (void)setRoomDevice:(OMRoomDevice *)roomDevice
 {
     _roomDevice = roomDevice;
-    WEAK(self, weakSelf);
-    [OMGlobleManager readTimeTask:self.roomDevice.roomDeviceID inView:self.superview block:^(NSArray *array) {
-        [weakSelf.dataArray removeAllObjects];
-        NSInteger taskCount = [[array firstObject] integerValue];
-        for (NSInteger i = 0; i < taskCount; i++) {
-            OMAlarm *alarm = [[OMAlarm alloc] init];
-            alarm.alarmID = [array objectAtIndex:i * 7 + 1];
-            alarm.isOn = [[array objectAtIndex:i * 7 + 2] boolValue];
-            alarm.fromTime = [array objectAtIndex:i * 7 + 3];
-            alarm.toTime = [array objectAtIndex:i * 7 + 4];
-            alarm.roomDeviceID = [array objectAtIndex:i * 7 + 5];
-            alarm.periodType = [[array objectAtIndex:i * 7 + 6] integerValue];
-            alarm.weekTypeString = [array objectAtIndex:i * 7 + 7];
-
-            [weakSelf.dataArray addObject:alarm];
-        }
-        [weakSelf.tableView reloadData];
-    }];
+    [self loadData];
 }
 
 - (void)setIsEditing:(BOOL)isEditing
@@ -245,12 +253,36 @@
         cell = [[OMAlarmTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OMAlarmTableViewCell"];
     }
     cell.alarm = [self.dataArray objectAtIndex:indexPath.row];
+    cell.roomDevice = self.roomDevice;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    WEAK(self, weakSelf);
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        OMAlarmObject *alarm = [self.dataArray objectAtIndex:indexPath.row];
+        [OMGlobleManager deleteTimeTask:@[alarm.alarmID, self.roomDevice.roomDeviceID] inView:self.superview block:^(NSArray *array) {
+            if ([[array firstObject] isEqualToString:@"01"]) {
+                [weakSelf.dataArray removeObject:alarm];
+                [weakSelf.tableView reloadData];
+            }
+        }];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OMAddTimingViewController *controller = [[OMAddTimingViewController alloc] init];
+    controller.roomDevice = self.roomDevice;
+    controller.alarm = [self.dataArray objectAtIndex:indexPath.row];
+    [[UIViewController findSourceViewController:self.superview].navigationController pushViewController:controller animated:YES];
+}
+
+- (void)removeFromSuperview
+{
+    self.roomDevice = nil;
+    [super removeFromSuperview];
 }
 
 @end
@@ -329,12 +361,21 @@
     .heightIs(self.accessoryImageView.size.height);
 }
 
-- (void)setAlarm:(OMAlarm *)alarm
+- (void)setAlarm:(OMAlarmObject *)alarm
 {
     _alarm = alarm;
-    self.fromLabel.text = alarm.fromTime;
-    self.toLabel.text = alarm.toTime;
+    self.fromLabel.text = [@"on:" stringByAppendingString:[NSDate stringFromDate:alarm.fromTime format:@"yyyy-MM-dd HH:mm:ss"]];
+    self.toLabel.text = [@"off:" stringByAppendingString:[NSDate stringFromDate:alarm.toTime format:@"yyyy-MM-dd HH:mm:ss"]];
     self.periodLabel.text = alarm.periodTypeString;
+}
+
+- (void)addReactiveCocoa
+{
+    [[self.switchControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
+        [OMGlobleManager changeTimeTaskState:@[self.alarm.alarmID, self.roomDevice.roomDeviceID, self.switchControl.isOn ? @"1" : @"0"] inView:[OMAlarmView sharedAlarmView].superview block:^(NSArray *array) {
+
+        }];
+    }];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated

@@ -28,12 +28,12 @@ typedef NS_ENUM(NSInteger, OMAlarmWeekType)
     OMAlarmWeekTypeSun
 };
 
-@interface OMAlarm : NSObject
+@interface OMAlarmObject : NSObject
 
 @property (strong, nonatomic) NSString *alarmID;
 @property (strong, nonatomic) NSString *roomDeviceID;//在哪个设备上起作用
-@property (strong, nonatomic) NSString *fromTime;
-@property (strong, nonatomic) NSString *toTime;
+@property (strong, nonatomic) NSDate *fromTime;
+@property (strong, nonatomic) NSDate *toTime;
 
 @property (assign, nonatomic) OMAlarmPeriodType periodType;
 @property (strong, nonatomic) NSString *periodTypeString;
