@@ -7,6 +7,7 @@
 //
 
 #import "OMSwitchViewController.h"
+#import "OMEditRoomDeviceViewController.h"
 #import "OMAlarmView.h"
 
 @interface OMSwitchViewController ()
@@ -76,7 +77,9 @@
 
 - (void)rightButtonClick:(UIButton *)button
 {
-    
+    OMEditRoomDeviceViewController *controller = [[OMEditRoomDeviceViewController alloc] init];
+    controller.roomDevice = self.roomDevice;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

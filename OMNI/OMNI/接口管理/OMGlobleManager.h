@@ -60,7 +60,9 @@
 + (void)addTimeTask:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 //打开关闭操作
 + (void)changeTimeTaskState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+//删除
 + (void)deleteTimeTask:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)editTimeTask:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 
 //switch操作
 + (void)readSwitchState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;

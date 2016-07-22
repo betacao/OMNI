@@ -7,8 +7,10 @@
 //
 
 #import "OMSingleLightViewController.h"
+#import "OMEditRoomDeviceViewController.h"
 #import "OMAlarmView.h"
 #import "OMSingleSlider.h"
+
 
 @interface OMSingleLightViewController ()
 
@@ -41,6 +43,13 @@
 
     self.slider.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
+}
+
+- (void)rightButtonClick:(UIButton *)button
+{
+    OMEditRoomDeviceViewController *controller = [[OMEditRoomDeviceViewController alloc] init];
+    controller.roomDevice = self.roomDevice;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

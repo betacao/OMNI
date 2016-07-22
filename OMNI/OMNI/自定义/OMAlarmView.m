@@ -49,6 +49,7 @@
     self.imageView = [[UIImageView alloc] initWithImage:image];
 
     self.topButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.topButton setEnlargeEdge:20.0f];
     [self.topButton setImage:[UIImage imageNamed:@"alarm_on"] forState:UIControlStateNormal];
 
     self.label = [[UILabel alloc] init];

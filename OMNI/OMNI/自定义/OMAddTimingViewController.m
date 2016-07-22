@@ -205,12 +205,21 @@
     NSString *weekDay = [[self.secondSubView rightText] substringFromIndex:index];
 
     WEAK(self, weakSelf);
-    [OMGlobleManager addTimeTask:@[@(self.roomDevice.roomDeviceType), self.roomDevice.roomDeviceID, @([self.periodArray indexOfObject:[self.firstSubView rightText]]), [startArray firstObject], [startArray objectAtIndex:1], [startArray objectAtIndex:2], [startArray objectAtIndex:3], [startArray objectAtIndex:4], [endArray firstObject], [endArray objectAtIndex:1], [endArray objectAtIndex:2], [endArray objectAtIndex:3], [endArray objectAtIndex:4], weekDay] inView:self.view block:^(NSArray *array) {
-        if ([[array firstObject] containsString:@"01"]) {
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-            [[OMAlarmView sharedAlarmView] loadData];
-        }
-    }];
+    if (!self.alarm) {
+        [OMGlobleManager addTimeTask:@[@(self.roomDevice.roomDeviceType), self.roomDevice.roomDeviceID, @([self.periodArray indexOfObject:[self.firstSubView rightText]]), [startArray firstObject], [startArray objectAtIndex:1], [startArray objectAtIndex:2], [startArray objectAtIndex:3], [startArray objectAtIndex:4], [endArray firstObject], [endArray objectAtIndex:1], [endArray objectAtIndex:2], [endArray objectAtIndex:3], [endArray objectAtIndex:4], weekDay] inView:self.view block:^(NSArray *array) {
+            if ([[array firstObject] containsString:@"01"]) {
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [[OMAlarmView sharedAlarmView] loadData];
+            }
+        }];
+    } else{
+        [OMGlobleManager editTimeTask:@[@([self.periodArray indexOfObject:[self.firstSubView rightText]]), self.alarm.alarmID, [startArray firstObject], [startArray objectAtIndex:1], [startArray objectAtIndex:2], [startArray objectAtIndex:3], [startArray objectAtIndex:4], [endArray firstObject], [endArray objectAtIndex:1], [endArray objectAtIndex:2], [endArray objectAtIndex:3], [endArray objectAtIndex:4], weekDay] inView:self.view block:^(NSArray *array) {
+            if ([[array firstObject] containsString:@"01"]) {
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+                [[OMAlarmView sharedAlarmView] loadData];
+            }
+        }];
+    }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
