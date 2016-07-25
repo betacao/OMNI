@@ -72,4 +72,10 @@
 + (void)readSingleLightState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)slideSingleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//双色灯操作
++ (void)readDoubleLightState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)slideDoubleLightInState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)slideDoubleLightOutState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeDoubleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

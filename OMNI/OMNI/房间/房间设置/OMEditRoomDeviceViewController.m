@@ -165,9 +165,12 @@
 
 - (void)loadData
 {
-    [OMGlobleManager createRoomDevice:@[@(self.roomDevice.roomDeviceType), kAppDelegate.currentRoom.roomNumber] inView:self.view block:^(NSArray *array) {
-        self.roomDevice.roomDeviceID = [array firstObject];
-    }];
+    if (!self.roomDevice.roomDeviceID) {
+        //这个是新创建的
+        [OMGlobleManager createRoomDevice:@[@(self.roomDevice.roomDeviceType), kAppDelegate.currentRoom.roomNumber] inView:self.view block:^(NSArray *array) {
+            self.roomDevice.roomDeviceID = [array firstObject];
+        }];
+    }
 }
 
 - (void)rightButtonClick:(UIButton *)button

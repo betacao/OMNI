@@ -36,4 +36,11 @@
 
 #define SCALE [UIScreen mainScreen].scale
 
+
+//弧度 -> 角度
+#define RADIAN_TO_DEGREE(radian) ((radian) * (180.0 / M_PI))
+
+//角度 -> 弧度
+#define DEGREE_TO_RADIAN(angle) ((angle) * (M_PI / 180.0))
+
 #endif /* const_h */

@@ -8,19 +8,13 @@
 
 #import "OMSingleSlider.h"
 #import "OMAlarmView.h"
-//弧度 -> 角度
-#define RADIAN_TO_DEGREE(radian) ((radian) * (180.0 / M_PI))
-
-//角度 -> 弧度
-#define DEGREE_TO_RADIAN(angle) ((angle) * (M_PI / 180.0))
-
 
 @interface OMSingleSlider()
 
-@property (strong, nonatomic) UIImageView *bgImageView;
-@property (strong, nonatomic) UIImageView *slider;
+@property (strong, nonatomic) UIImageView *diskImageView;
+@property (strong, nonatomic) UIImageView *pointImageView;
 @property (strong, nonatomic) UIButton *button;
-@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIImageView *circleImageView;
 @property (strong, nonatomic) UIImageView *typeImageView;
 @property (strong, nonatomic) UILabel *label;
 
@@ -28,7 +22,6 @@
 @property (assign, nonatomic) BOOL isOnline;
 @property (assign, nonatomic) CGPoint circleCenter;
 @property (assign, nonatomic) CGFloat radial;//半径
-@property (assign, nonatomic) CGFloat rotateAngle;//旋转角度
 @property (assign, nonatomic) CGPoint northPoint;
 @property (assign, nonatomic) BOOL gestureLock;
 
@@ -45,46 +38,47 @@
 {
     self.backgroundColor = [UIColor clearColor];
 
-    self.bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"singleLightCircle_bg"]];
+    self.diskImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightCircle_bg"]];
 
-    self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"singleLightCircle"]];
+    self.circleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"singleLightCircle"]];
 
-    self.typeImageView = [[UIImageView alloc] init];
+    self.typeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"light_single"]];
 
-    self.slider = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sliderButton_normal"]];
-    self.slider.hidden = YES;
+    self.pointImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sliderButton_normal"]];
+    self.pointImageView.hidden = YES;
 
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.button setImage:[UIImage imageNamed:@"roomDevice_SwitchOff"] forState:UIControlStateNormal];
     [self.button setImage:[UIImage imageNamed:@"roomDevice_SwitchOn"] forState:UIControlStateSelected];
 
     self.label = [[UILabel alloc] init];
+    self.label.text = @"Brightness";
     self.label.textColor = [UIColor lightGrayColor];
 
-    [self sd_addSubviews:@[self.bgImageView, self.imageView, self.typeImageView, self.label, self.button, self.slider]];
+    [self sd_addSubviews:@[self.diskImageView, self.circleImageView, self.typeImageView, self.label, self.button, self.pointImageView]];
 
     self.limitAngle = 140.0f;
+    self.valueRange = NSMakeRange(5, 95);
 }
 
 - (void)addAutoLayout
 {
-    self.bgImageView.sd_layout
+    self.diskImageView.sd_layout
     .centerXEqualToView(self)
     .centerYEqualToView(self)
-    .widthIs(self.bgImageView.image.size.width)
-    .heightIs(self.bgImageView.image.size.height);
+    .widthIs(self.diskImageView.image.size.width)
+    .heightIs(self.diskImageView.image.size.height);
 
-    self.imageView.sd_layout
+    self.circleImageView.sd_layout
     .centerXEqualToView(self)
     .centerYEqualToView(self)
-    .widthIs(self.imageView.image.size.width)
-    .heightIs(self.imageView.image.size.height);
+    .widthIs(self.circleImageView.image.size.width)
+    .heightIs(self.circleImageView.image.size.height);
 
     WEAK(self, weakSelf);
-    self.imageView.didFinishAutoLayoutBlock = ^(CGRect rect){
-        weakSelf.circleCenter = weakSelf.imageView.center;
-        weakSelf.radial = CGRectGetHeight(rect) / 2.0f - self.slider.image.size.height / 2.0f + 4.0f;
-        weakSelf.rotateAngle = 0.0f;
+    self.circleImageView.didFinishAutoLayoutBlock = ^(CGRect rect){
+        weakSelf.circleCenter = weakSelf.circleImageView.center;
+        weakSelf.radial = CGRectGetHeight(rect) / 2.0f - self.pointImageView.image.size.height / 2.0f + 4.0f;
         weakSelf.northPoint = CGPointMake(weakSelf.circleCenter.x, weakSelf.circleCenter.y - weakSelf.radial);
     };
 
@@ -93,21 +87,31 @@
     .centerYEqualToView(self)
     .widthIs(self.button.currentImage.size.width)
     .heightIs(self.button.currentImage.size.height);
+
+    self.typeImageView.sd_layout
+    .centerXEqualToView(self)
+    .topSpaceToView(self.button, MarginFactor(5.0f))
+    .widthIs(self.typeImageView.image.size.width)
+    .heightIs(self.typeImageView.image.size.height);
+
+    self.label.sd_layout
+    .centerXEqualToView(self)
+    .topSpaceToView(self.typeImageView, 0.0f)
+    .heightIs(self.label.font.lineHeight);
+    [self.label setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 }
 
 - (void)addReactiveCocoa
 {
     [[[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
-        if (self.roomDevice.roomDeviceType == OMRoomDeviceTypeSinglelight) {
-            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                //这里面button状态要反写
-                [OMGlobleManager changeSingleLightState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"0" : @"1"] inView:self block:^(NSArray *array) {
-                    [subscriber sendNext:array];
-                    [subscriber sendCompleted];
-                }];
-                return nil;
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            //这里面button状态要反写
+            [OMGlobleManager changeSingleLightState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"0" : @"1"] inView:self block:^(NSArray *array) {
+                [subscriber sendNext:array];
+                [subscriber sendCompleted];
             }];
-        }
+            return nil;
+        }];
         return nil;
     }] subscribeNext:^(id x) {
         if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
@@ -121,30 +125,12 @@
 - (void)setRoomDevice:(OMRoomDevice *)roomDevice
 {
     _roomDevice = roomDevice;
-
     [self loadData];
-
-    self.typeImageView.image = roomDevice.roomDeviceIcon;
-
-    self.label.text = self.roomDevice.roomDeviceName;
-
-    self.typeImageView.sd_layout
-    .centerXEqualToView(self)
-    .topSpaceToView(self.button, MarginFactor(5.0f))
-    .widthIs(self.typeImageView.image.size.width)
-    .heightIs(self.typeImageView.image.size.height);
-
-    self.label.sd_layout
-    .centerXEqualToView(self)
-    .topSpaceToView(self.typeImageView, MarginFactor(5.0f))
-    .heightIs(self.label.font.lineHeight);
-    [self.label setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 }
 
 - (void)loadData
 {
-    if (self.roomDevice.roomDeviceType == OMRoomDeviceTypeSinglelight) {
-        self.valueRange = NSMakeRange(5, 95);
+    if (self.roomDevice) {
         [OMGlobleManager readSingleLightState:self.roomDevice.roomDeviceID inView:self.superview block:^(NSArray *array) {
             BOOL success = [[array firstObject] isEqualToString:@"SUCCESS"];
             if (success) {
@@ -159,7 +145,7 @@
 
 - (void)initSliderPosition
 {
-    self.slider.hidden = NO;
+    self.pointImageView.hidden = NO;
     CGFloat maxAngle = self.limitAngle * 2.0f;
     CGFloat vpc = self.valueRange.length / maxAngle;   //每度表示多少值
     CGFloat angle = 0.0f;
@@ -171,7 +157,7 @@
         angle = 270.0f - angle;
     }
     CGFloat radian = DEGREE_TO_RADIAN(angle);
-    [self.slider setCenter:CGPointMake(self.circleCenter.x + self.radial * cos(radian), self.circleCenter.y + self.radial * sin(radian))];
+    [self.pointImageView setCenter:CGPointMake(self.circleCenter.x + self.radial * cos(radian), self.circleCenter.y + self.radial * sin(radian))];
 }
 
 - (void)slideSingleLightState
@@ -207,20 +193,20 @@
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     self.isOnline = NO;
-    self.slider.image = [UIImage imageNamed:@"sliderButton_normal"];
+    self.pointImageView.image = [UIImage imageNamed:@"sliderButton_normal"];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     self.isOnline = NO;
-    self.slider.image = [UIImage imageNamed:@"sliderButton_normal"];
+    self.pointImageView.image = [UIImage imageNamed:@"sliderButton_normal"];
     [self performSelector:@selector(slideSingleLightState) withObject:nil afterDelay:0.4f];
 }
 
 - (BOOL)isOnLine:(CGPoint) point
 {
     CGFloat length =[self lengthOfTowPoint:point point2:self.circleCenter];
-    return length < (self.radial + self.slider.image.size.height / 2.0f + 5.0f) && length > (self.radial - self.slider.image.size.height / 2.0f - 5.0f);
+    return length < (self.radial + self.pointImageView.image.size.height / 2.0f + 5.0f) && length > (self.radial - self.pointImageView.image.size.height / 2.0f - 5.0f);
 }
 
 - (CGFloat)lengthOfTowPoint:(CGPoint)p1 point2:(CGPoint)p2
@@ -232,15 +218,15 @@
 
 - (void)moveCirclr:(CGPoint)touchPoint
 {
-    self.slider.image = [UIImage imageNamed:@"sliderButton_hightlighted"];
-    if (self.slider.center.x < self.circleCenter.x) {
+    self.pointImageView.image = [UIImage imageNamed:@"sliderButton_hightlighted"];
+    if (self.pointImageView.center.x < self.circleCenter.x) {
         //位于左边
-        if (touchPoint.x < self.slider.center.x) {
+        if (touchPoint.x < self.pointImageView.center.x) {
             self.gestureLock = NO;
         }
     } else {
         //位于右边
-        if (touchPoint.x > self.slider.center.x) {
+        if (touchPoint.x > self.pointImageView.center.x) {
             self.gestureLock = NO;;
         }
     }
@@ -276,7 +262,7 @@
         NSLog(@"%.2f",value);
     }
     CGFloat radian = DEGREE_TO_RADIAN(angle);
-    [self.slider setCenter:CGPointMake(self.circleCenter.x + self.radial * cos(radian), self.circleCenter.y + self.radial * sin(radian))];
+    [self.pointImageView setCenter:CGPointMake(self.circleCenter.x + self.radial * cos(radian), self.circleCenter.y + self.radial * sin(radian))];
 }
 
 @end
