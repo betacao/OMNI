@@ -18,7 +18,7 @@
 @property (strong, nonatomic) OMDynamicControlView *dynamicControlView;
 @property (strong, nonatomic) OMStaticControlView *staticControlView;
 @property (strong, nonatomic) OMMutibleCircleView *circleView;
-@property (strong, nonatomic) NSString *scene;
+@property (assign, nonatomic) NSInteger selectedIndex;
 
 @end
 
@@ -34,7 +34,6 @@
 
     UIImage *static_ = [[UIImage imageNamed:@"static_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [self.segmentControl insertSegmentWithImage:static_ atIndex:1 animated:NO];
-    [self addSubview:self.segmentControl];
 
     self.dynamicControlView = [[OMDynamicControlView alloc] init];
 
@@ -43,7 +42,7 @@
 
     self.circleView = [[OMMutibleCircleView alloc] init];
 
-    [self sd_addSubviews:@[self.dynamicControlView, self.staticControlView, self.circleView]];
+    [self sd_addSubviews:@[self.dynamicControlView, self.staticControlView, self.circleView, self.segmentControl]];
 }
 
 - (void)addAutoLayout
@@ -79,15 +78,7 @@
 {
     [[self.segmentControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISegmentedControl *segmentControl) {
         NSInteger index = segmentControl.selectedSegmentIndex;
-        if (index == 0) {
-            [segmentControl setImage:[[UIImage imageNamed:@"dynamic_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
-            [segmentControl setImage:[[UIImage imageNamed:@"static_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
-        } else {
-            [segmentControl setImage:[[UIImage imageNamed:@"dynamic_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
-            [segmentControl setImage:[[UIImage imageNamed:@"static_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
-        }
-        self.dynamicControlView.hidden = index;
-        self.staticControlView.hidden = !index;
+        self.selectedIndex = index;
     }];
 }
 
@@ -106,14 +97,18 @@
     self.circleView.tableViewCell = tableViewCell;
 }
 
-- (void)setScene:(NSString *)scene
+- (void)setSelectedIndex:(NSInteger)selectedIndex
 {
-    _scene = scene;
-    if ([scene isEqualToString:@"1"]) {
-        self.segmentControl.selectedSegmentIndex = 0;
+    _selectedIndex = selectedIndex;
+    if (selectedIndex == 1) {
+        [self.segmentControl setImage:[[UIImage imageNamed:@"dynamic_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
+        [self.segmentControl setImage:[[UIImage imageNamed:@"static_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
     } else {
-        self.segmentControl.selectedSegmentIndex = 1;
+        [self.segmentControl setImage:[[UIImage imageNamed:@"dynamic_press"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:0];
+        [self.segmentControl setImage:[[UIImage imageNamed:@"static_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forSegmentAtIndex:1];
     }
+    self.dynamicControlView.hidden = selectedIndex;
+    self.staticControlView.hidden = !selectedIndex;
 }
 
 - (void)loadData
@@ -121,7 +116,7 @@
     if (self.roomDevice) {
         [OMGlobleManager readColorLightState:self.roomDevice.roomDeviceID inView:self block:^(NSArray *array) {
             if ([[array firstObject] isEqualToString:@"SUCCESS"]) {
-                self.scene = [array objectAtIndex:2];
+                self.selectedIndex = [[array objectAtIndex:2] integerValue];
                 self.staticControlView.colorIndex = [[array objectAtIndex:5] integerValue];
                 self.dynamicControlView.speed = [[array objectAtIndex:6] floatValue];
                 self.dynamicControlView.theme = [[array objectAtIndex:7] integerValue];
