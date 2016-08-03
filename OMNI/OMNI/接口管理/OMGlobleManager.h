@@ -78,4 +78,13 @@
 + (void)slideDoubleLightInState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)slideDoubleLightOutState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeDoubleLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//彩灯操作
++ (void)readColorLightState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightOutState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightInState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightSpeed:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightTheme:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeColorLightColor:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

@@ -16,6 +16,7 @@
 #import "OMSwitchViewController.h"
 #import "OMSingleLightViewController.h"
 #import "OMDoubleLightViewController.h"
+#import "OMMutibleLightViewController.h"
 
 @interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -198,6 +199,11 @@
         [self.navigationController pushViewController:controller animated:YES];
     } else if (roomDevice.roomDeviceType == OMRoomDeviceTypeDoublelight) {
         OMDoubleLightViewController *controller = [[OMDoubleLightViewController alloc] init];
+        controller.roomDevice = roomDevice;
+        controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else if (roomDevice.roomDeviceType == OMRoomDeviceTypeMutablelight) {
+        OMMutibleLightViewController *controller = [[OMMutibleLightViewController alloc] init];
         controller.roomDevice = roomDevice;
         controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.navigationController pushViewController:controller animated:YES];
