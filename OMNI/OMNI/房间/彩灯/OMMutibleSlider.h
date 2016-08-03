@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, OMDynamicTheme) {
 @interface OMStaticControlView : OMBaseView
 
 @property (strong, nonatomic) OMRoomDevice *roomDevice;
-@property (strong, nonatomic) UIColor *color;
+@property (assign, nonatomic) NSInteger colorIndex;
 
 @end
 

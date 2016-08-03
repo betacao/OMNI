@@ -10,8 +10,8 @@
 		0CD56730B4FE62EEC6C1AA8E /* Pods_OMNI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F933746F02753ACFE8C9AA1A /* Pods_OMNI.framework */; };
 		F905799C1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905799A1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.m */; };
 		F905799D1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F905799B1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib */; };
-		F90579A11D51A15900FC23F0 /* OMMutableLightColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905799F1D51A15900FC23F0 /* OMMutableLightColorViewController.m */; };
-		F90579A21D51A15900FC23F0 /* OMMutableLightColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90579A01D51A15900FC23F0 /* OMMutableLightColorViewController.xib */; };
+		F90579A11D51A15900FC23F0 /* OMMutiableLightColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */; };
+		F90579A21D51A15900FC23F0 /* OMMutiableLightColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */; };
 		F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91115491D13FB5700D79185 /* OMGlobleManager.m */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
@@ -103,9 +103,9 @@
 		F90579991D51A12E00FC23F0 /* OMMutiableLightThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutiableLightThemeViewController.h; sourceTree = "<group>"; };
 		F905799A1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMMutiableLightThemeViewController.m; sourceTree = "<group>"; };
 		F905799B1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMMutiableLightThemeViewController.xib; sourceTree = "<group>"; };
-		F905799E1D51A15900FC23F0 /* OMMutableLightColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutableLightColorViewController.h; sourceTree = "<group>"; };
-		F905799F1D51A15900FC23F0 /* OMMutableLightColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMMutableLightColorViewController.m; sourceTree = "<group>"; };
-		F90579A01D51A15900FC23F0 /* OMMutableLightColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMMutableLightColorViewController.xib; sourceTree = "<group>"; };
+		F905799E1D51A15900FC23F0 /* OMMutiableLightColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutiableLightColorViewController.h; sourceTree = "<group>"; };
+		F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMMutiableLightColorViewController.m; sourceTree = "<group>"; };
+		F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMMutiableLightColorViewController.xib; sourceTree = "<group>"; };
 		F91115481D13FB5700D79185 /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
 		F91115491D13FB5700D79185 /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
@@ -365,9 +365,9 @@
 				F90579991D51A12E00FC23F0 /* OMMutiableLightThemeViewController.h */,
 				F905799A1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.m */,
 				F905799B1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib */,
-				F905799E1D51A15900FC23F0 /* OMMutableLightColorViewController.h */,
-				F905799F1D51A15900FC23F0 /* OMMutableLightColorViewController.m */,
-				F90579A01D51A15900FC23F0 /* OMMutableLightColorViewController.xib */,
+				F905799E1D51A15900FC23F0 /* OMMutiableLightColorViewController.h */,
+				F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */,
+				F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */,
 			);
 			path = "彩灯";
 			sourceTree = "<group>";
@@ -681,7 +681,7 @@
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
 				F93780761D11023900271753 /* OMEditRoomDeviceViewController.xib in Resources */,
-				F90579A21D51A15900FC23F0 /* OMMutableLightColorViewController.xib in Resources */,
+				F90579A21D51A15900FC23F0 /* OMMutiableLightColorViewController.xib in Resources */,
 				F941E2001D05608C00A70A3F /* OMRoomCollectionViewCell.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
@@ -763,7 +763,7 @@
 				F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */,
 				F91EAA4E1D0695E30055CB35 /* IPAddress.c in Sources */,
 				F91697391D34D81200AF1721 /* NSDate+Extend.m in Sources */,
-				F90579A11D51A15900FC23F0 /* OMMutableLightColorViewController.m in Sources */,
+				F90579A11D51A15900FC23F0 /* OMMutiableLightColorViewController.m in Sources */,
 				F941E2041D05608C00A70A3F /* OMRoomViewController.m in Sources */,
 				F9C4A7B41D20DA9000555E7C /* UIImage+Extend.m in Sources */,
 				F964F9161D040B66005FD22F /* NSCharacterSet+Common.m in Sources */,

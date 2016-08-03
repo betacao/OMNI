@@ -10,7 +10,6 @@
 #import "OMAlarmView.h"
 #import "NSArray+Extend.h"
 #import "NSDate+Extend.h"
-#import "NSString+Extend.h"
 
 @interface OMAddTimingViewController ()
 

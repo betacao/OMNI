@@ -8,6 +8,9 @@
 
 #import "OMMutibleSlider.h"
 #import "OMAlarmView.h"
+#import "UIViewController+Extend.h"
+#import "OMMutiableLightThemeViewController.h"
+#import "OMMutiableLightColorViewController.h"
 
 @interface OMMutibleSlider()
 
@@ -119,7 +122,7 @@
         [OMGlobleManager readColorLightState:self.roomDevice.roomDeviceID inView:self block:^(NSArray *array) {
             if ([[array firstObject] isEqualToString:@"SUCCESS"]) {
                 self.scene = [array objectAtIndex:2];
-                self.staticControlView.color = Color([array objectAtIndex:5]);
+                self.staticControlView.colorIndex = [[array objectAtIndex:5] integerValue];
                 self.dynamicControlView.speed = [[array objectAtIndex:6] floatValue];
                 self.dynamicControlView.theme = [[array objectAtIndex:7] integerValue];
             }
@@ -136,7 +139,7 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UILabel *sceneLabel;
 @property (strong, nonatomic) UILabel *sceneTypeLabel;
-@property (strong, nonatomic) UIImageView *detailImageView;
+@property (strong, nonatomic) UIButton *detailButton;
 @property (strong, nonatomic) UILabel *speedLabel;
 @property (strong, nonatomic) UIButton *leftButton;
 @property (strong, nonatomic) UIButton *rightButton;
@@ -156,7 +159,9 @@
     self.sceneTypeLabel = [[UILabel alloc] init];
     self.sceneTypeLabel.text = @"happy";
 
-    self.detailImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rgb_light_detail"]];
+    self.detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.detailButton setImage:[UIImage imageNamed:@"rgb_light_detail"] forState:UIControlStateNormal];
+    [self.detailButton setEnlargeEdgeWithTop:10.0f right:10.0f bottom:10.0f left:100.0f];
 
     self.speedLabel = [[UILabel alloc] init];
     self.speedLabel.text = @"Blink speed";
@@ -174,7 +179,7 @@
     [self.rightButton setImage:[UIImage imageNamed:@"button_rgb_light_right"] forState:UIControlStateNormal];
     [self.rightButton setImage:[UIImage imageNamed:@"button_rgb_light_right_down"] forState:UIControlStateHighlighted];
 
-    [self sd_addSubviews:@[self.imageView, self.detailImageView, self.sceneLabel, self.sceneTypeLabel, self.speedLabel, self.slider, self.leftButton, self.rightButton]];
+    [self sd_addSubviews:@[self.imageView, self.detailButton, self.sceneLabel, self.sceneTypeLabel, self.speedLabel, self.slider, self.leftButton, self.rightButton]];
 }
 
 - (void)addAutoLayout
@@ -182,21 +187,21 @@
     self.imageView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
-    self.detailImageView.sd_layout
+    self.detailButton.sd_layout
     .rightSpaceToView(self, MarginFactor(10.0f))
     .topSpaceToView(self, MarginFactor(35.0f))
-    .widthIs(self.detailImageView.image.size.width)
-    .heightIs(self.detailImageView.image.size.height);
+    .widthIs(self.detailButton.currentImage.size.width)
+    .heightIs(self.detailButton.currentImage.size.height);
 
     self.sceneTypeLabel.sd_layout
-    .rightSpaceToView(self.detailImageView, MarginFactor(10.0f))
-    .centerYEqualToView(self.detailImageView)
+    .rightSpaceToView(self.detailButton, MarginFactor(10.0f))
+    .centerYEqualToView(self.detailButton)
     .heightIs(self.sceneTypeLabel.font.lineHeight);
     [self.sceneTypeLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
     self.sceneLabel.sd_layout
     .leftSpaceToView(self, MarginFactor(30.0f))
-    .centerYEqualToView(self.detailImageView)
+    .centerYEqualToView(self.detailButton)
     .heightIs(self.sceneLabel.font.lineHeight);
     [self.sceneLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
@@ -228,16 +233,27 @@
 {
     [[self.leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         CGFloat value = self.slider.value;
-        value -= 0.1f;
-        value = MAX(value, 0.0f);
+        value -= 1.0f;
+        value = MAX(value, self.slider.minimumValue);
         [self.slider setValue:value animated:NO];
     }];
 
     [[self.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         CGFloat value = self.slider.value;
-        value += 0.1f;
-        value = MIN(value, 1.0f);
+        value += 1.0f;
+        value = MIN(value, self.slider.maximumValue);
         [self.slider setValue:value animated:NO];
+    }];
+
+    WEAK(self, weakSelf);
+    [[self.detailButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMMutiableLightThemeViewController *controller = [[OMMutiableLightThemeViewController alloc] init];
+        controller.theme = self.theme;
+        controller.roomDevice = self.roomDevice;
+        controller.block = ^(OMDynamicTheme theme){
+            weakSelf.theme = theme;
+        };
+        [[UIViewController findSourceViewController:self].navigationController pushViewController:controller animated:YES];
     }];
 }
 
@@ -279,7 +295,7 @@
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UILabel *colorLabel;
-@property (strong, nonatomic) UIImageView *colorImageView;
+@property (strong, nonatomic) UIButton *colorButton;
 @property (strong, nonatomic) UIImageView *detailImageView;
 
 @end
@@ -294,15 +310,15 @@
     self.colorLabel = [[UILabel alloc] init];
     self.colorLabel.text = @"Color";
 
-    self.colorImageView = [[UIImageView alloc] init];
-    self.colorImageView.backgroundColor = [UIColor whiteColor];
+    self.colorButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.colorButton.backgroundColor = [UIColor whiteColor];
 
     self.detailImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rgb_light_detail"]];
 
     self.colorLabel.font = FontFactor(13.0f);
     self.colorLabel.textColor = Color(@"a9b82f");
 
-    [self sd_addSubviews:@[self.imageView, self.colorLabel, self.colorImageView, self.detailImageView]];
+    [self sd_addSubviews:@[self.imageView, self.colorLabel, self.colorButton, self.detailImageView]];
 }
 
 - (void)addAutoLayout
@@ -316,7 +332,7 @@
     .widthIs(self.detailImageView.image.size.width)
     .heightIs(self.detailImageView.image.size.height);
 
-    self.colorImageView.sd_layout
+    self.colorButton.sd_layout
     .rightSpaceToView(self.detailImageView, MarginFactor(10.0f))
     .centerYEqualToView(self.detailImageView)
     .widthIs(MarginFactor(30.0f))
@@ -329,10 +345,24 @@
     [self.colorLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 }
 
-- (void)setColor:(UIColor *)color
+- (void)addReactiveCocoa
 {
-    _color = color;
-    self.colorImageView.backgroundColor = color;
+    WEAK(self, weakSelf);
+    [[self.colorButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMMutiableLightColorViewController *controller = [[OMMutiableLightColorViewController alloc] init];
+        controller.colorIndex = self.colorIndex;
+        controller.roomDevice = self.roomDevice;
+        controller.block = ^(NSInteger colorIndex){
+            weakSelf.colorIndex = colorIndex;
+        };
+        [[UIViewController findSourceViewController:self].navigationController pushViewController:controller animated:YES];
+    }];
+}
+
+- (void)setColorIndex:(NSInteger)colorIndex
+{
+    _colorIndex = colorIndex - 1;
+    self.colorButton.backgroundColor = Color([colorArray objectAtIndex:colorIndex]);
 }
 
 @end
