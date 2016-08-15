@@ -534,6 +534,45 @@
     });
 }
 
++ (void)changeCurtainUp:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_curtain_priv$%@$1$1$255$255$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)changeCurtainPause:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_curtain_priv$%@$1$0$255$255$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
++ (void)changeCurtainDown:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *request = [NSString stringWithFormat:@"set_curtain_priv$%@$1$2$255$255$", string];
+        NSString *string = [[OMUDPNetWork sharedNetWork] sendMessage:request type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:string]);
+            }
+        });
+    });
+}
+
 //通用函数
 + (NSArray *)stringToArray:(NSString *)string
 {

@@ -31,7 +31,7 @@
                     <rect key="frame" x="67" y="24" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fanCircle_bg" id="5Pv-dO-dvO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightCircle_bg" id="5Pv-dO-dvO">
                     <rect key="frame" x="40" y="220" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -93,7 +93,6 @@
     <resources>
         <image name="change_direction" width="55" height="55"/>
         <image name="choose_device_type_art_fan" width="27" height="26"/>
-        <image name="fanCircle_bg" width="198" height="198"/>
         <image name="fanner_1" width="142" height="142"/>
         <image name="fanner_2" width="142" height="142"/>
         <image name="fanner_3" width="142" height="142"/>
@@ -101,6 +100,7 @@
         <image name="fanner_5" width="142" height="142"/>
         <image name="fanner_circle" width="142" height="142"/>
         <image name="fj" width="251" height="203"/>
+        <image name="lightCircle_bg" width="264" height="264"/>
         <image name="roomDevice_SwitchOn" width="74" height="74"/>
     </resources>
 </document>

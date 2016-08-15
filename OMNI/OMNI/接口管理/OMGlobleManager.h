@@ -93,4 +93,9 @@
 + (void)changeFannerState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeFannerGear:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeFannerDireaction:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//窗帘
++ (void)changeCurtainUp:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeCurtainPause:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeCurtainDown:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

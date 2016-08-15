@@ -43,7 +43,7 @@
 
 - (void)initView
 {
-    self.title = @"Fan";
+    self.title = @"Art Fan";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
     self.firstButton.hidden = self.secondButton.hidden = self.thirdButton.hidden = self.fourthButton.hidden = self.fifthButton.hidden = YES;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
@@ -107,13 +107,13 @@
 
     self.iconImageView.sd_layout
     .centerXEqualToView(self.view)
-    .topSpaceToView(self.button, 0.0f)
+    .topSpaceToView(self.button, MarginFactor(5.0f))
     .widthIs(self.iconImageView.image.size.width)
     .heightIs(self.iconImageView.image.size.height);
 
     self.label.sd_layout
     .centerXEqualToView(self.view)
-    .topSpaceToView(self.iconImageView, MarginFactor(-2.0f))
+    .topSpaceToView(self.iconImageView, 0.0f)
     .heightIs(self.label.font.lineHeight);
     [self.label setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
@@ -217,7 +217,7 @@
 {
     _currentGear = currentGear;
     [self.actionButtonArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
+
     }];
 }
 
