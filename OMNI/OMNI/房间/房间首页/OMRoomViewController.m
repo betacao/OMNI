@@ -17,6 +17,8 @@
 #import "OMSingleLightViewController.h"
 #import "OMDoubleLightViewController.h"
 #import "OMMutibleLightViewController.h"
+#import "OMFannerViewController.h"
+#import "OMCurtainViewController.h"
 
 @interface OMRoomViewController ()<UICollectionViewDelegate,UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -204,6 +206,16 @@
         [self.navigationController pushViewController:controller animated:YES];
     } else if (roomDevice.roomDeviceType == OMRoomDeviceTypeMutablelight) {
         OMMutibleLightViewController *controller = [[OMMutibleLightViewController alloc] init];
+        controller.roomDevice = roomDevice;
+        controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else if (roomDevice.roomDeviceType == OMRoomDeviceTypeFan) {
+        OMFannerViewController *controller = [[OMFannerViewController alloc] init];
+        controller.roomDevice = roomDevice;
+        controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else if (roomDevice.roomDeviceType == OMRoomDeviceTypeCurtain) {
+        OMCurtainViewController *controller = [[OMCurtainViewController alloc] init];
         controller.roomDevice = roomDevice;
         controller.tableViewCell = [tableView cellForRowAtIndexPath:indexPath];
         [self.navigationController pushViewController:controller animated:YES];

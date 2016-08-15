@@ -87,4 +87,10 @@
 + (void)changeColorLightSpeed:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeColorLightTheme:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeColorLightColor:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//风扇
++ (void)readFannerState:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeFannerState:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeFannerGear:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeFannerDireaction:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

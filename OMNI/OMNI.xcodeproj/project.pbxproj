@@ -36,6 +36,10 @@
 		F91EAA4C1D0695E30055CB35 /* ESPUDPSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA3D1D0695E30055CB35 /* ESPUDPSocketClient.m */; };
 		F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA3F1D0695E30055CB35 /* ESPUDPSocketServer.m */; };
 		F91EAA4E1D0695E30055CB35 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = F91EAA401D0695E30055CB35 /* IPAddress.c */; };
+		F91F4DDD1D61590000D96A8A /* OMFannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4DDB1D61590000D96A8A /* OMFannerViewController.m */; };
+		F91F4DDE1D61590000D96A8A /* OMFannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91F4DDC1D61590000D96A8A /* OMFannerViewController.xib */; };
+		F91F4DE21D615B9000D96A8A /* OMCurtainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91F4DE01D615B9000D96A8A /* OMCurtainViewController.m */; };
+		F91F4DE31D615B9000D96A8A /* OMCurtainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F91F4DE11D615B9000D96A8A /* OMCurtainViewController.xib */; };
 		F92ADEBE1D50345600CBE1E7 /* OMMutibleSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F92ADEBD1D50345600CBE1E7 /* OMMutibleSlider.m */; };
 		F92ADEC21D50348F00CBE1E7 /* OMMutibleLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F92ADEC01D50348F00CBE1E7 /* OMMutibleLightViewController.m */; };
 		F92ADEC31D50348F00CBE1E7 /* OMMutibleLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F92ADEC11D50348F00CBE1E7 /* OMMutibleLightViewController.xib */; };
@@ -152,6 +156,12 @@
 		F91EAA3F1D0695E30055CB35 /* ESPUDPSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketServer.m; sourceTree = "<group>"; };
 		F91EAA401D0695E30055CB35 /* IPAddress.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = IPAddress.c; sourceTree = "<group>"; };
 		F91EAA411D0695E30055CB35 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+		F91F4DDA1D61590000D96A8A /* OMFannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMFannerViewController.h; sourceTree = "<group>"; };
+		F91F4DDB1D61590000D96A8A /* OMFannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMFannerViewController.m; sourceTree = "<group>"; };
+		F91F4DDC1D61590000D96A8A /* OMFannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMFannerViewController.xib; sourceTree = "<group>"; };
+		F91F4DDF1D615B9000D96A8A /* OMCurtainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMCurtainViewController.h; sourceTree = "<group>"; };
+		F91F4DE01D615B9000D96A8A /* OMCurtainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMCurtainViewController.m; sourceTree = "<group>"; };
+		F91F4DE11D615B9000D96A8A /* OMCurtainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMCurtainViewController.xib; sourceTree = "<group>"; };
 		F92ADEBC1D50345600CBE1E7 /* OMMutibleSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutibleSlider.h; sourceTree = "<group>"; };
 		F92ADEBD1D50345600CBE1E7 /* OMMutibleSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMMutibleSlider.m; sourceTree = "<group>"; };
 		F92ADEBF1D50348F00CBE1E7 /* OMMutibleLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutibleLightViewController.h; sourceTree = "<group>"; };
@@ -305,6 +315,8 @@
 				F9FCF38E1D2DFF7B00508A8B /* 单色灯 */,
 				F91E070F1D39DD2000DDE451 /* 双色灯 */,
 				F92ADEBB1D50341900CBE1E7 /* 彩灯 */,
+				F91F4DD91D6154F600D96A8A /* 风扇 */,
+				F91F4DD81D6154F600D96A8A /* 窗帘 */,
 			);
 			path = "房间";
 			sourceTree = "<group>";
@@ -352,6 +364,26 @@
 				F91EAA411D0695E30055CB35 /* IPAddress.h */,
 			);
 			path = ESP;
+			sourceTree = "<group>";
+		};
+		F91F4DD81D6154F600D96A8A /* 窗帘 */ = {
+			isa = PBXGroup;
+			children = (
+				F91F4DDF1D615B9000D96A8A /* OMCurtainViewController.h */,
+				F91F4DE01D615B9000D96A8A /* OMCurtainViewController.m */,
+				F91F4DE11D615B9000D96A8A /* OMCurtainViewController.xib */,
+			);
+			path = "窗帘";
+			sourceTree = "<group>";
+		};
+		F91F4DD91D6154F600D96A8A /* 风扇 */ = {
+			isa = PBXGroup;
+			children = (
+				F91F4DDA1D61590000D96A8A /* OMFannerViewController.h */,
+				F91F4DDB1D61590000D96A8A /* OMFannerViewController.m */,
+				F91F4DDC1D61590000D96A8A /* OMFannerViewController.xib */,
+			);
+			path = "风扇";
 			sourceTree = "<group>";
 		};
 		F92ADEBB1D50341900CBE1E7 /* 彩灯 */ = {
@@ -674,7 +706,9 @@
 				F905799D1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib in Resources */,
 				F9A19C8A1D2BE9B900965553 /* OMAddTimingViewController.xib in Resources */,
 				F933992A1CEC413F009C61C1 /* OMListTableViewCell.xib in Resources */,
+				F91F4DE31D615B9000D96A8A /* OMCurtainViewController.xib in Resources */,
 				F9A1D09D1D29482B007ECDAB /* OMSwitchViewController.xib in Resources */,
+				F91F4DDE1D61590000D96A8A /* OMFannerViewController.xib in Resources */,
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
 				F92ADEC31D50348F00CBE1E7 /* OMMutibleLightViewController.xib in Resources */,
 				F91E07141D39DD4A00DDE451 /* OMDoubleLightViewController.xib in Resources */,
@@ -783,8 +817,10 @@
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
 				F9A19C891D2BE9B900965553 /* OMAddTimingViewController.m in Sources */,
 				F9182A931D2B469C00AF3218 /* OMAlarm.m in Sources */,
+				F91F4DE21D615B9000D96A8A /* OMCurtainViewController.m in Sources */,
 				F91EAA4D1D0695E30055CB35 /* ESPUDPSocketServer.m in Sources */,
 				F9A1D09C1D29482B007ECDAB /* OMSwitchViewController.m in Sources */,
+				F91F4DDD1D61590000D96A8A /* OMFannerViewController.m in Sources */,
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
 				F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
@@ -914,7 +950,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: qiu haiyao (7KZRKKFS56)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -924,7 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Keytec.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "299c49ec-8714-4cb1-8666-eb06a3374a9a";
+				PROVISIONING_PROFILE = "21b7e025-4986-423f-bb3e-660f04ef1f92";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
@@ -935,7 +971,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: qiu haiyao (7KZRKKFS56)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -945,7 +981,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Keytec.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "299c49ec-8714-4cb1-8666-eb06a3374a9a";
+				PROVISIONING_PROFILE = "21b7e025-4986-423f-bb3e-660f04ef1f92";
 				WARNING_CFLAGS = "";
 			};
 			name = Release;
