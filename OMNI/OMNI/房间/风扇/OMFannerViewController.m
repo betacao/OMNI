@@ -21,7 +21,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *thirdButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourthButton;
 @property (weak, nonatomic) IBOutlet UIButton *fifthButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *displayButton1;
+@property (weak, nonatomic) IBOutlet UIButton *displayButton2;
+@property (weak, nonatomic) IBOutlet UIButton *displayButton3;
+@property (weak, nonatomic) IBOutlet UIButton *displayButton4;
+@property (weak, nonatomic) IBOutlet UIButton *displayButton5;
+
 @property (strong, nonatomic) NSArray *actionButtonArray;
+@property (strong, nonatomic) NSArray *buttonImageArray;
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -45,10 +53,10 @@
 {
     self.title = @"Art Fan";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
-    self.firstButton.hidden = self.secondButton.hidden = self.thirdButton.hidden = self.fourthButton.hidden = self.fifthButton.hidden = YES;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
 
-    self.actionButtonArray = @[self.firstButton, self.secondButton, self.thirdButton, self.fourthButton, self.fifthButton];
+    self.actionButtonArray = @[self.displayButton1, self.displayButton2, self.displayButton3, self.displayButton4, self.displayButton5];
+    self.buttonImageArray = @[[UIImage imageNamed:@"fanner_1"], [UIImage imageNamed:@"fanner_2"], [UIImage imageNamed:@"fanner_3"], [UIImage imageNamed:@"fanner_4"], [UIImage imageNamed:@"fanner_5"]];
 }
 
 - (void)addAutoLayout
@@ -69,35 +77,76 @@
     .widthIs(self.circleImageView.image.size.width)
     .heightIs(self.circleImageView.image.size.height);
 
+    self.displayButton1.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.diskImageView)
+    .widthIs(self.displayButton1.currentImage.size.width)
+    .heightIs(self.displayButton1.currentImage.size.height);
+
+    self.displayButton2.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.diskImageView)
+    .widthIs(self.displayButton2.currentImage.size.width)
+    .heightIs(self.displayButton2.currentImage.size.height);
+
+    self.displayButton3.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.diskImageView)
+    .widthIs(self.displayButton3.currentImage.size.width)
+    .heightIs(self.displayButton3.currentImage.size.height);
+
+    self.displayButton4.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.diskImageView)
+    .widthIs(self.displayButton4.currentImage.size.width)
+    .heightIs(self.displayButton4.currentImage.size.height);
+
+    self.displayButton5.sd_layout
+    .centerXEqualToView(self.view)
+    .centerYEqualToView(self.diskImageView)
+    .widthIs(self.displayButton5.currentImage.size.width)
+    .heightIs(self.displayButton5.currentImage.size.height);
+
+    //
     self.firstButton.sd_layout
     .centerXEqualToView(self.view)
-    .centerYEqualToView(self.diskImageView)
-    .widthIs(self.firstButton.currentImage.size.width)
-    .heightIs(self.firstButton.currentImage.size.height);
-
+    .offset(-64.0f)
+    .centerYEqualToView(self.view)
+    .offset(39.0f + MarginFactor(-60.0f))
+    .widthIs(65.0f)
+    .heightIs(72.0f);
+    
     self.secondButton.sd_layout
     .centerXEqualToView(self.view)
-    .centerYEqualToView(self.diskImageView)
-    .widthIs(self.secondButton.currentImage.size.width)
-    .heightIs(self.secondButton.currentImage.size.height);
+    .offset(-68.0f)
+    .centerYEqualToView(self.view)
+    .offset(-35.0f + MarginFactor(-60.0f))
+    .widthIs(63.0f)
+    .heightIs(77.0f);
 
     self.thirdButton.sd_layout
     .centerXEqualToView(self.view)
-    .centerYEqualToView(self.diskImageView)
-    .widthIs(self.thirdButton.currentImage.size.width)
-    .heightIs(self.thirdButton.currentImage.size.height);
+    .centerYEqualToView(self.view)
+    .offset(-74.0f + MarginFactor(-60.0f))
+    .widthIs(90.0f)
+    .heightIs(38.0f);
 
     self.fourthButton.sd_layout
     .centerXEqualToView(self.view)
-    .centerYEqualToView(self.diskImageView)
-    .widthIs(self.fourthButton.currentImage.size.width)
-    .heightIs(self.fourthButton.currentImage.size.height);
+    .offset(68.0f)
+    .centerYEqualToView(self.view)
+    .offset(-37.0f + MarginFactor(-60.0f))
+    .widthIs(63.0f)
+    .heightIs(77.0f);
 
     self.fifthButton.sd_layout
     .centerXEqualToView(self.view)
-    .centerYEqualToView(self.diskImageView)
-    .widthIs(self.fifthButton.currentImage.size.width)
-    .heightIs(self.fifthButton.currentImage.size.height);
+    .offset(64.0f)
+    .centerYEqualToView(self.view)
+    .offset(39.0f + MarginFactor(-60.0f))
+    .widthIs(65.0f)
+    .heightIs(72.0f);
+    //
 
     self.button.sd_layout
     .centerXEqualToView(self.view)
@@ -139,6 +188,8 @@
     }] subscribeNext:^(NSArray *x) {
         if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
             [self.button setSelected:!self.button.isSelected];
+            self.currentGear = self.currentGear;
+            self.isOn = self.button.isSelected;
             self.roomDevice.roomDeviceState = !self.roomDevice.roomDeviceState;
             self.tableViewCell.roomDevice = self.roomDevice;
         }
@@ -183,10 +234,12 @@
 
 - (void)loadData
 {
-    [OMGlobleManager readSwitchState:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
+    [OMGlobleManager readFannerState:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
         BOOL success = [[array firstObject] isEqualToString:@"SUCCESS"];
         if (success) {
-            [self.button setSelected:[[array lastObject] isEqualToString:@"1"]];
+            [self.button setSelected:[[array objectAtIndex:3] isEqualToString:@"1"]];
+            self.currentGear = [[array objectAtIndex:4] integerValue];
+            self.isOn = self.button.isSelected;
             [OMAlarmView sharedAlarmView].roomDevice = self.roomDevice;
         }
     }];
@@ -206,19 +259,24 @@
 - (void)setIsOn:(BOOL)isOn
 {
     _isOn = isOn;
-    if (isOn) {
-
-    } else {
-
+    if (!isOn) {
+        [self.actionButtonArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj setImage:nil forState:UIControlStateNormal];
+        }];
     }
 }
 
 - (void)setCurrentGear:(NSInteger)currentGear
 {
+    //如果关闭状态默认把档位写成0
     _currentGear = currentGear;
     [self.actionButtonArray enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
+        [obj setImage:nil forState:UIControlStateNormal];
     }];
+    if (currentGear != 0) {
+        UIButton *button = [self.actionButtonArray objectAtIndex:currentGear - 1];
+        [button setImage:[self.buttonImageArray objectAtIndex:currentGear - 1] forState:UIControlStateNormal];
+    }
 }
 
 - (void)rightButtonClick:(UIButton *)button

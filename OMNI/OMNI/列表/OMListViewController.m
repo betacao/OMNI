@@ -14,7 +14,6 @@
 #import "OMRoomViewController.h"
 #import "OMGuideViewController.h"
 #import "OMAddTimingViewController.h"
-#import "OMFannerViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -105,9 +104,7 @@
 
 - (IBAction)footerButtonClick:(UIButton *)button
 {
-//    OMWifiConfigViewController *controller = [[OMWifiConfigViewController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
-    OMFannerViewController *controller = [[OMFannerViewController alloc] init];
+    OMWifiConfigViewController *controller = [[OMWifiConfigViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

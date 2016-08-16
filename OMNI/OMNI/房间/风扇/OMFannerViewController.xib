@@ -11,14 +11,19 @@
                 <outlet property="circleImageView" destination="z6U-o1-CWM" id="jAL-u2-SaR"/>
                 <outlet property="directionButton" destination="X6n-3b-InH" id="zel-4w-Bs7"/>
                 <outlet property="diskImageView" destination="5Pv-dO-dvO" id="mSb-2l-yk5"/>
-                <outlet property="fifthButton" destination="YIK-tp-yAG" id="D0I-Pw-x7C"/>
-                <outlet property="firstButton" destination="bCJ-bi-nNH" id="7cI-on-out"/>
-                <outlet property="fourthButton" destination="oCe-Q9-zXe" id="OHq-uh-kFL"/>
+                <outlet property="displayButton1" destination="bCJ-bi-nNH" id="6fg-hM-0iU"/>
+                <outlet property="displayButton2" destination="fUb-1v-Ug4" id="lGR-mv-pa9"/>
+                <outlet property="displayButton3" destination="cuE-My-aWA" id="8lY-Xi-2Hh"/>
+                <outlet property="displayButton4" destination="oCe-Q9-zXe" id="36i-V6-Zde"/>
+                <outlet property="displayButton5" destination="YIK-tp-yAG" id="Iu8-nK-Vyb"/>
+                <outlet property="fifthButton" destination="tQu-r9-rbC" id="Ibi-5S-boL"/>
+                <outlet property="firstButton" destination="tGB-OW-j9M" id="Rzr-Rq-Bh8"/>
+                <outlet property="fourthButton" destination="LWh-ep-Csq" id="KqA-O3-BzQ"/>
                 <outlet property="iconImageView" destination="IdX-gs-IOs" id="dle-yE-c5h"/>
                 <outlet property="imageView" destination="xcy-P0-keN" id="8sb-9M-Lvj"/>
                 <outlet property="label" destination="ovq-ej-Rxv" id="bx0-2l-iH5"/>
-                <outlet property="secondButton" destination="fUb-1v-Ug4" id="4fU-uf-EZN"/>
-                <outlet property="thirdButton" destination="cuE-My-aWA" id="gux-AN-qCC"/>
+                <outlet property="secondButton" destination="B40-dX-77C" id="0zn-uz-zT7"/>
+                <outlet property="thirdButton" destination="9of-n4-hcs" id="eSp-IU-q9U"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -64,10 +69,36 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="fanner_5"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tGB-OW-j9M">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B40-dX-77C">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9of-n4-hcs">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LWh-ep-Csq">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tQu-r9-rbC">
+                    <rect key="frame" x="137" y="269" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5kV-6v-0Wl">
                     <rect key="frame" x="89" y="213" width="142" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="roomDevice_SwitchOn"/>
+                    <state key="normal" image="roomDevice_SwitchOff"/>
+                    <state key="selected" image="roomDevice_SwitchOn"/>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choose_device_type_art_fan" id="IdX-gs-IOs">
                     <rect key="frame" x="40" y="220" width="240" height="128"/>
@@ -93,14 +124,15 @@
     <resources>
         <image name="change_direction" width="55" height="55"/>
         <image name="choose_device_type_art_fan" width="27" height="26"/>
-        <image name="fanner_1" width="142" height="142"/>
-        <image name="fanner_2" width="142" height="142"/>
-        <image name="fanner_3" width="142" height="142"/>
-        <image name="fanner_4" width="142" height="142"/>
-        <image name="fanner_5" width="142" height="142"/>
-        <image name="fanner_circle" width="142" height="142"/>
+        <image name="fanner_1" width="189" height="189"/>
+        <image name="fanner_2" width="189" height="189"/>
+        <image name="fanner_3" width="189" height="189"/>
+        <image name="fanner_4" width="189" height="189"/>
+        <image name="fanner_5" width="189" height="189"/>
+        <image name="fanner_circle" width="189" height="189"/>
         <image name="fj" width="251" height="203"/>
         <image name="lightCircle_bg" width="264" height="264"/>
+        <image name="roomDevice_SwitchOff" width="74" height="74"/>
         <image name="roomDevice_SwitchOn" width="74" height="74"/>
     </resources>
 </document>
