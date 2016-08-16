@@ -79,24 +79,55 @@
 
 - (void)addReactiveCocoa
 {
-    [[self.topButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [OMGlobleManager changeCurtainUp:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
-
+    [[[self.topButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            //这里面button状态要反写
+            [OMGlobleManager changeCurtainUp:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
+                [subscriber sendNext:array];
+                [subscriber sendCompleted];
+            }];
+            return nil;
         }];
+    }] subscribeNext:^(NSArray *x) {
+        if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
+            self.roomDevice.roomDeviceState = YES;
+            self.tableViewCell.roomDevice = self.roomDevice;
+        }
     }];
 
-    [[self.middleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [OMGlobleManager changeCurtainPause:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
-
+    [[[self.middleButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            //这里面button状态要反写
+            [OMGlobleManager changeCurtainPause:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
+                [subscriber sendNext:array];
+                [subscriber sendCompleted];
+            }];
+            return nil;
         }];
+    }] subscribeNext:^(NSArray *x) {
+        if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
+            self.roomDevice.roomDeviceState = YES;
+            self.tableViewCell.roomDevice = self.roomDevice;
+        }
     }];
 
-    [[self.bottomButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [OMGlobleManager changeCurtainDown:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
-
+    [[[self.bottomButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            //这里面button状态要反写
+            [OMGlobleManager changeCurtainDown:self.roomDevice.roomDeviceID inView:self.view block:^(NSArray *array) {
+                [subscriber sendNext:array];
+                [subscriber sendCompleted];
+            }];
+            return nil;
         }];
+    }] subscribeNext:^(NSArray *x) {
+        if (![[x firstObject] isEqualToString:@"OFFLINE"]) {
+            self.roomDevice.roomDeviceState = YES;
+            self.tableViewCell.roomDevice = self.roomDevice;
+        }
     }];
 }
+
 
 - (void)rightButtonClick:(UIButton *)button
 {
