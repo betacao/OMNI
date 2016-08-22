@@ -53,8 +53,8 @@
 - (void)addAutoLayout
 {
     self.collectionView.sd_layout
-    .leftSpaceToView(self.view, 0.0f)
-    .rightSpaceToView(self.view, 0.0f)
+    .leftSpaceToView(self.view, MarginFactor(5.0f))
+    .rightSpaceToView(self.view, MarginFactor(5.0f))
     .topSpaceToView(self.view, 0.0f)
     .heightIs(SCREENHEIGHT / 2.0f);
 

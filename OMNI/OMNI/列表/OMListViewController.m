@@ -14,6 +14,7 @@
 #import "OMRoomViewController.h"
 #import "OMGuideViewController.h"
 #import "OMAddTimingViewController.h"
+#import "OMSceneViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -133,8 +134,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OMRoomViewController *controller = [[OMRoomViewController alloc] init];
-    controller.device = [self.dataArray objectAtIndex:indexPath.row];
+    OMRoomViewController *centerViewController = [[OMRoomViewController alloc] init];
+    centerViewController.device = [self.dataArray objectAtIndex:indexPath.row];
+    OMSceneViewController *rightSideDrawerViewController = [[OMSceneViewController alloc] init];
+
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
+    [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
+
+    UINavigationController *rightSideNavController = [[UINavigationController alloc] initWithRootViewController:rightSideDrawerViewController];
+    [rightSideNavController setRestorationIdentifier:@"MMExampleRightNavigationControllerRestorationKey"];
+
+    MMDrawerController *controller = [[MMDrawerController alloc] initWithCenterViewController:centerViewController rightDrawerViewController:rightSideNavController];
+
+
+    [controller setShowsShadow:NO];
+    [controller setRestorationIdentifier:@"MMDrawer"];
+    [controller setMaximumRightDrawerWidth:300.0];
+    [controller setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [controller setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+
     [self.navigationController pushViewController:controller animated:YES];
 }
 

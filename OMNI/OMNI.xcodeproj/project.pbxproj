@@ -97,6 +97,8 @@
 		F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E6432A1CE5BD7F00D35FB1 /* OMBaseViewController.m */; };
 		F9E643321CE5C4DC00D35FB1 /* OMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */; };
 		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
+		F9EA632D1D6ADC48006243D5 /* OMSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */; };
+		F9EA632E1D6ADC48006243D5 /* OMSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */; };
 		F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */; };
 		F9FCF3931D2DFFC100508A8B /* OMSingleLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */; };
 /* End PBXBuildFile section */
@@ -263,6 +265,9 @@
 		F9E6432F1CE5C4DC00D35FB1 /* OMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMLoginViewController.h; sourceTree = "<group>"; };
 		F9E643301CE5C4DC00D35FB1 /* OMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMLoginViewController.m; sourceTree = "<group>"; };
 		F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMLoginViewController.xib; sourceTree = "<group>"; };
+		F9EA632A1D6ADC48006243D5 /* OMSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSceneViewController.h; sourceTree = "<group>"; };
+		F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSceneViewController.m; sourceTree = "<group>"; };
+		F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSceneViewController.xib; sourceTree = "<group>"; };
 		F9FCF38F1D2DFFC100508A8B /* OMSingleLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSingleLightViewController.h; sourceTree = "<group>"; };
 		F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSingleLightViewController.m; sourceTree = "<group>"; };
 		F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSingleLightViewController.xib; sourceTree = "<group>"; };
@@ -309,6 +314,7 @@
 		F915607E1D0006C4009BAA36 /* 房间 */ = {
 			isa = PBXGroup;
 			children = (
+				F9EA63261D6AD12F006243D5 /* 情景模式 */,
 				F941E1F31D05608C00A70A3F /* 房间首页 */,
 				F941E2061D0560B300A70A3F /* 房间设置 */,
 				F9A1D0981D294803007ECDAB /* 开关 */,
@@ -622,6 +628,16 @@
 			path = "登录";
 			sourceTree = "<group>";
 		};
+		F9EA63261D6AD12F006243D5 /* 情景模式 */ = {
+			isa = PBXGroup;
+			children = (
+				F9EA632A1D6ADC48006243D5 /* OMSceneViewController.h */,
+				F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */,
+				F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */,
+			);
+			path = "情景模式";
+			sourceTree = "<group>";
+		};
 		F9FCF38E1D2DFF7B00508A8B /* 单色灯 */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +734,7 @@
 				F90579A21D51A15900FC23F0 /* OMMutiableLightColorViewController.xib in Resources */,
 				F941E2001D05608C00A70A3F /* OMRoomCollectionViewCell.xib in Resources */,
 				F9621BEB1CE2C6240058DBA7 /* Main.storyboard in Resources */,
+				F9EA632E1D6ADC48006243D5 /* OMSceneViewController.xib in Resources */,
 				F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,6 +861,7 @@
 				F91EAA471D0695E30055CB35 /* ESPGuideCode.m in Sources */,
 				F964F9191D040EEF005FD22F /* OMRoom.m in Sources */,
 				F91EAA481D0695E30055CB35 /* ESPTouchGenerator.m in Sources */,
+				F9EA632D1D6ADC48006243D5 /* OMSceneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

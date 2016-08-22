@@ -9,5 +9,5 @@ target 'OMNI' do
     pod 'CocoaAsyncSocket'
     pod 'ReactiveCocoa'
     pod 'TTTAttributedLabel', '~> 2.0.0'
-    
+    pod 'MMDrawerController'
 end
