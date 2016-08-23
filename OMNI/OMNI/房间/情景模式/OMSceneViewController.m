@@ -7,31 +7,220 @@
 //
 
 #import "OMSceneViewController.h"
+#import "OMScene.h"
 
-@interface OMSceneViewController ()
+@interface OMSceneViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIView *spliteView;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+
+@property (strong, nonatomic) NSMutableArray *dataArray;
+@property (assign, nonatomic) BOOL needRefresh;
 
 @end
 
 @implementation OMSceneViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadData];
+}
+
+- (void)initView
+{
+    self.contentView.backgroundColor = ColorA(@"54a979", 0.8);
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.font = FontFactor(15.0f);
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.bounces = NO;
+
+    self.spliteView.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)addAutoLayout
+{
+    self.contentView.sd_layout
+    .spaceToSuperView(UIEdgeInsetsZero);
+
+    self.tableView.sd_layout
+    .spaceToSuperView(UIEdgeInsetsZero);
+
+    self.titleLabel.sd_layout
+    .centerXEqualToView(self.contentView)
+    .bottomSpaceToView(self.tableView, MarginFactor(20.0f))
+    .heightIs(self.titleLabel.font.lineHeight);
+    [self.titleLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
+    self.titleLabel.text = @"SCENE";
+
+    self.spliteView.sd_layout
+    .leftSpaceToView(self.contentView, 0.0f)
+    .rightSpaceToView(self.contentView, 0.0f)
+    .topSpaceToView(self.tableView, 0.0f)
+    .heightIs(1.0f);
+
+    self.leftButton.sd_layout
+    .leftSpaceToView(self.contentView, MarginFactor(60.0f))
+    .topSpaceToView(self.spliteView, MarginFactor(30.0f))
+    .widthIs(self.leftButton.currentImage.size.width)
+    .heightIs(self.leftButton.currentImage.size.height);
+
+    self.rightButton.sd_layout
+    .rightSpaceToView(self.contentView, MarginFactor(60.0f))
+    .topSpaceToView(self.spliteView, MarginFactor(30.0f))
+    .widthIs(self.rightButton.currentImage.size.width)
+    .heightIs(self.rightButton.currentImage.size.height);
+}
+
+- (void)loadData
+{
+    [self.dataArray removeAllObjects];
+    NSArray *array = [OMGloble readScene];
+    if (array) {
+        for (NSInteger i = 0; i < array.count / 2.0f; i++) {
+            OMScene *scene = [[OMScene alloc] init];;
+            scene.sceneID = [[array objectAtIndex:i * 2] integerValue];
+            scene.sceneName = [array objectAtIndex:i * 2 + 1];
+            [self.dataArray addObject:scene];
+        }
+        self.needRefresh = YES;
+    }
+}
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+- (void)setNeedRefresh:(BOOL)needRefresh
+{
+    CGFloat height = self.tableView.contentSize.height;
+    if (CGRectGetHeight(self.tableView.frame) != height) {
+        self.tableView.sd_resetLayout
+        .rightSpaceToView(self.contentView, 0.0f)
+        .leftSpaceToView(self.contentView, 0.0f)
+        .centerYEqualToView(self.contentView)
+        .offset(MarginFactor(-60.0f))
+        .heightIs(height);
+    }
+
+    WEAK(self, weakSelf);
+    if (needRefresh && !_needRefresh) {
+        _needRefresh = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            _needRefresh = NO;
+        });
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.dataArray.count / 2.0f;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return MarginFactor(40.0f);
+}
+
+- (OMSceneTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OMSceneTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OMSceneTableViewCell"];
+    if (!cell) {
+        cell = [[OMSceneTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OMSceneTableViewCell"];
+    }
+    NSInteger index = 2.0f * indexPath.section + indexPath.row;
+    cell.scene = [self.dataArray objectAtIndex:index];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    return view;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+@end
+
+@interface OMSceneTableViewCell()
+
+@property (strong, nonatomic) UIImageView *icon;
+@property (strong, nonatomic) UILabel *name;
+
+@end
+
+@implementation OMSceneTableViewCell
+
+- (void)initView
+{
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
+    self.icon = [[UIImageView alloc] init];
+    self.name = [[UILabel alloc] init];
+    self.name.textColor = [UIColor whiteColor];
+    self.name.font = FontFactor(14.0f);
+    [self.contentView sd_addSubviews:@[self.icon, self.name]];
 }
-*/
+
+- (void)addAutoLayout
+{
+    self.icon.sd_layout
+    .centerYEqualToView(self.contentView)
+    .leftSpaceToView(self.contentView, MarginFactor(30.0f))
+    .widthIs(MarginFactor(30.0f))
+    .heightIs(MarginFactor(30.0f));
+
+    self.name.sd_layout
+    .centerYEqualToView(self.contentView)
+    .leftSpaceToView(self.icon, MarginFactor(10.0f))
+    .heightIs(self.name.font.lineHeight);
+    [self.name setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
+}
+
+- (void)setScene:(OMScene *)scene
+{
+    _scene = scene;
+    self.icon.image = scene.sceneImageN;
+
+    self.name.text = scene.sceneName;
+}
 
 @end

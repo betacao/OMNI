@@ -10,4 +10,5 @@ target 'OMNI' do
     pod 'ReactiveCocoa'
     pod 'TTTAttributedLabel', '~> 2.0.0'
     pod 'MMDrawerController'
+    pod 'YYCache'
 end

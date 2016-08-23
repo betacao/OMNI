@@ -30,6 +30,8 @@
 
 #define Color(color) [UIColor colorWithHexString: color]
 
+#define ColorA(color, a) [UIColor colorWithHexString:color alpha:a]
+
 #define kStatusBarHeight CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)
 
 #define kNavigationBarHeight CGRectGetHeight(self.navigationController.navigationBar.frame)

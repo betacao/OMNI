@@ -98,4 +98,7 @@
 + (void)changeCurtainUp:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeCurtainPause:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeCurtainDown:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
+
+//情景模式
++ (void)readSceneModeInfoInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

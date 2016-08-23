@@ -17,7 +17,7 @@
 #import <SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
-#import <MMDrawerController/MMDrawerController.h>
+#import <YYCache/YYCache.h>
 #import "UIColor+Extend.h"
 #import "UIView+HUD.h"
 #import "OMDevice.h"
@@ -28,6 +28,7 @@
 #import "NSObject+Extend.h"
 #import "UIImage+Extend.h"
 #import "OMAlertView.h"
+#import "OMGloble.h"
 
 #import "AppDelegate.h"
 #endif /* PrefixHeader_pch */

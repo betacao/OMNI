@@ -7,7 +7,16 @@
 //
 
 #import "OMBaseViewController.h"
+#import "OMBaseTableViewCell.h"
+#import "OMScene.h"
 
 @interface OMSceneViewController : OMBaseViewController
+
+@end
+
+
+@interface OMSceneTableViewCell : OMBaseTableViewCell
+
+@property (strong, nonatomic) OMScene *scene;
 
 @end

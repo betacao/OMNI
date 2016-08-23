@@ -53,7 +53,7 @@
 - (void)addAutoLayout
 {
     self.collectionView.sd_layout
-    .leftSpaceToView(self.view, MarginFactor(5.0f))
+    .leftSpaceToView(self.view, 0.0f)
     .rightSpaceToView(self.view, MarginFactor(5.0f))
     .topSpaceToView(self.view, 0.0f)
     .heightIs(SCREENHEIGHT / 2.0f);
@@ -146,6 +146,11 @@
             }
             kAppDelegate.currentRoom = [[kAppDelegate.roomArray firstObject] objectForKey:@"room"];
             weakSelf.currentDeviceArray = [[kAppDelegate.roomArray firstObject] objectForKey:@"roomDeviceArray"];
+
+
+            [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {
+                [OMGloble writeScene:array];
+            }];
         }];
     }];
 

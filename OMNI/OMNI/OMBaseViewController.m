@@ -44,7 +44,11 @@
 
     self.bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
 
-    self.navImageView.sd_layout.leftSpaceToView(self.view, 0.0f).rightSpaceToView(self.view, 0.0f).topSpaceToView(self.view, 0.0f).heightIs(self.navImageView.image.size.height);
+    self.navImageView.sd_layout
+    .leftSpaceToView(self.view, 0.0f)
+    .rightSpaceToView(self.view, 0.0f)
+    .topSpaceToView(self.view, 0.0f)
+    .heightIs(self.navImageView.image.size.height);
 
 
 }

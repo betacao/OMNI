@@ -12,6 +12,7 @@
 		F905799D1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F905799B1D51A12E00FC23F0 /* OMMutiableLightThemeViewController.xib */; };
 		F90579A11D51A15900FC23F0 /* OMMutiableLightColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */; };
 		F90579A21D51A15900FC23F0 /* OMMutiableLightColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */; };
+		F90BF1AD1D6C25B900D2ECEB /* OMGloble.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BF1AC1D6C25B900D2ECEB /* OMGloble.m */; };
 		F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91115491D13FB5700D79185 /* OMGlobleManager.m */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
@@ -99,6 +100,8 @@
 		F9E643331CE5C4DC00D35FB1 /* OMLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E643311CE5C4DC00D35FB1 /* OMLoginViewController.xib */; };
 		F9EA632D1D6ADC48006243D5 /* OMSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */; };
 		F9EA632E1D6ADC48006243D5 /* OMSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */; };
+		F9EA63311D6AF293006243D5 /* OMDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EA63301D6AF293006243D5 /* OMDrawerViewController.m */; };
+		F9EE643F1D6B1BB600B4E713 /* OMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EE643E1D6B1BB600B4E713 /* OMScene.m */; };
 		F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */; };
 		F9FCF3931D2DFFC100508A8B /* OMSingleLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */; };
 /* End PBXBuildFile section */
@@ -112,6 +115,8 @@
 		F905799E1D51A15900FC23F0 /* OMMutiableLightColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMMutiableLightColorViewController.h; sourceTree = "<group>"; };
 		F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMMutiableLightColorViewController.m; sourceTree = "<group>"; };
 		F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMMutiableLightColorViewController.xib; sourceTree = "<group>"; };
+		F90BF1AB1D6C25B900D2ECEB /* OMGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGloble.h; sourceTree = "<group>"; };
+		F90BF1AC1D6C25B900D2ECEB /* OMGloble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGloble.m; sourceTree = "<group>"; };
 		F91115481D13FB5700D79185 /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
 		F91115491D13FB5700D79185 /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
@@ -268,6 +273,10 @@
 		F9EA632A1D6ADC48006243D5 /* OMSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSceneViewController.h; sourceTree = "<group>"; };
 		F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSceneViewController.m; sourceTree = "<group>"; };
 		F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSceneViewController.xib; sourceTree = "<group>"; };
+		F9EA632F1D6AF293006243D5 /* OMDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMDrawerViewController.h; sourceTree = "<group>"; };
+		F9EA63301D6AF293006243D5 /* OMDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMDrawerViewController.m; sourceTree = "<group>"; };
+		F9EE643D1D6B1BB600B4E713 /* OMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMScene.h; sourceTree = "<group>"; };
+		F9EE643E1D6B1BB600B4E713 /* OMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMScene.m; sourceTree = "<group>"; };
 		F9FCF38F1D2DFFC100508A8B /* OMSingleLightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSingleLightViewController.h; sourceTree = "<group>"; };
 		F9FCF3901D2DFFC100508A8B /* OMSingleLightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSingleLightViewController.m; sourceTree = "<group>"; };
 		F9FCF3911D2DFFC100508A8B /* OMSingleLightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSingleLightViewController.xib; sourceTree = "<group>"; };
@@ -305,6 +314,8 @@
 		F91115471D13FB5700D79185 /* 接口管理 */ = {
 			isa = PBXGroup;
 			children = (
+				F90BF1AB1D6C25B900D2ECEB /* OMGloble.h */,
+				F90BF1AC1D6C25B900D2ECEB /* OMGloble.m */,
 				F91115481D13FB5700D79185 /* OMGlobleManager.h */,
 				F91115491D13FB5700D79185 /* OMGlobleManager.m */,
 			);
@@ -419,6 +430,8 @@
 				F964F9181D040EEF005FD22F /* OMRoom.m */,
 				F9182A911D2B469C00AF3218 /* OMAlarm.h */,
 				F9182A921D2B469C00AF3218 /* OMAlarm.m */,
+				F9EE643D1D6B1BB600B4E713 /* OMScene.h */,
+				F9EE643E1D6B1BB600B4E713 /* OMScene.m */,
 			);
 			path = "对象";
 			sourceTree = "<group>";
@@ -522,6 +535,8 @@
 				F9C4A7B01D20C56100555E7C /* OMBaseView.m */,
 				F9C19A8C1D01261A005AFEEB /* OMBaseCollectionViewCell.h */,
 				F9C19A8D1D01261A005AFEEB /* OMBaseCollectionViewCell.m */,
+				F9EA632F1D6AF293006243D5 /* OMDrawerViewController.h */,
+				F9EA63301D6AF293006243D5 /* OMDrawerViewController.m */,
 				F9621BE61CE2C6240058DBA7 /* OMRootViewController.h */,
 				F9621BE71CE2C6240058DBA7 /* OMRootViewController.m */,
 				F9621BE31CE2C6240058DBA7 /* AppDelegate.h */,
@@ -829,6 +844,7 @@
 				F93831E61CF2E317003807A9 /* OMWifiConfigViewController.m in Sources */,
 				F9C72EF71CE9EEB100DCBAED /* OMListViewController.m in Sources */,
 				F9621BE81CE2C6240058DBA7 /* OMRootViewController.m in Sources */,
+				F9EA63311D6AF293006243D5 /* OMDrawerViewController.m in Sources */,
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F92ADEBE1D50345600CBE1E7 /* OMMutibleSlider.m in Sources */,
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
@@ -841,6 +857,7 @@
 				F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */,
 				F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */,
 				F944CDD61CE9977F009547A0 /* OMRegisterViewController.m in Sources */,
+				F90BF1AD1D6C25B900D2ECEB /* OMGloble.m in Sources */,
 				F941E2021D05608C00A70A3F /* OMRoomTableViewCell.m in Sources */,
 				F9621BE21CE2C6240058DBA7 /* main.m in Sources */,
 				F91E070E1D39DCE400DDE451 /* OMSingleSlider.m in Sources */,
@@ -849,6 +866,7 @@
 				F93831EB1CF2EBF4003807A9 /* OMAddGateWayViewController.m in Sources */,
 				F933992E1CEC47C0009C61C1 /* OMDevice.m in Sources */,
 				F943C1A11D06A4F400842778 /* NSObject+Extend.m in Sources */,
+				F9EE643F1D6B1BB600B4E713 /* OMScene.m in Sources */,
 				F9DE59B91D2A5D1900CB4CAB /* OMAlarmView.m in Sources */,
 				F9E6432C1CE5BD7F00D35FB1 /* OMBaseViewController.m in Sources */,
 				F91EAA491D0695E30055CB35 /* ESPTouchResult.m in Sources */,
@@ -968,7 +986,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: qiu haiyao (7KZRKKFS56)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -978,7 +996,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Keytec.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "21b7e025-4986-423f-bb3e-660f04ef1f92";
+				PROVISIONING_PROFILE = "299c49ec-8714-4cb1-8666-eb06a3374a9a";
 				WARNING_CFLAGS = "";
 			};
 			name = Debug;
@@ -989,7 +1007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xie jian (A35C7Q22SB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: qiu haiyao (7KZRKKFS56)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -999,7 +1017,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Keytec.OMNI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "21b7e025-4986-423f-bb3e-660f04ef1f92";
+				PROVISIONING_PROFILE = "299c49ec-8714-4cb1-8666-eb06a3374a9a";
 				WARNING_CFLAGS = "";
 			};
 			name = Release;

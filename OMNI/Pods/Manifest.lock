@@ -24,6 +24,7 @@ PODS:
   - Result (2.1.2)
   - SDAutoLayout (2.1.2)
   - TTTAttributedLabel (2.0.0)
+  - YYCache (1.0.3)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - ReactiveCocoa
   - SDAutoLayout
   - TTTAttributedLabel (~> 2.0.0)
+  - YYCache
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   Result: 6e722d4a66b1408680dbfcdf51c0b1c4b706316a
   SDAutoLayout: 4910758003bbb043003700915b00f53fbc2bf512
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
 
-PODFILE CHECKSUM: d39c4b407e306d159d448726120367415b6eb706
+PODFILE CHECKSUM: e739b32751eb376ce55528b7c491700824304e9e
 
 COCOAPODS: 1.0.1

@@ -15,6 +15,7 @@
 #import "OMGuideViewController.h"
 #import "OMAddTimingViewController.h"
 #import "OMSceneViewController.h"
+#import "OMDrawerViewController.h"
 
 @interface OMListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -134,22 +135,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OMRoomViewController *centerViewController = [[OMRoomViewController alloc] init];
-    centerViewController.device = [self.dataArray objectAtIndex:indexPath.row];
-    OMSceneViewController *rightSideDrawerViewController = [[OMSceneViewController alloc] init];
+    OMRoomViewController *controller1 = [[OMRoomViewController alloc] init];
+    controller1.device = [self.dataArray objectAtIndex:indexPath.row];
 
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
-    [navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
+    OMSceneViewController *controller2 = [[OMSceneViewController alloc] init];
 
-    UINavigationController *rightSideNavController = [[UINavigationController alloc] initWithRootViewController:rightSideDrawerViewController];
-    [rightSideNavController setRestorationIdentifier:@"MMExampleRightNavigationControllerRestorationKey"];
+    OMDrawerViewController *controller = [[OMDrawerViewController alloc] initWithCenterViewController:controller1 rightDrawerViewController:controller2];
 
-    MMDrawerController *controller = [[MMDrawerController alloc] initWithCenterViewController:centerViewController rightDrawerViewController:rightSideNavController];
-
-
-    [controller setShowsShadow:NO];
-    [controller setRestorationIdentifier:@"MMDrawer"];
-    [controller setMaximumRightDrawerWidth:300.0];
+    [controller setShowsShadow:YES];
+    [controller setMaximumRightDrawerWidth:SCREENWIDTH / 2.0f];
     [controller setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [controller setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 
