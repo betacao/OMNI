@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) OMScene *scene;
 
+@property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
 @end
@@ -42,6 +43,8 @@
 
     self.sectionView.backgroundColor = Color(@"6c8f57");
     self.sectionLabel.font = FontFactor(13.0f);
+
+    self.tableView.backgroundColor = [UIColor clearColor];
 
     UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"choose_device_name"]];
     [leftImageView sizeToFit];
@@ -67,6 +70,8 @@
             [self.scrollView addSubview:obj];
         }
     }];
+
+    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 }
 
 - (void)addAutoLayout
@@ -117,6 +122,29 @@
 - (void)addReactiveCocoa
 {
     WEAK(self, weakSelf);
+    UIButton *button = self.navigationItem.rightBarButtonItem.customView;
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        if (!self.scene) {
+            [self.view showWithText:@"please choose scene"];
+            return;
+        }
+        if (self.textField.text.length == 0) {
+            [self.view showWithText:@"please input scene name"];
+            return;
+        }
+        [OMGlobleManager changeSceneIcon:@[@(self.scene.sceneID), @(self.index), self.textField.text] inView:self.view block:^(NSArray *array) {
+            if ([[array firstObject] isEqualToString:@"01"]) {
+                [weakSelf.view showWithText:@"success"];
+                [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {
+                    [OMGloble writeScene:array];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                }];
+            } else {
+                [weakSelf.view showWithText:@"failure"];
+            }
+        }];
+    }];
+    
     [[self.topButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMSceneSelectView *view = [[OMSceneSelectView alloc] init];
         view.block = ^(NSInteger index){
@@ -128,10 +156,14 @@
     }];
 }
 
-- (NSMutableArray *)dataArray
+
+- (void)setScene:(OMScene *)scene
 {
-    if (!_dataArray) {
-        _dataArray = [NSMutableArray array];
+    _scene = scene;
+    self.topLabel.text = scene.sceneName;
+    self.textField.text = scene.sceneName;
+    if (!self.dataArray) {
+        self.dataArray = [NSMutableArray array];
         for (NSInteger i = 0; i < 16; i++) {
             NSString *imageName = @"";
             if (i == 14 || i == 15) {
@@ -140,22 +172,22 @@
                 imageName = [NSString stringWithFormat:@"s_%ld_n",(long)i + 1];
             }
             UIImage *image = [UIImage imageNamed:imageName];
-            [_dataArray addObject:image];
+            [self.dataArray addObject:image];
         }
+        [self.tableView reloadData];
     }
-    return _dataArray;
-}
-
-- (void)setScene:(OMScene *)scene
-{
-    _scene = scene;
-    self.topLabel.text = scene.sceneName;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -171,6 +203,11 @@
     NSInteger index = indexPath.row;
     cell.image = [self.dataArray objectAtIndex:index];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.index = indexPath.row;
 }
 
 - (void)didReceiveMemoryWarning
