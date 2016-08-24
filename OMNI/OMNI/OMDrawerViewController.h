@@ -10,4 +10,11 @@
 
 @interface OMDrawerViewController : MMDrawerController
 
+- (void)backButtonClick:(UIButton *)button;
+- (void)rightButtonClick:(UIButton *)button;
+
+- (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
+
+- (void)addRightNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
+
 @end

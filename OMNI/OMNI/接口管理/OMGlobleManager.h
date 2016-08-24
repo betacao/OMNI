@@ -101,4 +101,5 @@
 
 //情景模式
 + (void)readSceneModeInfoInView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)changeToScene:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

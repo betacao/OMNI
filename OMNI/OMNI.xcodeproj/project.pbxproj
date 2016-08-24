@@ -13,6 +13,9 @@
 		F90579A11D51A15900FC23F0 /* OMMutiableLightColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905799F1D51A15900FC23F0 /* OMMutiableLightColorViewController.m */; };
 		F90579A21D51A15900FC23F0 /* OMMutiableLightColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */; };
 		F90BF1AD1D6C25B900D2ECEB /* OMGloble.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BF1AC1D6C25B900D2ECEB /* OMGloble.m */; };
+		F90BF1B11D6C2AEB00D2ECEB /* OMSceneModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BF1AF1D6C2AEB00D2ECEB /* OMSceneModifyViewController.m */; };
+		F90BF1B21D6C2AEB00D2ECEB /* OMSceneModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F90BF1B01D6C2AEB00D2ECEB /* OMSceneModifyViewController.xib */; };
+		F90BF1B51D6C428400D2ECEB /* OMSceneSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BF1B41D6C428400D2ECEB /* OMSceneSelectView.m */; };
 		F911154A1D13FB5700D79185 /* OMGlobleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F91115491D13FB5700D79185 /* OMGlobleManager.m */; };
 		F915607C1D0003CF009BAA36 /* OMGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F915607A1D0003CF009BAA36 /* OMGuideViewController.m */; };
 		F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F915607B1D0003CF009BAA36 /* OMGuideViewController.xib */; };
@@ -117,6 +120,11 @@
 		F90579A01D51A15900FC23F0 /* OMMutiableLightColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMMutiableLightColorViewController.xib; sourceTree = "<group>"; };
 		F90BF1AB1D6C25B900D2ECEB /* OMGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGloble.h; sourceTree = "<group>"; };
 		F90BF1AC1D6C25B900D2ECEB /* OMGloble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGloble.m; sourceTree = "<group>"; };
+		F90BF1AE1D6C2AEB00D2ECEB /* OMSceneModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSceneModifyViewController.h; sourceTree = "<group>"; };
+		F90BF1AF1D6C2AEB00D2ECEB /* OMSceneModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSceneModifyViewController.m; sourceTree = "<group>"; };
+		F90BF1B01D6C2AEB00D2ECEB /* OMSceneModifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OMSceneModifyViewController.xib; sourceTree = "<group>"; };
+		F90BF1B31D6C428400D2ECEB /* OMSceneSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMSceneSelectView.h; sourceTree = "<group>"; };
+		F90BF1B41D6C428400D2ECEB /* OMSceneSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMSceneSelectView.m; sourceTree = "<group>"; };
 		F91115481D13FB5700D79185 /* OMGlobleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGlobleManager.h; sourceTree = "<group>"; };
 		F91115491D13FB5700D79185 /* OMGlobleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OMGlobleManager.m; sourceTree = "<group>"; };
 		F91560791D0003CF009BAA36 /* OMGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMGuideViewController.h; sourceTree = "<group>"; };
@@ -649,6 +657,11 @@
 				F9EA632A1D6ADC48006243D5 /* OMSceneViewController.h */,
 				F9EA632B1D6ADC48006243D5 /* OMSceneViewController.m */,
 				F9EA632C1D6ADC48006243D5 /* OMSceneViewController.xib */,
+				F90BF1B31D6C428400D2ECEB /* OMSceneSelectView.h */,
+				F90BF1B41D6C428400D2ECEB /* OMSceneSelectView.m */,
+				F90BF1AE1D6C2AEB00D2ECEB /* OMSceneModifyViewController.h */,
+				F90BF1AF1D6C2AEB00D2ECEB /* OMSceneModifyViewController.m */,
+				F90BF1B01D6C2AEB00D2ECEB /* OMSceneModifyViewController.xib */,
 			);
 			path = "情景模式";
 			sourceTree = "<group>";
@@ -743,6 +756,7 @@
 				F93831E71CF2E317003807A9 /* OMWifiConfigViewController.xib in Resources */,
 				F92ADEC31D50348F00CBE1E7 /* OMMutibleLightViewController.xib in Resources */,
 				F91E07141D39DD4A00DDE451 /* OMDoubleLightViewController.xib in Resources */,
+				F90BF1B21D6C2AEB00D2ECEB /* OMSceneModifyViewController.xib in Resources */,
 				F93831EC1CF2EBF4003807A9 /* OMAddGateWayViewController.xib in Resources */,
 				F915607D1D0003CF009BAA36 /* OMGuideViewController.xib in Resources */,
 				F93780761D11023900271753 /* OMEditRoomDeviceViewController.xib in Resources */,
@@ -826,6 +840,7 @@
 				F9C1BE0B1D046DB40036AFA5 /* NSMutableDictionary+Room.m in Sources */,
 				F944CDE11CE9B677009547A0 /* OMTCPNetWork.m in Sources */,
 				F9A19C8D1D2BEAC700965553 /* UIViewController+Extend.m in Sources */,
+				F90BF1B11D6C2AEB00D2ECEB /* OMSceneModifyViewController.m in Sources */,
 				F9FCF3921D2DFFC100508A8B /* OMSingleLightViewController.m in Sources */,
 				F91EAA4E1D0695E30055CB35 /* IPAddress.c in Sources */,
 				F91697391D34D81200AF1721 /* NSDate+Extend.m in Sources */,
@@ -848,6 +863,7 @@
 				F9621BE51CE2C6240058DBA7 /* AppDelegate.m in Sources */,
 				F92ADEBE1D50345600CBE1E7 /* OMMutibleSlider.m in Sources */,
 				F943C1A41D06ACA200842778 /* OMBaseScrollViewController.m in Sources */,
+				F90BF1B51D6C428400D2ECEB /* OMSceneSelectView.m in Sources */,
 				F9A19C891D2BE9B900965553 /* OMAddTimingViewController.m in Sources */,
 				F9182A931D2B469C00AF3218 /* OMAlarm.m in Sources */,
 				F91F4DE21D615B9000D96A8A /* OMCurtainViewController.m in Sources */,

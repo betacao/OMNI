@@ -10,12 +10,12 @@
 
 @interface OMBaseViewController : UIViewController
 
-- (void)backButtonClick:(UIButton *)button;
 - (void)initView;
 - (void)addAutoLayout;
 - (void)addReactiveCocoa;
 - (void)loadData;
 
+- (void)backButtonClick:(UIButton *)button;
 - (void)rightButtonClick:(UIButton *)button;
 
 - (void)addLeftNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;

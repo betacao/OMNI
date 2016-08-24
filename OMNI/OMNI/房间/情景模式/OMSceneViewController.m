@@ -7,6 +7,7 @@
 //
 
 #import "OMSceneViewController.h"
+#import "OMSceneModifyViewController.h"
 #import "OMScene.h"
 
 @interface OMSceneViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -20,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
-@property (assign, nonatomic) BOOL needRefresh;
 
 @end
 
@@ -55,8 +55,12 @@
     self.contentView.sd_layout
     .spaceToSuperView(UIEdgeInsetsZero);
 
-    self.tableView.sd_layout
-    .spaceToSuperView(UIEdgeInsetsZero);
+    self.tableView.sd_resetLayout
+    .rightSpaceToView(self.contentView, 0.0f)
+    .leftSpaceToView(self.contentView, 0.0f)
+    .centerYEqualToView(self.contentView)
+    .offset(MarginFactor(-60.0f))
+    .heightIs(MarginFactor(324.0f));
 
     self.titleLabel.sd_layout
     .centerXEqualToView(self.contentView)
@@ -72,16 +76,24 @@
     .heightIs(1.0f);
 
     self.leftButton.sd_layout
-    .leftSpaceToView(self.contentView, MarginFactor(60.0f))
+    .leftSpaceToView(self.contentView, MarginFactor(50.0f))
     .topSpaceToView(self.spliteView, MarginFactor(30.0f))
     .widthIs(self.leftButton.currentImage.size.width)
     .heightIs(self.leftButton.currentImage.size.height);
 
     self.rightButton.sd_layout
-    .rightSpaceToView(self.contentView, MarginFactor(60.0f))
+    .rightSpaceToView(self.contentView, MarginFactor(50.0f))
     .topSpaceToView(self.spliteView, MarginFactor(30.0f))
     .widthIs(self.rightButton.currentImage.size.width)
     .heightIs(self.rightButton.currentImage.size.height);
+}
+
+- (void)addReactiveCocoa
+{
+    [[self.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMSceneModifyViewController *controller = [[OMSceneModifyViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
 }
 
 - (void)loadData
@@ -89,13 +101,8 @@
     [self.dataArray removeAllObjects];
     NSArray *array = [OMGloble readScene];
     if (array) {
-        for (NSInteger i = 0; i < array.count / 2.0f; i++) {
-            OMScene *scene = [[OMScene alloc] init];;
-            scene.sceneID = [[array objectAtIndex:i * 2] integerValue];
-            scene.sceneName = [array objectAtIndex:i * 2 + 1];
-            [self.dataArray addObject:scene];
-        }
-        self.needRefresh = YES;
+        [self.dataArray addObjectsFromArray:array];
+        [self.tableView reloadData];
     }
 }
 
@@ -107,28 +114,6 @@
     return _dataArray;
 }
 
-- (void)setNeedRefresh:(BOOL)needRefresh
-{
-    CGFloat height = self.tableView.contentSize.height;
-    if (CGRectGetHeight(self.tableView.frame) != height) {
-        self.tableView.sd_resetLayout
-        .rightSpaceToView(self.contentView, 0.0f)
-        .leftSpaceToView(self.contentView, 0.0f)
-        .centerYEqualToView(self.contentView)
-        .offset(MarginFactor(-60.0f))
-        .heightIs(height);
-    }
-
-    WEAK(self, weakSelf);
-    if (needRefresh && !_needRefresh) {
-        _needRefresh = YES;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.tableView reloadData];
-            _needRefresh = NO;
-        });
-    }
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.dataArray.count / 2.0f;
@@ -136,7 +121,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2.0f;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,6 +152,20 @@
     return view;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger index = 2.0f * indexPath.section + indexPath.row;
+    OMScene *scene = [self.dataArray objectAtIndex:index];
+    NSString *sceneID = [NSString stringWithFormat:@"%ld", (long)scene.sceneID];
+    WEAK(self, weakSelf);
+    [OMGlobleManager changeToScene:sceneID inView:self.navigationController.view block:^(NSArray *array) {
+        if ([[array firstObject] isEqualToString:@"01"]) {
+            [weakSelf.navigationController.view showWithText:@"sent!"];
+        }
+    }];
+}
+
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
@@ -191,7 +190,6 @@
 
 - (void)initView
 {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
     self.icon = [[UIImageView alloc] init];
     self.name = [[UILabel alloc] init];
@@ -219,7 +217,6 @@
 {
     _scene = scene;
     self.icon.image = scene.sceneImageN;
-
     self.name.text = scene.sceneName;
 }
 

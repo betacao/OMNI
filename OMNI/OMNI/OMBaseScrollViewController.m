@@ -60,8 +60,15 @@
     [self.scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isFirstResponder]) {
             [obj resignFirstResponder];
+            [NSObject cancelPreviousPerformRequestsWithTarget:self];
+            [self performSelector:@selector(subObjectResignFirstResponder) withObject:nil afterDelay:0.1f];
         }
     }];
+}
+
+- (void)subObjectResignFirstResponder
+{
+    [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
 

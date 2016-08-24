@@ -31,9 +31,34 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 }
 
+- (void)addRightNavigationItem:(NSString *)title normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage
+{
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setImage:normalImage forState:UIControlStateNormal];
+    [rightButton setImage:highlightedImage forState:UIControlStateHighlighted];
+    [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton sizeToFit];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+}
+
+
 - (void)backButtonClick:(UIButton *)button
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)rightButtonClick:(UIButton *)button
+{
+    if (self.leftDrawerViewController) {
+        [self.leftDrawerViewController performSelector:@selector(rightButtonClick:) withObject:button];
+    }
+    if (self.centerViewController) {
+        [self.centerViewController performSelector:@selector(rightButtonClick:) withObject:button];
+    }
+    if (self.rightDrawerViewController) {
+        [self.rightDrawerViewController performSelector:@selector(rightButtonClick:) withObject:button];
+    }
 }
 
 - (void)didReceiveMemoryWarning

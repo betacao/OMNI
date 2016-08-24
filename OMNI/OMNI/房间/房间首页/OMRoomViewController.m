@@ -38,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
 }
 
 - (void)initView
@@ -147,13 +146,13 @@
             kAppDelegate.currentRoom = [[kAppDelegate.roomArray firstObject] objectForKey:@"room"];
             weakSelf.currentDeviceArray = [[kAppDelegate.roomArray firstObject] objectForKey:@"roomDeviceArray"];
 
-
+            //放在这边是为了顺序请求
             [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {
                 [OMGloble writeScene:array];
             }];
         }];
     }];
-
+    
 }
 
 - (void)rightButtonClick:(UIButton *)button

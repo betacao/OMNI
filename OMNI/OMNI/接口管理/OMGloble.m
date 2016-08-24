@@ -7,10 +7,11 @@
 //
 
 #import "OMGloble.h"
+#import "OMScene.h"
 
 @interface OMGloble()
 
-@property (strong, nonatomic) YYCache *sceneCache;
+@property (strong, nonatomic) YYMemoryCache *sceneCache;
 
 @end
 
@@ -26,17 +27,26 @@
     return globleInstance;
 }
 
-- (YYCache *)sceneCache
+- (YYMemoryCache *)sceneCache
 {
     if (!_sceneCache) {
-        _sceneCache = [YYCache cacheWithName:@"sceneInfo"];
+        _sceneCache = [YYMemoryCache new];
     }
     return _sceneCache;
 }
 
 + (void)writeScene:(NSArray *)array
 {
-    [[OMGloble globle].sceneCache setObject:array forKey:@"sceneInfo"];
+    NSMutableArray *result = [NSMutableArray array];
+    if (array) {
+        for (NSInteger i = 0; i < array.count / 2.0f; i++) {
+            OMScene *scene = [[OMScene alloc] init];;
+            scene.sceneID = [[array objectAtIndex:i * 2] integerValue];
+            scene.sceneName = [array objectAtIndex:i * 2 + 1];
+            [result addObject:scene];
+        }
+        [[OMGloble globle].sceneCache setObject:result forKey:@"sceneInfo"];
+    }
 }
 
 + (NSArray *)readScene

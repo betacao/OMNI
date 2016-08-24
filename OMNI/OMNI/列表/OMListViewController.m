@@ -142,6 +142,7 @@
 
     OMDrawerViewController *controller = [[OMDrawerViewController alloc] initWithCenterViewController:controller1 rightDrawerViewController:controller2];
 
+    [controller addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
     [controller setShowsShadow:YES];
     [controller setMaximumRightDrawerWidth:SCREENWIDTH / 2.0f];
     [controller setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
