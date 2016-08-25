@@ -19,4 +19,6 @@
 
 @property (strong, nonatomic) NSArray <OMRoomScene *>*array;
 
+- (NSString *)requestString;
+
 @end

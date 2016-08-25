@@ -104,4 +104,5 @@
 + (void)changeToScene:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)changeSceneIcon:(NSArray *)array inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 + (void)readSceneModeConfig:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
++ (void)setSceneModeConfig:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "OMSceneConfigViewController.h"
+#import "OMRoomViewController.h"
 #import "OMSceneSelectView.h"
 #import "OMScene.h"
 
@@ -80,6 +81,19 @@
         OMAlertView *alertView = [[OMAlertView alloc] initWithCustomView:view leftButtonTitle:nil rightButtonTitle:nil];
         [alertView show];
     }];
+
+    UIButton *button = self.navigationItem.rightBarButtonItem.customView;
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+
+        [OMGlobleManager setSceneModeConfig:[weakSelf requestString] inView:self.view block:^(NSArray *array) {
+            [weakSelf.view showWithText:@"operation success"];
+            for (OMBaseViewController *controller in self.navigationController.viewControllers) {
+                if ([controller isKindOfClass:[OMRoomViewController class]]) {
+                    [controller loadData];
+                }
+            }
+        }];
+    }];
 }
 
 - (NSMutableArray *)dataArray
@@ -146,6 +160,17 @@
     [self.scrollView setupAutoContentSizeWithBottomView:lastView bottomMargin:0.0f];
 }
 
+- (NSString *)requestString
+{
+    NSString *string = @"";
+    for (OMSceneConfigView *view in self.scrollView.subviews) {
+        if ([view isKindOfClass:[OMSceneConfigView class]]) {
+            string = [string stringByAppendingString:[view requestString]];
+        }
+    }
+    string = [NSString stringWithFormat:@"set_mode_action$%@$%@$%@", @(self.scene.sceneID), @(self.dataArray.count  / 2), string];
+    return string;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -165,6 +190,9 @@
 @property (strong, nonatomic) UILabel *bottomLabel;
 @property (strong, nonatomic) UIButton *bottomButton;
 @property (strong, nonatomic) UIView *bottomSpliteView;
+
+@property (strong, nonatomic) OMRoomScene *topRoomScene;
+@property (strong, nonatomic) OMRoomScene *bottonRoomScene;
 
 @end
 
@@ -243,10 +271,28 @@
 - (void)setArray:(NSArray<OMRoomScene *> *)array
 {
     _array = array;
+    self.topRoomScene = [array firstObject];
+    self.bottonRoomScene = [array lastObject];
+
     self.topLabel.text = [array firstObject].displayName;
     self.bottomLabel.text = [array lastObject].displayName;
     self.topButton.selected = ([array firstObject].state == OMRoomSceneStateOpen);
     self.bottomButton.selected = ([array lastObject].state == OMRoomSceneStateClose);
+}
+
+- (NSString *)requestString
+{
+    NSString *state = @"0";
+    if (self.topButton.isSelected) {
+        state = @"1";
+    }
+    if (self.bottomButton.isSelected) {
+        state = @"0";
+    }
+    if (!self.topButton.isSelected && !self.bottomButton.isSelected ) {
+        state = @"2";
+    }
+    return [NSString stringWithFormat:@"%@$%@$", self.topRoomScene.deviceID, state];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

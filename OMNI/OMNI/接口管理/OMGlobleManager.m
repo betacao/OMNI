@@ -625,6 +625,18 @@
     });
 }
 
++ (void)setSceneModeConfig:(NSString *)string inView:(UIView *)view block:(OMUDPNetWorkFinishBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *response = [[OMUDPNetWork sharedNetWork] sendMessage:string type:0 inView:view];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block([OMGlobleManager stringToArray:response]);
+            }
+        });
+    });
+}
+
 //通用函数
 + (NSArray *)stringToArray:(NSString *)string
 {
