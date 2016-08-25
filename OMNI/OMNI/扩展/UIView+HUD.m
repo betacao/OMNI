@@ -12,6 +12,7 @@
 
 - (void)showLoading
 {
+    [UIApplication sharedApplication].keyWindow.userInteractionEnabled = NO;
     [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
     [self performSelectorOnMainThread:@selector(showOnMainThread) withObject:nil waitUntilDone:YES];
 }
@@ -74,6 +75,7 @@
 
 - (void)hideHud
 {
+    [UIApplication sharedApplication].keyWindow.userInteractionEnabled = YES;
     [self performSelectorOnMainThread:@selector(hideHudOnMainThread) withObject:nil waitUntilDone:YES];
 }
 @end

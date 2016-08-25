@@ -1,17 +1,17 @@
 //
-//  OMSceneModifyViewController.m
+//  OMSceneRenameViewController.m
 //  OMNI
 //
 //  Created by changxicao on 16/8/23.
 //  Copyright © 2016年 changxicao. All rights reserved.
 //
 
-#import "OMSceneModifyViewController.h"
+#import "OMSceneRenameViewController.h"
 #import "OMSceneSelectView.h"
 #import "OMAlertView.h"
 #import "OMScene.h"
 
-@interface OMSceneModifyViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface OMSceneRenameViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation OMSceneModifyViewController
+@implementation OMSceneRenameViewController
 
 - (void)viewDidLoad
 {
@@ -196,9 +196,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OMSceneIconSelectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OMSceneIconSelectTableViewCell"];
+    OMSceneRenameTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OMSceneRenameTableViewCell"];
     if (!cell) {
-        cell = [[OMSceneIconSelectTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OMSceneIconSelectTableViewCell"];
+        cell = [[OMSceneRenameTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OMSceneRenameTableViewCell"];
     }
     NSInteger index = indexPath.row;
     cell.image = [self.dataArray objectAtIndex:index];
@@ -218,7 +218,7 @@
 
 @end
 
-@interface OMSceneIconSelectTableViewCell ()
+@interface OMSceneRenameTableViewCell ()
 
 @property (strong, nonatomic) UIImageView *icon;
 @property (strong, nonatomic) UIButton *button;
@@ -226,7 +226,7 @@
 
 @end
 
-@implementation OMSceneIconSelectTableViewCell
+@implementation OMSceneRenameTableViewCell
 
 - (void)initView
 {

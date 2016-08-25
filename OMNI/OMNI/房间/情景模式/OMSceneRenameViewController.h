@@ -1,5 +1,5 @@
 //
-//  OMSceneModifyViewController.h
+//  OMSceneRenameViewController.h
 //  OMNI
 //
 //  Created by changxicao on 16/8/23.
@@ -9,11 +9,11 @@
 #import "OMBaseScrollViewController.h"
 #import "OMBaseTableViewCell.h"
 
-@interface OMSceneModifyViewController : OMBaseScrollViewController
+@interface OMSceneRenameViewController : OMBaseScrollViewController
 
 @end
 
-@interface OMSceneIconSelectTableViewCell : OMBaseTableViewCell
+@interface OMSceneRenameTableViewCell : OMBaseTableViewCell
 
 @property (strong, nonatomic) UIImage *image;
 

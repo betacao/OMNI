@@ -7,7 +7,8 @@
 //
 
 #import "OMSceneViewController.h"
-#import "OMSceneModifyViewController.h"
+#import "OMSceneRenameViewController.h"
+#import "OMSceneConfigViewController.h"
 #import "OMScene.h"
 
 @interface OMSceneViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -90,8 +91,13 @@
 
 - (void)addReactiveCocoa
 {
+    [[self.leftButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        OMSceneConfigViewController *controller = [[OMSceneConfigViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
+    
     [[self.rightButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        OMSceneModifyViewController *controller = [[OMSceneModifyViewController alloc] init];
+        OMSceneRenameViewController *controller = [[OMSceneRenameViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     }];
 }
