@@ -85,6 +85,11 @@
     }
     self.IDLabel.text = [@"Gateway ID :" stringByAppendingString:device.deviceID];
     self.stateLabel.text = [@"status :" stringByAppendingString:device.deviceState];
+    if ([device.deviceState containsString:@"on"]) {
+        self.nameLabel.textColor = self.IDLabel.textColor = self.stateLabel.textColor = [UIColor redColor];
+    } else {
+        self.nameLabel.textColor = self.IDLabel.textColor = self.stateLabel.textColor = [UIColor lightGrayColor];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

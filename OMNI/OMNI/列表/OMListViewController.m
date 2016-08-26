@@ -135,20 +135,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OMRoomViewController *controller1 = [[OMRoomViewController alloc] init];
-    controller1.device = [self.dataArray objectAtIndex:indexPath.row];
+    OMDevice *device = [self.dataArray objectAtIndex:indexPath.row];
+    if ([device.deviceState containsString:@"on"]) {
+        OMRoomViewController *controller1 = [[OMRoomViewController alloc] init];
+        controller1.device = [self.dataArray objectAtIndex:indexPath.row];
 
-    OMSceneViewController *controller2 = [[OMSceneViewController alloc] init];
+        OMSceneViewController *controller2 = [[OMSceneViewController alloc] init];
 
-    OMDrawerViewController *controller = [[OMDrawerViewController alloc] initWithCenterViewController:controller1 rightDrawerViewController:controller2];
+        OMDrawerViewController *controller = [[OMDrawerViewController alloc] initWithCenterViewController:controller1 rightDrawerViewController:controller2];
 
-    [controller addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
-    [controller setShowsShadow:YES];
-    [controller setMaximumRightDrawerWidth:SCREENWIDTH / 2.0f];
-    [controller setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [controller setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+        [controller addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_add_device_normal"] highlightedImage:[UIImage imageNamed:@"button_add_device_normal_down"]];
+        [controller setShowsShadow:YES];
+        [controller setMaximumRightDrawerWidth:SCREENWIDTH / 2.0f];
+        [controller setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [controller setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 
-    [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 
