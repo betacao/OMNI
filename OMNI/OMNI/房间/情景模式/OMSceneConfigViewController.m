@@ -111,6 +111,7 @@
     self.topLabel.text = scene.sceneName;
     
     [OMGlobleManager readSceneModeConfig:[NSString stringWithFormat:@"%ld",(long)scene.sceneID] inView:self.view block:^(NSArray *array) {
+        [weakSelf.dataArray removeAllObjects];
         if (array.count > 1) {
             NSInteger count = [[array firstObject] integerValue];
             for (NSInteger i = 0; i < count; i++) {
@@ -132,8 +133,8 @@
                 roomScene.displayState = @"close";
                 [weakSelf.dataArray addObject:roomScene];
             }
-            [weakSelf resetView];
         }
+        [weakSelf resetView];
     }];
 }
 
@@ -157,7 +158,9 @@
         .heightIs(MarginFactor(80.0f));
         lastView = view;
     }
-    [self.scrollView setupAutoContentSizeWithBottomView:lastView bottomMargin:0.0f];
+    if (lastView) {
+        [self.scrollView setupAutoContentSizeWithBottomView:lastView bottomMargin:0.0f];
+    }
 }
 
 - (NSString *)requestString

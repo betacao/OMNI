@@ -1188,29 +1188,23 @@ enum GCDAsyncUdpSocketConfig
 			}
 			else
 			{
-                for (res = res0; res; res = res->ai_next)
-                {
-                    if (res->ai_family == AF_INET)
-                    {
-                        // Found IPv4 address.
-                        // Wrap the native address structure, and add to results.
-
-                        if (((struct sockaddr_in *)res->ai_addr)->sin_port == 0)
-                            ((struct sockaddr_in *)res->ai_addr)->sin_port = htons(port);
-                        NSData *address4 = [NSData dataWithBytes:res->ai_addr length:res->ai_addrlen];
-                        [addresses addObject:address4];
-                    }
-                    else if (res->ai_family == AF_INET6)
-                    {
-                        // Found IPv6 address.
-                        // Wrap the native address structure, and add to results.
-
-                        if (((struct sockaddr_in6 *)res->ai_addr)->sin6_port == 0)
-                            ((struct sockaddr_in6 *)res->ai_addr)->sin6_port = htons(port);
-                        NSData *address6 = [NSData dataWithBytes:res->ai_addr length:res->ai_addrlen];
-                        [addresses addObject:address6];
-                    }
-                }
+				for(res = res0; res; res = res->ai_next)
+				{
+					if (res->ai_family == AF_INET)
+					{
+						// Found IPv4 address
+						// Wrap the native address structure and add to list
+						
+						[addresses addObject:[NSData dataWithBytes:res->ai_addr length:res->ai_addrlen]];
+					}
+					else if (res->ai_family == AF_INET6)
+					{
+						// Found IPv6 address
+						// Wrap the native address structure and add to list
+						
+						[addresses addObject:[NSData dataWithBytes:res->ai_addr length:res->ai_addrlen]];
+					}
+				}
 				freeaddrinfo(res0);
 				
 				if ([addresses count] == 0)
