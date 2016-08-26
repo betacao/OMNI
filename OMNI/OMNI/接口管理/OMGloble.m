@@ -40,8 +40,9 @@
     NSMutableArray *result = [NSMutableArray array];
     if (array) {
         for (NSInteger i = 0; i < array.count / 2.0f; i++) {
-            OMScene *scene = [[OMScene alloc] init];;
-            scene.sceneID = [[array objectAtIndex:i * 2] integerValue];
+            OMScene *scene = [[OMScene alloc] init];
+            scene.modeID = i;
+            scene.sceneImageID = [[array objectAtIndex:i * 2] integerValue];
             scene.sceneName = [array objectAtIndex:i * 2 + 1];
             [result addObject:scene];
         }
@@ -51,7 +52,8 @@
 
 + (NSArray *)readScene
 {
-    return (NSArray *)[[OMGloble globle].sceneCache objectForKey:@"sceneInfo"];
+    NSArray *array = (NSArray *)[[OMGloble globle].sceneCache objectForKey:@"sceneInfo"];
+    return array;
 }
 
 @end

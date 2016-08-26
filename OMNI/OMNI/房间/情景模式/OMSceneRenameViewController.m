@@ -132,7 +132,7 @@
             [self.view showWithText:@"please input scene name"];
             return;
         }
-        [OMGlobleManager changeSceneIcon:@[@(self.scene.sceneID), @(self.index), self.textField.text] inView:self.view block:^(NSArray *array) {
+        [OMGlobleManager changeSceneIcon:@[@(self.scene.modeID), @(self.index), self.textField.text] inView:self.view block:^(NSArray *array) {
             if ([[array firstObject] isEqualToString:@"01"]) {
                 [weakSelf.view showWithText:@"success"];
                 [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {

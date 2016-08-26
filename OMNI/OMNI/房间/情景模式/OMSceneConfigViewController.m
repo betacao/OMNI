@@ -110,12 +110,12 @@
     WEAK(self, weakSelf);
     self.topLabel.text = scene.sceneName;
     
-    [OMGlobleManager readSceneModeConfig:[NSString stringWithFormat:@"%ld",(long)scene.sceneID] inView:self.view block:^(NSArray *array) {
+    [OMGlobleManager readSceneModeConfig:[NSString stringWithFormat:@"%ld",(long)scene.modeID] inView:self.view block:^(NSArray *array) {
         [weakSelf.dataArray removeAllObjects];
         if (array.count > 1) {
             NSInteger count = [[array firstObject] integerValue];
             for (NSInteger i = 0; i < count; i++) {
-                OMRoomScene *roomScene = [[OMRoomScene alloc] init];;
+                OMRoomScene *roomScene = [[OMRoomScene alloc] init];
                 roomScene.roomName = [array objectAtIndex:i * 4 + 1];
                 roomScene.deviceName = [array objectAtIndex:i * 4 + 2];
                 roomScene.deviceID = [array objectAtIndex:i * 4 + 3];
@@ -124,7 +124,7 @@
                 roomScene.displayState = @"open";
                 [weakSelf.dataArray addObject:roomScene];
 
-                roomScene = [[OMRoomScene alloc] init];;
+                roomScene = [[OMRoomScene alloc] init];
                 roomScene.roomName = [array objectAtIndex:i * 4 + 1];
                 roomScene.deviceName = [array objectAtIndex:i * 4 + 2];
                 roomScene.deviceID = [array objectAtIndex:i * 4 + 3];
@@ -171,7 +171,7 @@
             string = [string stringByAppendingString:[view requestString]];
         }
     }
-    string = [NSString stringWithFormat:@"set_mode_action$%@$%@$%@", @(self.scene.sceneID), @(self.dataArray.count  / 2), string];
+    string = [NSString stringWithFormat:@"set_mode_action$%@$%@$%@", @(self.scene.modeID), @(self.dataArray.count  / 2), string];
     return string;
 }
 

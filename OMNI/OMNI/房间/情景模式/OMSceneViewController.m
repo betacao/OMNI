@@ -49,6 +49,9 @@
     self.tableView.bounces = NO;
 
     self.spliteView.backgroundColor = [UIColor whiteColor];
+
+    [self.leftButton setEnlargeEdge:MarginFactor(20.0f)];
+    [self.rightButton setEnlargeEdge:MarginFactor(20.0f)];
 }
 
 - (void)addAutoLayout
@@ -163,9 +166,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger index = 2.0f * indexPath.section + indexPath.row;
     OMScene *scene = [self.dataArray objectAtIndex:index];
-    NSString *sceneID = [NSString stringWithFormat:@"%ld", (long)scene.sceneID];
+    NSString *modeID = [NSString stringWithFormat:@"%ld", (long)scene.modeID];
     WEAK(self, weakSelf);
-    [OMGlobleManager changeToScene:sceneID inView:self.navigationController.view block:^(NSArray *array) {
+    [OMGlobleManager changeToScene:modeID inView:self.navigationController.view block:^(NSArray *array) {
         if ([[array firstObject] isEqualToString:@"01"]) {
             [weakSelf.navigationController.view showWithText:@"sent!"];
         }

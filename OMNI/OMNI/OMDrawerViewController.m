@@ -45,7 +45,9 @@
 
 - (void)backButtonClick:(UIButton *)button
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self closeDrawerAnimated:YES completion:^(BOOL finished) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)rightButtonClick:(UIButton *)button

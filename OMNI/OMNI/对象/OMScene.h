@@ -10,7 +10,8 @@
 
 @interface OMScene : NSObject
 
-@property (assign, nonatomic) NSInteger sceneID;
+@property (assign, nonatomic) NSInteger modeID;
+@property (assign, nonatomic) NSInteger sceneImageID;
 @property (strong, nonatomic) NSString *sceneName;
 @property (strong, nonatomic) UIImage *sceneImageN;
 @property (strong, nonatomic) UIImage *sceneImageP;

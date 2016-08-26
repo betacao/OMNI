@@ -227,7 +227,7 @@
     } else {
         //位于右边
         if (touchPoint.x > self.pointImageView.center.x) {
-            self.gestureLock = NO;;
+            self.gestureLock = NO;
         }
     }
     if (self.gestureLock) {
