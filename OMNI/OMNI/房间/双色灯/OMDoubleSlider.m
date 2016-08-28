@@ -213,14 +213,17 @@
 
 - (void)slideDoublelightInState
 {
-    [OMGlobleManager slideDoubleLightInState:@[self.roomDevice.roomDeviceID, @(self.inValue)] inView:self block:^(NSArray *array) {
+    NSNumber *value = @(lrintf(self.inValue));
+    [OMGlobleManager slideDoubleLightInState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
 
     }];
 }
 
 - (void)slideDoublelightOutState
 {
-    [OMGlobleManager slideDoubleLightOutState:@[self.roomDevice.roomDeviceID, @(self.outValue)] inView:self block:^(NSArray *array) {
+
+    NSNumber *value = @(lrintf(self.outValue));
+    [OMGlobleManager slideDoubleLightOutState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
 
     }];
 }

@@ -13,9 +13,11 @@
 
 @interface OMMutiableLightColorViewController ()
 
-@property (strong, nonatomic) NSArray *redArray;
-@property (strong, nonatomic) NSArray *greenArray;
-@property (strong, nonatomic) NSArray *blueArray;
+@property (strong, nonatomic) NSArray *array1;
+@property (strong, nonatomic) NSArray *array2;
+@property (strong, nonatomic) NSArray *array3;
+@property (strong, nonatomic) NSArray *array4;
+@property (strong, nonatomic) NSArray *array5;
 @property (strong, nonatomic) NSMutableArray *viewArray;
 
 @end
@@ -33,9 +35,11 @@
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 
     
-    self.redArray = [colorArray subarrayWithRange:NSMakeRange(0, 5)];
-    self.greenArray = [colorArray subarrayWithRange:NSMakeRange(5, 5)];
-    self.blueArray = [colorArray subarrayWithRange:NSMakeRange(10, 5)];
+    self.array1 = [colorArray subarrayWithRange:NSMakeRange(0, 3)];
+    self.array2 = [colorArray subarrayWithRange:NSMakeRange(3, 3)];
+    self.array3 = [colorArray subarrayWithRange:NSMakeRange(6, 3)];
+    self.array4 = [colorArray subarrayWithRange:NSMakeRange(9, 3)];
+    self.array5 = [colorArray subarrayWithRange:NSMakeRange(12, 3)];
     
     self.viewArray = [NSMutableArray array];
 
@@ -47,28 +51,46 @@
 - (void)addSubView
 {
     CGFloat width = ceilf((SCREENWIDTH - 4.0f * kMargin) / 3.0f);
-    [self.redArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.array1 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin, kMargin * (idx + 1) + idx * width, width, width);
+        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, kMargin, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
     }];
 
-    [self.greenArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.array2 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(2.0f * kMargin + width, kMargin * (idx + 1) + idx * width, width, width);
+        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 2.0f * kMargin + width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
     }];
 
-    [self.blueArray enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.array3 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(3.0f * kMargin + 2.0f * width, kMargin * (idx + 1) + idx * width, width, width);
+        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 3.0f * kMargin + 2.0f * width, width, width);
+        view.frame = frame;
+        view.color = Color(obj);
+        [self.scrollView addSubview:view];
+    }];
+
+    [self.array4 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
+        [self.viewArray addObject:view];
+        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 4.0f * kMargin + 3.0f * width, width, width);
+        view.frame = frame;
+        view.color = Color(obj);
+        [self.scrollView addSubview:view];
+    }];
+
+    [self.array5 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
+        [self.viewArray addObject:view];
+        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 5.0f * kMargin + 4.0f * width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];

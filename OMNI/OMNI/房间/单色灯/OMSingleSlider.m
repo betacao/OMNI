@@ -162,7 +162,8 @@
 
 - (void)slideSingleLightState
 {
-    [OMGlobleManager slideSingleLightState:@[self.roomDevice.roomDeviceID, @(self.currentValue)] inView:self block:^(NSArray *array) {
+    NSNumber *value = @(lrintf(self.currentValue));
+    [OMGlobleManager slideSingleLightState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
 
     }];
 }

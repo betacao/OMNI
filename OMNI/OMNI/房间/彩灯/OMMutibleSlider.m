@@ -357,7 +357,7 @@
 - (void)setColorIndex:(NSInteger)colorIndex
 {
     _colorIndex = colorIndex - 1;
-    self.colorButton.backgroundColor = Color([colorArray objectAtIndex:colorIndex]);
+    self.colorButton.backgroundColor = Color([colorArray objectAtIndex:_colorIndex]);
 }
 
 @end
@@ -400,7 +400,8 @@
 
 - (void)changeColorlightSpeed
 {
-    [OMGlobleManager changeColorLightSpeed:@[self.roomDevice.roomDeviceID, @(self.value)] inView:self.superview.superview block:^(NSArray *array) {
+    NSNumber *value = @(lrintf(self.value));
+    [OMGlobleManager changeColorLightSpeed:@[self.roomDevice.roomDeviceID, value] inView:self.superview.superview block:^(NSArray *array) {
 
     }];
 }
@@ -611,14 +612,16 @@
 
 - (void)slideMutablelightInState
 {
-    [OMGlobleManager changeColorLightOutState:@[self.roomDevice.roomDeviceID, @(self.inValue)] inView:self block:^(NSArray *array) {
+    NSNumber *value = @(lrintf(self.inValue));
+    [OMGlobleManager changeColorLightInState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
 
     }];
 }
 
 - (void)slideMutablelightOutState
 {
-    [OMGlobleManager changeColorLightInState:@[self.roomDevice.roomDeviceID, @(self.outValue)] inView:self block:^(NSArray *array) {
+    NSNumber *value = @(lrintf(self.outValue));
+    [OMGlobleManager changeColorLightOutState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
 
     }];
 }

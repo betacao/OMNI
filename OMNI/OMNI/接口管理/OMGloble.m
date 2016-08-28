@@ -67,12 +67,14 @@
 
 + (void)writeRoomThumbnail:(UIImage *)image forRoom:(OMRoom *)room
 {
-    [[OMGloble globle].thumbnailImageCache setObject:image forKey:room.roomNumber];
+    NSString *key = [kAppDelegate.deviceID stringByAppendingString:room.roomNumber];
+    [[OMGloble globle].thumbnailImageCache setObject:image forKey:key];
 }
 
 + (UIImage *)thumbnailImageForRoom:(OMRoom *)room
 {
-    UIImage *image = (UIImage *)[[OMGloble globle].thumbnailImageCache objectForKey:room.roomNumber];
+    NSString *key = [kAppDelegate.deviceID stringByAppendingString:room.roomNumber];
+    UIImage *image = (UIImage *)[[OMGloble globle].thumbnailImageCache objectForKey:key];
     return image;
 }
 

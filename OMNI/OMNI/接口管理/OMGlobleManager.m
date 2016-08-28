@@ -52,7 +52,7 @@
 
 + (void)getGatewayID:(UIView *)view block:(OMTCPNetWorkFinishBlock)block
 {
-    NSString *request = @"LOCAL_GET_ID#120.27.151.216#";
+    NSString *request = @"LOCAL_GET_ID#121.42.187.151#";
     [[OMTCPNetWork sharedNetWork] sendSpecialMessage:request inView:view complete:block];
 }
 

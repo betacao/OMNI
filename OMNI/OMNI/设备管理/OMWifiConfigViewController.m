@@ -265,9 +265,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (self.isConfirmSuccess) {
-        [self.scrollView showWithText:@"设备已入网，请等待12秒钟，设备重启"];
+        [self.scrollView showWithText:@"设备已入网，请等待20秒钟，设备重启"];
         __weak typeof(self) weakSelf = self;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.scrollView hideHud];
             OMAddGateWayViewController *controller = [[OMAddGateWayViewController alloc] init];
             [weakSelf.navigationController pushViewController:controller animated:YES];
