@@ -11,11 +11,12 @@
 
 @interface OMListTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *elementView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *IDLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *button;
-@property (weak, nonatomic) IBOutlet UIView *spliteView;
 
 @end
 
@@ -24,43 +25,55 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.contentView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.3f];
-    self.spliteView.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = self.elementView.backgroundColor = self.contentView.backgroundColor = [UIColor clearColor];
+
+    UIImage *image = [self.backgroundImageView.image resizableImageWithCapInsets:UIEdgeInsetsMake(5.0f, 5.0f, 5.0f, 5.0f) resizingMode:UIImageResizingModeStretch];
+    self.backgroundImageView.image = image;
+
+    self.nameLabel.font = BoldFontFactor(18.0f);
+    self.IDLabel.font = FontFactor(14.0f);
+
     [self.button setEnlargeEdge:20.0f];
 
 }
 
 - (void)addAutoLayout
 {
-    self.IDLabel.sd_layout
-    .leftSpaceToView(self.contentView, MarginFactor(15.0f))
-    .centerYEqualToView(self.contentView)
-    .heightIs(self.IDLabel.font.lineHeight);
-    [self.IDLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
+    self.elementView.sd_layout
+    .leftSpaceToView(self.contentView, MarginFactor(30.0f))
+    .rightSpaceToView(self.contentView, MarginFactor(30.0f))
+    .topSpaceToView(self.contentView, MarginFactor(30.0f))
+    .bottomSpaceToView(self.contentView, 0.0f);
+
+    self.backgroundImageView.sd_layout
+    .spaceToSuperView(UIEdgeInsetsZero);
+
+    self.statusImageView.sd_layout
+    .centerYEqualToView(self.elementView)
+    .leftSpaceToView(self.elementView, MarginFactor(25.0f))
+    .widthIs(self.statusImageView.image.size.width)
+    .heightIs(self.statusImageView.image.size.height);
 
     self.nameLabel.sd_layout
-    .leftEqualToView(self.IDLabel)
-    .bottomSpaceToView(self.IDLabel, MarginFactor(10.0f))
+    .leftSpaceToView(self.statusImageView, MarginFactor(25.0f))
+    .centerYEqualToView(self.elementView)
+    .offset(MarginFactor(-10.0f))
     .heightIs(self.nameLabel.font.lineHeight);
     [self.nameLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
-    self.stateLabel.sd_layout
-    .leftEqualToView(self.IDLabel)
-    .topSpaceToView(self.IDLabel, MarginFactor(10.0f))
-    .heightIs(self.stateLabel.font.lineHeight);
-    [self.stateLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
+    self.IDLabel.sd_layout
+    .leftEqualToView(self.nameLabel)
+    .centerYEqualToView(self.elementView)
+    .offset(MarginFactor(10.0f))
+    .heightIs(self.IDLabel.font.lineHeight);
+    [self.IDLabel setSingleLineAutoResizeWithMaxWidth:SCREENWIDTH];
 
     self.button.sd_layout
-    .centerYEqualToView(self.contentView)
-    .rightSpaceToView(self.contentView, MarginFactor(10.0f))
+    .centerYEqualToView(self.elementView)
+    .rightSpaceToView(self.elementView, MarginFactor(10.0f))
     .widthIs(self.button.currentImage.size.width)
     .heightIs(self.button.currentImage.size.height);
 
-    self.spliteView.sd_layout
-    .leftSpaceToView(self.contentView, 0.0f)
-    .rightSpaceToView(self.contentView, 0.0f)
-    .bottomSpaceToView(self.contentView, 0.0f)
-    .heightIs(1 / SCALE);
 }
 
 - (void)addReactiveCocoa
@@ -81,14 +94,13 @@
     if (deviceName && deviceName.length > 0) {
         self.nameLabel.text = deviceName;
     } else{
-        self.nameLabel.text = [@"Name :" stringByAppendingString:device.deviceName];
+        self.nameLabel.text = device.deviceName;
     }
-    self.IDLabel.text = [@"Gateway ID :" stringByAppendingString:device.deviceID];
-    self.stateLabel.text = [@"status :" stringByAppendingString:device.deviceState];
+    self.IDLabel.text = device.deviceID;
     if ([device.deviceState containsString:@"on"]) {
-        self.nameLabel.textColor = self.IDLabel.textColor = self.stateLabel.textColor = [UIColor redColor];
+        self.statusImageView.image = [UIImage imageNamed:@"itemonline"];
     } else {
-        self.nameLabel.textColor = self.IDLabel.textColor = self.stateLabel.textColor = [UIColor lightGrayColor];
+        self.statusImageView.image = [UIImage imageNamed:@"itemoffline"];
     }
 }
 

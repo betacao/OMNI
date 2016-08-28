@@ -49,7 +49,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QTK-5U-7jt">
                             <rect key="frame" x="112" y="53" width="17" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="config"/>
+                            <state key="normal" image="modeconfig"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sfg-iI-xaN">
                             <rect key="frame" x="114" y="53" width="13" height="22"/>
@@ -65,7 +65,7 @@
         </view>
     </objects>
     <resources>
-        <image name="config" width="17" height="17"/>
+        <image name="modeconfig" width="28" height="28"/>
         <image name="scene_edit" width="13" height="13"/>
     </resources>
 </document>
