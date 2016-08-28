@@ -12,6 +12,7 @@
 @interface OMGloble()
 
 @property (strong, nonatomic) YYMemoryCache *sceneCache;
+@property (strong, nonatomic) YYCache *thumbnailImageCache;
 
 @end
 
@@ -35,6 +36,14 @@
     return _sceneCache;
 }
 
+- (YYCache *)thumbnailImageCache
+{
+    if (!_thumbnailImageCache) {
+        _thumbnailImageCache = [YYCache cacheWithName:@"roomThumbnailImage"];
+    }
+    return _thumbnailImageCache;
+}
+
 + (void)writeScene:(NSArray *)array
 {
     NSMutableArray *result = [NSMutableArray array];
@@ -54,6 +63,17 @@
 {
     NSArray *array = (NSArray *)[[OMGloble globle].sceneCache objectForKey:@"sceneInfo"];
     return array;
+}
+
++ (void)writeRoomThumbnail:(UIImage *)image forRoom:(OMRoom *)room
+{
+    [[OMGloble globle].thumbnailImageCache setObject:image forKey:room.roomNumber];
+}
+
++ (UIImage *)thumbnailImageForRoom:(OMRoom *)room
+{
+    UIImage *image = (UIImage *)[[OMGloble globle].thumbnailImageCache objectForKey:room.roomNumber];
+    return image;
 }
 
 @end

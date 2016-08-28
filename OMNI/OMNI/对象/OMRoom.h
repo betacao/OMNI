@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, OMRoomDeviceType)
 
 @property (strong, nonatomic) NSString *roomName;
 @property (strong, nonatomic) NSString *roomNumber;
+@property (strong, nonatomic) UIImage *roomThumbnail;
 
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "OMSceneConfigViewController.h"
-#import "OMRoomViewController.h"
+#import "OMDrawerViewController.h"
 #import "OMSceneSelectView.h"
 #import "OMScene.h"
 
@@ -88,8 +88,10 @@
         [OMGlobleManager setSceneModeConfig:[weakSelf requestString] inView:self.view block:^(NSArray *array) {
             [weakSelf.view showWithText:@"operation success"];
             for (OMBaseViewController *controller in self.navigationController.viewControllers) {
-                if ([controller isKindOfClass:[OMRoomViewController class]]) {
-                    [controller loadData];
+                if ([controller isKindOfClass:[OMDrawerViewController class]]) {
+                    OMBaseViewController *roomViewController = (OMBaseViewController *)((OMDrawerViewController *)controller).centerViewController;
+                    [roomViewController loadData];
+                    [self.navigationController performSelector:@selector(popToViewController:animated:) withObjects:@[controller, @(YES)] afterDelay:1.2f];
                 }
             }
         }];

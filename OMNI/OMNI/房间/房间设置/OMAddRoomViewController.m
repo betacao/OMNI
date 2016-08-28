@@ -7,12 +7,14 @@
 //
 
 #import "OMAddRoomViewController.h"
-#import "OMRoomViewController.h"
+#import "OMDrawerViewController.h"
 
-@interface OMAddRoomViewController ()
+@interface OMAddRoomViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@property (assign, nonatomic) BOOL thumbnailExist;
 
 @end
 
@@ -24,10 +26,15 @@
 
     if (kAppDelegate.currentRoom.roomName.length > 0) {
         self.title = @"Edite Room";
+        [self.button setImage:kAppDelegate.currentRoom.roomThumbnail forState:UIControlStateNormal];
+        self.thumbnailExist = YES;
     } else{
         self.title = @"Add Room";
     }
+
+
     self.textField.text = kAppDelegate.currentRoom.roomName;
+
     [self addRightNavigationItem:nil normalImage:[UIImage imageNamed:@"button_save_normal"] highlightedImage:[UIImage imageNamed:@"button_save_normal_down"]];
 }
 
@@ -71,6 +78,62 @@
     }] subscribeNext:^(NSString *x) {
         self.textField.text = [x substringToIndex:32];
     }];
+
+    [[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        if (self.thumbnailExist) {
+            UIActionSheet *takeSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Delete pickture" destructiveButtonTitle:nil otherButtonTitles:@"Taking picture", @"From the photo album", nil];
+            [takeSheet showInView:self.view];
+        } else {
+            UIActionSheet *takeSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Taking picture", @"From the photo album", nil];
+            [takeSheet showInView:self.view];
+        }
+    }];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0){
+        [self cameraClick];
+    } else if (buttonIndex == 1){
+        [self photosClick];
+    } else if (buttonIndex == 2){
+        if (self.thumbnailExist) {
+            self.thumbnailExist = NO;
+            [self.button setImage:[UIImage imageNamed:@"add_room"] forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (void)cameraClick
+{
+    UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        pickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
+        pickerImage.delegate = self;
+        pickerImage.allowsEditing = YES;
+        [self presentViewController:pickerImage animated:YES completion:nil];
+    }
+}
+
+- (void)photosClick
+{
+    UIImagePickerController *pickerImage = [[UIImagePickerController alloc] init];
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        pickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        pickerImage.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:pickerImage.sourceType];
+        pickerImage.delegate = self;
+        pickerImage.allowsEditing = YES;
+        [self presentViewController:pickerImage animated:YES completion:nil];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    self.thumbnailExist = YES;
+    UIImage *image = [info objectForKey: UIImagePickerControllerEditedImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self.button setImage:image forState:UIControlStateNormal];
 }
 
 - (void)rightButtonClick:(UIButton *)button
@@ -84,14 +147,17 @@
         if ([[array firstObject] isEqualToString:@"01"]) {
             [self.view showWithText:@"operation success"];
             for (OMBaseViewController *controller in self.navigationController.viewControllers) {
-                if ([controller isKindOfClass:[OMRoomViewController class]]) {
-                    [controller loadData];
+                if ([controller isKindOfClass:[OMDrawerViewController class]]) {
+                    OMBaseViewController *roomViewController = (OMBaseViewController *)((OMDrawerViewController *)controller).centerViewController;
+                    [roomViewController loadData];
                     [self.navigationController performSelector:@selector(popToViewController:animated:) withObjects:@[controller, @(YES)] afterDelay:1.2f];
                 }
             }
         }
     };
     if (kAppDelegate.currentRoom.roomName.length > 0) {
+        UIImage *image = self.thumbnailExist ? self.button.currentImage : nil;
+        [OMGloble writeRoomThumbnail:image forRoom:kAppDelegate.currentRoom];
         [OMGlobleManager editeRoom:@[kAppDelegate.currentRoom.roomNumber, self.textField.text] inView:self.view block:block];
     } else{
         [OMGlobleManager createRoom:self.textField.text inView:self.view block:block];

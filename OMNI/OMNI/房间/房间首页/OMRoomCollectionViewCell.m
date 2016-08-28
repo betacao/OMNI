@@ -50,7 +50,7 @@
     _room = room;
     self.label.text = room.roomName;
     if (room.roomName && room.roomName.length > 0) {
-        self.imageView.image = [UIImage imageNamed:@"fj"];
+        self.imageView.image = room.roomThumbnail;
     } else {
         self.imageView.image = [UIImage imageNamed:@"add_room"];
     }

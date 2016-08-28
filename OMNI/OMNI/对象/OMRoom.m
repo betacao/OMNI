@@ -10,6 +10,12 @@
 
 @implementation OMRoom
 
+- (UIImage *)roomThumbnail
+{
+    UIImage *image = [OMGloble thumbnailImageForRoom:self] ? [OMGloble thumbnailImageForRoom:self] : [UIImage imageNamed:@"fj"];
+    return image;
+}
+
 @end
 
 

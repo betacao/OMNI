@@ -7,7 +7,7 @@
 //
 
 #import "OMEditRoomDeviceViewController.h"
-#import "OMRoomViewController.h"
+#import "OMDrawerViewController.h"
 
 @interface OMEditRoomDeviceViewController ()<UITextFieldDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -139,8 +139,9 @@
         if ([[array firstObject] isEqualToString:@"01"]) {
             [self.view showWithText:@"删除设备成功"];
             for (OMBaseViewController *controller in self.navigationController.viewControllers) {
-                if ([controller isKindOfClass:[OMRoomViewController class]]) {
-                    [controller loadData];
+                if ([controller isKindOfClass:[OMDrawerViewController class]]) {
+                    OMBaseViewController *roomViewController = (OMBaseViewController *)((OMDrawerViewController *)controller).centerViewController;
+                    [roomViewController loadData];
                     [self.navigationController performSelector:@selector(popToViewController:animated:) withObjects:@[controller, @(YES)] afterDelay:1.2f];
                 }
             }
@@ -180,8 +181,9 @@
         if ([[array firstObject] isEqualToString:@"01"]) {
             [self.view showWithText:@"添加设备成功"];
             for (OMBaseViewController *controller in self.navigationController.viewControllers) {
-                if ([controller isKindOfClass:[OMRoomViewController class]]) {
-                    [controller loadData];
+                if ([controller isKindOfClass:[OMDrawerViewController class]]) {
+                    OMBaseViewController *roomViewController = (OMBaseViewController *)((OMDrawerViewController *)controller).centerViewController;
+                    [roomViewController loadData];
                     [self.navigationController performSelector:@selector(popToViewController:animated:) withObjects:@[controller, @(YES)] afterDelay:1.2f];
                 }
             }
