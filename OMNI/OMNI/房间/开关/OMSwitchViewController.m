@@ -29,6 +29,8 @@
 {
     self.title = @"Smart Switch";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
+
+    [OMAlarmView sharedAlarmView].tableViewCell = self.tableViewCell;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
 }
 

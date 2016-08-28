@@ -7,7 +7,7 @@
 //
 
 #import "OMBaseView.h"
-#import "OMBaseTableViewCell.h"
+#import "OMRoomTableViewCell.h"
 #import "OMAlarm.h"
 
 @interface OMAlarmView : OMBaseView
@@ -16,9 +16,13 @@
 
 @property (strong, nonatomic) OMRoomDevice *roomDevice;
 
+@property (weak, nonatomic) OMRoomTableViewCell *tableViewCell;
+
 @end
 
 @interface OMAlarmTableViewCell : OMBaseTableViewCell
+
+@property (weak, nonatomic) OMRoomTableViewCell *tableViewCell;
 
 @property (strong, nonatomic) OMRoomDevice *roomDevice;
 

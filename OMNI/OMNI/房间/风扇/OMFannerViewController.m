@@ -53,6 +53,8 @@
 {
     self.title = @"Art Fan";
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
+
+    [OMAlarmView sharedAlarmView].tableViewCell = self.tableViewCell;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
 
     self.actionButtonArray = @[self.displayButton1, self.displayButton2, self.displayButton3, self.displayButton4, self.displayButton5];

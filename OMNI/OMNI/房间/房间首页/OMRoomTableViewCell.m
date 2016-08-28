@@ -117,10 +117,11 @@
         .heightIs(self.iconImageView.image.size.height);
 
         [self.switchControl setOn:roomDevice.roomDeviceState animated:NO];
+
+        self.timeImageView.hidden = YES;
         if ([roomDevice.roomDeviceFlag isEqualToString:@"1"] ) {
+            self.timeImageView.hidden = NO;
             self.timeImageView.image = [UIImage imageNamed:@"alarm_on"];
-        } else {
-            self.timeImageView.image = [UIImage imageNamed:@"alarm_off"];
         }
     }
 }

@@ -63,6 +63,9 @@
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.rightButton setImage:[UIImage imageNamed:@"timing_add"] forState:UIControlStateNormal];
 
+    [self.leftButton setEnlargeEdge:20.0f];
+    [self.rightButton setEnlargeEdge:20.0f];
+
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -255,6 +258,7 @@
     }
     cell.alarm = [self.dataArray objectAtIndex:indexPath.row];
     cell.roomDevice = self.roomDevice;
+    cell.tableViewCell = self.tableViewCell;
     return cell;
 }
 
@@ -368,13 +372,19 @@
     self.fromLabel.text = [@"on:" stringByAppendingString:[NSDate stringFromDate:alarm.fromTime format:@"yyyy-MM-dd HH:mm:ss"]];
     self.toLabel.text = [@"off:" stringByAppendingString:[NSDate stringFromDate:alarm.toTime format:@"yyyy-MM-dd HH:mm:ss"]];
     self.periodLabel.text = alarm.periodTypeString;
+
+    [self.switchControl setOn:alarm.isOn animated:NO];
 }
 
 - (void)addReactiveCocoa
 {
     [[self.switchControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
         [OMGlobleManager changeTimeTaskState:@[self.alarm.alarmID, self.roomDevice.roomDeviceID, self.switchControl.isOn ? @"1" : @"0"] inView:[OMAlarmView sharedAlarmView].superview block:^(NSArray *array) {
-
+            if ([[array firstObject] isEqualToString:@"01"]) {
+                NSInteger flag = 1 - [self.roomDevice.roomDeviceFlag integerValue];
+                self.roomDevice.roomDeviceFlag = [NSString stringWithFormat:@"%ld", (long)flag];
+                self.tableViewCell.roomDevice = self.roomDevice;
+            }
         }];
     }];
 }

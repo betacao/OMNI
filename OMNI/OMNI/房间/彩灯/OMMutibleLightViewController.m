@@ -32,6 +32,8 @@
     self.imageView.image = [UIImage blurredImageWithImage:self.imageView.image blur:0.8f];
     self.slider.roomDevice = self.roomDevice;
     self.slider.tableViewCell = self.tableViewCell;
+
+    [OMAlarmView sharedAlarmView].tableViewCell = self.tableViewCell;
     [self.view addSubview:[OMAlarmView sharedAlarmView]];
 }
 
