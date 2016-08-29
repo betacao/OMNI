@@ -68,7 +68,7 @@
     .heightIs(MarginFactor([UIImage imageNamed:@"choose_color"].size.height));
 
     self.circleView.sd_layout
-    .topSpaceToView(self.dynamicControlView, 0.0f)
+    .topSpaceToView(self.dynamicControlView, -MarginFactor(100.0f))
     .leftSpaceToView(self, 0.0f)
     .rightSpaceToView(self, 0.0f)
     .bottomSpaceToView(self, 0.0f);
@@ -114,7 +114,7 @@
 - (void)loadData
 {
     if (self.roomDevice) {
-        [OMGlobleManager readColorLightState:self.roomDevice.roomDeviceID inView:self block:^(NSArray *array) {
+        [OMGlobleManager readColorLightState:self.roomDevice.roomDeviceID inView:self.superview block:^(NSArray *array) {
             if ([[array firstObject] isEqualToString:@"SUCCESS"]) {
                 self.selectedIndex = [[array objectAtIndex:2] integerValue];
                 self.staticControlView.colorIndex = [[array objectAtIndex:5] integerValue];
@@ -356,7 +356,7 @@
 
 - (void)setColorIndex:(NSInteger)colorIndex
 {
-    _colorIndex = colorIndex - 1;
+    _colorIndex = MAX(0, colorIndex - 1);
     self.colorButton.backgroundColor = Color([colorArray objectAtIndex:_colorIndex]);
 }
 
@@ -554,7 +554,7 @@
     [[[self.button rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(UIButton *button) {
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             //这里面button状态要反写
-            [OMGlobleManager changeColorLightState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"0" : @"1"] inView:self block:^(NSArray *array) {
+            [OMGlobleManager changeColorLightState:@[self.roomDevice.roomDeviceID, button.isSelected ? @"0" : @"1"] inView:self.superview.superview block:^(NSArray *array) {
                 [subscriber sendNext:array];
                 [subscriber sendCompleted];
             }];
@@ -613,7 +613,7 @@
 - (void)slideMutablelightInState
 {
     NSNumber *value = @(lrintf(self.inValue));
-    [OMGlobleManager changeColorLightInState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
+    [OMGlobleManager changeColorLightInState:@[self.roomDevice.roomDeviceID, value] inView:self.superview.superview block:^(NSArray *array) {
 
     }];
 }
@@ -621,7 +621,7 @@
 - (void)slideMutablelightOutState
 {
     NSNumber *value = @(lrintf(self.outValue));
-    [OMGlobleManager changeColorLightOutState:@[self.roomDevice.roomDeviceID, value] inView:self block:^(NSArray *array) {
+    [OMGlobleManager changeColorLightOutState:@[self.roomDevice.roomDeviceID, value] inView:self.superview.superview block:^(NSArray *array) {
 
     }];
 }

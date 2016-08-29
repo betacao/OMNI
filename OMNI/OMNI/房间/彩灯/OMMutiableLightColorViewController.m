@@ -9,7 +9,8 @@
 #import "OMMutiableLightColorViewController.h"
 #import "NSString+Extend.h"
 
-#define kMargin MarginFactor(15.0f)
+#define kHorizontalMargin MarginFactor(30.0f)
+#define kVerticaltalMargin MarginFactor(15.0f)
 
 @interface OMMutiableLightColorViewController ()
 
@@ -50,11 +51,11 @@
 
 - (void)addSubView
 {
-    CGFloat width = ceilf((SCREENWIDTH - 4.0f * kMargin) / 3.0f);
+    CGFloat width = ceilf((SCREENWIDTH - 4.0f * kHorizontalMargin) / 3.0f);
     [self.array1 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, kMargin, width, width);
+        CGRect frame = CGRectMake(kHorizontalMargin * (idx + 1) + idx * width, kVerticaltalMargin, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
@@ -63,7 +64,7 @@
     [self.array2 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 2.0f * kMargin + width, width, width);
+        CGRect frame = CGRectMake(kHorizontalMargin * (idx + 1) + idx * width, 2.0f * kVerticaltalMargin + width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
@@ -72,7 +73,7 @@
     [self.array3 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 3.0f * kMargin + 2.0f * width, width, width);
+        CGRect frame = CGRectMake(kHorizontalMargin * (idx + 1) + idx * width, 3.0f * kVerticaltalMargin + 2.0f * width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
@@ -81,7 +82,7 @@
     [self.array4 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 4.0f * kMargin + 3.0f * width, width, width);
+        CGRect frame = CGRectMake(kHorizontalMargin * (idx + 1) + idx * width, 4.0f * kVerticaltalMargin + 3.0f * width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
@@ -90,7 +91,7 @@
     [self.array5 enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         OMMutiableLightColorView *view = [[OMMutiableLightColorView alloc] init];
         [self.viewArray addObject:view];
-        CGRect frame = CGRectMake(kMargin * (idx + 1) + idx * width, 5.0f * kMargin + 4.0f * width, width, width);
+        CGRect frame = CGRectMake(kHorizontalMargin * (idx + 1) + idx * width, 5.0f * kVerticaltalMargin + 4.0f * width, width, width);
         view.frame = frame;
         view.color = Color(obj);
         [self.scrollView addSubview:view];
@@ -101,14 +102,14 @@
     [self.scrollView addSubview:view];
 
     view.sd_layout
-    .leftSpaceToView(self.scrollView, kMargin)
-    .rightSpaceToView(self.scrollView, kMargin)
-    .topSpaceToView([self.viewArray lastObject], kMargin)
+    .leftSpaceToView(self.scrollView, kHorizontalMargin)
+    .rightSpaceToView(self.scrollView, kHorizontalMargin)
+    .topSpaceToView([self.viewArray lastObject], kVerticaltalMargin)
     .heightIs(width);
 
     [self.viewArray addObject:view];
 
-    [self.scrollView setupAutoContentSizeWithBottomView:view bottomMargin:kMargin];
+    [self.scrollView setupAutoContentSizeWithBottomView:view bottomMargin:kVerticaltalMargin];
 }
 
 - (void)addReactiveCocoa

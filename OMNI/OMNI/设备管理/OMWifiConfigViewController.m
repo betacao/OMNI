@@ -176,7 +176,7 @@
 - (void)commit
 {
     if (self.isConfirmState) {
-        [self.scrollView showWithText:@"正在配置，请稍等..." enable:NO duration:0.0f];
+        [self.scrollView showWithText:@"waiting..." enable:NO duration:0.0f];
         [self enableCancelBtn];
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
@@ -206,12 +206,12 @@
                             [mutableStr appendString:[NSString stringWithFormat:@"\nthere's %lu more result(s) without showing\n",(unsigned long)([esptouchResultArray count] - count)]];
                         }
                         self.isConfirmSuccess = YES;
-                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"配置成功" message:mutableStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS" message:mutableStr delegate:nil cancelButtonTitle:@"CONFIRM" otherButtonTitles:nil];
                         alert.delegate = self;
                         [alert show];
                     } else {
                         self.isConfirmSuccess = NO;
-                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"配置失败" message:@"Esptouch fail" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"FAIL" message:@"Esptouch fail" delegate:nil cancelButtonTitle:@"CONFIRM" otherButtonTitles:nil];
                         alert.delegate = self;
                         [alert show];
                     }
@@ -265,7 +265,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (self.isConfirmSuccess) {
-        [self.scrollView showWithText:@"设备已入网，请等待20秒钟，设备重启"];
+        [self.scrollView showWithText:@"please wait for 20 seconds"];
         __weak typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.scrollView hideHud];

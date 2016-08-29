@@ -165,6 +165,7 @@
     [[[self.readButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^RACStream *(id value) {
         return [self getGetewaySignal];
     }] subscribeNext:^(NSString *x) {
+        self.readButton.selected = YES;
         self.gatewayIDField.text = x;
     }];
 }

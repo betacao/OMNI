@@ -28,10 +28,7 @@
 {
     NSString *ipAddrDataStr = [ESP_NetUtil descriptionInetAddrByData:self.ipAddrData];
     kAppDelegate.ESPDescription = ipAddrDataStr;
-    return [[NSString alloc]initWithFormat:@"[isSuc: %@,isCancelled: %@,bssid: %@,inetAddress: %@]",self.isSuc? @"YES":@"NO",
-            self.isCancelled? @"YES":@"NO"
-            ,self.bssid
-            ,ipAddrDataStr];
+    return [[NSString alloc]initWithFormat:@"[isSuc: %@,isCancelled: %@,bssid: %@,inetAddress: %@]",self.isSuc? @"YES":@"NO", self.isCancelled? @"YES":@"NO" ,self.bssid ,ipAddrDataStr];
 }
 
 @end

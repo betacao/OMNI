@@ -55,7 +55,7 @@
     .leftSpaceToView(self.view, 0.0f)
     .rightSpaceToView(self.view, MarginFactor(5.0f))
     .topSpaceToView(self.view, 0.0f)
-    .heightIs(SCREENHEIGHT / 2.0f);
+    .heightIs(SCREENHEIGHT * 2.0f / 5.0f);
 
     self.tableView.sd_layout
     .leftSpaceToView(self.view, 0.0f)
@@ -102,6 +102,7 @@
 - (void)loadData
 {
     WEAK(self, weakSelf);
+
     [kAppDelegate.roomArray removeAllObjects];
 
     [OMGlobleManager readRoomsInView:self.view block:^(NSArray *array) {
@@ -127,6 +128,7 @@
         [kAppDelegate.roomArray addObject:dictionary];
 
         [weakSelf.collectionView reloadData];
+        weakSelf.collectionView.contentOffset = CGPointZero;
 
         [OMGlobleManager readRoomDevicesInView:weakSelf.view block:^(NSArray *array) {
             NSInteger roomDeviceCount = [[array firstObject] integerValue];

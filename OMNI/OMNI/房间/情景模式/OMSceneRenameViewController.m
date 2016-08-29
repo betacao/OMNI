@@ -132,12 +132,13 @@
             [self.view showWithText:@"please input scene name"];
             return;
         }
+        [self.textField resignFirstResponder];
         [OMGlobleManager changeSceneIcon:@[@(self.scene.modeID), @(self.index), self.textField.text] inView:self.view block:^(NSArray *array) {
             if ([[array firstObject] isEqualToString:@"01"]) {
-                [weakSelf.view showWithText:@"success"];
                 [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {
                     [OMGloble writeScene:array];
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    [weakSelf.view showWithText:@"success"];
+                    [weakSelf.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:@(YES) afterDelay:1.2f];
                 }];
             } else {
                 [weakSelf.view showWithText:@"failure"];

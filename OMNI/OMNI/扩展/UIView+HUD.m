@@ -22,7 +22,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     [self bringSubviewToFront:hud];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.opacity = 0.0f;
+    hud.opacity = 0.85f;
     hud.removeFromSuperViewOnHide = YES;
 }
 
