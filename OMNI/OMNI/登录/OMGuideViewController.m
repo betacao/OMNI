@@ -7,6 +7,7 @@
 //
 
 #import "OMGuideViewController.h"
+#import "OMWebViewController.h"
 
 @interface OMGuideViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -27,7 +28,12 @@
 - (void)initView
 {
     self.titleArray = @[@"About gateway", @"Gateway setting", @"Add a room", @"Add a device", @"Preset mission", @"Pannel pairing"];
-    self.urlArray = @[@"http://www.baidu.com", @"http://www.baidu.com", @"http://www.baidu.com", @"http://www.baidu.com", @"http://www.baidu.com", @"http://www.baidu.com"];
+    self.urlArray = @[[[NSBundle mainBundle] pathForResource:@"about_gateway" ofType:@"htm"],
+                      [[NSBundle mainBundle] pathForResource:@"gateway_setting" ofType:@"htm"],
+                      [[NSBundle mainBundle] pathForResource:@"add_room" ofType:@"htm"],
+                      [[NSBundle mainBundle] pathForResource:@"add_device" ofType:@"htm"],
+                      [[NSBundle mainBundle] pathForResource:@"preset_mission" ofType:@"htm"],
+                      [[NSBundle mainBundle] pathForResource:@"panel_pairing" ofType:@"htm"]];
 }
 
 - (void)addAutoLayout
@@ -64,7 +70,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *string = [self.urlArray objectAtIndex:indexPath.row];
-    NSLog(@"%@",string);
+    OMWebViewController *controller = [[OMWebViewController alloc] init];
+    controller.filePath = string;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 

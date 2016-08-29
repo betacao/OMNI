@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
+@property (assign, nonatomic) BOOL isViewAppear;
 
 @end
 
@@ -35,6 +36,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.isViewAppear = YES;
     [self loadData];
 }
 
@@ -107,11 +109,14 @@
 
 - (void)loadData
 {
-    [self.dataArray removeAllObjects];
-    NSArray *array = [OMGloble readScene];
-    if (array) {
-        [self.dataArray addObjectsFromArray:array];
-        [self.tableView reloadData];
+    if (self.isViewAppear) {
+        [self.dataArray removeAllObjects];
+        [OMGloble readScene:^(NSArray *array) {
+            if (array) {
+                [self.dataArray addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }];
     }
 }
 

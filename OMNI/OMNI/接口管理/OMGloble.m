@@ -59,10 +59,17 @@
     }
 }
 
-+ (NSArray *)readScene
++ (void)readScene:(void (^)(NSArray *))block
 {
     NSArray *array = (NSArray *)[[OMGloble globle].sceneCache objectForKey:@"sceneInfo"];
-    return array;
+    if (array.count == 0) {
+        [OMGlobleManager readSceneModeInfoInView:[UIApplication sharedApplication].keyWindow block:^(NSArray *array) {
+            [OMGloble writeScene:array];
+            block(array);
+        }];
+    } else {
+        block(array);
+    };
 }
 
 + (void)writeRoomThumbnail:(UIImage *)image forRoom:(OMRoom *)room

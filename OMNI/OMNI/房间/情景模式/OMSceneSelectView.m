@@ -27,8 +27,6 @@
 
 - (void)initView
 {
-    self.dataArray = [OMGloble readScene];
-
     self.topView = [[UIView alloc] init];
     self.topView.backgroundColor = [UIColor blackColor];
 
@@ -63,6 +61,11 @@
     [self.bottomView addSubview:self.cancelButton];
 
     [self sd_addSubviews:@[self.tableView, self.topView, self.bottomView]];
+
+    WEAK(self, weakSelf);
+    [OMGloble readScene:^(NSArray *array) {
+        weakSelf.dataArray = [NSArray arrayWithArray:array];
+    }];
 }
 
 - (void)addAutoLayout

@@ -55,7 +55,7 @@
     .leftSpaceToView(self.view, 0.0f)
     .rightSpaceToView(self.view, MarginFactor(5.0f))
     .topSpaceToView(self.view, 0.0f)
-    .heightIs(SCREENHEIGHT * 2.0f / 5.0f);
+    .heightIs(ceilf(SCREENHEIGHT * 2.0f / 5.0f));
 
     self.tableView.sd_layout
     .leftSpaceToView(self.view, 0.0f)
@@ -128,7 +128,6 @@
         [kAppDelegate.roomArray addObject:dictionary];
 
         [weakSelf.collectionView reloadData];
-        weakSelf.collectionView.contentOffset = CGPointZero;
 
         [OMGlobleManager readRoomDevicesInView:weakSelf.view block:^(NSArray *array) {
             NSInteger roomDeviceCount = [[array firstObject] integerValue];
@@ -145,8 +144,22 @@
                 NSMutableArray *roomDeviceArray = [dictionary objectForKey:@"roomDeviceArray"];
                 [roomDeviceArray addObject:roomDevice];
             }
-            kAppDelegate.currentRoom = [[kAppDelegate.roomArray firstObject] objectForKey:@"room"];
-            weakSelf.currentDeviceArray = [[kAppDelegate.roomArray firstObject] objectForKey:@"roomDeviceArray"];
+
+
+            NSInteger index = 0;
+            if (!kAppDelegate.currentRoom) {
+                kAppDelegate.currentRoom = [[kAppDelegate.roomArray firstObject] objectForKey:@"room"];
+            } else {
+                for (NSDictionary *dictionary in kAppDelegate.roomArray) {
+                    OMRoom *room = [dictionary objectForKey:@"room"];
+                    if ([room.roomNumber isEqualToString:kAppDelegate.currentRoom.roomNumber]) {
+                        index = [kAppDelegate.roomArray indexOfObject:dictionary];
+                        break;
+                    }
+                }
+                kAppDelegate.currentRoom = [[kAppDelegate.roomArray objectAtIndex:index] objectForKey:@"room"];
+            }
+            weakSelf.currentDeviceArray = [[kAppDelegate.roomArray objectAtIndex:index] objectForKey:@"roomDeviceArray"];
 
             //放在这边是为了顺序请求
             [OMGlobleManager readSceneModeInfoInView:weakSelf.view block:^(NSArray *array) {

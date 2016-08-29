@@ -14,7 +14,7 @@
 
 + (void)writeScene:(NSArray *)array;
 
-+ (NSArray *)readScene;
++ (void)readScene:(void(^)(NSArray *array))block;
 
 + (void)writeRoomThumbnail:(UIImage *)image forRoom:(OMRoom *)room;
 

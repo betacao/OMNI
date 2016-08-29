@@ -149,7 +149,9 @@
     [[self.topButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         OMSceneSelectView *view = [[OMSceneSelectView alloc] init];
         view.block = ^(NSInteger index){
-            weakSelf.scene = [[OMGloble readScene] objectAtIndex:index];
+            [OMGloble readScene:^(NSArray *array) {
+                weakSelf.scene = [array objectAtIndex:index];
+            }];
         };
         view.frame = CGRectMake(0.0f, 0.0f, SCREENWIDTH - MarginFactor(30.0f), SCREENHEIGHT - MarginFactor(30.0f));
         OMAlertView *alertView = [[OMAlertView alloc] initWithCustomView:view leftButtonTitle:nil rightButtonTitle:nil];
